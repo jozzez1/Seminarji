@@ -12,8 +12,7 @@
 
 %graphics, captions etc.
 \usepackage[pdftex]{graphicx}
-\usepackage{caption}
-\usepackage{amssymb, float, amsmath, stackrel, fullpage, slashed, subcaption}
+\usepackage{amssymb, float, amsmath, fullpage}
 
 %to get the colourful hyperlinks ... not just square boxes around them ...
 \usepackage{hyperref}
@@ -26,11 +25,12 @@
 }
 
 %set up custom captions
+\usepackage{caption}
 \captionsetup{
 	font=small,
 	margin=10pt,
 	labelfont=it,
-	labelsep=endash,
+%	labelsep=endash,
 	format=hang,
 	width=0.7\textwidth
 }
@@ -84,7 +84,7 @@
 \renewenvironment{abstract}[1][1.0]
 {
 	\begin{center}
-		{\bf Abstract}\\[12pt]
+		{\bf Povzetek}\\[12pt]
 		\begin{minipage}{#1\textwidth}
 }
 {
@@ -109,7 +109,7 @@
 
 		\begin{minipage}{0.4\textwidth}\small
 			\begin{flushleft}
-				\textsc{Author:}\\[0.2cm]
+				\textsc{Avtor:}\\[0.2cm]
 				Jože Zobec
 			\end{flushleft}
 		\end{minipage}
@@ -121,10 +121,14 @@
 		\end{minipage}
 	\end{center}
 
-	\vspace{5.0cm}
+	\vspace{4.5cm}
 
 	\begin{abstract}
-		% try to write something nice for the abstract ;)
+		Kot je verjetno potrebno venomer, so ob zori teorije o elektromagnetnem polju znanstveniki novosti
+		sprejemali z zdravo mero dvoma. Tako so dlakocepili ob podrobnostih, ki so poznejše fizike privedle
+		do možnosti neničelne mase fotona, katere eksperimentalno zaenkrat še ne moremo zanemariti. V tem
+		seminarju bom na kratko opisal različne mehanizme, po katerih lahko foton dobi maso in naredil
+		zgodovinski pregled meritev le-te.
 	\end{abstract}
 	
 	\vfill
@@ -137,25 +141,10 @@
 
 \pagebreak
 
-%Now the fun stuff begins ...
-\input{introduction.tex}
+\section{Uvod}
 
-%the more qualitative alternative for Higgs
-\input{section1.tex}
-
-%search strategies at the LHC
-\input{section2.tex}
-
-%previous hunts: LEP, Tevatron
-\input{section3.tex}
-
-%Current status at the LHC
-\input{section4.tex}
-
-%conclusion
-\input{conclusion.tex}
-
-\bibliographystyle{phjcp}
-\bibliography{bib/bib1,bib/bib2,bib/bib3,bib/bib4,bib/bib5,bib/bib6,bib/bib7,bib/bib8,bib/bib9,bib/bib10,bib/bib11,bib/bib12,bib/bib13}
+Blablabla
 
 \end{document}
+
+
