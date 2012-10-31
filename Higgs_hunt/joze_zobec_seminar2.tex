@@ -1,0 +1,165 @@
+%My header and style options
+\documentclass[a4paper, 12 pt, titlepage]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%\usepackage{vicent}
+%\usepackage[0T1]{fontenc}
+
+%custom colour package
+\usepackage[usenames, dvipsnames]{xcolor}
+
+%graphics, captions etc.
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{amssymb, float, amsmath, stackrel, fullpage, slashed, subcaption}
+
+%to get the colourful hyperlinks ... not just square boxes around them ...
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black!60!red,
+	citecolor=black!60!green,
+	urlcolor=black!60!cyan,
+	filecolor=black!60!magenta
+}
+
+%set up custom captions
+\captionsetup{
+	font=small,
+	margin=10pt,
+	labelfont=it,
+	labelsep=endash,
+	format=hang,
+	width=0.7\textwidth
+}
+
+%bibliography
+%\usepackage[round]{natbib}
+
+%LOOKS WAY BETTER WITHOUT THESE ... :P
+%costum matter fonts and section fonts
+%\usepackage{mathpazo}
+%\usepackage{sectsty}
+%\allsectionsfont{\LARGE\sffamily\bfseries}
+
+\newcommand{\parc}[2]{
+	\ensuremath{\frac{\partial#1}{\partial#2}}
+}
+
+\newcommand{\vac}[1][\phi]{
+	\ensuremath{\langle#1\rangle}
+}
+
+%\renewcommand{\to}{
+%	\ensuremath{\longrightarrow}
+%}
+
+% New definition of square root:
+% it renames \sqrt as \oldsqrt
+\let\oldsqrt\sqrt
+% it defines the new \sqrt in terms of the old one
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+
+\newenvironment{myfig}[2][10cm]
+{
+	\vspace{-20pt}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[keepaspectratio=1, width=#1]{#2}
+		\end{center}
+		\vspace{-24pt}
+}
+{
+	\end{figure}
+	\vspace{-6pt}
+}
+
+\renewenvironment{abstract}[1][1.0]
+{
+	\begin{center}
+		{\bf Abstract}\\[12pt]
+		\begin{minipage}{#1\textwidth}
+}
+{
+		\end{minipage}
+	\end{center}
+}
+
+\begin{document}
+
+%titlepage
+\begin{titlepage}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width = 7cm, keepaspectratio=1]{pics/logo.pdf}\\[12pt]
+		{\sc Department of Physics}\\[4cm]
+	\end{figure}
+	\begin{center}
+		\large{Seminar -- 1st year of the Physics 2nd cycle}\\[0.5cm]
+		\LARGE\textbf{The hunt for the Higgs boson}\\[1.0cm]
+
+		\vspace{0.0cm}
+
+		\begin{minipage}{0.4\textwidth}\small
+			\begin{flushleft}
+			\textsc{Author:}\\[0.2cm]
+			Jože Zobec, dipl. fiz. (UN)
+			\end{flushleft}
+		\end{minipage}
+		\begin{minipage}{0.4\textwidth}\small
+			\begin{flushright}
+				\textsc{Mentor:}\\[0.2cm]
+				Prof. Dr. Marko Mikuž
+			\end{flushright}
+		\end{minipage}
+	\end{center}
+
+	\vspace{5.0cm}
+
+	\begin{abstract}
+		For many years the ``periodic table'' of the Standard Model has been
+		incomplete, because of the elusive Higgs boson particle. In this seminar I will
+		in short discuss the theory of the Higgs boson, search strategies and where do
+		we currently stand experimentally on the subject with findings from the LHC,
+		LEP and Tevatron.
+	\end{abstract}
+	
+	\vfill
+
+	\centering{\footnotesize Ljubljana, \today}
+\end{titlepage}
+
+%table of contents, obviously ...
+\tableofcontents
+
+\pagebreak
+
+%Now the fun stuff begins ...
+\input{introduction.tex}
+
+%the more qualitative alternative for Higgs
+\input{section1.tex}
+
+%search strategies at the LHC
+\input{section2.tex}
+
+%previous hunts: LEP, Tevatron
+\input{section3.tex}
+
+%Current status at the LHC
+\input{section4.tex}
+
+%conclusion
+\input{conclusion.tex}
+
+\bibliographystyle{phjcp}
+\bibliography{bib/bib1,bib/bib2,bib/bib3,bib/bib4,bib/bib5,bib/bib6,bib/bib7,bib/bib8,bib/bib9,bib/bib10,bib/bib11,bib/bib12,bib/bib13}
+
+\end{document}

@@ -1,0 +1,77 @@
+\section{Standard Model Higgs boson}
+
+Contrary to the common (meaning layman) belief, Higgs bosons \emph{are} already a part of the Standard Model (SM).
+In the sixties, there was a crisis in the world of particle physics: the theory all worked only for massless gauge bosons, and there
+was also the hierarchy problem\footnote{This isn't really a problem, but merely an observation that the fundamental forces operate
+at such a different scales. From here rose the question: is there any particular reason it is so?}. While such a mechanism cannot
+give the direct answer to the latter\footnote{Though it is responsible for the electroweak symmetry breaking.}, it does provide the
+masses for the gauge bosons.
+
+Hypothesis is that our observable space is immersed in a field, which spontaneously breaks the symmetry of the Lagrangian density
+$\mathcal{L}$. The original Lagrangian retains the symmetry (all gauge bosons and particles are massless), but the field is the one
+that causes it.
+
+There have been questions if the symmetry is only broken locally in space, or globally\footnote{If this field is inherently part of
+the Minkowski space in which we currently appear to reside.}.
+
+\subsection{The Higgs field}
+
+Let us make a quick overview of some very basic theory behind the Higgs bosons just so we will get familiar with some of the
+physical observables.
+
+Just like in classical mechanics, Quantum Mechanics is also governed by the Lagrangian functions\cite{peskin}. We can write the
+action as
+
+\[
+	S = \int \text{d}t\ L(q,\dot{q},t) = \int\text{d}t\int\text{d}^3x\ \mathcal{L}(q,\dot{q},t),
+\]
+
+where $S$ is action, $L$ our Lagrangean function and so $\mathcal{L}$ is the "density" of our Lagrangean $L$. In Minkowski space-time,
+one can write
+
+\[
+	S = \int\text{d}^4x\ \mathcal{L}(q,\dot{q}),
+\]
+
+where $q$ is now a generalized set of coordinates.
+
+We can obtain our set of our `equations of motion' by minimizing the action functional $S$. Just like in classical mechanics and in
+the Theory of the Electromagnetic Field, we can substitute the spacial coordinates with fields themselves
+
+\[
+	\mathcal{L}(q,\dot{q}) \longrightarrow \mathcal{L}(\phi,\dot{\phi}),
+\]
+
+to get Euler-Lagrange equations, written in covariant form
+
+\begin{equation}
+	\frac{\partial\mathcal{L}}{\partial\phi} - \partial_\mu\left[\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\right]
+		= 0.
+\end{equation}
+
+Let us now consider the following $\mathcal{L}$ which describes the interaction between a scalar field $\phi$ and a Dirac fermion
+$\psi$ \cite{wikipedia}:
+
+\begin{equation}
+	\mathcal{L} = \frac{1}{2}(\partial^\nu\phi)(\partial_\nu\phi) - \underbrace{(\mu^2\phi^2 + \lambda\phi^4)}_{V(\phi)} +
+	\bar{\psi}(i\slashed{\partial} - m)\psi - \underbrace{g\ \bar{\psi}\phi\psi}_\text{Yukawa}.
+\end{equation}
+
+In this case $g$ is called the Yukawa coupling, and for $\mu < 0$ the symmetry of the $\mathcal{L}$ is spontaneously broken. This
+means that $V(\phi)$ doesn't have its global minimum around 0, but around two opposing values $\phi_\pm$. If we now attack this
+potential perurbatively, we must make the series expansion around one of those minumums. And the moment we decide which one to use,
+we break the Lagrangean density symmetry: the field we observe then becomes, say, $\varphi = \phi - \phi_+$. In that case $\varphi$ is
+called the Higgs field.
+
+Because we deal with gravity here, the potential doesn't have the arbitrary vacuum state energy $v$. It's been theoretically set to
+$v \approx 246$ GeV. It is depandant on the parameters $\mu$ and $\lambda$.
+With more careful solving or simply using the Nambu-Goldstone theorem\footnote{Number of massless $N$-$G$ bosons equals to
+$\text{dim} G - \text{dim} H = \# N\text{-}G$ bosons.}, we also get 3 massless Nambu-Goldstone bosons, that are absorbed to give
+masses to the weak gauge bosons -- $Z, W^\pm$. Remaining massive component then becomes the Higgs boson, which is a "new player in
+town".
+\vspace{12pt}
+
+While the Higgs field and the Higgs boson are a part of the SM, they still introduce new phyisics. Theorists are trying to set the
+properties and find models using this fact so that they could fix the faults of the SM, such as absence of the dark matter candidate,
+insufficient violation of CP symmetry (more about this in the further chapters).
+

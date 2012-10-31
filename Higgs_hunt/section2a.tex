@@ -1,0 +1,112 @@
+\section{Overview at the past attempts}
+
+\subsection{LEP}
+
+Although the hunt for the Higgs particle has been popularized recently with the completion of the LHC at CERN and the
+\hbox{not-so-wild-black-hole-theories,} the hunt itself is a bit older.
+
+They first started to search for it in LEP, CERN, which was an $e^-e^+$ collider. The dominant production process was $e^+e^-\to HZ$
+~\cite{higgs:review}.
+It was also possible to produce Higgs via other channels, but the cross sections were much lower. Those modes were secondary via
+the $W^+W^-$ and $ZZ$ fusion~\cite{higgs:review}. The $Z$ in the $HZ$ production can be either virtual (LEP1 phase) or on mass shell
+(LEP2 phase). Combined results were from center of mass energy $\sqrt{s} =$ 65 GeV to 209 GeV.
+
+There were four four-jet decay modes that were particularly interesting:
+
+\begin{itemize}
+	\item[(a)] Final products are all quarks:
+		\[ H \to b\bar{b}, \quad Z \to q\bar{q}, \] \vspace{-32pt}
+	\item[(b)] Final products are quarks and tauons:
+		\[ \left\{\begin{matrix}
+		H \to \tau^+\tau^-, \quad Z \to q\bar{q}, \\
+		H \to b\bar{b}, \quad Z \to \tau^+\tau^-,
+		\end{matrix}\right.\] \vspace{-22pt}
+	\item[(c)] Final products are quarks and neutrono pairs:
+		\[ H \to b\bar{b}, \quad Z \to \nu\bar{\nu}, \] \vspace{-32pt}
+	\item[(d)] Final products are light leptons and quarks:
+		\[ H \to b\bar{b}, \quad Z \to \ell^+\ell^-, \] \vspace{-32pt} \label{higgs:decay}
+\end{itemize}
+
+where $q\bar{q}$ denotes quark--anti-quark pair, $\nu$ is a neutrino regardless of a generation, and $\ell^\pm \in \{e^\pm,\mu^\pm\}$.
+LEP1 only used modes (c) and (d), while the LEP2 phase included all four of them.
+
+LEP at the time had four collaborations working on trying to find Higgs: ALEPH, DELPHI, OPAL and L3. ALEPH found an excess of
+$\sim 3 \sigma$, suggesting Higgs boson with mass $M_H \sim 115$ GeV, however others couldn't confirm such an excess, but then
+again, they couldn't reject it at 95\% confidence level~\cite{higgs:review} (CL). Using this data they excluded existence of
+SM Higgs boson below 114.4 GeV at 95\% CL, comparing data with theoretically calculated BR-s from Fig.~\ref{fig:SMHbrsmall}.
+
+\vspace{12pt}
+
+SM Higgs boson was also sought indirectly. Thus they obtained the upper limit
+for the Higgs boson mass and at 95\% CL constrained it to be in the $114.4$ GeV $< M_H < 186$ GeV range\footnote{Accumulated data
+of this indirect measurments over the last 20 years at LEP, SLC, Tevatron and elsewhere gave $M_H = 87^{+32}_{-26}$ GeV and
+$M_H < 157$ GeV at 95\% CL.}, which coencides with theoretical predictions for metastable electroweak vacuum.
+
+\subsection{Tevatron}
+
+Two collaborations were working on the experiment: CDF and D\O. Main difference was that they Tevatron is $p\bar{p}$ collider and
+because of this the production rates were much more diverse~\cite{tev4lhc} (Fig.~\ref{tev:prod}).
+
+\begin{myfig}[11cm]{pics/tev.pdf}
+	\vspace{-12pt}
+	\caption{Tevatron SM Higgs boson nproduction rates, as calcluated by Tev4LHC Higgs working group~\cite{tev4lhc} on October
+		2009. Higgs boson is marked with the `$h$' symbol.}
+	\label{tev:prod}
+\end{myfig}
+
+Decay modes are already depicted on the fig.~\ref{fig:SMHbrsmall}.
+
+Fig.~\ref{tev:prod} shows that the most promising channels are gluon fusion and production with vector bosons $Z,W^\pm$. QCD effects
+give greater background and uncertainties are greater than at LEP. They tried to get rid of background using Monte Carlo
+simulations for each specific channel and other calibrative experimental methods.
+
+Each channel had to be checked differently:
+\begin{itemize}
+	\item $p\bar{p} \to W^\pm H$, where $H \to b\bar{b}$ and $W^\pm$ decays leptonically. Results are 4 to 5 times greater
+		than the SM prediction for the $M_H$ of 115 GeV.
+	\item $p\bar{p} \to ZH$, where, where the two decay like in the example (c) on page~\pageref{higgs:decay}. This required
+		a very careful calculation of the missing transverse energy (neutrinos) with optimized triggers and analysis
+		techniques.
+	\item Same as above, but followed by the decay (d) on page~\pageref{higgs:decay}. This process had lesser $Z$ branching
+		ratio, but the background was lower.
+	\item $gg \to H$, $W^{\pm}H$, $ZH$ and then all decays with $H \to \tau^+\tau^-$. D\O{} also included a another one with
+		$WH \to \tau\nu b\bar{b}$.
+	\item All channels with $H \to \gamma\gamma$. This process is improbable within SM, but it sets strong constraints on
+		possible SM extensions.
+	\item Mixed search in CDF only with decay $WH + ZH \to jjb\bar{b}$, where $jj$ are any jet sprays coming from vector bosons.
+		Because they used two modes at the same time they got greater signal, but then again the background was also
+		greater.
+\end{itemize}
+
+They separated the hunt in two parts: low-mass Higgs with $M_H \leq 150$ GeV and high-mass with $M_H \geq 150$. Production rates
+were 1.8 times greater for low-mass at  $M_H = 115$ GeV. Maximum was at $M_H \approx 135$ GeV, but it was below 2$\sigma$
+~\cite[pg. 15]{higgs:review}. They managed to exclude the mass in the interval between 162 GeV and 166 GeV at 95\% CL.
+
+\subsection{LHC}
+
+LHC is a $pp$ collider. Again the theoretical calculations for production rates are represented by~\cite{tev4lhc}
+(Fig~\ref{lhc:prod}).
+
+\begin{myfig}{pics/lhc.pdf}
+	\caption{Theoretical Higgs boson production cross sections for $pp \to HX$ at the courtesy of Tev4LHC Higgs working group,
+		last updated on October 2009.}
+	\label{lhc:prod}
+\end{myfig}
+
+Because of the monster energy range of the LHC they will try not only to search for Higgs bosons but also other more exotic
+particles ($Z'$, \ldots). The hunt was divided into two energy ranges: below 130 GeV, where there is more background and several years
+will be needed to accumulate sufficient statistics and above 130 GeV where they could confirm a discovery relatively quickly. Decay
+modes that they are interested are mostly $H \to \gamma\gamma$, $H \to ZZ^* \to 4\ell$. Then vector boson fusion procecesses
+resulting in $H \to \tau^+\tau^-, \gamma\gamma, W^+W^-$. Expected precision is $\sim 0.1\%$ in the 100 - 400 GeV mass range and
+even for $M_H \sim 700$ GeV it would be $\sim 1\%$.
+
+\vspace{12pt}
+
+Upon the confirmed discovery it is planeed to check the Higgs boson for its basic quantum numbers (spin, CP-eigenvalue, coupling
+constants for bosons and fermions).
+
+At the LHC they also plan for a luminosity upgrade, called Super-LHC, which would also
+allow for self-coupling measurments, because currently it's expected to be out of range.
+
+Currently there has been an excess of 3.6~$\sigma$ for $M_H \sim 126$ GeV. With 95\% CL the $M_H$ has been restricted to be
+$115.5$ GeV $< M_H < 131$ GeV.

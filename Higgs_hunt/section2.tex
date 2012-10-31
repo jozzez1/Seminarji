@@ -1,0 +1,136 @@
+\section{Search strategies at the LHC}
+
+Even if we don't know all the numbers, we can still bound the mass of the Higgs boson, so that the theory will still have
+sense (tab.~\ref{tab:vacuum:scenarios}). Upper bound is based upon the scale where the SM breaks down\footnote{Perturbation theory
+fails to give us credible results.}, lower bound is based on the $\vac$ stability and unitary constraints from the
+electroweak interaction.
+
+\begin{table}[H]
+	\centering
+	\caption{The theoretically preferred scenarios. Metastable vacuum expectation state has decay time
+		longer than the age of the universe~\cite[pg.~5]{higgs:review}.}
+	\begin{tabular}{l c r}
+		\hline
+		Stable $\vac$ & \hspace{2cm} & {\color{BrickRed}$130$ GeV} $\lesssim M_H \lesssim$ $180$ GeV \\
+		Metastable $\vac$ & \hspace{2cm} & {\color{Green} $115$ GeV} $\lesssim M_H \lesssim$ $180$ GeV \\
+		\hline
+	\end{tabular}
+	\label{tab:vacuum:scenarios}
+\end{table}
+
+Needless to say, the only way, physicists are considering to produce $H$ is using high energy beam collisions in colliders.
+Hadron colliders are preferred, since they are the exploratory machines\footnote{While lepton colliders are precision machines.}.
+During the course of time there were three that were at least partially dedicated to the $H$ hunt and got some results:
+electron--positron (LEP), proton--anti-proton (Tevatron) and proton--proton (LHC).
+
+Why do we need such a high energy? When we are colliding protons, the problem is this that each proton behaves as a group of
+free particles (QCD effect). The constituents are then responsible for interactions. Each of them carries only a part of the
+total momentum. And it turns out that each valence quark carries approximately 1/6 of it. So in order to probe mass regions up
+to 1 TeV, we would need at least $\sim 6$ TeV energy. They decided to make it 7 TeV, just to be on the safe side.
+
+The reason why this project was accepted and others were refused\footnote{Namely the UNK in the USSR and SSC in the USA.}, was
+probably because LHC is using the old LEP tunnel. But in order to make more energetic collisions, much stronger magnets were needed.
+In circular colliders, energy yield -- $E$ [TeV], accelerator circumference\footnote{If there was just the radius then there would be a different equation.}
+$\rho$ [km] and magnetic field strength $B$ [T], can be estimated using this formula
+
+\[
+	B\rho \sim E \cdot 3.36 \frac{\rm T\cdot km}{\rm TeV} ,
+\]
+
+from which we obtain incredible $B \sim 8.71$ T (using 7 TeV and 27 km). The temperatures needed to cool such strong magnets and keep
+them in the
+superconducting phase\footnote{We want this, so the current passes with no resistance and so we keep the energy losses low.} are so
+low, that the liquid helium coolant must be in the superfluid phase. This resulted in greater complications, since superfluid helium
+passes through most of the known materials as if through a strainer. Magnets are now expected to operate at $B = 8.36$ T.
+
+In order to predict cross sections and branching ratios, theoretical models were used. The biggest problem was this: of all the
+possible reactions, that can take place, the cross section for the Higgs boson is lower by several orders of magnitude
+(fig.~\ref{hadron:cross}). For this reason, sufficiently high energy and detector luminosity have to be reached.
+
+\vspace{12pt}
+\begin{myfig}[9cm]{pics/cross1.jpeg}
+	\caption{Some cross sections at modern hadron colliders~\cite{paussdittmar}. We can see that Higgs boson production is very rare.
+		We are producing a lot of background (known events) and very little signal.}
+	\label{hadron:cross}
+\end{myfig}
+
+Higgs boson cross sections are low due to the fact that its couplings are proportional to mass. Ordinary matter is very light (electrons,
+up and down quarks) and so production rates are lower. Higgs
+couplings are by several orders of magnitude higher if we used boson collisions\footnote{As we saw in one of the previous seminars,
+photon colliders look very appealing for this very fact.}. 
+
+So now that we have Higgs boson production within our reach (if it exists), let us consider the possible production channels (see
+fig~\ref{lhc:prod}).
+
+\begin{myfig}[11.5cm]{pics/lhc.pdf}
+	\caption{Theoretical Higgs boson production cross sections for the proton-proton collisions at the energy of collisions
+		$\sqrt{s} = 14$ TeV. Computed by the TeV4LHC Higgs working group~\cite{tev4lhc}.}
+	\label{lhc:prod}
+\end{myfig}
+
+\subsection{Gluon fusion}
+
+The coupling constants for ordinary matter are actually so low, that at the LHC, Higgs boson will most likely be produced via the
+gluon fusion (fig.~\ref{diagrams}) -- gluons form an intermediate top quark loop, to which Higgs boson can
+couple really well because of their 175 GeV mass.
+Higgs boson production is then more likely to occur at the loop order, rather than the tree order, which is
+rather surprising. This channel, however, has a lot of background and cannot easily be distinguished.
+
+Even so, with our well defined BRs this is not enough. We need two signals in order to know that we produced the Higgs boson:
+we need some sort of ``tagging'' to determine the production mode as well. And so production modes with low background and some
+simple tagging mechanism are preferred. That's why the gluon fusion, though it is the dominant production mode, isn't preferred,
+since it isn't distinctive enough (large backgrounds). This doesn't mean that the channel is useless, it just means that Higgs boson
+identification through this channel is harder than the rest.
+
+\subsection{Weak gauge boson fusion}
+
+Thankfully enough, the 2nd dominant mode, the weak gauge boson fusion (fig.~\ref{diagrams}), is quite distinctive: $W$ and $Z$ fusion
+processes. Such reactions
+can then be tagged quite easily and they also have low background~\cite[pg.~157]{elena:green}. Other possible way are annihilation
+processes -- quarks
+annihilate through electroweak interaction. These are the so called `Drell-Yan' processes, where off-shell $Z$ or $W$ radiates a Higgs
+boson~\cite[pg.~158]{elena:green}. These processes are preferred since through them we can directly measure the Higgs boson
+coupling to the weak gauge bosons.
+
+We can then use the different decay modes in order to clearly distinguish between different channels and get a really clean signal.
+
+\subsection{Other modes}
+
+There are still other production modes, Higgs boson pair production, top quark fusion and the so called ``\emph{associated production}'', because in these
+reactions the Higgs boson is produced in association with other particles. These modes don't play a crucial role in the Higgs discovery, since
+they are of a very low probability, but they will play more important roles later if the Higgs is discovered, since using the associated
+products we can measure the spin, charge conservation and other properties of the Higgs boson.
+
+\vspace{20pt}
+\begin{myfig}[12cm]{pics/production.jpg}
+	\vspace{12pt}
+	\caption{The most common production modes on the Feynman diagrams for better visualization.}
+	\label{diagrams}
+\end{myfig}
+
+\subsection{Higgs decay modes}
+
+Higgs boson decay width in that mass region is $10^{-21} \lesssim \Gamma \lesssim 10^{-23}$ s, so the we
+can only identify it indirectly from reconstruction, the transverse energy $E_T$, the transverse linear momentum $\vec{p}_T$ and through its
+decay products which are shown in the lower graph (see fig.~\ref{fig:SMHbrsmall}).
+
+Since Higgs couplings are proportional to masses of the particles, our surest bets are heavy particles. Cleanest channels are produced
+via weak gauge boson decays, which subsequently decay into leptons, or into $q\bar{q}$ pairs, which produce the so called `jets' of
+particles\footnote{Since we cannot have bare quarks they immediately ``dress'' themselves with additional quarks which then do the same until
+energy equilibrium has been reached. The remaining quarks are all bound hadron states. In this event we say that we get the jet of particles.}.
+
+Of course the Higgs hunt takes place in all the channels, but the cleanest are, as said before, in the $H \to WW^{(*)}$ or $H \to ZZ^{(*)}$ decays.
+We must identify Higgs boson through subsequent decays.
+
+The cleanest channel is $ZZ^{(*)} \to \ell^+\ell^-\ell^+\ell^-$, since we cannot get this situation in many ways. It is very unlikely to happen,
+but if it happens, it's very likely to have come from the Higgs boson.
+
+Then there are three others we really like to consider: $WW^{(*)} \to \ell^+\nu\ell^-\bar{\nu}$ and $WW^{(*)} \to \ell\nu q\bar{q}$ (two-jet event with
+missing $E_T$) and $WW^{(*)} \to q\bar{q}q\bar{q}$ (four-jet event).
+
+\vspace{12pt}
+\begin{myfig}{pics/YRHXS2_BR_Fig1.eps}
+	\caption{SM Higgs boson branching ratios (ratio between this channel decay rate to total decay rate) including uncertainties.
+		Plotted by LHC Higgs Cross Section Working Group~\cite{CERN}.}
+	\label{fig:SMHbrsmall}
+\end{myfig}

@@ -1,0 +1,129 @@
+\section{Standard Model Higgs boson}
+
+Contrary to common belief, Higgs bosons \emph{are already} part of the Standard Model (SM).
+In the sixties, new questions arose in the world of particle physics: the theories weren't renormalizable\footnote{Renormalizable theories have
+singularities which can be removed using redefinition (renormalization) of non-physical parameters. Lagrangian is in that case a part of the
+renormalization group -- giving us the freedom to gauge it accordingly.}, and the question
+of the hierarchy. While such a mechanism cannot give the direct answer to the latter\footnote{Though it is responsible for
+the electroweak symmetry breaking.}, it does provide the masses for the gauge bosons and fermions.
+
+The hypothesis is that our observable space is immersed in a field, which spontaneously breaks the symmetry of the Lagrangian density
+$\mathcal{L}$. The original Lagrangian retains the symmetry (all gauge bosons and particles are massless), but the field is the one
+makes particles behave, as though they had mass.
+
+\subsection{The Higgs field}
+
+Let us make a quick overview of some very basic theory behind the Higgs boson just so we will get familiar with some of the
+physical observables.
+
+We could start all with Quantum Field Theory (QFT). However, since the majority of students is unfamiliar with it, we'll
+commence with a different and a more qualitative approach.
+
+The Higgs mechanism is intimately connected with the electroweak theory. With the discovery of the weak interaction, physicists were
+puzzled as to how to parametrize it. Fermi suggested to do the same thing as before for the electromagnetic, just change the
+constant. Later they fixed it with additional `$\gamma_5$' terms to include left-handedness. However there was still something
+wrong with the theory. It wasn't renormalizable. While such theories can occur at anytime, and are allowed in physics, they are
+more complex and so they tried to ``fix'' electroweak theory.
+
+Of course, when Fermi first wrote down his low-energy parametrization it was just a ``contact'' interaction. In order to fix it,
+theorists tried substituting the coupling with a propagator, containing mass of the weak bosons. Even so, with introducing
+masses of the weak bosons ``by hand'' into the Lagrangian, they didn't manage to make the theory renormalizable.
+
+Then in the early sixties, a group of physicists independently realized that the theory can be made renormalizable by using the
+electroweak symmetry, which would then be spontaneously broken through another, complex scalar field. This mechanism was later dubbed
+the Higgs mechanism, after one of the theorists who postulated it.
+
+Just like we can remember from the classical Hamiltonian and Lagrangian mechanics, we can substitute the coordinates with
+fields~\cite{peskin}: one way to introduce the field, $\phi$, is with a new potential in the Lagrangian\footnote{Alternatively
+$V(\phi) = \mu^2|\phi|^2 + \lambda|\phi|^4$, like in~\cite[pg. 18]{elena:green}, which only changes this: $\vac\sqrt{2}
+\to \vac/\sqrt{2}$ and vice-versa. I used this fixing in equations \eqref{mass:weak}, \eqref{mass:fermions} and
+\eqref{mass:higgs}, which in turn look slightly different from what the book suggests. This parametrization also changes the
+definition of the Higgs boson mass, $M_H$, like in~\cite[pg. 267]{perkins}. In the one I used, the constants are set in such a way,
+that the $M_H = \sqrt{-\mu^2}$}~\cite{perkins,peskin,elena:green}
+
+\begin{equation}
+	V(\phi) = \mu^2|\phi|^2 + \frac{\lambda}{4}|\phi|^4, \label{potential}
+\end{equation}
+
+like it's shown in the fig.~\ref{higgsf}.
+
+\begin{figure}[H]
+	\centering
+	\input{pics/higgsf/higgsf.tex}
+	\caption{The Higgs potential for the complex field $\phi$. Parameter $\lambda$ is always greater than zero.}
+	\label{higgsf}
+\end{figure}
+
+Lagrangian retains the symmetries of the potential. But to solve the problems via QFT, we need to make a series expansion around
+the minimum. However, for negative $\mu^2$ we have two of them. And as soon as we start to make expansion around either of
+those, we break the symmetry\footnote{We can imagine, that such solutions aren't symmetric around the $\phi = 0$ axis, though
+the original Lagrangian suggests that they are.}. The new approximation from the expansion
+
+\[
+	\varphi \equiv \phi - \phi_\pm,
+\]
+
+is then called the Higgs field~\cite{wikipedia}, which, upon 2nd quantization, yields the Higgs bosons -- $H$. We usually
+name the $\phi_+ \equiv \vac$.
+
+\subsection{Properties of the Higgs field}
+
+The Higgs field boson is a scalar -- it's spin is theoretically zero, and it obeys the Klein-Gordon differential equation. It
+doesn't carry any charge, colour or weak hypercharge.
+
+We are dealing with mass here and so our field doesn't have the usual translational symmetry (the ground state isn't arbitrary)
+
+\[
+	\varphi\ \stackrel{\vac}{\slashed{\longrightarrow}}\ \varphi + C.
+\]
+
+We can see this, because vacuum states are the ones, that give weak gauge bosons mass\footnote{And because $\mathcal{L}$
+isn't invariant on such transformations -- we cannot move both minimums and retain the symmetry over the $\phi = 0$ axis.}.
+Positive minimum of the potential  \eqref{potential} is referred to as the `vacuum expectation value'~\cite{elena:green},
+$\vac$, which is obviously a nonzero quantity
+
+\begin{equation}
+	\vac \equiv \phi_+ = \sqrt{-\frac{2\mu^2}{\lambda}}, \label{vacuum:field}
+\end{equation}
+
+from which we can obtain the vacuum energy of the potential (which is quite irrelevant, but anyway),
+
+\begin{equation}
+	V(\vac) = V_0 = -\mu^4/\lambda. \label{vacuum:energy}
+\end{equation}
+
+The value of $\vac$ is all that we need in order to give masses to the gauge bosons and fermions. For instance,
+masses of the $W^\pm$ and $Z$ bosons can be written as \hbox{(see~\cite[pg. 19]{elena:green})}
+
+\begin{equation}
+	M_W = g_W \vac\sqrt{2}, \qquad M_Z = \frac{M_W}{\cos\theta_W} = \frac{g_W \vac\sqrt{2}}
+		{\cos\theta_W}. \label{mass:weak}
+\end{equation}
+
+Higgs bosons couple to themselves\footnote{They give masses to each other -- self-coupling.}, to other bosons and to fermions. We
+have different possible couplings for each case. Fermions get their masses from the so called `Yukawa interactions', and Higgs bosons
+couple to them through Yukawa couplings, `$g_f$'. For each fermion there might be different couplings, as the coupling
+strength is proportional to the fermion mass. Mass for a fermion `$f$' can then be written as \hbox{(see~\cite[pg. 19]{elena:green})}
+
+\begin{equation}
+	m_f = 2g_f\vac = M_W\frac{g_f}{g_W}\sqrt{2}. \label{mass:fermions}
+\end{equation}
+
+The vacuum expectation value has been theoretically set to $\vac = v/\sqrt{2}$, with $v \approx 246$
+GeV~\cite[pg. 1]{higgs:review},~\cite[pg. 21]{elena:green} for the theory to be renormalizable and experimentally confirmed to be
+$\vac \sim 174$ GeV~\cite[pg. 19]{elena:green} ($v$ is also a vacuum expectation state~\cite[pg. 1]{higgs:review}, but
+from the alternative definition of the Higgs potential $V(\phi)$~\cite[pg. 267]{perkins}; people at CERN mostly use $v$ instead of
+$\vac$.).
+
+Parameter $\sqrt{-\mu^2}$ from such $V(\phi)$, defined in eq.~\eqref{potential} can be identified as the Higgs mass, which we can
+parametrize with this expression \hbox{(see~\cite[pg. 21]{elena:green})}
+
+\begin{equation}
+	M_H \equiv \sqrt{-\mu^2} = \underbrace{\sqrt{-\frac{2\mu^2}{\lambda}}}_{\vac} \cdot \sqrt{\frac{\lambda}{2}}
+		= \vac\sqrt{\lambda/2} = v\sqrt{\lambda} = 246\text{ GeV} \cdot \sqrt{\lambda}, \label{mass:higgs}
+\end{equation}
+
+so we see that $\lambda$ is the remaining free parameter in the theory to compute the Higgs boson mass\footnote{There are
+still other free parameters, namely the coupling constants.}.
+
+\vspace{12pt}

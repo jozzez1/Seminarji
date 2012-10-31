@@ -1,0 +1,83 @@
+\section{Overview of past attempts}
+
+The attempt to finally complete the SM ``periodic table'' is by no means a new endeavour. Before LHC there have been several attempts
+to find the Higgs boson, and the ones who actually managed to obtain some results\footnote{There are other results as well, but they didn't
+have the same energy reach and they only served to exclude very low-mass Higgs boson, because they didn't see anything.} were at the LEP
+collider (CERN) and Tevatron (Fermilab).
+
+Higgs bosons were sought both directly (did we get the Higgs boson?) and indirectly (if the Higgs boson exists, then certain parameters should
+have prescribed values). The main reason why they didn't manage to get the Higgs boson was mostly due to the low energy reach of
+the colliders and consequently very low cross sections for production. Some detectors reported slight excess, while others managed to experimentally
+bound $M_H$. Still, there were enough indications, which later served as a motivation for construction of the LHC~\cite{elena:green}.
+
+\subsection{LEP}
+
+Although the hunt for the Higgs particle has been popularized recently with the completion of the LHC, CERN made an attempt to find it
+before with their previous collider, LEP\footnote{Operated from 1989 to 2000.}.
+
+LEP was an $e^-e^+$ collider, which meant cleaner signals and no QCD background, which modern hadron colliders now have to face. The
+dominant production process was associated production via $e^+e^-\to HZ$~\cite{higgs:review}.
+It was also possible to produce Higgs through other channels, but the cross sections were much lower. Those modes were secondary via
+$WW$ and $ZZ$ fusion~\cite{higgs:review}. The $Z$ in the $HZ$ production can be either virtual (LEP1 phase) or on mass shell
+(LEP2 phase)~\cite{higgs:review}. Combined results were from center of mass energy $\sqrt{s} =$ 65 GeV to 209 GeV.
+
+There were four decay modes that were particularly interesting for their distinctions~\cite{higgs:review}:
+
+\begin{itemize}
+	\item[(a)] Final products are all quarks:
+		\[ H \to b\bar{b}, \quad Z \to q\bar{q}, \] \vspace{-32pt}
+	\item[(b)] Final products are quarks and tau leptons:
+		\[ \left\{\begin{matrix}
+		H \to \tau^+\tau^-, \quad Z \to q\bar{q}, \\
+		H \to b\bar{b}, \quad Z \to \tau^+\tau^-,
+		\end{matrix}\right.\] \vspace{-22pt}
+	\item[(c)] Final products are quark and neutrino pairs:
+		\[ H \to b\bar{b}, \quad Z \to \nu\bar{\nu}, \] \vspace{-32pt}
+	\item[(d)] Final products are light leptons and quarks:
+		\[ H \to b\bar{b}, \quad Z \to \ell^+\ell^-, \] \vspace{-32pt} \label{higgs:decay}
+\end{itemize}
+
+where $q\bar{q}$ denotes a quark--anti-quark pair, $\nu$ is a neutrino regardless of generation, and $\ell^\pm \in \{e^\pm,\mu^\pm\}$.
+LEP1 only used modes (c) and (d), while the LEP2 phase included all four of them.
+
+LEP at the time had four collaborations working on trying to find Higgs: ALEPH, DELPHI, OPAL and L3. ALEPH found an excess of
+$\sim 3 \sigma$, suggesting Higgs boson with mass $M_H \sim 115$ GeV~\cite{higgs:review}. Other experiments, however, couldn't confirm it, but then
+again, they couldn't reject it at the 95\% confidence level (CL). Using this data they excluded existence of
+SM Higgs boson below 114.4 GeV at 95\% CL, comparing data with theoretically calculated BRs (fig.~\ref{fig:SMHbrsmall}).
+
+\vspace{12pt}
+
+SM Higgs boson was also sought indirectly from fits to electroweak observables~\cite{higgs:review} (masses of $M_Z$ and $M_W$ depend on $M_H$
+through loop-order corrections~\cite{higgs:review}). Thus they obtained the upper limit
+for the Higgs boson mass and at 95\% CL constrained it to be in the $114.4$ GeV $< M_H < 186$ GeV range\footnote{Accumulated data of this
+indirect measurements over the last 20 years at LEP, SLC, Tevatron and elsewhere gave $M_H = 87^{+32}_{-26}$ GeV and $M_H < 157$ GeV at 95\% CL.},
+which coincides with theoretical predictions for metastable electroweak vacuum (tab.~\ref{tab:vacuum:scenarios}).
+
+\subsection{Tevatron}
+
+Just like there is CERN in Europe, there is Fermilab in the USA. The LHC counterpart is called Tevatron, a $p\bar{p}$ collider with
+much smaller circumference and for a change above the ground. Unfortunately the USA government stopped it's funding in the September of 2011, which
+forced Fermilab to close down the collider. The data, however, is currently still pending analysis and so far we've been only fed the preliminary
+report.
+
+Two collaborations were working on the experiment: CDF and D\O. Higgs boson production modes for Tevatron collisions are depicted
+in the figure below (fig.~\ref{tev:prod}).
+
+\begin{myfig}[11cm]{pics/tev.pdf}
+	\vspace{-12pt}
+	\caption{Tevatron SM Higgs boson production cross sections. Computed by the TeV4LHC working group~\cite{tev4lhc}, for $p\bar{p}$
+		collisions at $\sqrt{s} = 1.96$ TeV}
+	\label{tev:prod}
+\end{myfig}
+
+Fig.~\ref{tev:prod} shows that the most promising channels are gluon fusion and production with vector bosons $Z,W^\pm$. QCD effects
+give greater background and uncertainties are greater than at LEP. They tried to get rid of background using auxiliary measurements
+and then Monte Carlo simulations for each specific channel in order to have as high background estimation as possible. For clarification
+and easier visualization see the Higgs boson branching ratios (fig.~\ref{fig:SMHbrsmall}).
+
+The ``bread and butter'' production channel was the aforementioned weak gauge boson fusion, through which they obtained most results.
+They used almost the same decay channels as the LHC experiments, so no use mentioning them again.
+
+The collisions  were finally made at the beam energy of $\sqrt{s} = 1.96$ TeV. With 95\% CL they excluded two mass regions: 100 < $M_H$ < 106 GeV
+and 147 < $M_H$ < 179 GeV. They also expect to exclude regions 100 < $M_H$ < 119 GeV and 141 < $M_H$ < 184 GeV. The greatest reported
+discrepancy between SM and experiment was a 2.2 $\sigma$ deviation at the mass $M_H = 120$ GeV~\cite{tev:review}.
