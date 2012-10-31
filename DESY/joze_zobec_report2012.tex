@@ -1,0 +1,445 @@
+%My header and style options
+\documentclass[a4paper, 12 pt, titlepage, twocolumn]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%\usepackage{vicent}
+%\usepackage[0T1]{fontenc}
+
+%custom colour package
+\usepackage[usenames, dvipsnames]{xcolor}
+
+%graphics, captions etc.
+\usepackage[pdftex]{graphicx}
+\usepackage{amssymb, float, amsmath, stackrel, fullpage, slashed, caption, subcaption}
+
+%to get the colourful hyperlinks ... not just square boxes around them ...
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black!60!red,
+	citecolor=black!60!green,
+	urlcolor=black!60!cyan,
+	filecolor=black!60!magenta
+}
+
+%set up custom captions
+\captionsetup{
+	font=small,
+	margin=10pt,
+	labelfont=it,
+	labelsep=endash,
+	format=hang,
+	width=0.4\textwidth
+}
+
+%bibliography
+%\usepackage[round]{natbib}
+
+%LOOKS WAY BETTER WITHOUT THESE ... :P
+%costum matter fonts and section fonts
+%\usepackage{mathpazo}
+%\usepackage{sectsty}
+%\allsectionsfont{\LARGE\sffamily\bfseries}
+
+\newcommand{\parc}[2]{
+	\ensuremath{\frac{\partial#1}{\partial#2}}
+}
+
+\newcommand{\vac}[1][\phi]{
+	\ensuremath{\langle#1\rangle}
+}
+
+\renewcommand{\d}{
+	\ensuremath{\mathrm{d}}
+}
+
+%\renewcommand{\to}{
+%	\ensuremath{\longrightarrow}
+%}
+
+% New definition of square root:
+% it renames \sqrt as \oldsqrt
+\let\oldsqrt\sqrt
+% it defines the new \sqrt in terms of the old one
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+
+\newenvironment{myfig}[2][10cm]
+{
+	\vspace{-20pt}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[keepaspectratio=1, width=#1]{#2}
+		\end{center}
+		\vspace{-24pt}
+}
+{
+	\end{figure}
+	\vspace{-6pt}
+}
+
+\renewenvironment{abstract}[1][1.0]
+{
+	\begin{center}
+		{\bf Abstract}\\[12pt]
+		\begin{minipage}{#1\textwidth}
+}
+{
+		\end{minipage}
+	\end{center}
+}
+
+\newcommand{\ttbar}{
+	\ensuremath{t\bar{t}}
+}
+
+\newcommand{\tbar}{
+	\ensuremath{\bar{t}}
+}
+
+\begin{document}
+
+%titlepage
+\begin{titlepage}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width = 7cm, keepaspectratio=1]{Pics/logo.pdf}\\[12pt]
+		{\sc Department of Physics}
+	\end{figure}
+	\begin{figure}[H]\centering
+		\includegraphics[width= 4cm, keepaspectratio=1]{Pics/DESYLogo.png}
+	\end{figure}
+	\begin{center}
+		\large{{\sc DESY} Summer Student Programme 2012}\\[0.5cm]
+		\LARGE\textbf{Production cross-sections of $\ttbar$ at the CMS}\\[1.0cm]
+
+		\vspace{0.0cm}
+
+		\begin{minipage}{0.4\textwidth}\small
+			\begin{flushleft}
+			\textsc{Author:}\\[0.2cm]
+			Jože Zobec
+			\end{flushleft}
+		\end{minipage}
+		\begin{minipage}{0.4\textwidth}\small
+			\begin{flushright}
+				\textsc{Mentor:}\\[0.2cm]
+				Andreas Meyer
+			\end{flushright}
+		\end{minipage}
+	\end{center}
+
+	\vspace{3.0cm}
+
+	\begin{abstract}
+		Even though the study of the currently heaviest known particle -- the top quark -- is overshadowed by the ``Higgs
+		euphoria'' it doesn't change the fact that unexplained phenomena are already observed in that
+		sector. Differences in charge distributions between the $t$ and $\tbar$, and peculiar
+		forward-backward
+		asymmetry are only some of the interesting things that seem to be out of tune with the
+		standard model top quark. For my project at DESY, I was searching for new physics by
+		testing cuts to the invariant mass of the $\ttbar$ pair in the dileptonic channel on the
+		2011 data. After that,
+		I modified the code so it runs on {\tt PROOF} and wrote some additional scripts to automatize
+		the process.
+	\end{abstract}
+	
+	\vfill
+
+	\centering{\footnotesize Hamburg, DESY, \today}
+\end{titlepage}
+
+%table of contents, obviously ...
+%\tableofcontents
+%
+\pagebreak
+
+%Now the fun stuff begins ...
+\section{Introduction}
+
+Top quarks at the LHC are produced from the proton beams. Due to the extremely high energies, in 90\% they are
+produced via the gluon fusion (fig.~\ref{fig:production-g}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio = 1, width = 0.3\textwidth]{Pics/ttbar-production.png}
+	\caption{$\ttbar$ production via the gluon fusion.}
+	\label{fig:production-g}
+\end{figure}
+
+In other 10\% cases they are produced from quark the interactions (fig.~\ref{fig:production-q}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio = 1, width = 0.3\textwidth]{Pics/ttbar-q-production.png}
+	\caption{$\ttbar$ production via the quark fusion.}
+	\label{fig:production-q}
+\end{figure}
+
+Top quarks are extremely short-lived: they don't hadronize, but decay immediately through the weak
+interaction:
+\begin{align*}
+	t &\to W^{+} + j, \\
+	\tbar &\to W^- + j,
+\end{align*}
+where $j$ denotes a QCD-jet, coming from a quark, which is in most cases a $b$-jet\footnote{The most probable
+decay. For branching ratios to other quarks please use the CKM matrix as a reference.}.
+
+
+The $W^+W^-$ system is
+still unstable, and they are short-lived and they continue decaying. Based on these decays, we have further
+distinctions between the channels:
+
+\begin{itemize}
+	\item{{\bf All-hadronic} -- $WW \to jjjj$. It has a lot of QCD background, hard to distinguish. Most
+		probable decay channel.}%show figure
+	\item{{\bf Semileptonic} -- $W \to jj$ and the other decays $W \to \nu + \ell$. Less QCD background.}
+	\item{{\bf Dileptonic} -- in both cases $W \to \nu + \ell$. Very little QCD background.}
+\end{itemize}
+
+I was working on a dileptonic channel (fig.~\ref{fig:dileptonic}). This channel is further divided into three channels:
+$ee$, $e\mu$ and $\mu\mu$. The $\tau$ leptons behave differently and their production cross-sections in their systems
+exhibit a different shape, so we count them as background\footnote{The main difference is, that $\tau$ decays fast, and
+can also decay hadronically.}, which means that $\ell$ is either an electron or a muon.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio = 1, width = 0.5\textwidth]{Pics/dileptonic.png}
+	\caption{$\ttbar$ decay into the dileptonic (namely the `$e\mu$') channel.}
+	\label{fig:dileptonic}
+\end{figure}
+
+The dileptonic channel is clean, but has very low branching ratio (fig.~\ref{fig:branching}), so we don't
+have much data.
+
+Signal, characteristic for dileptonic $\ttbar$ decay consists of at least two hadronic jets, two isolated
+leptons of opposite charge and missing $E_T$ (MET). There must be secondary vertices involved and jets are
+preferably b-tagged
+(in 99\% cases top quark decays into beauty quark).
+
+There is an event selection process involved in accepting only the appropriate events for processing. For
+example, we demand that at least one of the jets is b-tagged, we apply some cuts on the $p_T$ to get rid of
+the QCD background, event must be detected within the detector (obviously), so we have a cut on $|\eta| < 2.4$.
+
+After this, when we are making analysis, additional cuts are applied to cut out the Drell-Yan background in the
+$ee$ and the $\mu\mu$ channels.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio = 1, width = 0.45\textwidth]{Pics/branching.pdf}
+	\caption{$\ttbar$ pair decay branching ratios.}
+	\label{fig:branching}
+	\vspace{-18pt}
+\end{figure}
+
+\section{Analysis}
+
+Since I was working on the entire 2011 data, I was processing many events. When one is searching for new
+physics, he must try to find it in a heap of rubbish -- try to find it in the events that don't contain
+any new information in the academic world of physics.
+
+This was the main motivation for applying cuts in the $m_{\ttbar}$ system. By cutting the low-energetic events,
+we make sure that whatever we get, will belong to the currently unexplored region. After applying the cuts,
+I tried to compare the new plots with the control (uncut plots).
+
+There are two types of $m_{\ttbar}$ cuts that I made: at the MC generator level and at the reconstruction
+level (event rejection). I found out, that in order to have a self-consistent results, one must make cuts
+in both levels.
+
+The algorithm also takes the detector inefficiencies into the account and does the so-called unfolding.
+In order for the mass cuts to be done in a correct way, the unfolding procedure must be done bin by bin.
+
+\section{Analysis results}
+
+In physics analysis I found some really interesting changes when I made the plots, which can (unfortunately)
+be explained with known physics.
+
+As I said, I was making cuts at the invariant mass of the $\ttbar$ pair ($m_{\ttbar}$). The cuts were applied
+at 500 GeV, 700 GeV (fig.~\ref{fig:700cut}) and at 900 GeV (the last cut was really violent and took out most of the events).
+
+In the analysis of the differential cross-section we were looking at the normalized distributions (fig.~\ref{fig:uncut}), so the 
+quantity we were looking for was $(\d\sigma/\d X)/\sigma$. This is interesting for two reasons: (1) because
+we are looking the shape of the distribution, and (2) we get rid of the systematic errors, that are shape-dependant.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=1, width=0.40\textwidth]{Pics/Plots/UnCut/DiffXS_HypTTBarMass.pdf}
+	\vspace{-18pt}
+	\caption{Differential cross-section of the $m_{\ttbar}$ without cuts.}
+	\label{fig:uncut}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=1, width=0.40\textwidth]{Pics/Plots/700Cut/DiffXS_HypTTBarMass.pdf}
+	\vspace{-12pt}
+	\caption{Differential cross-section of the $m_{\ttbar}$, cut at 700 GeV.}
+	\label{fig:700cut}
+\end{figure}
+
+Graphs that change significantly enough to be worthy of this paper are here:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=1, width=0.40\textwidth]{Pics/Plots/UnCut/HypTopMass.pdf}
+	\vspace{-12pt}
+	\caption{Top quark mass distribution on the uncut data.}
+	\label{fig:topmassuncut}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=1, width=0.40\textwidth]{Pics/Plots/700Cut/HypTopMass.pdf}
+	\vspace{-12pt}
+	\caption{Top quark mass distribution, cut at 700 GeV.}
+	\label{fig:topmass700cut}
+\end{figure}
+
+On the figures~\ref{fig:topmassuncut} and~\ref{fig:topmass700cut} with 700 GeV, we seem to have a small peak
+around 290 GeV. The peak is quite small and I wouldn't give it much merit. Still, the peak is higher and
+more pronounced in the 900 GeV cut, but we only have $\sim 100$ events in the entire histogram, which makes
+it more susceptible to statistical fluctuations.
+
+Another interesting thing is how the $p_T$ or $\eta$ distributions of one of the top quarks changes with
+rising the cuts.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=1, width=0.40\textwidth]{Pics/Plots/UnCut/DiffXS_HypTopRapidity.eps}
+	\vspace{-12pt}
+	\caption{Before cuts, we can see that pseudo-rapidity has a peak at 0.}
+	\label{fig:toprapuncut}
+	\vspace{-18pt}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=1, width=0.40\textwidth]{Pics/Plots/900Cut/DiffXS_HypTopRapidity.eps}
+	\vspace{-12pt}
+	\caption{Instead of one peak in the middle, we notice two bumps and a deficit, where the previous peak
+		was. NNLO is hard-coded and does not feel the cut. The cut has been made at 900 GeV.}
+	\label{fig:toprap900cut}
+	\vspace{-12pt}
+\end{figure}
+
+As we can see from figures \ref{fig:toprapuncut} and \ref{fig:toprap900cut}, the distributions change quite a
+bit. But the change can be explained: we are only left with very high-energetic events and they will mostly
+scatter in the forward-backward direction.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}\centering
+	\includegraphics[keepaspectratio=1, width=0.90\textwidth]{Pics/Plots/UnCut/HypLeptonpT.eps}
+	\caption{Uncut data -- $p_T$ of both $\ell^\pm$.}
+	\end{subfigure}
+
+	\begin{subfigure}[b]{0.4\textwidth}\centering
+	\includegraphics[keepaspectratio=1, width=0.90\textwidth]{Pics/Plots/900Cut/HypLeptonpT.eps}
+	\caption{Data with 900 GeV cut -- $p_T$ of both $\ell^\pm$.}
+	\end{subfigure}
+
+	\caption{With my supervisor I saw an interesting peak around 170 GeV, that we couldn't put anywhere
+		\ldots Probably the events come from the $e\mu$ channel. The errors are also so high, and
+		statistics too low to trust this plot.}
+	\label{fig:lepptanal}
+	\vspace{-12pt}
+\end{figure}
+
+On fig.~\ref{fig:lepptanal} we cah see the lepton ($\ell$) $p_T$ and how it changes with cuts.
+
+%put in some plots without the cuts
+%put in some plots with the cuts -- 500/700/900/Gen/Rec
+
+\section{PROOF}
+
+{\tt PROOF} is a part of {\tt ROOT}. It is a set of classes and functions that serve for the purpose of running
+the processes on either single multi-core-CPU machine, or on several single or multi-core-CPU 
+machines\footnote{the so called {\tt PROOF} clusters} -- basically parallel processing. Using such division
+we have two respective types of {\tt PROOF}: {\tt PROOF-Lite} and {\tt PROOF}.
+
+Proof session is constructed like this (consult fig.~\ref{fig:proof1} for further detail):
+
+\begin{enumerate}
+	\item{We (the client) open the session on the {\tt PROOF}-enabled facility or on the local machine,
+		and specify the number of slaves (workers).}
+	\item{We give commands to the master node. It gets access to the data, merges all the packages
+		(the {\tt .root} files we are going to process) together.}
+	\item{Initialize the workers. The packages are cut into separate pieces and distributed to workers.
+		If a worker is idle, it will automatically ask for work. Fast workers get harder tasks, and
+		slower workers get easier challenges.}
+	\item{After the work is done on each of the worker nodes, they send it to the master, which in turn
+		merges their results together and separates the datasets like it was in the beginning.}
+	\item{Master node gives the results to the client (us).}
+	\item{We close the {\tt PROOF} session.}
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=1, width=0.45\textwidth]{Pics/PROOF_Intro.png}
+	\caption{A typical {\tt PROOF} session.}
+	\label{fig:proof1}
+\end{figure}
+
+The usage of {\tt PROOF} is intimately connected to the usage of the {\tt TSelector} class. We create a 
+{\tt TSelector}-inherited class and are obliged to define these specific methods in the definition:
+\begin{itemize}
+	\item{{\tt virtual void Begin (TTree * tree)} -- we initialize the work on the master}
+	\item{{\tt virtual void SlaveBegin (TTree * tree)} -- we initialize the work on the slaves}
+	\item{{\tt virtual void Init (TTree * tree)} -- this function needs to be defined \emph{only if} we 
+		want to process {\tt TTree *} or {\tt TChain *} objects.}
+	\item{{\tt virtual Bool\_k Process (Long64\_t Entry)} -- we do the processing step on the slaves}
+	\item{{\tt virtual void SlaveTerminate (void)} -- close the work on the slaves}
+	\item{{\tt virtual void Terminate (void)} -- close the work on the master and end the {\tt PROOF}
+		session.}
+\end{itemize}
+
+For comparison I ran the analysis with and without {\tt PROOF}. As I suspected, the decrease in time was
+linear, but still quite significant: the drop from $\sim 3$ h to $\sim 15$ min is quite impressive. I used
+8 CPU-cores, even though the CMS machines have 12 of them.
+
+\begin{table}[H]\centering\small
+	\caption{The comparison between a {\tt PROOF} system and one that runs without it. I ran it on eight
+		cores, this is where that `8' comes from.}
+	\begin{tabular}{r|c|c|c}
+		{\tt PROOF} & CPU time [s]& user time [s] & real time\\
+		\hline
+		{\tt off} & $11049.21$ & $296.23$ & $3:31:18.92$\\
+		\hline
+		{\tt 8-on} & $972.52$ & $349.27$ & $2:01:03.89$
+	\end{tabular}
+	\label{tab:proof}
+\end{table}
+
+\section{Conclusion}
+
+The analysis results show no new physics in the CMS 2011 data. Maybe there is something and I have just
+overlooked it \ldots. However, the analysis of the 2012 data is imminent and with the {\tt PROOF}-enabled
+analysis code, the work will run more smoothly and will take less time. I also wrote some new scripts to help
+analyze the data, make the analysis versioning clearer and make sure several instances of it can be run from
+the same folder in parallel. I also have a suggestion, on how to further decrease the analysis user file:
+we merge all the {\tt .root} files from the {\tt mergedRoot} directory into one big {\tt TChain *},
+process them, and then use the {\tt SlaveTerminate()} function to separate them in different files.
+
+\section{Acknowledgements}
+First of all, let me thank the entire DESY Summer Student Programme 2012 team, who really made a great deal
+of effort to organize everything. Thank you, Olaf, for everything. 
+
+I would like to thank my supervisor, Andreas Meyer, my colleagues, Tyler, Ivan, Carmen, Maria, Wolf and
+especially David, who helped me a lot with debugging my code and unlocking the secret behind the old
+analysis version.
+
+Now, I would like to give thanks to my friends, people of the bunker and the ``other'' hostel:
+ Dave, Jure, Omar, Mar, Khilesh, Daniel, Mikhail, Oron,
+Miguel, Izan, Aaron, Tom, Vlad (the Impaler), Simone\ldots I will miss you terribly! Thank you so much for all
+the beer that we drank together and for all the happy moments we shared!
+
+At last let me give thanks to Eleni Skorda! Thank you!
+
+\end{document}
+

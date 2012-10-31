@@ -1,0 +1,298 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{float, amsmath, amssymb, graphicx, stackrel, slashed, caption, subcaption}
+
+\newcommand{\ttbar}{
+	\ensuremath{t\bar{t}}
+}
+
+%\usepackage{utopia}
+
+\usetheme{Warsaw}
+\logo{
+	\includegraphics[keepaspectratio=1, width=0.1\textwidth]{Pics/CMSLogo.png}~
+	\includegraphics[keepaspectratio=1, width=0.1\textwidth]{Pics/DESYLogo.png}~
+%	\includegraphics[keepaspectratio=1, width=0.1\textwidth]{Pics/CERNLogo.png}
+}
+
+%title info
+\title{$\ttbar$ production cross-sections}
+\subtitle{DESY Summer School, 2012}
+\author{Jože Zobec}
+\date[\today]{Hamburg, 30th of August, 2012}
+\institute[DESY, CMS]{Supervisor: Andreas Meyer}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overview}
+	\tableofcontents
+\end{frame}
+
+
+\section{Introduction to top quarks at the LHC}
+%1
+\begin{frame}[t]{Differential cross sections at the CMS}
+	\begin{itemize}
+		\item{DESY is part of the CMS collaboration, one of the groups is the Differential
+			cross-sections of the top quark, where I work,}
+		\item{my work was split into two parts:}
+		\begin{itemize}
+			\item{Searching for new physics by applying cuts to the $m_{\ttbar}$ system}
+			\item{decreasing the analysis cpu time from $\sim$ 3 h to $\sim$ 15 min using
+				the PROOF-Lite package}
+		\end{itemize}
+		\item{Analysis was done on the 2011 data, $\ttbar$ decays in the dileptonic channel.}
+	\end{itemize}
+\end{frame}
+
+\section{Physics of the $\ttbar$}
+\subsection{$\ttbar$ production}
+%2
+\begin{frame}[t]{$\ttbar$ pair production}
+	\begin{itemize}
+		\item{Top quarks are heaviest known particles ($m_t \sim 175$ GeV),}
+		\item{Extremely short-lived -- they don't hadronize!}
+		\item{Interesting properties, that imply new physics,}
+		\item{Might decay into new exotic particles \ldots}
+	\end{itemize}
+	\only <1,2,3,4,5>{
+		\begin{itemize}
+			\only<1->{\item{At the LHC $\ttbar$ pairs are produced via proton beam collisions}}
+		\only<2-,3>{
+			\only<2->{\item{Almost 90\% $\ttbar$ pairs are produced via the gluon fusion,}}
+			\only<3>{
+			\begin{figure}[H]
+			\includegraphics[keepaspectratio=1, width=0.4\textheight]{Pics/ttbar-production.png}
+			\end{figure}
+			}
+		}
+		\only<4-,5>{
+			\only<4->{\item{Remaining goes through quark-(anti)quark interactions,}}
+			\only<5>{
+			\begin{figure}[H]
+			\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/ttbar-q-production.png}
+			\end{figure}
+			}
+		}
+		\end{itemize}
+	}
+\end{frame}
+
+\subsection{$\ttbar$ decays}
+%3
+\begin{frame}[t]{$\ttbar$ decay modes}
+%	\only <1, 2, 3, 4, 5, 6, 7, 8>{
+%		\begin{itemize}
+%			\only<1->{\item{Three decay modes:}}
+%			\only<2-,3>{
+%			\only<2->{\item{All-hadronic decay}}
+%			\only<3>{
+%			\begin{figure}[H]
+%			\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/allhadronic.png}
+%			\end{figure}}
+%			}
+%			\only<4-,5>{
+%			\only<4->{\item{Semileptonic decay}}
+%			\only<5>{
+%			\begin{figure}[H]
+%			\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/semileptonic.png}
+%			\end{figure}}
+%			}
+%			\only<6-, 7>{
+%			\only<6->{\item{Dileptonic decay}}
+%			\only<7>{
+%			\begin{figure}[H]
+%			\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/dileptonic.png}
+%			\end{figure}}
+%			}
+%		\end{itemize}
+%	}
+%	\only<8>{
+		\begin{figure}[H]
+		\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/decay-ch.pdf}
+		\end{figure}
+%	}
+\end{frame}
+
+%4
+\begin{frame}[t]{Event Selection}
+	\begin{itemize}
+		\item{\bf At least two isolated leptons}
+		\item[$\circ$]{opposite sign}
+		\item[$\circ$]{{\bf muon} (combined + tracker): $p_T > 20$ GeV, $|\eta| < 2.4$}
+		\item[$\circ$]{{\bf electron} $E_T > 20$ GeV, $|\eta| < 2.4$}
+		\item[$\circ$]{{QCD veto}: $m_{\ell^+\ell^-} > 12$ GeV}
+		\item{\bf At least two jets} 
+		\item[$\circ$]{$p_T > 30$ GeV}
+		\item[$\circ$]{$|\eta| < 2.4$}
+		\item{{\bf system of} $e^+e^-/\mu^+\mu^-$}
+		\item[$\circ$]{Z veto: 76 GeV$ < m_{\ell^+\ell^+} < 106$ GeV}
+		\item[$\circ$]{$MET > 30$ GeV}
+	\end{itemize}
+\end{frame}
+
+%5
+\section{Physics analysis}
+\begin{frame}[t]{Analysis work}
+	\only<1,2,3,4,5,6,7>
+	\begin{itemize}
+		\only<1->{\item{Applying cuts at the $M_{\ttbar}$ -- interesting for two reasons:}}
+			\only<2-, 3, 4, 5-,6>{
+			\begin{itemize}
+				\only<2->{\item[$\circ$]{decaying into high energetic exotic particles,}}
+				\only<3>{
+					\begin{figure}[H]
+					\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/ttbarH.png}
+					\end{figure}
+					}
+				\only<4>{
+					\begin{figure}[H]
+					\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/ttbarprime.eps}
+					\end{figure}
+				}
+				\only<5->{\item[$\circ$]{the $\ttbar$ pair might be in fact produced from via an
+					exotic particle in one of the physical processes from beyond the
+					standard model}}
+				\only<6>{
+					\begin{figure}[H]
+						\includegraphics[keepaspectratio=1, width=0.5\textwidth]{Pics/zprime.eps}
+					\end{figure}
+				}
+			\end{itemize}
+			}
+		\only<7->{\item{We apply the cuts and then check how the differential cross-section changes
+			in other systems, hoping for events that show evidence for new physics \ldots}}
+	\end{itemize}
+\end{frame}
+
+%6
+\subsection{Plots}
+\begin{frame}[t]{Analysis results before cuts}
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/UnCut/HypTTBarMass}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/UnCut/HypTopMass}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/UnCut/DiffXS_HypTTBarpT}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/UnCut/DiffXS_HypTTBarMass}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/UnCut/DiffXS_HypToppT}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/UnCut/DiffXS_HypTopRapidity}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+%7
+\begin{frame}[t]{Analysis results after the cuts were applied}
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/700Cut/HypTTBarMass}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/700Cut/HypTopMass}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/700Cut/DiffXS_HypTTBarpT}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/700Cut/DiffXS_HypTTBarMass}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/700Cut/DiffXS_HypToppT}
+		\end{subfigure}~
+		\begin{subfigure}[b]{0.30\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, keepaspectratio=1]{Pics/Plots/700Cut/DiffXS_HypTopRapidity}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+%8
+
+\section{PROOF}
+\begin{frame}[t]{Introduction to PROOF}
+	\begin{itemize}
+		\item{PROOF -- {\bf P}arallel {\bf ROO}t {\bf F}acility}
+		\item{Comes in several flavours:}
+			\begin{itemize}
+				\item{PROOF-Lite -- for a single multi-core machine}
+				\item{normal PROOF -- for PROOF enabled facilities (if we have
+					computer clusters)}
+			\end{itemize}
+		\item{PROOF is NOT a batch system!!!}
+		\item{We use a {\tt TSelector} class for analysis, instead of {\tt TTree} class we use
+			a {\tt TChain} class, other {\tt TObject} inherited structures are passed as
+			arguments to the {\tt TList}s}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Functions involved in PROOF}
+	\begin{itemize}
+		\item{{\tt Begin} -- initialize the PROOF system,}
+		\item{{\tt SlaveBegin} -- initialize the ``workers'',}
+		\item{{\tt Init} -- initialize the {\tt TTree},}
+		\item{{\tt Process} -- do the processing on the workers,}
+		\item{{\tt SlaveTerminate} -- close the work on the workers,}
+		\item{somewhere here merge the results of the histos,}
+		\item{{\tt Terminate} -- close the work on the master.}
+	\end{itemize}
+
+	Using PROOF we can linearly decrease the computational time by using more cpu-s. We can put more
+	than one machine to work using the PROOF computer clusters.
+
+	My analysis for example:
+	With PROOF on 8 cpu-s: 15 min CPU time vs. 120 min user time
+	without PROOF: 180 min CPU time vs. 210 min user time 
+\end{frame}
+
+\section{Conclusion}
+%9
+\begin{frame}[t]{Summary}
+	\begin{itemize}
+		\item{No new physics found,}
+		\item{Analysis successfully changed to {\bf parallel processing!}}
+%		\item{Plans for the future:}
+%		\begin{itemize}
+%			\item{Modify bash scripts to further decrease computing time,}
+%			\item{Upgrade the script for designing the booklets}
+%			\item{Have a centralized control file containing all the cuts}
+%			\item{Upgrade the parallel Analysis.C script -- for versioning and running several
+%				instances of Analysis.C without any problems\ldots}
+%		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	Thank you for your attention!
+\end{frame}
+
+\end{document}
+
