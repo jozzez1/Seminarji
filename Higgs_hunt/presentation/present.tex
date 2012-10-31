@@ -1,0 +1,368 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{amsmath, amssymb, graphicx, float, stackrel, slashed}
+
+%\usepackage{utopia}
+
+\usetheme{Warsaw}
+
+%title info
+\title{The hunt for the Higgs boson}
+\subtitle{Seminar -- 1st year of the Physics 2nd cycle}
+\author{Jože Zobec, BSc}
+\date[23. 5. 2012]{Ljubljana, 23rd of March, 2012}
+\institute[UL, FMF]{Supervisor: Marko Mikuž, PhD}
+
+\newcommand{\vac}{
+	\ensuremath{\langle\phi\rangle}
+}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overview}
+	\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+	\frametitle{Beginnings}
+	\begin{itemize}
+		\item{Electroweak theory has problems -- cannot be renormalizable,}
+		\item{use of contact interactions,}
+		\item{use of massive propagators.}
+		\item{Theory {\bf still} not renormalizable.}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{The Higgs field}
+	  \begin{itemize}
+	   \item{1962-1964 -- Several independent descriptions of a new mechanism.}
+	   \item{Introduction of a new complex scalar field -- $\phi$.
+		\begin{figure}[H]
+			\includegraphics[keepaspectratio=1, width=0.5\textwidth]{../pics/potential.jpeg}
+		\end{figure}
+		}
+	   \item{Due to symmetry reasons, only even powers are included.}
+	   \item{Higher powers again render the theory non-renormalizable.}
+	  \end{itemize}
+\end{frame}
+
+\begin{frame}{Symmetry breaking}
+	Minimum is not at the $V(\phi) = 0 = |\phi|$, but at $\phi_{\pm} = \pm \sqrt{\frac{-2\mu}{\lambda}}$.
+	We use $\phi_+ \equiv \vac$. The moment we do a Taylor expansion around this minimum, we break the
+	symmetry.
+\[
+	\phi = \vac + \varphi,
+\]
+
+Where $\varphi$ is now the Higgs field and
+
+\[
+	\varphi \stackrel{\vac}{\slashed{\longrightarrow}} \varphi + C
+\]
+
+\end{frame}
+
+\begin{frame}{Couplings and masses}
+	After solving the interactions for this field, we see that $\vac$ induces masses for the Weak gauge
+	bosons and fermions:
+
+\[
+	M_W = g_W\vac\sqrt{2} \qquad M_Z = \frac{g_W\vac\sqrt{2}}{\cos\theta_W},
+\]
+\[
+	m_f = 2 g_f\vac = M_W \frac{g_f}{g_W}\sqrt{2},
+\]
+
+	where $g_f$ and $g_W$ are couplings of the interactions.
+
+\begin{itemize}
+	\item{Couplings are proportional to mass \ldots}
+	\item{More mass -- stronger coupling -- more interactions.}
+	\item{Top quark -- heaviest known elementary particle}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Self couplings and Higgs bosons}
+	How do we get Higgs bosons from this?
+	\only<1, 2, 3, 4, 5>{
+	\begin{itemize}
+		\only<1->{\item{Higgs also couples to itself -- like gluons.}}
+		\only<2->{\item{It gives the mass to itself.}}
+		\only<3->{\item{$\sqrt{-\mu^2}$ from the $V(\phi)$ can be interpreted as mass.}}
+		\only<4->{\item{We so quantize the Higgs field $\varphi$ -- we get the Higgs bosons.}}
+	\end{itemize}}
+
+\only<5->{
+\[
+	M_H = \sqrt{-\mu^2} = \vac\sqrt{\lambda/2} = v\sqrt{\lambda} = 246\ \mathrm{GeV} \cdot \sqrt{\lambda} .
+\]}
+\end{frame}
+
+\section{LHC search strategies}
+\subsection{LHC construction strategy}
+\begin{frame}{$M_H$ boundaries}
+	\only<1, 2, 3, 4, 5, 6, 7, 8 ,9>{
+	Theoretical boundaries:
+	\begin{enumerate}
+		\only<1-, 2->{\item{\only<1->{Stable $\vac$}:
+			\only<2->{130 $\lesssim M_H \lesssim$ 180 GeV,}}}
+		\only<3-, 4->{\item{\only<3->{metastable $\vac$}:
+			\only<4->{115 $\lesssim M_H \lesssim$ 180 GeV.}}}
+	\end{enumerate}
+	\only<5->{
+	Experimentally it could be anywhere in the $M_H \lesssim 1$ TeV area, since the upper boundary is
+	based on  perturbativity.}
+	\only<6-, 7-, 8-, 9->{
+	\begin{itemize}
+		\only<6->{\item{Only hadron colliders can reach such energies.}}
+		\only<7->{\item{Each constituent carries its own part of the momentum.}}
+		\only<8->{\item{To produce $M_H \sim 1$ TeV each valence quark needs $\sim$ 1 TeV}}
+		\only<9->{\item{Hence $E \sim 6$ TeV.}}
+	\end{itemize}}
+	}
+\end{frame}
+
+\begin{frame}[t]{Magnets}
+	\only<1, 2, 3, 4, 5, 6, 7, 8>{
+	\begin{itemize}
+		\only<1->{\item{LHC uses 2 proton beam collisions.}}
+		\only<2->{\item{Each proton in the beam has 7 TeV.}}
+		\only<3->{\item{We can calculate the necessary magnet strength:}}
+	\end{itemize}
+\only<4->{
+\[
+	B\rho \sim E \cdot 3 \mathrm{\frac{T \cdot km}{TeV}}
+\]}
+\only<5-, 6-, 7-, 8->{
+	\begin{itemize}
+		\only<5->{\item{$B \sim 7.7$ T.}}
+		\only<6->{\item{With corrections -- $B \approx 8.44$ T.}}
+		\only<7-, 8->{\item{\only<7->{To keep magnets superconducting with He coolant}
+			\only<8->{we need \alert{superfluid} phase.}}}
+	\end{itemize}
+}}
+\end{frame}
+
+\begin{frame}[t]{Higgs boson production rates and cross sections}
+	\only<1,2,3,4,5,6>{
+
+		\only<1,2>{
+		\only<1->{Cross sections for hadron colliders:}
+		\only<2->{
+		\begin{figure}[H]
+			\includegraphics[keepaspectratio=1, height=0.8\textheight]{../pics/cross1.jpeg}
+		\end{figure}}}
+
+		\only<3,4,5,6>{
+		\begin{itemize}
+			\only<3->{\item{For the region $100 < M_H < 200$ GeV we produce only
+				$\sim 10^{-4}$ events per second.}}
+			\only<4->{\item{Each year has $\sim 10^7$ seconds.}}
+			\only<5->{\item{We only produce $\sim 1000$ events per year at the energy
+				 \hbox{$\sqrt{s} \sim 14$ TeV}.}}
+			\only<6->{\item{We will have to run for many years before getting enough statistics.}}
+		\end{itemize}}
+	}
+\end{frame}
+
+\subsection{Detection strategies}
+\begin{frame}[t]{Higgs boson production modes at the LHC}
+	\only<1,2,3,4,5>{
+
+	\only<1>{
+		Theoretical production cross sections at $\sqrt{s} = 14$ TeV:
+		\begin{figure}[H]
+			\includegraphics[keepaspectratio=1, width=0.8\textwidth]{../pics/lhc.pdf}
+		\end{figure}}
+
+	\only<2>{
+		Let us now take a look at the Feynman diagrams for the four dominant production modes:
+		\begin{figure}[H]
+			\includegraphics[keepaspectratio=1, width=0.8\textwidth]{../pics/production.jpg}
+		\end{figure}
+	}
+
+	\only<3,4,5>{
+		\begin{itemize}
+			\only<3->{
+			\item{We can see that the {\bf gluon fusion} occurs only at the loop order, but is by
+				far the most common production mode. It has a lot of background and the
+				signal is unclean.}}
+			\only<4->{
+			\item{The {\bf weak gauge boson fusion} on the other hand is a form of a Drell-Yan
+				process and it produces a cleaner signal.}}
+			\only<5->{
+			\item{The remaining two processes are called the {\bf associated production} and are
+				less common. Important role later, if the Higgs is confirmed.}}
+		\end{itemize}
+	}}
+\end{frame}
+
+\begin{frame}[t]{Higgs boson decay modes}
+	\only<1,2>{
+		\only<1->{
+	How the channel is clean is determined by the Higgs boson decay modes that follow. We so need the
+	Ratios between the decay width of the particular channel with the total decay width -- 
+		{\bf branching ratio (BR)}:}
+		
+		\only<2->{
+		\begin{figure}[H]
+			\includegraphics[keepaspectratio=1, width=0.6\textwidth]{../pics/YRHXS2_BR_Fig2.eps}
+		\end{figure}}
+	}
+\end{frame}
+
+\begin{frame}[t]{Secondary decays}
+	\only<1, 2>{
+		\only<1->{
+	We determine the total channel cross sections by combining both the branching ratios of the
+	Higgs boson and the secondary products.}
+		\only<2->{In turn we obtain
+	\begin{figure}[H]
+		\includegraphics[keepaspectratio=1, width=0.5\textwidth]{../pics/XSBR-7TeV-SM-3.eps}
+	\end{figure}
+		}
+	}
+\end{frame}
+
+\section{Past search attempts}
+\begin{frame}[t]{LEP}
+	\only<1,2,3,4,5,6,7,8,9,10>{
+	\begin{itemize}
+		\only<1->{\item{CERN, 1989 -- 2000.}}
+		\only<2->{\item{$e^+e^-$ collider.}}
+		\only<3->{\item{Prequel to the LHC (same tunnel).}}
+		\only<4->{\item{Energies up to $\sqrt{s} \sim 200$ GeV.}}
+		\only<5->{\item{Four experiments: ALEPH, OPAL, DELPHI and L3.}}
+		\only<6->{\item{Dominant mode is associated production: $e^+e^- \to HZ$.}}
+		\only<7->{\item{ALEPH reported excess of $\sim 3 \sigma$ at the 115 GeV \ldots}}
+		\only<8->{\item{\ldots others did not \ldots}}
+		\only<9->{\item{\ldots but they couldn't exclude it!}}
+		\only<10->{\item{In turn, Higgs boson with $M_H < 114.4$ GeV was excluded
+			at 95\% confidence level (CL).}}
+	\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}[t]{Tevatron}
+	\only<1,2,3,4,5,6,7>{
+	\begin{itemize}
+		\only<1->{\item{Fermilab, 1983 -- 2011.}}
+		\only<2->{\item{$p\bar{p}$ collider.}}
+		\only<3->{\item{Second largest proton collider after LHC.}}
+		\only<4->{\item{Energies up to $\sqrt{s} = 1.96$ TeV in 2011.}}
+		\only<5->{\item{Two collaborations: CDF and D\O{}.}}
+		\only<6->{\item{Mostly used weak gauge boson fusion for production.}}
+		\only<7->{\item{Closed down in September 2011. Data is still under analysis.}}
+	\end{itemize}}
+\end{frame}
+
+\section{Latest results}
+\subsection{Exclusion plots}
+\begin{frame}{Exclusion graphs -- how they work:}
+	\only<1,2>{
+	\only<1>{
+	We don't know where the Higgs boson is. So scientists are searching everywhere, excluding where there
+	is nothing and thus narrowing down the mass range where the Higgs boson could experimentally exist
+	at a certain CL. Usually 95\% CL.
+	}
+	
+	\only<2>{
+	\begin{figure}
+		\includegraphics[keepaspectratio=1, width=0.6\textwidth]{../pics/sexclusion.jpg}
+	\end{figure}
+	}
+	}
+\end{frame}
+
+\subsection{Tevatron}
+\begin{frame}[t]{Tevatron preliminary results}
+	\only<1,2>{
+	\only<1->{
+	Latest reports from 16th of March, 2012.}
+
+	\only<2->{
+	\begin{figure}[H]
+		\includegraphics[keepaspectratio=1, width=0.6\textwidth]{../pics/justtev.pdf}
+	\end{figure}}}
+\end{frame}
+
+\subsection{LHC preliminary results}
+\begin{frame}[t]{CMS preliminary results}
+	\only<1,2,3>{
+	\only<1->{
+	Latest reports from 7th of February, 2012. There is $\sim 5$ fb$^{-1}$ of data.}
+
+	\only<2->{
+	\begin{figure}[H]
+		\includegraphics[keepaspectratio=1, width=0.4\textwidth]{../pics/cmssigma.jpeg}
+	\end{figure}}
+
+	\only<3->{
+		To avoid biased results, we take convert local significance into global. After this we get the
+		that the $M_H \approx 124$ GeV at 1.5 $\sigma$.}
+	}
+\end{frame}
+
+\begin{frame}[t]{ATLAS preliminary results}
+	\only<1,2,3>{
+	\only<1->{
+	Latest reports from 7th of February, 2012. There is $\sim 5$ fb$^{-1}$ of data.}
+
+	\only<2->{
+	\begin{figure}[H]
+		\includegraphics[keepaspectratio=1, width=0.4\textwidth]{../pics/atlassigma.jpeg}
+	\end{figure}}
+
+	\only<3->{
+		Global significance of this sample is again smaller: $M_H \approx 126$ GeV at 2.5 $\sigma$.}
+	}
+\end{frame}
+
+\subsection{Total preliminary results}
+\begin{frame}[t]{Combined exclusion}
+	\only<1,2>{
+	\only<1->{
+	Latest reports from 16th of March, 2012, by Tevatron.}
+
+	\only<2->{
+	\begin{figure}[H]
+		\includegraphics[keepaspectratio=1, width=0.6\textwidth]{../pics/tev28febsmbayeslimits.eps}
+	\end{figure}}}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}[t]{Conclusion}
+\begin{itemize}
+	\only<1,2,3,4,5,6,7,8>{
+	\only<1->{\item{How will the discovery affect me?}}
+	\only<2->{\item{It won't.}}
+	\only<3->{\item{Why do we do it then?}}
+	\only<4->{\item{To wrap up the electroweak theory.}}
+	\only<5->{\item{Why do we want to do that?}}
+	\only<6->{\item{To see if we were on the right track for the past 50 years \ldots}}
+	\only<7->{\item{\ldots and avoid physics turning into metaphysics \ldots}}
+	\only<8->{\item{\ldots *khm* String theory *khm*}}
+	}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+	\only<1,2,3>{
+		\only<1>{\LARGE Thank you for your attention!}
+		\only<2,3>{\LARGE \only<2>{Stop!} \only<3>{It's question time!}}
+	}
+	\end{center}
+\end{frame}
+
+\end{document}
