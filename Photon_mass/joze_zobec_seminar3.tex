@@ -92,6 +92,22 @@
 	\end{center}
 }
 
+\newcommand{\rot}{
+	\ensuremath{\vec{\nabla}\times}
+}
+
+\renewcommand{\div}{
+	\ensuremath{\vec{\nabla}\cdot}
+}
+
+\newcommand{\ve}{
+	\ensuremath{\vec{E}}
+}
+
+\newcommand{\vb}{
+	\ensuremath{\vec{B}}
+}
+
 \begin{document}
 
 %titlepage
@@ -161,7 +177,17 @@ fotona zelo majhna.
 
 \section{Začetki elektrodinamike}
 
-Maxwellove enačbe so nas dosegle konec devetnajstega stoletja,
+Maxwellove enačbe so nas dosegle konec devetnajstega stoletja, nekaj desetletij za tem, jih je Proca prepisal v obliko,
+ki zado\v s\v ca neni\v celni fotonski masi. Ena\v cbe se potem glasijo
+
+\begin{align}
+	\div\ve = \rho/\varepsilon_0 - m_\gamma^2\varphi, &\qquad \div\vb = 0, \notag \\
+	\rot\ve = \parc{\vb}{t}, &\qquad \rot\vb = \mu_0\vec{\jmath} + \frac{1}{c_0^2}\parc{\ve}{t} - m_\gamma^2\vec{A},
+\end{align}
+
+kjer je $c_0 = 1/\sqrt{\varepsilon_0\mu_0}$ \v se vedno dobro definirana in nespremenjena. Kot vidimo, so ena\v cbe Proca
+v Lorentzovo kovariantni obliki nespremenjene za dualni napetostni tenzor elektromagnetnega polja, medtem ko dobi
+napetostni tenzor sam popravke, $\partial_\nu F^{\mu\nu} + m^2_\gamma A^\mu = \jmath^\mu$.
 
 \end{document}
 
