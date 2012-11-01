@@ -108,6 +108,14 @@
 	\ensuremath{\vec{B}}
 }
 
+\newcommand{\w}{
+	\ensuremath{\omega}
+}
+
+\renewcommand{\d}{
+	\ensuremath{\mathrm{d}}
+}
+
 \begin{document}
 
 %titlepage
@@ -226,11 +234,66 @@ Kot sem namignil, ena\v cbe Proca s seboj prina\v sajo dolo\v cene nev\v se\v cn
 kar nas lahko nekoliko preseneti -- da bo $\varphi$ dobil Yukawovo obliko gre pri\v cakovati, vendar kr\v senje ohranitve
 naboja ni tako od muh. Pod kr\v sitvijo umeritvene invariance mislimo umeritveno invarianco prve vrste.
 
-Svetlobna disperzija je najve\v cja razlika, ki jo je Proca povdarjal. Ni jim bilo o\v citno, da bi bila elektrodinamika
-tako zaradi Yukawovega potenciala kon\v cna in da bi to nato prevedlo v lokalno kr\v senje ogranitve elektri\v cnega
-naboja.
+\subsubsection{Disperzijska relacija}
 
+Svetlobna disperzija je najve\v cja razlika, ki jo je Proca povdarjal. Sam se ni menil, da bi ena\v cbe zapisal v
+Lorentzovi kovariantni obliki in polja ni sku\v sal kvantizirati. Svetlobno disperzijo dobimo lahko na preprost na\v cin~\cite{nieto1}:
 
+\begin{equation}
+	k_\mu k^\mu = \frac{\w^2}{c_0^2} - k^2 = \mu^2 \propto p_\mu p^\mu = \frac{E^2}{c_0^2} - p^2 = m^2c_0^2,
+	\label{eqn:disper}
+\end{equation}
+
+kjer je $\mu$ masa fotona, izra\v zena v enotah inverzne dol\v zine. V standarnih enotah velja $m = \mu\hbar/c_0$, vendar,
+kot je tudi razvidno iz zgornjega izraza, pojma v enotah $\hbar = \varepsilon_0 = c_0 = 1$ sovpadata.
+
+\v Ce sedaj ena\v cbo~\eqref{eqn:disper} diferenciramo, lahko poka\v zemo, da $\w \neq kc$, pri \v cemer je 
+$c = c_g = \mathrm{d}\w/\mathrm{d}k \neq c_0$ ($c = c_g$ je grupna hitrost takega vala). Po prej\v snjih ena\v cb sledi
+
+\[
+	c = \frac{c_0}{\w}\sqrt{\w^2 - \mu^2c^2_0},
+\]
+
+od koder pa je o\v citno, da je $c = c (\w) \neq c_0$. Prve meritve, opravljene z namenom merjenja fotonske mase so bile
+tako opravljene z merjenjem disperzijske konstante $\mu$. Odslej bomo vse pisali v prej omenjenih normiranih enotah, kjer
+je $\hbar = c_0 = \varepsilon_0 = 1$.
+
+\subsubsection{Kon\v cen doseg}
+
+Ni mu bilo o\v citno, da bi bila elektrodinamika tako zaradi Yukawovega potenciala kon\v cna in da bi to nato prevedlo v
+lokalno kr\v senje ogranitve elektri\v cnega naboja. Procovim naslednikom je po Yukawovi napovedi `mezona' postalo jasno,
+da bi dobili prav to. Prvo Procovo ena\v cbo lahko zapi\v semo v obliko, kjer so samo potenciali in tako dobimo v primeru
+brez nabojev~\cite{nieto2}
+
+\[
+	\big(\Box + m^2\big)\varphi = 0, \quad \Longrightarrow \quad \varphi \propto \text{e}^{-\mu r}/r.
+\]
+
+Tak potencial je karakteristi\v cen za interakcije kon\v cnega dosega, kot je na primer \v sibka interakcija.
+
+\subsubsection{Kr\v senje ohranitve naboja}
+
+Gaussov zakon za ohranitev naboja dr\v zi v primeru, ko imamo potencial oblike $\varphi \propto 1/r$. Fotonska masa to
+lepo lastnost seveda takoj pokvari, saj se \v stevilo silnic, ki prebadajo zaklju\v ceno ploskev ne ohranja, ampak se
+spreminja. \v Ce je ta ploskev na primer krogla, lahko zapi\v semo pretok elektri\v cnega polja kot
+
+\begin{multline*}
+	\Phi_e = \oint_{\partial V} \ve \cdot \d \vec{S} = \int_V \big(\div \ve\big)\ r^2\d r\ \d\Omega =\\
+		- \int_V \nabla^2\varphi r^2 \d r \propto \int_V \nabla^2 \left(\frac{\text{e}^{-\mu r}}{r}\right)r^2 \d
+		r = f(r).
+\end{multline*}
+
+\v Ce v prej\v snji ena\v cbi uporabimo ena\v cbe Proca~\eqref{eqn:max-proca} lahko dobimo veliko huj\v so posledico, in
+sicer, da je lokalna ohranitev naboja kr\v sena, kar pa pomeni, da sama kontinuitetna ena\v cba za elektri\v cni naboj ne
+dr\v zi ve\v c. To je zelo grda lastnost, ki pa se prikrade notri ravno kot posledica kr\v sitve Gaussovega zakona.
+
+\subsubsection{Longitudinalna polarizacija fotonov}
+
+Ta je dokaj enostavna: z disperzijsko relacijo lahko pove\v zemo $\vec{k}$, $\mu$ in $c_g$, ter ugotovimo, da obstaja
+re\v sitev tudi ko $\vec{k} = 0$, v tem primeru ima $\vec{k}$ tri komponente in vse od teh so dovoljene -- se pravi ima
+spinske re\v sitve vrtilne koli\v cine (v enotah $\hbar$) $1$, $0$ in pa $-1$.
+
+\section{Stueckelbergov mehanizem}
 
 \begin{thebibliography}{9}
 	\bibitem{nieto2}
