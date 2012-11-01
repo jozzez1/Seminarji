@@ -203,7 +203,7 @@ napetostni tenzor masne popravke,
 	\label{eqn:proca}
 \end{equation}
 
-\v Ce ena\v cbo \eqref{eqn:proca} diferenciramo, lahko od odondod dobimo pogoj za Lorentzovo umeritev, $\partial_\mu
+\v Ce ena\v cbo \eqref{eqn:proca} diferenciramo, lahko od ondod dobimo pogoj za Lorentzovo umeritev, $\partial_\mu
 A^\mu$, ki nam reducira eno od \v stirih prostostnih stopenj $A^\mu$, od koder sledi, da gre za foton, s spinom $1$ in
 maso $m$. Gostota Lagrangejeve funkcije\footnote{v nadaljevanju zaradi preprostosti raje kar Lagrange-ian}, $\mathcal{L}$,
 se v tem primeru glasi
@@ -291,9 +291,85 @@ dr\v zi ve\v c. To je zelo grda lastnost, ki pa se prikrade notri ravno kot posl
 
 Ta je dokaj enostavna: z disperzijsko relacijo lahko pove\v zemo $\vec{k}$, $\mu$ in $c_g$, ter ugotovimo, da obstaja
 re\v sitev tudi ko $\vec{k} = 0$, v tem primeru ima $\vec{k}$ tri komponente in vse od teh so dovoljene -- se pravi ima
-spinske re\v sitve vrtilne koli\v cine (v enotah $\hbar$) $1$, $0$ in pa $-1$.
+spinske re\v sitve vrtilne koli\v cine (v enotah $\hbar$) $\pm 1$ in pa $0$, katere prej ni bilo. Ta o\v citno predstavlja
+longitudinalno polarizacijo.
 
 \section{Stueckelbergov mehanizem}
+
+V dvajsetih letih prej\v snjega stoletja je Stueckelberg demonstriral kako lahko splo\v snemu kompleksnemu vektorskemu
+polju, ki ima simetrijo U(1) dodamo maso, ne da bi pri tem zlomili umeritveno invarianco ter hkrati ohranili
+renormalizabilnost teorije. Njegove ideje so ostale v ozadju, a so pozneje slu\v zile za navdih Higgsovemu mehanizmu.
+Njegovo idejo so seveda uporabili tudi za realno vektorsko polje, $A_\mu$, se pravi foton.
+
+Stueckelberg si je mislil, da je tisto kar je najpomembnej\v se v teoriji to, da je umeritveno invariantna. Pri tem imamo
+lahko ve\v c razli\v cnih umeritev: umeritve skale, umeritve faze \ldots Njegova teorija ohranja oboje. Trik za foton
+uporabimo takole: ker vemo, da mora imeti masivno vektorsko polje s spinom 1 prisotne natanko 3 prostostne
+stopnje\footnote{spine, polarizacije}, se mu je zdelo primernj\v se pri\v ceti z $A_\mu$, kot pa z $F_{\mu\nu}$. Ta ima
+4 prostostne stopnje. Proca se je ene stopnje znebil s pomo\v cjo Lorentzove umeritve, Stueckelberg pa je tu raje vpeljal
+novo skalarno poljae $B$, ki je povezano z $A_\mu$. Tako imamo naenkrat 5 prostostnih stopenj. Izka\v ze se, da lahko na
+tem mestu postuliramo relacijo
+
+\[
+	\big[\partial_\mu A^\mu + mB(x)\big]^{(-)}|\phi\rangle = 0,
+\]
+
+kjer je $|\phi\rangle$ katerokoli fizikalno stanje, operatorji pa imajo gornji index `-', ki ponazarja da gre le za
+anihilacijske operatorje. S tem se znebimo ene od prostostnih stopenj, ko pa polje kvantiziramo opazimo, da imamo
+umeritveno svobodo, ki nam skupaj zreducira \v stevilo prostostnih stopenj na 3. Dovoljena umeritev je te vrste:
+
+\begin{align*}
+	A_\mu (x) &\to A_\mu (x) + \partial_\mu \Lambda (x), \\
+	B (x) &\to B (x) + m\Lambda(x).
+\end{align*}
+
+Iz brezmasnega do masivnega fotona torej pridemo s tem trikom:
+
+\begin{equation}
+	A_\mu (x) \to A_\mu (x) - \frac{1}{m}\partial_\mu B(x),
+\end{equation}
+
+Lagrange-ian se v tem primeru zapi\v se tako:
+
+\begin{multline}
+	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + \frac{1}{2}m^2\Big(A_\mu - \frac{1}{m}\partial_\mu B\Big)^2 -\\-
+		\frac{1}{2\xi}\big(\partial_\mu A^\mu + \xi mB\big)^2,
+\end{multline}
+
+kjer $\xi \in \mathbb{R}$ in predstavlja umeritev skale. Razlika od Lagrange-iana za brezmasne fotone je v drugem \v clenu,
+ter v dodaku v \v clenu za fiksiranje skale (\v clen z $B$-jem v tretjem \v clenu).
+
+Poleg tega, da ohranimo svobodo umeritve ima Stueckelbergov trik \v se eno lepo lastnost: $F_{\mu\nu} F^{\mu\nu}$ je enak,
+saj se prispevki skalarnega polja ravno izni\v cijo.
+
+\section{Higgsov mehanizem}
+
+Higgsov mehanizem prav tako doda novo skalarno polje, vendar je tam ideja druga\v cna: vse skupaj je mogo\v ce prek
+spontanega zloma simetrije.
+
+Higgsovega mehanizma ne gre me\v sati s Higgsovim delcem, katerega kandidat so v leto\v snjem poletju odkrili v CERN-u.
+Foton sam pripada grupi U(1) in za maso ne potrebuje takega mehanizma, in lahko maso dobi neodvisno.
+
+Prva taka razlika od elektro\v sibkega Higgsa je ta, da je elektromagnetni Higgs tu elektri\v cno nabit delec. Njegov
+naboj je sorazmeren z maso fotona.
+
+Zaradi sorodnosti s superprevodniki, bi v tem primeru tudi pomenilo, da je masa fotonov lahko temperaturno odvisna in pri
+neki kriti\v cni temperaturi postane enaka ni\v c (superprevodna faza fotonov).
+
+\section{Meritve}
+
+Da bi izmerili ni\v celno maso fotona je ideal, katerega ne moremo nikdar dose\v ci, vendar kljub temu \v se vedno
+potrebujemo neke vrste kriterij, ki nam pove, ali je izmerjena vrednost zadosti majhna, da lahko teorijo ovr\v zemo.
+Zato se i\v s\v ce samo zgornjo mejo za maso, spodnjo namre\v c lahko dobimo s Heisenbergovim principom
+neenakosti~\cite{over}:
+
+\begin{equation}
+	\delta t \cdot \frac{\delta E}{\hbar} = \delta t \cdot \frac{mc_0^2}{\hbar} = \delta t \cdot \mu c_0 \sim 1,
+\end{equation}
+
+kjer za $\delta t$ vstavimo starost vesolja ($10^{17}$ sekund) in dobimo spodnjo mejo za maso fotona \hbox{$m \sim
+10^{-69}$ kg}.
+\v Ce je masa fotona manj\v sa od tega, pomeni da jo lahko pripi\v semo kvantnim fluktuacijam, katere pa \v ze namo
+pojasniti in bi bile meritve odve\v c.
 
 \begin{thebibliography}{9}
 	\bibitem{nieto2}
