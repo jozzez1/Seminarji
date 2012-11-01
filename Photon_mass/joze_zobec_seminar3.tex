@@ -1,5 +1,5 @@
 %My header and style options
-\documentclass[a4paper, 12 pt, titlepage]{article}
+\documentclass[a4paper, twocolumn, titlepage]{article}
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -153,7 +153,7 @@
 \end{titlepage}
 
 %table of contents, obviously ...
-\tableofcontents
+%\tableofcontents
 
 \pagebreak
 
@@ -162,18 +162,18 @@
 Newtonova teorija gravitacije je s svojo učinkovitostjo ter preprostostjo narave presunila mnoge tedanje mislece in
 služila za navdih novincem, ki so se tedaj ravno pričeli ukvarjati z elektrodinamiko. Predpostavka je bila, da
 električna sila med naboji prav tako pada z $r^{-2}$, tako kot gravitacijska. Nekateri so temu oporekali in so
-poskušali z $r^{-2 + \alpha}$, malenkost, ki je povezana prav z maso fotona.
+poskušali z $r^{-2 + \alpha}$, malenkost, ki je povezana prav z maso fotona.~\cite{nieto2}
 
 Fiziki francoske šole so se o tem nekako največ spraševali. Med njimi prednjači Proca, ki je prvi zapisal ekvivalent
-Maxwellovih enačb za masivne fotone. Za njim so se s tem ukvarjali Stueckelberg, de Broglie, in med drugimi tudi
-Schroedinger.
+Maxwellovih enačb za masivne fotone~\cite{nieto1,over}. Za njim so se s tem ukvarjali Stueckelberg~\cite{over,nieto1},
+de Broglie~\cite{nieto1,over}, in med drugimi tudi Schroedinger~\cite{nieto1}.
 
 S pojavom kvantne elektrodinamike so poskušali slednjo uporabiti za masivne fotone, pri čemer so naleteli na
 različne nevšečnosti, pri čemer so pričeli z razvojem novih teoretičnih mehanizmov, s katermi bi foton dobil maso
 in hkrati ohranil lepe lastnosti brezmasne elektrodinamike.
 
-Masivna elektrodinamika je tudi dandanes zanimiva, ker s seboj prinaša velike posledice tudi v primeru, ko je masa
-fotona zelo majhna.
+Masivna elektrodinamika je tudi dandanes zanimiva, ker s seboj prinaša vdaljnose\v zne posledice tudi v primeru, ko je masa
+fotona zelo majhna~\cite{over}
 
 \section{Začetki elektrodinamike}
 
@@ -181,13 +181,88 @@ Maxwellove enačbe so nas dosegle konec devetnajstega stoletja, nekaj desetletij
 ki zado\v s\v ca neni\v celni fotonski masi. Ena\v cbe se potem glasijo
 
 \begin{align}
-	\div\ve = \rho/\varepsilon_0 - m_\gamma^2\varphi, &\qquad \div\vb = 0, \notag \\
-	\rot\ve = \parc{\vb}{t}, &\qquad \rot\vb = \mu_0\vec{\jmath} + \frac{1}{c_0^2}\parc{\ve}{t} - m_\gamma^2\vec{A},
+	&\div\ve = \rho/\varepsilon_0 - m^2\varphi, \qquad \div\vb = 0, \notag \\
+	&\rot\ve = \parc{\vb}{t}, \qquad \rot\vb = \mu_0\vec{\jmath} + \frac{1}{c_0^2}\parc{\ve}{t} - m^2\vec{A},
+	\label{eqn:max-proca}
 \end{align}
 
 kjer je $c_0 = 1/\sqrt{\varepsilon_0\mu_0}$ \v se vedno dobro definirana in nespremenjena. Kot vidimo, so ena\v cbe Proca
-v Lorentzovo kovariantni obliki nespremenjene za dualni napetostni tenzor elektromagnetnega polja, medtem ko dobi
-napetostni tenzor sam popravke, $\partial_\nu F^{\mu\nu} + m^2_\gamma A^\mu = \jmath^\mu$.
+v Lorentzovo kovariantni obliki nespremenjene za dualni napetostni tenzor elektromagnetnega polja, medtem ko dobi samo
+napetostni tenzor masne popravke, 
+
+\begin{equation}
+	\partial_\nu F^{\mu\nu} + m^2 A^\mu = \jmath^\mu.
+	\label{eqn:proca}
+\end{equation}
+
+\v Ce ena\v cbo \eqref{eqn:proca} diferenciramo, lahko od odondod dobimo pogoj za Lorentzovo umeritev, $\partial_\mu
+A^\mu$, ki nam reducira eno od \v stirih prostostnih stopenj $A^\mu$, od koder sledi, da gre za foton, s spinom $1$ in
+maso $m$. Gostota Lagrangejeve funkcije\footnote{v nadaljevanju zaradi preprostosti raje kar Lagrange-ian}, $\mathcal{L}$,
+se v tem primeru glasi
+
+\begin{equation}
+	\mathcal{L} = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + \frac{1}{2}m^2A_\mu A^\mu.
+	\label{eqn:proca-lagrangian}
+\end{equation}
+
+To polje lahko nato kvantiziramo, poka\v zemo, da zado\v s\v ca bozonski algebri.
+
+Vendar kot vidimo \v ze v en. \eqref{eqn:max-proca} in \eqref{eqn:proca}, postanejo potenciali, torej $A_\mu =
+(\varphi, \vec{A})$ fizikalne opazljivke v fiksni umeritveni skali (ki je v tem primeru Lorentzova). Taka teorija nima
+umeritvene invariance.
+
+\subsection{Posledice}
+
+Kot sem namignil, ena\v cbe Proca s seboj prina\v sajo dolo\v cene nev\v se\v cnosti/inovacije:
+
+\begin{itemize}
+	\item{kr\v senje umeritvene invariance~\cite{nieto1,nieto2},}
+	\item{svetlobna disperzija~\cite{nieto1,nieto2}}
+	\item{kr\v senje (lokalne) ohranitve naboja~\cite{nieto2},}
+	\item{dodatna longitudinalna komponenta elektromagnetnega sevanja~\cite{nieto1,nieto2},}
+	\item{elektromagnetna interakcija ima kon\v cni doseg~\cite{nieto1,nieto2}}
+\end{itemize}
+
+kar nas lahko nekoliko preseneti -- da bo $\varphi$ dobil Yukawovo obliko gre pri\v cakovati, vendar kr\v senje ohranitve
+naboja ni tako od muh. Pod kr\v sitvijo umeritvene invariance mislimo umeritveno invarianco prve vrste.
+
+Svetlobna disperzija je najve\v cja razlika, ki jo je Proca povdarjal. Ni jim bilo o\v citno, da bi bila elektrodinamika
+tako zaradi Yukawovega potenciala kon\v cna in da bi to nato prevedlo v lokalno kr\v senje ogranitve elektri\v cnega
+naboja.
+
+
+
+\begin{thebibliography}{9}
+	\bibitem{nieto2}
+	A. S. Goldhaber and M. M. Nieto,
+	"`Photon and Graviton Mass Limits"',
+	arXiv:0809.1003v5 [hep-ph],
+	(2010)
+
+	\bibitem{nieto1}
+	A. S. Goldhaber and M. M. Nieto,
+	"`Terrestrial and Extraterrestrial Limits on The Photon Mass"',
+	Rev. Mod. Phys. {\bf 43}, 277-296,
+	(1971)
+
+	\bibitem{stueckelberg}
+	H. Ruegg and M. Ruiz-Altaba,
+	"`The Stueckelberg Field"'
+	arXiv:hep-th/0304245v2,
+	(2003)
+
+	\bibitem{higgs}
+	E. Adelberger, G. Dvali and A. Gruzinov,
+	"`Photon Mass Bound Destroyed by Vortices"',
+	arXiv:hep-ph/0306245v2,
+	(2003)
+
+	\bibitem{over}
+	G. Spavieri, J. Quintero, G.T. Gillies and M. Rodriguez,
+	"`A survey of existing and proposed classical and quantum approaches to the photon mass"',
+	Eur. Phys. J. D {\bf 61} 531-550,
+	(2011)
+\end{thebibliography}
 
 \end{document}
 
