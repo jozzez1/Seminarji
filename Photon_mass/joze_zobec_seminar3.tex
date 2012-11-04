@@ -83,7 +83,7 @@
 
 \renewenvironment{abstract}[1][1.0]
 {
-	\begin{center}
+	\begin{center}\large
 		{\bf Povzetek}\\[12pt]
 		\begin{minipage}{#1\textwidth}
 }
@@ -122,25 +122,25 @@
 \begin{titlepage}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width = 7cm, keepaspectratio=1]{pics/logo.pdf}\\[12pt]
-		{\sc Oddelek za fiziko}\\[4cm]
+		\includegraphics[width = 7cm, keepaspectratio=1]{pics/logo-slo.pdf}\\[12pt]
+		\large{\sc Oddelek za fiziko}\\[4cm]
 	\end{figure}
 	\begin{center}
-		\large{Seminar -- 2. letnik 2. bolonjske stopnje}\\[0.5cm]
-		\LARGE\textbf{Masivna elektrodinamika}\\[1.0cm]
+		\Large{Seminar -- 2. letnik 2. bolonjske stopnje}\\[0.5cm]
+		\huge\textbf{Masivna elektrodinamika}\\[1.0cm]
 
 		\vspace{0.0cm}
 
 		\begin{minipage}{0.4\textwidth}\small
 			\begin{flushleft}
-				\textsc{Avtor:}\\[0.2cm]
-				Jože Zobec
+				\large{\sc Avtor:}\\[0.2cm]
+				\large{Jože Zobec}
 			\end{flushleft}
 		\end{minipage}
 		\begin{minipage}{0.4\textwidth}\small
 			\begin{flushright}
-				\textsc{Mentor:}\\[0.2cm]
-				Prof. Dr. Borut Bajc
+				\large{\sc Mentor:}\\[0.2cm]
+				\large{Prof. Dr. Borut Bajc}
 			\end{flushright}
 		\end{minipage}
 	\end{center}
@@ -157,7 +157,7 @@
 	
 	\vfill
 
-	\centering{\footnotesize Ljubljana, \today}
+	\centering{\normalsize Ljubljana, \today}
 \end{titlepage}
 
 %table of contents, obviously ...
@@ -177,10 +177,10 @@ Maxwellovih enačb za masivne fotone~\cite{nieto1,over}. Za njim so se s tem ukv
 de Broglie~\cite{nieto1,over}, in med drugimi tudi Schroedinger~\cite{nieto1}.
 
 S pojavom kvantne elektrodinamike so poskušali slednjo uporabiti za masivne fotone, pri čemer so naleteli na
-različne nevšečnosti, pri čemer so pričeli z razvojem novih teoretičnih mehanizmov, s katermi bi foton dobil maso
+različne nevšečnosti, pri čemer so pričeli z razvojem novih teoretičnih mehanizmov, s katerimi bi foton dobil maso
 in hkrati ohranil lepe lastnosti brezmasne elektrodinamike.
 
-Masivna elektrodinamika je tudi dandanes zanimiva, ker s seboj prinaša vdaljnose\v zne posledice tudi v primeru, ko je masa
+Masivna elektrodinamika je tudi dandanes zanimiva, ker s seboj prinaša daljnose\v zne posledice tudi v primeru, ko je masa
 fotona zelo majhna~\cite{over}
 
 \section{Začetki elektrodinamike}
@@ -196,7 +196,7 @@ ki zado\v s\v ca neni\v celni fotonski masi. Ena\v cbe se potem glasijo
 
 kjer je $c_0 = 1/\sqrt{\varepsilon_0\mu_0}$ \v se vedno dobro definirana in nespremenjena. Kot vidimo, so ena\v cbe Proca
 v Lorentzovo kovariantni obliki nespremenjene za dualni napetostni tenzor elektromagnetnega polja, medtem ko dobi samo
-napetostni tenzor masne popravke, 
+divergenca napetostnega tenzorja masne popravke, 
 
 \begin{equation}
 	\partial_\nu F^{\mu\nu} + m^2 A^\mu = \jmath^\mu.
@@ -213,7 +213,7 @@ se v tem primeru glasi
 	\label{eqn:proca-lagrangian}
 \end{equation}
 
-To polje lahko nato kvantiziramo, poka\v zemo, da zado\v s\v ca bozonski algebri.
+To polje lahko nato kvantiziramo in poka\v zemo, da zado\v s\v ca bozonski algebri.
 
 Vendar kot vidimo \v ze v en. \eqref{eqn:max-proca} in \eqref{eqn:proca}, postanejo potenciali, torej $A_\mu =
 (\varphi, \vec{A})$ fizikalne opazljivke v fiksni umeritveni skali (ki je v tem primeru Lorentzova). Taka teorija nima
@@ -221,14 +221,14 @@ umeritvene invariance.
 
 \subsection{Posledice}
 
-Kot sem namignil, ena\v cbe Proca s seboj prina\v sajo dolo\v cene nev\v se\v cnosti/inovacije:
+Kot sem namignil, ena\v cbe Proca s seboj prina\v sajo dolo\v cene nev\v se\v cnosti/inovacije~\cite{nieto1,nieto2,stueckelberg}:
 
 \begin{itemize}
-	\item{kr\v senje umeritvene invariance~\cite{nieto1,nieto2},}
-	\item{svetlobna disperzija~\cite{nieto1,nieto2}}
-	\item{kr\v senje (lokalne) ohranitve naboja~\cite{nieto2},}
-	\item{dodatna longitudinalna komponenta elektromagnetnega sevanja~\cite{nieto1,nieto2},}
-	\item{elektromagnetna interakcija ima kon\v cni doseg~\cite{nieto1,nieto2}}
+	\item{kr\v senje umeritvene invariance,}
+	\item{svetlobna disperzija}
+	\item{kr\v senje (lokalne) ohranitve naboja,}
+	\item{dodatna longitudinalna komponenta elektromagnetnega sevanja,}
+	\item{elektromagnetna interakcija ima kon\v cni doseg,}
 \end{itemize}
 
 kar nas lahko nekoliko preseneti -- da bo $\varphi$ dobil Yukawovo obliko gre pri\v cakovati, vendar kr\v senje ohranitve
@@ -244,7 +244,7 @@ Lorentzovi kovariantni obliki in polja ni sku\v sal kvantizirati. Svetlobno disp
 	\label{eqn:disper}
 \end{equation}
 
-kjer je $\mu$ masa fotona, izra\v zena v enotah inverzne dol\v zine. V standarnih enotah velja $m = \mu\hbar/c_0$, vendar,
+kjer je $\mu$ masa fotona, izra\v zena v enotah inverzne dol\v zine. V standardnih enotah velja $m = \mu\hbar/c_0$, vendar,
 kot je tudi razvidno iz zgornjega izraza, pojma v enotah $\hbar = \varepsilon_0 = c_0 = 1$ sovpadata.
 
 \v Ce sedaj ena\v cbo~\eqref{eqn:disper} diferenciramo, lahko poka\v zemo, da $\w \neq kc$, pri \v cemer je 
@@ -261,7 +261,7 @@ je $\hbar = c_0 = \varepsilon_0 = 1$.
 \subsubsection{Kon\v cen doseg}
 
 Ni mu bilo o\v citno, da bi bila elektrodinamika tako zaradi Yukawovega potenciala kon\v cna in da bi to nato prevedlo v
-lokalno kr\v senje ogranitve elektri\v cnega naboja. Procovim naslednikom je po Yukawovi napovedi `mezona' postalo jasno,
+lokalno kr\v senje ohranitve elektri\v cnega naboja. Procovim naslednikom je po Yukawovi napovedi `mezona' postalo jasno,
 da bi dobili prav to. Prvo Procovo ena\v cbo lahko zapi\v semo v obliko, kjer so samo potenciali in tako dobimo v
 stati\v cnem primeru brez nabojev~\cite{nieto2}
 
@@ -279,13 +279,13 @@ spreminja. \v Ce je ta ploskev na primer krogla, lahko zapi\v semo pretok elektr
 
 \begin{multline*}
 	\Phi_e = \oint_{\partial V} \ve \cdot \d \vec{S} = \int_V \big(\div \ve\big)\ r^2\d r\ \d\Omega =\\
-		- \int_V \nabla^2\varphi r^2 \d r \propto \int_V \nabla^2 \left(\frac{\text{e}^{-\mu r}}{r}\right)r^2 \d
+		- \int_V (\nabla^2\varphi) r^2 \d r \propto \int_V \nabla^2 \left(\frac{\text{e}^{-\mu r}}{r}\right)r^2 \d
 		r = f(r).
 \end{multline*}
 
 \v Ce v prej\v snji ena\v cbi uporabimo ena\v cbe Proca~\eqref{eqn:max-proca} lahko dobimo veliko huj\v so posledico, in
 sicer, da je lokalna ohranitev naboja kr\v sena, kar pa pomeni, da sama kontinuitetna ena\v cba za elektri\v cni naboj ne
-dr\v zi ve\v c. To je zelo grda lastnost, ki pa se prikrade notri ravno kot posledica kr\v sitve Gaussovega zakona.
+dr\v zi ve\v c~\cite{nieto2}. To je zelo grda lastnost, ki pa se prikrade notri ravno kot posledica kr\v sitve Gaussovega zakona.
 
 \subsubsection{Longitudinalna polarizacija fotonov}
 
@@ -297,20 +297,34 @@ longitudinalno polarizacijo.
 \section{Stueckelbergov mehanizem}
 
 V dvajsetih letih prej\v snjega stoletja je Stueckelberg demonstriral kako lahko splo\v snemu kompleksnemu vektorskemu
-polju, ki ima simetrijo U(1) dodamo maso, ne da bi pri tem zlomili umeritveno invarianco ter hkrati ohranili
+polju, ki ima simetrijo U(1), dodamo maso, ne da bi pri tem zlomili umeritveno invarianco in hkrati ohranili
 renormalizabilnost teorije. Njegove ideje so ostale v ozadju, a so pozneje slu\v zile za navdih Higgsovemu mehanizmu.
 Njegovo idejo so seveda uporabili tudi za realno vektorsko polje, $A_\mu$, se pravi foton.
 
 Stueckelberg si je mislil, da je tisto kar je najpomembnej\v se v teoriji to, da je umeritveno invariantna. Pri tem imamo
-lahko ve\v c razli\v cnih umeritev: umeritve skale, umeritve faze \ldots Njegova teorija ohranja oboje. Trik za foton
+lahko ve\v c razli\v cnih umeritev: umeritve skale~\cite{stueckelberg,nieto2}, umeritve faze~\cite{nieto2} \ldots Njegova teorija ohranja
+oboje. Trik za foton
 uporabimo takole: ker vemo, da mora imeti masivno vektorsko polje s spinom 1 prisotne natanko 3 prostostne
-stopnje\footnote{spine, polarizacije}, se mu je zdelo primernj\v se pri\v ceti z $A_\mu$, kot pa z $F_{\mu\nu}$. Ta ima
-4 prostostne stopnje. Proca se je ene stopnje znebil s pomo\v cjo Lorentzove umeritve, Stueckelberg pa je tu raje vpeljal
-novo skalarno poljae $B$, ki je povezano z $A_\mu$. Tako imamo naenkrat 5 prostostnih stopenj. Izka\v ze se, da lahko na
+stopnje\footnote{spine, polarizacije}, se mu je zdelo primernej\v se pri\v ceti z $A_\mu$, kot pa z $F_{\mu\nu}$.
+Rekel je: za masivni foton $A_\mu$ mora veljati Klein-Gordonova enačba:
+
+\[
+	(\Box + m^2)A_\mu (x) = 0,
+\]
+
+$A_\mu$ ima
+4 prostostne stopnje. Proca se je ene stopnje znebil s pomo\v cjo Lorentzove umeritve, Stueckelberg pa tega pogoja tukaj ni dobil, zato je
+moral vpeljati novo skalarno poljae $B$, ki je povezano z $A_\mu$ prek Klein-Gordonove enačbe,
+
+\[
+	(\Box + \xi m^2)B (x) = 0, \quad \xi \in \mathbb{R}.
+\]
+
+Tako imamo naenkrat 5 prostostnih stopenj. Izka\v ze se, da lahko na
 tem mestu postuliramo relacijo
 
 \[
-	\big[\partial_\mu A^\mu + mB(x)\big]^{(-)}|\phi\rangle = 0,
+	\big[\partial_\mu A^\mu + \xi mB(x)\big]^{(-)}|\phi\rangle = 0,
 \]
 
 kjer je $|\phi\rangle$ katerokoli fizikalno stanje, operatorji pa imajo gornji index `$-$', ki ponazarja da gre le za
@@ -353,7 +367,51 @@ Prva taka razlika od elektro\v sibkega Higgsa je ta, da je elektromagnetni Higgs
 naboj je sorazmeren z maso fotona.
 
 Zaradi sorodnosti s superprevodniki bi v tem primeru tudi pomenilo, da je masa fotonov lahko temperaturno odvisna in pri
-neki kriti\v cni temperaturi postane enaka ni\v c (superprevodna faza fotonov).
+neki kriti\v cni temperaturi postane enaka ni\v c (superprevodna faza fotonov). Zaenkrat nič ne kaže, da bi tu kaj takega obstajalo, prav tako
+se ta parametrizacija ne uporablja kaj pogosto~\cite{nieto2}. Kljub temu je ideja zanimiva alternativa.
+
+Lagrange-ian~\eqref{eqn:proca-lagrangian} torej ni invarianten na transformacije $A_\mu (x) \to A_\mu + \partial_\mu\Lambda(x)$.
+Namesto, da bi maso dodali v Lagrange-ian direktno, s členom $\frac{1}{2}m^2 A_\mu A^\mu$, bomo raje vpeljali novo skalarno polje $\phi$ z 
+elektromagnetno interakcijo (nabojem $q$). Če torej vpeljemo kovariantni odvod $D_\mu = \partial_\mu - iqA_\mu$ in
+$V(\phi) = -\mu^2 \phi^\dagger\phi + \lambda(\phi^\dagger\phi)^2$ dobimo Lagrange-ian
+
+\begin{equation}
+	\mathcal{L} = -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} + (D_\mu\phi)^\dagger(D^\mu\phi) - V(\phi),
+	\label{eqn:higgs-lagrangian1}
+\end{equation}
+
+ki je invarianten na umeritvene transformacije
+
+\begin{align}
+	A_\mu(x) \to& A_\mu(x) + \partial_\mu \Lambda(x), \notag \\
+	\phi(x) \to& \text{e}^{iq\Lambda(x)}\phi(x).
+\end{align}
+
+Če je ima $\mu^2 > 0$ v $V(\phi)$ je minimum energije pri $\langle \phi \rangle_\pm = \pm \sqrt{\mu^2/2\lambda} \equiv \pm v/\sqrt{2}$. Tako
+smo dobili pričakovano vrednost vakuuma, $v$. S pomočjo te vrednosti lahko parametriziramo $\phi$ kot
+
+\[
+	\phi(x) = \frac{v + h(x)}{\sqrt{2}}\mathrm{e}^{i\chi/v}.
+\]
+
+Ta izraz vstavimo v en.~\eqref{eqn:higgs-lagrangian1} in tako dobimo
+
+\begin{multline}
+	\mathcal{L} = -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} -qvA_\mu\partial^\mu\chi + \frac{q^2v^2}{2}A^\mu A_\mu +\\+
+		\frac{1}{2}\Big[(\partial_\mu h)(\partial^\mu h) - 2\mu^2 h^2\Big] + \frac{1}{2}(\partial_\mu\chi)(\partial^\mu\chi)+\\+
+		\text{interakcije $h$ in $\chi$.}
+	\label{eqn:higgs-lagrangian}
+\end{multline}
+
+Kot vidimo, dobi v en.~\eqref{eqn:higgs-lagrangian} foton maso $q^2\mu^2 = m^2$, vendar se moramo znebiti še členov s $\chi$, ker nam mešajo
+$A_\mu$ in $\partial_\mu \chi$. To storimo s tako izbiro umeritve
+
+\[
+	A_\mu \to A_\mu - \frac{1}{qv}\partial_\mu\chi,
+\]
+
+ki ji pravimo unitarna umeritev. Ta $\chi$ je bil brezmasni Nambu-Goldstonov bozon, ki je posledica spontanega zloma simetrije. Kot se ga
+znebimo z umeritvijo, pravimo da je bil absorbiran v fotonsko maso.
 
 \section{Meritve}
 
@@ -368,7 +426,7 @@ neenakosti~\cite{over}:
 
 kjer za $\delta t$ vstavimo starost vesolja ($10^{17}$ sekund) in dobimo spodnjo mejo za maso fotona \hbox{$m \sim
 10^{-69}$ kg}.
-\v Ce je masa fotona manj\v sa od tega, pomeni da jo lahko pripi\v semo kvantnim fluktuacijam, katere pa \v ze namo
+\v Ce je masa fotona manj\v sa od tega, pomeni da jo lahko pripi\v semo kvantnim fluktuacijam, katere pa \v ze znamo
 pojasniti in bi bile meritve odve\v c.
 
 Meritve lahko združimo nekako v tri razrede:
@@ -389,7 +447,7 @@ fotona oblike $\varphi \sim \text{e}^{-\mu r}/r$. Odklone od zakona $r^{-2}$ so 
 z meritvijo pojemanja sile z razdaljo (Coulomb, Robinson), \textbf{(b)} z merjenjem odsotnosti sil zunanjih lupin znotraj
 sferičnega objekta\footnote{Kot je Newton demonstriral za svojo teorijo gravitacije, ima sila obliko $F \sim r^{-2}$, kar prinaša s
 seboj lepe lastnosti: če smo namreč na neki globini $h$ pod Zemljo, na nas deluje le sila Zemlje z radijem $R - h$, se pravi, da
-nam zunenje lupine z debelino $h$ ni treba upoštevati, ker je njen prispevek natanko 0. Ko so to prevedli na meritve električnih
+nam zunanje lupine z debelino $h$ ni treba upoštevati, ker je njen prispevek natanko 0. Ko so to prevedli na meritve električnih
 sil, v veliko nabito kroglo zaprli manjšo in opazovali interakcije med njima -- po navadi pretečen električni naboj.} in
 merjenjem oblike električnega potenciala (Cavendish, Maxwell \ldots). Te meritve so očitno laboratorijske. V zadnjih dveh, treh
 desetletjih so pričeli meriti tudi kvantne posledice.
@@ -399,33 +457,33 @@ desetletjih so pričeli meriti tudi kvantne posledice.
 Meritve odklona tipa $F \sim r^{-2 - \alpha}$ lahko povežemo z meritvami fotonske mase, ker lahko izpeljemo enakost~\cite{over}
 
 \begin{equation}
-	\frac{\varphi(r) - \varphi(a)}{\varphi(a)} \approx \alpha \approx -\frac{1}{6}\mu^2(a^2 - r^2),
+	\frac{\varphi(r) - \varphi(a)}{\varphi(a)} \approx \alpha(r) \approx -\frac{1}{6}\mu^2(a^2 - r^2),
 \end{equation}
 
 od koder lahko s poznavanjem dimenzij problema dobimo podatek o masi takega fotona.
 
-Franklin (1755) je naredil prvi eksperiment, kjer je na nitki obsil majhno plutovinasto kroglico in dal, da je visela v nabit
+Franklin (1755) je naredil prvi eksperiment, kjer je na nitki obesil majhno plutovinasto kroglico in dal, da je visela v nabit
 kovinski lonček~\cite{over}. Ker ni bilo interakcije med njima, je Priestley (1767) sklepal, da sila pada s kvadratom razdalje,
 tako kot Newtonova gravitacijska sila, ker bi se v tem primeru prispevki sil izničili. Eksperiment je bil zgolj kvalitativen in je
 služil zgolj kot motivacija naslednikom.
 
-Prvo kvantitativno obravnavo je naredil angleški fiziolog Robison (1769). Meril je odbojno silo med dvemi nabitimi palicami, ki jo
+Prvo kvantitativno obravnavo je naredil Škotski fiziolog Robison (1769). Meril je odbojno silo med dvemi nabitimi palicami, ki jo
 je uravnovesil z njuno privlačno gravitacijsko silo -- maso palic je namreč poznal. Izmeril je odklon $\alpha = 0,06$ in tudi
 ugibal, da bi morala biti ta številka negativna za privlačno električno silo, zaradi česar je sklepal da je $r^{-2}$ res pravi
 zakon. Rezultate je objavil šele leta 1801, 13 let za Coulombom, dasiravno je meritev opravil pred njim.
 
 Coulombov poskus (1788) je bil bolj sofisticiran, meril je odbojno, kot tudi privlačno silo električno nabitih krogel s pomočjo
-torzijske tehtnice. Odmik zaradi sile, je torej prenesel na odmik kota, ki ga je meril z zracalom, na katerega je imel usmerjen
+torzijske tehtnice. Odmik zaradi sile, je torej prenesel na odmik kota, ki ga je meril z zrcalom, na katerega je imel usmerjen
 svetlobni snop. Njegov rezultat je ustrezal $\alpha \leq 0,01$.
 
 Vsi drugi poskusi klasični laboratorijski poskusi so bili sorodnega tipa, kot si ga je zamislil Cavendish. Njegov eksperiment je
 bil zastavljen takole: imel je dve koncentrični krogli, zunanja je bila sestavljena iz dveh polobel, da se jo je lahko razprlo.
-Znotraj sta bili povezani z elektrostatsko napravo~\cite{over}. Povezavo so nato nanadoma prekinili, zunanjo kroglo previdno odprli
+Znotraj sta bili povezani z elektrostatsko napravo~\cite{over}. Povezavo so nato nenadoma prekinili, zunanjo kroglo previdno odprli
 in preverili, če je naboj notranje krogle res enak 0. Cavendish je dobil rezultat $\alpha \leq 0,02$, torej slabše od Coulomba.
 
 Isti poskus pozneje opravil tudi Maxwell in za rezultat dobil $\alpha \approx 5 \times 10^{-5}$.
 
-Poskus so opravili nato z razimi koncentričnimi telesi, ne le s kroglami, saj v primeru $r^{-2}$ Gaussov zakon velja za vse oblike.
+Poskus so opravili nato z raznimi koncentričnimi telesi, ne le s kroglami, saj v primeru $r^{-2}$ Gaussov zakon velja za vse oblike.
 Tako so isto stvar ponovili s kockami, ikozaedri in na izmeničnih napetostih s fazno vpeto zanko (tu napiši kdo so bili tile
 ljudje, kdaj so bili tile poskusi opravljeni itd.).
 
@@ -437,22 +495,24 @@ med astronomska opazovanja.
 To so poskusi, katere je fizikom šele pred kratkim uspelo narediti in so privlačni zaradi tega, ker jih lahko izvajamo v nadzorovanem okolju.
 
 Meritve, ki so bile opravljene z zadovoljivo natančnostjo, so bile Aharonov-Bohm efekt in defekti giromagnetnega razmerja elektrona.
-Pri giromagnetnem razmerju je stvar nekam zgoljufana. Masa fotona, dobljena na ta način, je namreč zelo groba ocena in ne namenska meritev
+Pri giromagnetnem razmerju rezultat izgleda prigoljufan. Masa fotona, dobljena na ta način, je namreč zelo groba ocena in ne namenska meritev
 fotonske mase. Ocenijo jo namreč tako, da vse odstopanje meritve od teoretične vrednosti, ki jo napoveduje kvantna elektrodinamika za
-brezmasni foton, pripišejo fotonski masi. Vrednost, ki so jo dobili na ta način je $m \approx 10^{-54}$ g~\cite{over}.
+brezmasni foton, pripišejo fotonski masi. Napaka meritve je $\Delta g \sim 10^{-14}$~\cite{over}. Vrednost, ki so jo dobili na ta način je
+$m \approx 10^{-54}$ g~\cite{over}.
 
 Pri Aharonov-Bohm efektu gre za pravo in bolj sofisticirano meritev. Zaradi efektov kvantne mehanike se je izkazalo, da lahko namreč merimo
-vpliv vektorskega potenciala magnetnega polja na fazo interferenčne dveh vzporednih elektronskih curkov. Ta efekt ima teoretično napoved za
-neničelno, kot tudi ničelno maso fotona. Poskus izgleda takole: \emph{povej kako izgleda poskus in dodaj še sliko. Prav tako napiši, kolikšna
-je eksperimentalna vrednost. Povej kdo vse je to meril.} Najnatančnejši rezultat so dobili Williams, Faller in Hill (1965),
-$m \lesssim 10^{-14}$ eV $\equiv 2\times 10^{-47}$ g~\cite{nieto2}.
+vpliv vektorskega potenciala magnetnega polja na fazo interferenčne dveh vzporednih elektronskih curkov, ki med katerima je pravokotno na njuno
+tirnico postavljen solenoid. Ta efekt ima teoretično napoved za
+neničelno, kot tudi ničelno maso fotona. Najnatančnejši rezultat so dobili Williams, Faller in Hill (1965),
+$m \lesssim 10^{-14}$ eV $\equiv 2\times 10^{-47}$ g~\cite{nieto2}, čeprav so dobili tudi že nižje vrednosti $m \sim 10^{-51}$ g~\cite{over},
+$m \sim 10^{-51}$ g, $m \sim 10^{53}$ g in tudi $m \sim 10^{54}$ g (skalarni Aharonov-Bohm efekt~\cite{over}).
 
 Take meritve postajajo končno primerljive z opazovanji iz vesolja in
 bodo morda prinesle merjenje fotonske mase nazaj na zemljo.
 
-Kot zanimivost naj dodam tudi to, da so po navdihu Higgsovega mehanizma za foton naredili tako imenivani "`kriogenski"' poskus tipa Cavendish.
+Kot zanimivost naj dodam tudi to, da so po navdihu Higgsovega mehanizma za foton naredili tako imenovani "`kriogenski"' poskus tipa Cavendish.
 Teoretični princip za temperaturno odvisnost sta napisala Primack in Scher~\cite{nieto2},
-opravili pa so ga Ryan, Acceta in Austin (1985) in dosegeli $m \leq (1,5 \pm 1,38) \times 10^{-42}$ g, pri temperaturi
+opravili pa so ga Ryan, Acceta in Austin (1985) in dosegli $m \leq (1,5 \pm 1,38) \times 10^{-42}$ g, pri temperaturi
 $1,36$ K~\cite{over}.
 
 \subsection{Meritve v našem osončju}
@@ -461,20 +521,20 @@ Fiziki prejšnjega stoletja so videli, da je Maxwellova elektrodinamika zelo nat
 bodisi pri zelo velikih razdaljah\footnote{zelo dolga valovna dolžina} ali pa rešitve po dolgem času.
 
 Schroedinger (1943)~\cite{nieto1} se je zato odločil, da bo meril obliko silnic zemeljskega magnetnega polja. Dipolni moment zemlje bi po
-Maxwellu imel obliko $1/r^3$, vendar pa mora zaradi Yukowovega potenciala padati hitreje. Defekt bi bil najbolje viden na ekvatorju.
-Schroedinger je uporabil že obstoječe meritve iz leta 1922, ki jih je objavil gospod Schimidt leta 1924. Leta 1955 sta se z Bassom odločila,
+Maxwellu imel obliko $1/r^3$, vendar pa mora zaradi Yukawovega potenciala padati hitreje. Defekt bi bil najbolje viden na ekvatorju.
+Schroedinger je uporabil že obstoječe meritve iz leta 1922, ki jih je objavil gospod Schmidt leta 1924. Leta 1955 sta se z Bassom odločila,
 da bosta rezultat pomnožila s faktorjem $2$ in dobila mejo $m \leq 10^{-47}$ g~\cite{nieto1}.
 
-Schroedingerjevo meritev sta ponovila A.S. Goldhaber in M.M. Nieto (1968) in dobila oceno $m = 4 \times 10^{-48}$ g~\cite{nieto1, over}.
+Schroedingerjevo meritev sta ponovila A. S. Goldhaber in M. M. Nieto (1968) in dobila oceno $m = 4 \times 10^{-48}$ g~\cite{nieto1, over}.
 
 Iste poskuse so pozneje opravili za večja telesa, kot je tudi Schroedinger predlagal. Najboljši rezultat bi po njegovem mnenju dal Jupiter,
-saj je nejvečji med planeti. To je storil Davis (1975) s svojo ekipo, uporabili so rezultate sonde Pioneer in dobili rezultat
+saj je največji med planeti. To je storil Davis (1975) s svojo ekipo, uporabili so rezultate sonde Pioneer in dobili rezultat
 $m \lesssim 4\times10^{-16}$ eV $\equiv 7 \times 10^{-49}$ g~\cite{nieto2,over}.
 
 S pomočjo disperzije optične svetlobe je de Broglie napovedoval mejo $m \leq 10^{-39}$ kg~\cite{nieto2}. Pozneje so jo izmeril Kroll,
 ki pravi $m \lesssim 3 \times 10^{-13}$ eV $\equiv 4 \times 10^{-46}$ kg~\cite{nieto2}.
 
-Opraviljene so bile še druge meritve, ki so predolge za ta seminar, kot na primer vplivi mase na sončev veter (Ryutov 2007,
+Opravljene so bile še druge meritve, ki so predolge za ta seminar, kot na primer vplivi mase na sončev veter (Ryutov 2007,
 $m \lesssim 10^{-18}$ eV $\equiv 20\times10^{-51}$ g).
 
 \subsection{Kozmološke meritve}
@@ -484,9 +544,9 @@ vektorski potencial
 iz galaktičnega jedra~\cite{over}, obliko svetlobnega snopa iz pulzarjev~\cite{nieto1} in oblike meglic~\cite{nieto2}.
 
 Najzanimivejša metoda je metoda, ki jo je predlagal
-Lakes (1998) za merjenje magnetnega vektorskega potenciala. Magnetno polje je daleč od galktičnega jedra
+Lakes (1998) za merjenje magnetnega vektorskega potenciala. Magnetno polje je daleč od galaktičnega jedra
 skoraj konstantno, prav tako tudi vektorski potencial, ki je zaradi mase fotona opazljivka v Lagrange-ianu. Zaradi vrtenja Zemlje okrog
-svoje osi s frekvenco $\w$ in neničelnega ambientalnega vektorksega potenciala, bi na zemljo deloval navor
+svoje osi s frekvenco $\w$ in neničelnega ambientalnega vektorskega potenciala, bi na zemljo deloval navor
 
 \[
 	\vec{M} \propto \vec{\w} \times m^2\vec{A}
@@ -499,8 +559,17 @@ $m \lesssim 7 \times 10^{-20}$ eV $\equiv 10^{-52}$ g~\cite{nieto2}. Ker seveda 
 Če je $|\vec{A}|$ zelo majhna vrednost, ne bi opazili mase fotona, tudi če bi bila zelo velika. Prav tako ne moremo reči, da je celoten
 prispevek $\vec{A}$ posledica vektorskega potenciala galaksije.
 
-Higgsov mehanizem bi bil tudi tukaj -- v režimu, ki bi bil analogen superprevodniku tipa II, bi imel foton maso lahko v zelo viskih energijah,
+Higgsov mehanizem bi bil tudi tukaj -- v režimu, ki bi bil analogen superprevodniku tipa II, bi imel foton maso lahko v zelo visokih energijah,
 temperaturah, torej v zgodnjem vesolju~\cite{nieto2}.
+
+\section{Zaključek}
+
+Tako smo se popeljali preko teorije z masivnim fotonom, podali različne posledice in teoretične prijeme, ki se tu najbolj uporabljajo. Ta hip
+"`uradna"' meja, ki jo podaja {\sc Particle Data Group} je osnovana na~\cite{nieto2} in znaša $m \leq 10^{-18}$ eV. V primeru, da ni fotonske
+mase, smo verjetno še vedno kakih sto let proč, preden bo dosežena Heisenbergova meja $m \sim 10^{-66}$ g. Trenutno se Higgsov sektor nekako
+prebuja in fiziki skušajo odstopanja od klasične Maxwellove elektrodinamike parametrizirati s Higgsovim mehanizmom. Opravljene so bile še
+mnoge druge meritve, nekatere bolj eksotične od teh sploh v kozmoloških opazovanj, tudi teorija v ozadju je v mnogih bolj divja, sploh pri
+Higgsovem mehanizmu~\cite{higgs}.
 
 \begin{thebibliography}{9}
 	\bibitem{nieto2}
