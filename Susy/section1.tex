@@ -1,0 +1,191 @@
+\section{Ponovitev}
+
+Iz predavanj Višje kvantne mehanike dr. prof. Tomaža Prosena se spomnimo, da lahko polja
+kvantiziramo prek operatorjev polja, za kar pa nujno potrebujemo kreacijske, $a^\dagger$ in 
+anihilacijske $a$ operatorje.
+
+\subsection{Grupa}
+
+\vspace{0.5 cm}
+
+{\em Grupa} je množica elementov z naslednjimi lastnostmi:
+
+\begin{enumerate}
+	\item{Med elementi obstaja asociativna operacija.}
+	\item{Množica je za to operacijo zaprta.}
+	\item{Izmed teh elementov je eden tak, ki je za to operacijo enota.}
+	\item{V množici so zajeti tudi vsi inverzni elementi.}
+\end{enumerate}
+
+V kolikor ne veljajo vsi pogoji imamo enega izmed nižjih objektov, kot je na primer monoid
+ali polgrupa.
+
+Če je operacija komutativna, je ta grupa abelova in operacijo imenujemo seštevanje. Sicer
+pa je grupa neabelova in operacijo imenujemo množenje.
+
+\subsection{Algebra}
+
+\vspace{0.5cm}
+
+Pogostokrat srečamo pojem `algebra'. Pa ponovimo, kaj je to.\\
+
+\emph{Kolobar} je množica elementov z naslednjimi lastnostmi:
+
+\begin{enumerate}
+	\item{Ta množica je abelova grupa z operacijo seštevanja.}
+	\item{Elementi so tudi grupa za operacijo množenja.}
+	\item{Za kombinacijo operacij velja distributivnostna relacija.}
+\end{enumerate}
+
+\emph{Algebra} je vektorski prostor nad kolobarjem.
+
+Liejeve grupe imajo tudi svojo algebro -- generatorji Liejevih grup nepenjajo vektorski
+prostor. Da pokažemo, da zadoščajo pogojem iz algebre zadošča zapis (anti)komutacijskih
+relacij.
+
+\begin{equation}
+	[A,B]_\pm = AB \pm BA
+\end{equation}
+
+Tudi druge končnim grupam lahko priredimo algebre -- za nas relevantna je simetrična grupa
+$S_n$, ki jo imenujemo tudi permutacijska grupa. Generatorji so kreacijsko-anihilacijski
+operatorji. Lastne vrednosti so $\pm 1$, hkrati pa grupa komutira s Hamiltonianom, kar pomeni,
+da je to dobra simetrija. Od tu delce ločimo glede na lihe oz. sode rešitve glede na $S_n$. 
+Lihe ustrezajo fermionom, sode pa bozonom. 
+
+Tako od tu dobimo fermionsko in bozonsko algebro:
+
+\begin{align}
+	[a_i, a_j^\dagger]_\pm &= \delta_{ij}, \\
+	[a_i, a_j]_\pm &= 0,
+\end{align}
+
+kjer komutatorji ustrezajo bozonom, antikomutatorji pa fermionom.
+
+\section{Uvod v supersimetrijo}
+
+Obravnavajmo Schr\" odingerjevo enačbo, tj. Hamiltonian
+
+\begin{equation}
+	H = -\frac{\hbar^2}{2m}\nabla^2 + mV(\vec{x}).
+	\label{schroedinger}
+\end{equation}
+
+Vpeljemo enote $\hbar = c_0 = \varepsilon_0 = 1$. $V(\vec{x})$ je brezdimenzijski, vidimo, da
+nam $m$ služi zgolj za reskalirenje koordinate $\vec{x}$. Da bo~\eqref{schroedinger} brez
+dimenzije naredimo $\vec{x} \to m\vec{x}$. Tako je brezdimenzijska Schr\" odingerjeva enačba
+
+\begin{equation}
+	H = -\frac{1}{2}\nabla^2 + V(\vec{x}),
+	\label{s1}
+\end{equation}
+
+kjer velja še $H = i\pt$. V eni dimenziji se~\eqref{s1} glasi
+
+\begin{equation}
+	H = -\frac{1}{2}\px^2 + V(x).
+	\label{sx}
+\end{equation}
+
+Velja
+
+\begin{equation}
+	H\psi_n(x) = E_n\psi_n(x) = i\pt\psi_n(x).
+\end{equation}
+
+Za $E_0 = 0$ torej velja $H|\psi_0\rangle = 0$. Od tu dobimo pogoj za potencial
+
+\begin{equation}
+	V(x) = \frac{1}{2}\frac{\px^2\psi_0}{\psi_0}
+	\label{vpogoj}
+\end{equation}
+
+Naš Hamiltonian bi radi zapisali v obliko z operatorjem štetja, $a^\dagger$ in $a$, se pravi
+$H = a^\dagger a$. Vidimo, da je~\eqref{sx} oblike $H \sim (A + B)(A - B)$, tako bomo
+definirali superpotencial $W(x)$, da bo
+
+\begin{align}
+	a &= W(x) + \frac{1}{\sqrt{2}}\px, \\
+	a^\dagger &= W(x) - \frac{1}{\sqrt{2}}\px.
+\end{align}
+
+Poglejmo, kaj je $a^\dagger a$,
+
+\begin{align}
+	a^\dagger a &= \Big[W(x) - \frac{1}{\sqrt{2}}\px\Big]\Big[W(x) +
+		\frac{1}{\sqrt{2}}\px\Big] \\
+	&= -\frac{1}{2}\px^2 + \underbrace{W^2(x) - \frac{1}{\sqrt{2}}\px W(x)}_{V(x)}
+		-\underbrace{\frac{1}{\sqrt{2}}W(x)\px}_{=0}
+\end{align}
+
+Se pravi
+
+\begin{align}
+	V(x) &=\frac{1}{2}\frac{\px^2\psi_0(x)}{\psi_0(x)} = W^2(x) - \frac{1}{\sqrt{2}}\px
+		W(x) \label{riccati} \\
+	W(x) &= -\frac{1}{\sqrt{2}}\frac{\px\psi_0(x)}{\psi_0(x)} \label{superpotencial},
+\end{align}
+
+kjer smo izraz~\eqref{superpotencial} dobili z reševanjem Riccatijeve enačbe~\eqref{riccati}.
+
+Tako smo dobili $H_1 = a^\dagger a$ in ima rešitve $\psi_n(x)$ in $E_n$, kot jih poznamo
+od prej.
+
+Definirajmo še $H_2 = aa^\dagger$. Dobimo ga kot
+
+\begin{align}
+	H_1 &= -\frac{1}{2}\px^2 + V_1(x) = a^\dagger a, \\
+	H_2 &= -\frac{1}{2}\px^2 + V_2(x) = aa^\dagger,
+\end{align}
+
+kjer
+
+\begin{align}
+	V_1(x) &= W^2(x) - \frac{1}{\sqrt{2}}\px W(x), \\
+	V_2(x) &= W^2(x) + \frac{1}{\sqrt{2}}\px W(x).
+\end{align}
+
+$H_1$ ima lastne pare $\psi^{(1)}_n(x)$, $E^{(1)}_n$, $H_2$ pa $\psi^{(2)}_n(x)$, $E^{(2)}_n$.
+
+$V_2(x)$ je supersimetrični partner $V_1(x)$. Lastne funkcije in energijski spekter $H_2$
+dobimo lahko z reševanjem, ali pa uganemo
+
+\begin{equation}
+	\psi^{(2)}_n(x) = a\psi^{(1)}_n(x),
+\end{equation}
+
+od koder vidimo da $\psi^{(2)}_0(x)$ ne obstaja, saj anihilacijski operator iz vakuuma naredi
+ničlo po definiciji. Energijski spekter $H_2$ je enak tistemu iz $H_1$, s tem da nima
+osnovnega stanja $E_0$, kar lahko pokažemo kot
+
+\begin{equation}
+	H_2\psi^{(2)}_n(x) = aa^\dagger (a\psi^{(1)}_n(x)) = a(a^\dagger a)\psi^{(1)}_n(x) =
+		aE^{(1)}_n\psi^{(1)}_n(x) = E_n^{(1)}(a\psi_n^{(1)}) = E_n^{(1)}\psi_n^{(2)},
+\end{equation}
+
+se pravi
+
+\begin{equation}
+	E^{(1)}_n \equiv E^{(2)}_n, \qquad n = 1, 2, 3 \ldots
+\end{equation}
+
+Hamiltoniana $H_1$ in $H_2$ bi radi združili v enega, tako da se prostora ne mešata. Zato
+definiramo
+
+\begin{equation}
+	H \equiv \begin{bmatrix}H_1& & \\ & &H_2 \end{bmatrix},
+\end{equation}
+
+\begin{equation}
+	Q^\dagger = \begin{bmatrix} 0& &a^\dagger \\ 0& &0 \end{bmatrix}, \quad
+	Q = \begin{bmatrix} 0& &0 \\ a& &0 \end{bmatrix},
+\end{equation}
+
+ki zadoščajo sledečim kanoničnim (anti)komutacijskim relacijam:
+
+\begin{align}
+	[Q_i,Q_j] = \{Q_i,Q_j\} = 0 \\
+	\{Q_i,Q_j^\dagger\} = H\delta_{ij}
+\end{align}
+
+
