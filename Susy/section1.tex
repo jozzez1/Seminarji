@@ -1,8 +1,9 @@
 \section{Ponovitev}
 
-Iz predavanj Vi\v sje kvantne mehanike dr. prof. Toma\v za Prosena se spomnimo, da lahko polja
+Iz predavanj Vi\v sje kvantne mehanike se spomnimo, da lahko polja
 kvantiziramo prek operatorjev polja, za kar pa nujno potrebujemo kreacijske, $a^\dagger$ in 
-anihilacijske $a$ operatorje.
+anihilacijske $a$ operatorje. Na kratko ponovimo nekaj pojmov, s katerimi se bomo sre\v cevali tekom tega
+seminarja.
 
 \subsection{Grupa}
 
@@ -17,8 +18,8 @@ anihilacijske $a$ operatorje.
 	\item{V mno\v zici so zajeti tudi vsi inverzni elementi.}
 \end{enumerate}
 
-V kolikor ne veljajo vsi pogoji imamo enega izmed ni\v zjih objektov, kot je na primer monoid
-ali polgrupa.
+V kolikor ne veljajo vsi pogoji imamo enega izmed ni\v zjih objektov, kot je na primer monoid (nimamo
+nujno vseh inverzov) ali polgrupa (nimamo nujno udentitete).
 
 \v Ce je operacija komutativna, je ta grupa abelova in operacijo imenujemo se\v stevanje. Sicer
 pa je grupa neabelova in operacijo imenujemo mno\v zenje.
@@ -33,25 +34,38 @@ Pogostokrat sre\v camo pojem `algebra'. Pa ponovimo, kaj je to.\\
 
 \begin{enumerate}
 	\item{Ta mno\v zica je abelova grupa z operacijo se\v stevanja.}
-	\item{Elementi so tudi grupa za operacijo mno\v zenja.}
+	\item{Elementi so hkrati (pol)grupa za operacijo mno\v zenja.}
 	\item{Za kombinacijo operacij velja distributivnostna relacija.}
 \end{enumerate}
 
 \emph{Algebra} je vektorski prostor nad kolobarjem.
 
 Liejeve grupe imajo tudi svojo algebro -- generatorji Liejevih grup nepenjajo vektorski
-prostor. Da poka\v zemo, da zado\v s\v cajo pogojem iz algebre zado\v s\v ca zapis (anti)komutacijskih
-relacij.
+prostor na mnogoterosti grupe\footnote{Vsaka Liejeva grupa je hkrati mnogoterost}. Da poka\v zemo,
+da zado\v s\v cajo pogojem iz algebre zado\v s\v ca zapis komutacijskih relacij med generatorji, zato
+bomo na tem mestu definirali komutator, en.~\eqref{komutator} in anti-komutator, en.~\eqref{antikomutator}:
 
-\begin{equation}
-	[A,B]_\pm = AB \pm BA
-\end{equation}
+\begin{align}
+	[A,B] &\equiv AB - BA, \label{komutator}\\
+	\{A,B\} &\equiv AB + BA. \label{antikomutator}
+\end{align}
 
-Tudi druge kon\v cnim grupam lahko priredimo algebre -- za nas relevantna je simetri\v cna grupa
-$S_n$, ki jo imenujemo tudi permutacijska grupa. Generatorji so kreacijsko-anihilacijski
-operatorji. Lastne vrednosti so $\pm 1$, hkrati pa grupa komutira s Hamiltonianom, kar pomeni,
-da je to dobra simetrija. Od tu delce lo\v cimo glede na lihe oz. sode re\v sitve glede na $S_n$. 
-Lihe ustrezajo fermionom, sode pa bozonom. 
+Vpeljali bomo skupno notacijo, s katero bomo lahko "`me\v sali"' med obema pojmoma:
+
+\begin{align}
+	[A,B]_\pm = AB \pm BA.
+\end{align}
+
+Tudi kon\v cnim grupam lahko priredimo algebre -- za nas relevantna je simetri\v cna grupa
+$S_n$, ki jo imenujemo tudi permutacijska grupa.
+
+\v Ce to grupo raz\v sirimo z operacijo parnosti, ima ta nova grupa dve nerazcepni upodobitvi. Funkcije so lahko
+bodisi simetri\v cne na permutacije, ali pa anti-simetri\v cne. Baza za prvo upodobitev so bozonski, za drugo
+pa fermionski kreacijsko-anihilacijski operatorji.
+
+Lastne vrednosti so $\pm 1$ (parnost), hkrati pa grupa komutira s Hamiltonianom, kar pomeni,
+da je to dobra simetrija in da Hamiltonian lahko zapi\v semo tako, v bazi te upodobitve, oz. druga\v ce:
+Hamiltonian lahko zapi\v semo s pomo\v cjo fermionskih ali bozonskih kreacijsko-anihilaijckih operatorjev.
 
 Tako od tu dobimo fermionsko in bozonsko algebro:
 
@@ -60,9 +74,7 @@ Tako od tu dobimo fermionsko in bozonsko algebro:
 	[a_i, a_j]_\pm &= 0,
 \end{align}
 
-kjer komutatorji ustrezajo bozonom, antikomutatorji pa fermionom. Ti operatorji pripadajo eni izmed
-nerazcepnih upodobitev grupe $S_n$ in potemtakem tvorijo bazo za invarinantnega prostora, v katerem
-"`\v zivi"' na\v s Hamiltonian (grupa $S_n$ komutira s hamiltonskim operatorjem).
+kjer komutatorji ustrezajo bozonom, antikomutatorji pa fermionom.
 
 \section{Uvod v supersimetrijo}
 
@@ -73,9 +85,8 @@ Pa si omo\v cimo noge v vodi supersimetrije: obravnavajmo Schr\" odingerjevo ena
 	\label{schroedinger}
 \end{equation}
 
-Vpeljemo enote $\hbar = c_0 = \varepsilon_0 = 1$. $V(\vec{x})$ je brezdimenzijski, vidimo, da
-nam $m$ slu\v zi zgolj za reskalirenje koordinate $\vec{x}$. Da bo~\eqref{schroedinger} brez
-dimenzije naredimo $\vec{x} \to m\vec{x}$. Tako je brezdimenzijska Schr\" odingerjeva ena\v cba
+Vpeljemo enote $\hbar = c_0 = \varepsilon_0 = 1$. Maso $m$ bomo zaenkrat postavili na $1$. Tako je brezdimenzijska
+Schr\" odingerjeva ena\v cba
 
 \begin{equation}
 	H = -\frac{1}{2}\nabla^2 + V(\vec{x}),
@@ -89,6 +100,8 @@ kjer velja \v se $H = i\pt$. V eni dimenziji se~\eqref{s1} glasi
 	\label{sx}
 \end{equation}
 
+Predpostavimo, da je na\v s potencial neni\v celen in navzdol omejen.
+
 Velja
 
 \begin{equation}
@@ -98,9 +111,12 @@ Velja
 Za $E_0 = 0$ torej velja $H|\psi_0\rangle = 0$. Od tu dobimo pogoj za potencial
 
 \begin{equation}
-	V(x) = \frac{1}{2}\frac{\px^2\psi_0}{\psi_0}
+	V(x) = \frac{1}{2}\frac{\px^2\psi_0}{\psi_0},
 	\label{vpogoj}
 \end{equation}
+
+kjer smo predpostavili, da so stanja $\psi_n(x)$ vezana stanja, tj. je $\psi_0(x)$ dobro dolo\v cen, in
+to lahko storimo.
 
 Na\v s Hamiltonian bi radi zapisali v obliko z operatorjem \v stetja, $a^\dagger$ in $a$, se pravi
 $H = a^\dagger a$, zato moramo poiskati nek pameten razcep. Vidimo, da je~\eqref{sx} oblike
@@ -111,7 +127,10 @@ $H \sim (A + B)(A - B)$, tako bomo definirali superpotencial $W(x)$, da bo
 	a^\dagger &= W(x) - \frac{1}{\sqrt{2}}\px.
 \end{align}
 
-Vse lepo in prav, vendar, a tak $W (x)$ sploh obstaja? V fiziki na to vpra\v sanje odgovorimo
+Taka operatorja sta res drug drugemu hermitsko adjungirana, saj je operator $\px$ anti-hermitski (do totalnega
+odvoda natan\v cno).
+
+Vse lepo in prav, vendar, a tak $W (x)$ sploh obstaja? V fiziki na taka vpra\v sanja ponavadi odgovorimo
 retrospektivno in to bomo storili tudi sedaj. Vse skupaj vstavimo v Hamiltonian in iz njega dolo\v cimo
 vezi, katerim mora zado\v s\v cati.
 
@@ -119,11 +138,12 @@ Poglejmo, kaj naredi $a^\dagger a$ na neki funkciji $\phi (x)$:
 
 \begin{align}
 	a^\dagger a\ \phi(x)&= \Big[W(x) - \frac{1}{\sqrt{2}}\px\Big]\Big[W(x) +
-		\frac{1}{\sqrt{2}}\px\Big]\phi(x) \\
+		\frac{1}{\sqrt{2}}\px\Big]\phi(x) \notag \\
 	&= \Big[-\frac{1}{2}\px^2 + W^2(x)\Big]\phi(x) - \frac{1}{\sqrt{2}}\Big[
-		\underbrace{\px \big(W(x)\phi(x)\big) - W(x)\px\phi(x)}_{(\px W(x))\phi(x)} \Big] \\
+		\underbrace{\px \big(W(x)\phi(x)\big) - W(x)\px\phi(x)}_{(\px W(x))\phi(x)} \Big] \notag \\
 	&= \bigg\{-\frac{1}{2}\px^2 +
 		\underbrace{W^2(x) - \frac{1}{\sqrt{2}}\big[\px W(x)\big]}_{V(x)}\bigg\}\phi(x),
+	\label{dokaz.aad}
 \end{align}
 
 Se pravi, \v ce je ta ena\v cba Schr\" odingerjeva, potem mora $W (x)$ spo\v stovati slede\v ca izraza:
@@ -150,8 +170,11 @@ kjer
 
 \begin{align}
 	V_1(x) &= W^2(x) - \frac{1}{\sqrt{2}}\px W(x), \\
-	V_2(x) &= W^2(x) + \frac{1}{\sqrt{2}}\px W(x).
+	V_2(x) &= W^2(x) + \frac{1}{\sqrt{2}}\px W(x). \label{v2pot}
 \end{align}
+
+Ena\v cbo~\eqref{v2pot} lahko doka\v zemo z istim postopkom kot~\eqref{dokaz.aad}, le da na funkcijo $\phi(x)$
+delujemo z operatorjem $aa^\dagger$.
 
 $H_1$ ima lastne pare $\psi^{(1)}_n(x)$, $E^{(1)}_n$, $H_2$ pa $\psi^{(2)}_n(x)$, $E^{(2)}_n$.
 
@@ -186,7 +209,7 @@ Hamiltoniana $H_1$ in $H_2$ bi radi zdru\v zili v enega, tako da se prostora ne 
 definiramo
 
 \begin{equation}
-	H \equiv H_1 \oplus H_2 \equiv \begin{bmatrix}H_1 & \\
+	\H \equiv H_1 \oplus H_2 \equiv \begin{bmatrix}H_1 & \\
 		& H_2 \end{bmatrix},
 \end{equation}
 
@@ -198,15 +221,8 @@ definiramo
 \end{equation}
 
 \begin{equation}
-	H = Q^\dagger Q + QQ^\dagger,
+	Q^\dagger Q + QQ^\dagger = \{Q, Q^\dagger\} = \H,
 \end{equation}
-
-ki zado\v s\v cajo slede\v cim kanoni\v cnim (anti)komutacijskim relacijam:
-
-\begin{align}
-	[Q_i,Q_j] = \{Q_i,Q_j\} = 0 \\
-	\{Q_i,Q_j^\dagger\} = H\delta_{ij}
-\end{align}
 
 Tak Hamiltonian ima degeneriran spekter, saj imata $H_1$ in $H_2$ iste lastne vrednosti.
 
