@@ -1,0 +1,401 @@
+\documentclass[12pt, a4 paper]{article}
+\usepackage[slovene]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[small,width=0.8\textwidth]{caption}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, float, fullpage, hyperref, mathrsfs}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black!60!red,
+	citecolor=black!60!green,
+	urlcolor=black!60!cyan,
+	filecolor=black!60!magenta
+}
+
+\newcommand{\rr}{
+	\ensuremath{\langle r^2 \rangle}
+}
+
+\newcommand{\cor}{
+	\ensuremath{\langle \vec{u}_i\cdot\vec{u}_{i+1}\rangle}
+}
+
+\renewcommand{\u}{
+	\ensuremath{\hat{u}}
+}
+
+\renewcommand{\t}{
+	\ensuremath{\hat{t}}
+}
+
+\renewcommand{\d}{
+	\ensuremath{\mathrm{d}}
+}
+
+\newcommand{\od}[2]{
+	\ensuremath{\frac{\d #1}{\d #2}}
+}
+
+\newcommand{\e}{
+	\ensuremath{\mathrm{e}}
+}
+
+\newcommand{\tp}{
+	\ensuremath{\vec{t}_\perp}
+}
+
+\newcommand{\tv}{
+	\ensuremath{t_\parallel}
+}
+
+\newcommand{\III}{
+	\ensuremath{\frac{Na}{4(1 - r/Na)}}
+}
+
+\newcommand{\F}{
+	\ensuremath{\mathcal{F}}
+}
+
+\newcommand{\sh}{
+	\operatorname{sh}
+}
+
+\newcommand{\ch}{
+	\operatorname{ch}
+}
+
+\newcommand{\arctg}{
+	\operatorname{arc\,tg}
+}
+
+\begin{document}
+
+\begin{center}
+\textsc{Fizika mehke snovi}\\
+\textsc{2012/13}\\[0.5cm]
+\textbf{Doma\v ca naloga -- model \v crvje verige}
+\end{center}
+\begin{flushright}
+\textbf{Jo\v ze Zobec}
+\end{flushright}
+
+\section{Uvod}
+
+To nalogo bi rad predstavil na malo druga\v cen na\v cin. Najprej bi rad pokazal kon\v cne rezultate in
+\v sele potem pot, kako pridemo do njih.
+
+Tekom naloge bom ulomke v eni vrstici pisal kot
+
+\[
+   \frac{a_1 a_2 a_3 \ldots a_N}{b_1 b_2 b_3 \ldots b_M} \equiv a_1 a_2 a_3 \ldots a_N/b_1 b_2 b_3 \ldots b_M,
+\]
+
+to pa zgolj zato, da se izognemo nepotrebnih oklepajev, tj. zavoljo la\v zjega branja.
+
+V tej doma\v ci nalogi moram primerjati dva modela verig monomerov -- tj. polimerov in sicer: model
+popolnoma gibke verige (PGV) in pa model \v crvje verige (WLC -- \emph{worm-like chain}). Klju\v cne razlike
+so podane v tabeli~\ref{tab1}.
+
+\begin{table}[H]
+	\centering
+	\caption{tu so predstavljene razlike med modeloma PGV in WLC. Model WLC je v limiti enak PGV,
+		torej je WLC naravna raz\v siritev PGV in smo res na pravi poti.}
+	\vspace{6pt}
+	\begin{tabular}{c|c|c}
+			& PGV					& WLC \\ \hline
+	$F$		& $\frac{3}{2}k_B T\frac{r^2}{Na^2}$	& $\frac{k_B T}{\ell_p}[\frac{r^2}{2Na}
+		- \frac{r}{4} + \III]$\\
+	$\rr$		& $a^2N$				& $\ell_p^2 (2L/\ell_p + \e^{-2L/\ell_p})$ \\
+	$\ell_p$	& $a/2$					& $\kappa/k_B T = a\kappa_0/k_B T$\\
+	\end{tabular}
+	\label{tab1}
+\end{table}
+
+Shajamo iz Hamiltoniana
+
+\begin{equation}
+	H = H_0 + H_\text{upogib} = H_0 + \frac{\kappa_0}{2}\sum_{i = 0}^{N-1}|\u_i - \u_{i+1}|^2 =
+		H_0 - \kappa_0 \sum_{i = 0}^{N-1}\u_i \cdot \u_{i+1} + C,
+	\label{osnova}
+\end{equation}
+
+kjer je $C$ konstanta, ki pove zgolj dol\v zine verige in jo lahko mirne du\v se od\v stejemo. Vektorji $\u_i$ so
+normirani, tj. $\u \equiv \vec{u}/|\vec{u}|$. V zvezni limiti lahko taisti Hamiltonian zapi\v semo kot
+
+\begin{equation}
+	H \to \frac{\kappa}{2}\int_0^L \bigg|\od{\hat{t}}{s}\bigg|^2 \d s = \frac{\kappa}{2}
+		\int_0^L c(s)^2 \d s, \qquad \hat{t} = \vec{t}/t, \quad \vec{t} = \od{\vec{r}}{s},
+	\label{hamilton}
+\end{equation}
+
+kjer smo uvedli nove skalirane parametre: $L = aN$, kjer je $a$ dol\v zina monomera, $\kappa = a\kappa_0$, $s$ pa
+je naravni parameter na na\v si krivulji (polimeru). Zaradi elasti\v cnega \v clena v Hamiltonianu ne bomo imeli
+ostrih zavojev -- polimer bo gladka krivulja, $c(s)$ bo definiran po vsem obmo\v cju.
+
+\section{Upogibni modul in persisten\v cna dol\v zina}
+
+Upogibni modul $\kappa$ je povezan s persisten\v cno dol\v zino prek slede\v ce identitete. 
+
+\begin{equation}
+	\kappa = k_B T \ell_p,
+\end{equation}
+
+To lahko izra\v cunamo prek korelacijskih \v clenov v Hamiltoninanu~\eqref{osnova}
+
+\begin{equation}
+	\langle\u_i\cdot\u_{j}\rangle = \langle\cos\theta\rangle =
+		\frac{1}{\mathcal{N}}\int\d\Omega\cos\theta\exp(\beta\kappa_0\cos\theta),
+	\label{integral}
+\end{equation}
+
+kjer je $\mathcal{N}$ ustrezna normalizacija, ki je kar isti integral, vendar brez $\cos\theta$.
+Integral~\eqref{integral} lahko zapi\v semo (po uvedbi nove spremenljivke $\cos\theta = x$) kot
+
+\begin{equation}
+	\langle\u_i\cdot\u_{j}\rangle = \frac{\int_{-1}^1 x\e^{x\beta\kappa_0}\d x}{\int_{-1}^1
+		\e^{x\beta\kappa_0}\d x}.
+\end{equation}
+
+Spodnji integral, tj. $\mathcal{N}$, lahko kar takoj izra\v cunamo
+
+\begin{equation}
+	\mathcal{N} = \int_{-1}^1\d x\e^{\beta\kappa_0 x} = \frac{1}{\beta\kappa_0}\e^{\beta\kappa_0}
+		\bigg|_{-1}^1 = \frac{\e^{\beta\kappa_0} - \e^{-\beta\kappa_0}}{\beta\kappa_0} =
+		\frac{2\sh\beta\kappa_0}{\beta\kappa_0}.
+\end{equation}
+
+Z integralom v \v stevcu je nekoliko druga\v ce. Integrirati ga je treba "`per partes"', vendar je tudi
+enostaven integral
+
+\begin{align}
+	\int_{-1}^1x\e^{\beta\kappa_0x}\d x &= \frac{1}{\beta\kappa_0}x\e^{\beta\kappa_0x}\Big|_{-1}^1
+		 - \frac{1}{\beta\kappa_0} \int_{-1}^1\e^{\beta\kappa_0x}\d x = \notag \\
+	&= \frac{1}{\beta\kappa_0}\bigg[x\e^{\beta\kappa_0x} - \frac{1}{\beta\kappa_0}
+		\e^{\beta\kappa_0x}\bigg]_{x=-1}^{x=1} = \notag \\
+	&= \frac{2}{\beta\kappa_0}\Big(\ch\beta\kappa_0 - \frac{1}{\beta\kappa_0}\sh\beta\kappa_0\Big).
+\end{align}
+
+Izraz~\eqref{integral} je torej enak
+
+\begin{equation}
+	\langle\u_i\cdot\u_j\rangle = \langle\cos\theta\rangle = \frac{\ch\beta\kappa_0}{\sh\beta\kappa_0} -
+		\frac{1}{\beta\kappa_0}.
+	\label{persist}
+\end{equation}
+
+Z razvojem za majhne $\beta$ dobimo obna\v sanje okrog $T \to \infty$, ki je linearno, vendar takrat verjetno
+nimamo ve\v c polimerne faze. Izraz~\eqref{persist} je treba razviti za nizke temperature, oz. velike $\beta$
+in dobimo rezultat
+
+\begin{equation}
+	\langle\cos\theta\rangle \stackrel{\beta \to \infty}{\longrightarrow} 1 - \frac{1}{\beta\kappa_0}.
+	\label{betavelik}
+\end{equation}
+
+Vendar pa lahko ena\v cbo~\eqref{integral} izra\v cunamo tudi druga\v ce. Ker vemo da gre za korelacije in
+vemo, da morajo slednje padati eksponentno glede na persisten\v cno dol\v zino, mora hkrati veljati tudi to
+
+\begin{equation}
+	\langle\u_i\cdot\u_j\rangle = \exp\bigg(-\frac{|i - j|a}{\ell_p}\bigg).
+\end{equation}
+
+Hamiltonian nam narekuje, da moramo gledati korelacije sosedov, zatorej vzamemo $j = i + 1$,
+
+\begin{equation}
+	\langle\u_i\cdot\u_j\rangle = \exp\bigg(-\frac{a}{\ell_p}\bigg) \approx 1 - \frac{a}{\ell_p}.
+	\label{ellp}
+\end{equation}
+
+\v Ce sedaj primerjamo ena\v cbi~\eqref{ellp} in~\eqref{betavelik}, dobimo
+
+\begin{equation}
+	\ell_p = a\kappa_0\beta = \kappa\beta = \frac{\kappa}{k_B T}
+\end{equation}
+
+
+\section{Entropijska elasti\v cnost}
+
+To smo v PGV ponazorili z $F$, tj. prosto energijo. V potu profesorjevega obraza smo se prebili do izraza
+
+\begin{equation}
+	F = \frac{3}{2} k_B T \frac{r^2}{Na^2}.
+\end{equation}
+
+Tu se bomo vsega seveda lotili prek Hamiltoniana~\eqref{hamilton}. Na\v s polimer bomo sedaj raztegnili s
+silo $\F$ v smeri $\hat{r}$ in tako dobili
+
+\begin{equation}
+	H' = H - \F\hat{r} \cdot \int_0^L \t(s)\d s. \label{prham}
+\end{equation}
+
+Dodatek v hamiltonianu predstavlja prejeto delo. Recimo, da je sila mo\v cna, tako da je $\t$ skoraj
+vzporeden na $\hat{r}$. Potem se spla\v ca $\t$ parametrizirati glede na smer $\hat{r}$ tako, da
+$\t(s) = \tv\hat{e}_x + \tp (s)$. Vektorja $\t(s)$ lahko v vsaki to\v cki opi\v semo le z dvema komponentama,
+\v ce ustrezno izberemo koordinatni sistem, vendar se bo ta zaradi zvijanja polimerne klobke moral vrteti,
+zaradi \v cesar $\tp (s)$ ostaja dvokomponentni vektor.
+
+Zaradi velike obremenitve lahko izraze v en.~\eqref{prham} poenostavimo tako
+
+\begin{align}
+	\hat{r}\cdot\t \approx \tv &= \sqrt{1 - |\tp|^2} \approx 1 - \frac{1}{2}|\tp|^2 \label{tivu} \\
+	\bigg|\od{\tv}{s}\bigg|^2 &= \bigg(\od{\tv}{s}\bigg)^2 + \bigg|\od{\tp}{s}\bigg|^2 \approx
+		\bigg|\od{\tp}{s}\bigg|^2.
+\end{align}
+
+Na\v s Hamiltonian~\eqref{prham} tako postane
+
+\begin{equation}
+	H \approx \int_0^L\bigg(\frac{\kappa}{2}\bigg|\od{\tp}{s}\bigg|^2 + \frac{\F}{2}|\tp|^2\bigg)\d s - \F L.
+	\label{harm}
+\end{equation}
+
+Radi bi se znebili diferencialov in operirali le s $\tp$-ji, zato bomo naredili Fourierovo transformacijo
+in dobili \v cisto integralsko ena\v cbo. Pre\v ziveli bodo le kosinusni \v cleni,
+
+\begin{align}
+	\tp &= 2\sum_q \vec{a}_q\cos qs, \\
+	\vec{a}_q &\equiv \frac{1}{L}\int_0^L\d s\ \tp \cos qs,
+\end{align}
+
+s \v cimer dodatno poenostavimo en.~\eqref{harm}
+
+\begin{equation}
+	H = L\sum_{q = 1}^{\infty} (\kappa q^2 + \F)|\vec{a}_q|^2 - \F L.
+	\label{popravek}
+\end{equation}
+
+Porazdelitev spremenljivk takega hamiltoniana je Gaussova in iz ekviparticijskega izreka vemo, da na vsako
+prostostno stopnjo pride $k_B T/2$ energije. Ker ima na\v s vektor $\vec{a}_q$ dimenzijo 2, pomeni da bomo
+imeli ravno $k_B T$, tj. \v ce nadaljujemo od~\eqref{popravek}
+
+\begin{equation}
+	H = L \sum_{q = 0}^\infty \overbrace{(\kappa q^2 + \F)\langle|\vec{a}_q|^2\rangle}^{k_B T}.
+\end{equation}
+
+To vedo\v c lahko izra\v cunamo raztezek $r$ prek en.~\eqref{tivu}
+
+\begin{align}
+	\frac{r}{L} &= \frac{1}{L}\int_0^L \langle\hat{r}\cdot\t\rangle \approx
+		1 - \frac{1}{2L}\int_0^L \langle|\tp(s)|^2\rangle \d s = \notag \\
+	&= 1 - 2\sum_q \langle|\vec{a}_q|^2\rangle \approx 1 -\frac{1}{\pi}\int_0^\infty \d q\ \langle|\vec{a}_q|^2
+		\rangle = 1 - \frac{k_B T}{\pi}\int_0^\infty \frac{\d q}{\kappa q^2 + \F} = \notag \\
+	&= 1 - \frac{k_B T}{\pi\kappa}\int_0^\infty\frac{\d q}{q^2 + \F/\kappa} =
+		1 - \frac{k_B T}{\pi\kappa}\sqrt{\frac{\kappa}{\F}}\arctg\bigg(q\sqrt{\frac{\kappa}{\F}}\bigg)
+		\bigg|_{q = 0}^{q = \infty} = \notag \\
+	&= 1 - \frac{k_B T}{\pi\sqrt{\kappa\F}}\frac{\pi}{2} = 1 - \frac{k_B T}{\sqrt{4\kappa\F}},
+\end{align}
+
+sedaj pa \v se uporabimo $\kappa = \ell_p k_B T$ in dobimo
+
+\begin{equation}
+	\frac{r}{L} \approx 1 - \sqrt{\frac{k_B T}{4\ell_p \F}}, \quad \text{oz.} \quad
+	\F \approx \frac{k_B T}{4\ell_p}\frac{1}{(1 - r/L)^2}.
+\end{equation}
+
+Ta ena\v cba je veljavna v re\v zimu velikih obremenitev. Pravi rezultat izgleda takole
+
+\begin{equation}
+	\F(r) = \frac{k_B T}{\ell_p}\bigg[\frac{r}{L} + \frac{1}{4}\bigg(\frac{1}{(1 - r/L)^2} - 1\bigg)\bigg].
+	\label{sila}
+\end{equation}
+
+Sedaj se \v ze kar sama od sebe ponuja substitucija v brezdimenzijsko obliko
+\[
+	\mathscr{F} = \frac{\F\ell_p}{k_B T}, \quad x = r/L.
+\]
+
+Funkcijo $\mathscr{F}(x)$ vidimo na grafu~\ref{fig1} v log-log skali.
+
+\begin{figure}[H]\centering
+	\input{sila.tex}
+	\caption{Kot vidimo, imamo na za\v cetku res v zelo dobrem pribli\v zku linearen odziv,
+		ki pa blizu pola hitro naraste \v cez vse meje in pri `$x = 1$' dobimo poten\v cno
+		singularnost.}
+	\label{fig1}
+\end{figure}
+
+Izraz~\eqref{sila} lahko integriramo, in tako dobimo prosto energijo $F$, ki tukaj predstavlja pro\v znostno
+energijo. Naredimo nedolo\v cen integral po $r$,
+
+\begin{align}
+	F &= \int\F(r)\d r = \frac{k_B T}{\ell_p}\int\d r\bigg[\frac{r}{L} - \frac{1}{4} +
+		\frac{1}{4(1 - r/L)^2}\bigg] = \notag \\
+	&= \frac{k_B T}{\ell_p}\bigg[\frac{r^2}{2L} - \frac{r}{4} + \frac{L}{4}\frac{1}{1 - r/L}\bigg]
+		+ \text{konst.}
+	\label{prosta}
+\end{align}
+
+\v Ce izraz~\eqref{prosta} razvijemo za $r \ll L$ in upo\v stevamo, da v tem primeru velja $\ell_p = a/2$
+in $L = Na$, potem dobimo
+
+\begin{align}
+	F &= \frac{2k_B T}{a}\bigg[\frac{r^2}{2L} - \frac{r}{4} + \frac{L}{4}(1 + r/L + r^2/L^2)\bigg]
+		+ \text{konst.} = \notag \\
+	&= \frac{2k_BT}{a} \frac{3r^2}{4L} + \text{konst.} = \frac{3}{2}k_B T \frac{r^2}{Na^2} + \text{konst.}
+	\label{entropijskaF}
+\end{align}
+
+kjer sem izraz razvil do $\mathcal{O}(r^3)$ in do aditivne konstante natan\v cno. Izraz~\eqref{entropijskaF} je
+natanko enak tistemu, ki ga dobimo v re\v zimu PGV.
+
+\section{Povpre\v cen kvadrat oddaljenosti v $r$}
+
+Pa izra\v cunajmo ta $\rr$. Tega se bomo lotili tako
+
+\begin{align}
+	\rr &= \langle \vec{r} \cdot \vec{r} \rangle = \notag \\
+	&= \bigg\langle \int_0^L \vec{t}(s) \d s \cdot \int_0^L \vec{t}(s')\d s'\bigg\rangle = \notag \\
+	&= \int_0^L\d s\int_0^L\d s' \langle \vec{t}(s) \cdot \vec{t}(s') \rangle = \notag \\
+	&= \int_0^L \d s\int_0^L \d s'\ \e^{|s - s'|/\ell_p}, \label{rr}
+\end{align}
+
+kjer smo uporabili dejstvo, da morajo korelacije padati eksponentno, saj je sistem zadosti ergodi\v cen. Zaradi te
+absolutne vrednosti moramo paziti, kako bomo naprej integrirali. Integral bomo razbili na dva primera:
+
+\begin{align}
+	s < s' &\longrightarrow \e^{-\frac{s - s'}{\ell_p}}, \notag \\
+	s > s' &\longrightarrow \e^{-\frac{s' - s}{\ell_p}}. \notag
+\end{align}
+
+Sedaj lahko nadaljujemo od~\eqref{rr} in uporabimo aditivnost integralov
+
+\begin{align}
+	\rr &= \int_0^L\d s\bigg[\int_0^s \d s'\ \e^{-(s - s')/\ell_p} + \int_s^L \d s'\ \e^{-(s' -
+		s)/\ell_p}\bigg] = \notag \\
+	&= \ell_p \int_0^L \d s\ \Big[1 - \e^{-s/\ell_p} + 1 - \e^{-s/\ell_p}\e^{-L/\ell_p}\Big] = \notag \\
+	&= \ell_p^2 \Big(2L/\ell_p + \e^{-2L/\ell_p}\Big).
+\end{align}
+
+Naredimo limito za dolge verige -- $L \gg \ell_p$,
+
+\begin{equation}
+	r^2 \sim 2\ell_p L = 2\ell_p N a \approx Na^2 \quad \Longrightarrow \quad r \sim a\sqrt{N},
+	\label{rkvadrat}
+\end{equation}
+
+kjer smo upo\v stevali, da je v tej limiti $\ell_p = a/2$. To je \v cisto isti rezultat kot v PGV. Kadar pa je
+veriga prekratka se ne bo obna\v sala kot PGV, ampak bo za $L \ll \ell_p$ veljalo
+
+\begin{equation}
+	r \propto \ell_p,
+	\label{konec}
+\end{equation}
+
+kar je seveda smiselno: takrat bo veriga namre\v c bila tako kratka, da bo edina karakteristi\v cna dol\v zina
+ki jo veriga pozna, kar persisten\v cna dol\v zina $\ell_p$.
+
+Spet lahko na podlagi ena\v cbe~\eqref{rkvadrat} vpeljemo brezdimenzijski $\rho^2(x)$, kjer smo tokrat vzeli
+$x = 2L/\ell_p$. Graf lahko vidimo na sliki~\ref{fig2}.
+
+\begin{figure}[H]\centering
+	\input{sila1.tex}
+	\caption{Pri\v cnemo s konstantnim \v clenom, kot napoveduje ena\v cba~\eqref{konec}. Ko
+		polimerna klobka postaja dalj\v sa, smo \v cedalje bolj v linearnem re\v zimu.}
+	\label{fig2}
+\end{figure}
+
+
+\end{document}
