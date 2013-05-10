@@ -192,6 +192,7 @@ osnovnega stanja $E_0$, kar lahko poka\v zemo kot
 \begin{align}
 	H_2\psi^{(2)}_n(x) &= aa^\dagger (a\psi^{(1)}_n(x)) = a(a^\dagger a)\psi^{(1)}_n(x) = \notag \\
 		&= aE^{(1)}_n\psi^{(1)}_n(x) = E_n^{(1)}(a\psi_n^{(1)}) = E_n^{(1)}\psi_n^{(2)},
+	\label{degenener}
 \end{align}
 
 se pravi
@@ -205,6 +206,8 @@ Zaradi tega, spremenimo definicijo $H_1$ tako, da ne bo imel ve\v c osnovnega st
 	H_1 \to H_1^\prime = H_1 - E_0.
 \end{equation}
 
+Funkcije hamiltoniana $H_2$ bi morali v dobiti spet z re\v sevanjem 
+
 Hamiltoniana $H_1$ in $H_2$ bi radi zdru\v zili v enega, tako da se prostora ne me\v sata. Zato
 definiramo
 
@@ -214,16 +217,77 @@ definiramo
 \end{equation}
 
 \begin{equation}
-	Q^\dagger = \begin{bmatrix} 0 & a^\dagger \\
+	Q^\dagger = \sigma^+ a^\dagger = \begin{bmatrix} 0 & a^\dagger \\
 		0 & 0 \end{bmatrix}, \quad
-	Q = \begin{bmatrix} 0 & 0 \\
+	Q = \sigma^- a = \begin{bmatrix} 0 & 0 \\
 		a & 0 \end{bmatrix},
 \end{equation}
 
 \begin{equation}
-	Q^\dagger Q + QQ^\dagger = \{Q, Q^\dagger\} = \H,
+	Q^\dagger Q + QQ^\dagger = \{Q, Q^\dagger\} = \H.
 \end{equation}
 
-Tak Hamiltonian ima degeneriran spekter, saj imata $H_1$ in $H_2$ iste lastne vrednosti.
+\subsection{Me\v sanje bozonskih in fermionskih stanj}
 
+Kot se verjetno kar najbolj povdarja, obstaja v supersimetri\v cnih teorijah nekak\v sna direktna linija,
+ki povezuje bozonske operatorje s fermionskimi. Pa poglejmo, kaj to pravzaprav pomeni. Operatorja
+$a$ in $a^\dagger$ tvorita boznonsko algebro
+
+\begin{equation}
+	[a, a^\dagger] = (\px W), \qquad [a, a] = 0.
+\end{equation}
+
+V splo\v snem je $\px W = 1$ le za harmonski oscilator, za vi\v sje \v clene pa je problem bolj
+kompliciran, zarade anharmonske sklopitve. Opis v Fockovem prostoru ni ve\v c tako enostaven, vendar
+mi verjemite na besedo, da so to \v se vedno bozonski operatorji.
+
+Definirajmo operatorje $c$ in $c^\dagger$, tako da
+
+\begin{equation}
+	c = \sigma^+, \qquad c^\dagger = \sigma^-,
+\end{equation}
+
+Poka\v zemo lahko, da tile operatorji zadostijo enostavni fermionski algebri,
+
+\begin{equation}
+	\{c, c^\dagger\} = 1, \qquad \{c, c\} = 0,
+\end{equation}
+
+torej lahko $Q$ in $Q^\dagger$ zapi\v semo kot
+
+\begin{equation}
+	Q = c^\dagger a, \qquad Q^\dagger = a^\dagger c.
+\end{equation}
+
+Sedaj vidimo, kako je pravzaprav treba interpretirati operatorje $Q$ in $Q^\dagger$. Ker namre\v c
+velja
+
+\begin{equation}
+	[Q, H] = [Q^\dagger, H] = 0,
+\end{equation}
+
+tile operatorji me\v sajo bozonska in fermionska stanje ne da bi pri tem spremenili energijo stanja.
+
+\subsection{Zlom supersimetrije}
+
+Tak Hamiltonian ima degeneriran spekter, saj imata $H_1$ in $H_2$ iste lastne vrednosti. Kadar velja
+$E^{(1)}_0 = 0$ pravimo, da je supersimetrija zlomljena, saj Hamiltoniana nista ve\v c degenerirana
+in takih operatorjev $Q$ nimamo ve\v c. V teorijah polja to merimo s tako imenovanim Witten-ovim
+indeksom,
+
+\begin{equation}
+	\Delta (\beta) = \Tr\big[\e^{-\beta H_1} - \e^{-\beta H_2}\big].
+\end{equation}
+
+Za supersimetri\v cne teorije je 
+\begin{equation}
+	\lim_{\beta \to 0} \Delta(\beta) = 0,
+\end{equation}
+za teorije z zlomljeno supersimetrijo pa 
+
+\begin{equation}
+	\lim_{\beta \to 0} \Delta (\beta) = 1,
+\end{equation}
+
+saj osnovno stanje $H_1$ pre\v zivi.
 

@@ -1,0 +1,111 @@
+\section{Podobni Hamiltoniani}
+
+Prava mo\v c supersimetrije se poka\v ze pri obravnavi re\v sljivih problemov. Izka\v ze se, da
+imamo kon\v cen nabor potencialov, za katere poznamo to\v cne re\v sitve, med njimi pa lahko definiramo
+preproste transformacije, ki en potencial preoblikuje v drugega.
+
+Najprej poka\v zimo kaj so podobni potenciali. Imejmo potencial $V_1 (x; \pr_1)$ in potencial
+$V_2 (x; \pr_2)$, kjer sta $\pr_1$ in $\pr_2$ urejena nabora parametrov v potencialih. \v Ce sta
+$V_1$ in $V_2$ podobna, potem veljajo slede\v ci identiteti:
+
+\begin{align}
+	V_2 (x; \pr_1) &= V_1 (x; \pr_2) + R (\pr_1), \\
+	\pr_2 &= \underline{f} (\pr_1). \label{osnova}
+\end{align}
+
+Prek en.~\eqref{osnova} lahko definiramo cel razred potencialov, ki so podobni $V_1$:
+
+parametre dobimo prek kompozituma funkcije $f$,
+\begin{align}
+	\pr_2 &= \underline{f} (\pr_1), \notag \\
+	\pr_3 &= \underline{f} (\pr_2) = (\underline{f} \circ \underline{f}) (\pr_1), \notag \\
+	&\ldots \notag \\
+	\pr_n &= (\underbrace{\underline{f} \circ \underline{f} \circ \ldots \circ \underline{f}}_{n-1}) (\pr_1),
+\end{align}
+
+potenciali pa so potem
+
+\begin{align}
+	V_2 (x; \pr_1) &= V_1 (x; \pr_2) + R (\pr_1), \notag \\
+	V_3 (x; \pr_1) &= V_2 (x; \pr_2) + R (\pr_2) = V_1 (x; \pr_3) + R (\pr_1) + R (\pr_2), \notag \\
+	&\ldots \notag \\
+	V_n (x; \pr_1) &= V_1 (x; \pr_n) + \sum_{k = 1}^{n-1} R (\pr_k),
+\end{align}
+
+ki je spet o\v citno podoben $V_1 (x)$. Sedaj dobimo razred podobnih Hamiltonianov,
+
+\begin{equation}
+	H_n = - \frac{1}{2}\px^2 + V_n (x;\pr_1) = - \frac{1}{2}\px^2+V_1(x;\pr_n)+\sum_{k = 1}^{n-1}R(\pr_k).
+\end{equation}
+
+Ti Hamiltoniani imajo degeneriran spekter, z izjemo vakuumov, ki so o\v citno
+
+\begin{equation}
+	E^{(n)}_0 = \sum_{k = 1}^{n - 1} R(\pr_k).
+\end{equation}
+
+Ker so spektri degenerirani, sledi da so vakuumske energije teh hamiltonianov sovpadajo z energijami vzbujenih
+stanj Hamiltonianov z indeksom $m < n$. Seveda gremo lahko do konca nazaj, pridemo do $m = 1$ in $E^{(1)}_0 = 0$
+in tako dobimo celoten vezani spekter Hamiltoniana $H_1$:
+
+\begin{equation}
+	E_n^{(1)} (\pr_1) = \sum_{k = 1}^n R (\pr_k).
+	\label{v2-pogoj}
+\end{equation}
+
+Seveda to pomeni, da $V_2$ (in posledi\v cno $\pr_2$) ne sme biti arbitraren, ampak tak, da zadosti pogoju
+en.~\eqref{v2-pogoj}, sicer pademo lahko v poljubno vzbujeno stanje. Tak na\v cin iskanja spektra je dosti
+enostavnej\v si, vendar moramo za to poznati funkcijo $\underline{f}$. 
+
+\subsection{Operatorji dviganja}
+
+V prej\v snji sekciji sem na koncu zgleda povedal, da z naivnim pristopom z operatorjem dviganja ali
+spu\v s\v canje lahko le pretvarjamo med supersimetri\v cnima potencialoma. Sedaj bom pokazal, kako jih
+je treba uporabiti, da z njimi dejansko lahko dvignemo oz. spustimo stanje.
+
+Spet imejmo Hamiltonian $H_1$, za katerega velja $E^{(1)}_0 = 0$, ki ima valovno funkcijo
+$\psi_0^{(1)} (x; \pr_1)$. Operatorje $a^\dagger$ bi morali dejansko ves \v cas pisati kot $a^\dagger (x; \pr)$,
+saj
+
+\[
+	a^\dagger \equiv a^\dagger (x; \pr) \equiv W(x; \pr) - \frac{1}{\sqrt{2}}\px,
+\]
+
+Hamiltonian $H_1$ ima supersimetri\v cnega partnerja $H_2$, ki ima degeneriran spekter. $H_2$ zato lahko
+obravnavamo ko podoben Hamiltonian, vemo, da se razlikuje ravno za vakuumsko stanje.
+
+Vi\v sja vzbujena stanja moramo o\v citno dobiti kot
+
+\begin{equation}
+	\psi^{(1)}_n (x; \pr_1) \propto a^\dagger (x;\pr_1)\ a^\dagger (x;\pr_2)\ \ldots\ a^\dagger (x; \pr_n)\
+		\psi^{(1)}_0 (x; \pr_{n+1}),
+\end{equation}
+
+Odtod sledi pomembna posledica: supersimetri\v cna partnerja $V_1$ in $V_2$ sta si podobna potenciala, kar
+pomeni, da je med njima lahko netrivialna podobsnostna transformacija -- konkretno lahko spet za zgled vzamemo
+neskon\v cno potencialno jamo in en.~\eqref{pot-nes-jama}.
+
+Ker je neprikladno ra\v cunati poljubno visok $\pr_k$ na zalogo, se po navadi raje uporabi kar
+
+\begin{equation}
+	\psi^{(1)}_n (x; \pr_1) = a^\dagger (x; \pr_1)\ \psi_{n-1}^{(1)} (x; \pr_2),
+\end{equation}
+
+ki nam sugerira, da je za dviganje in spu\v s\v canje dejansko dovolj poznavanje supersimetri\v cnih
+partnerjev.
+
+Sipalnih stanj se ne bom dotikal.
+
+\subsection{Klasifikacija podobnih potencialov}
+
+Posebej prikladno je, \v ce znamo podobne potenciale, ki pripadjo podobnostnim transformacijam iste ba\v ze,
+pogrupirati, saj lahko prek tega z zamahom roke naenkrat re\v simo vse probleme klasi\v cne kvantne mehanike,
+kar se jih da analiti\v cno re\v siti.
+
+Splo\v sen problem je \v se nere\v sen, saj pravzaprav splo\v sen re\v sljivi potencial \v se ni definiran.
+Je pa fitzikom kljub temu uspelo zaenkrat pokazati, da obstajata dve pasmi podobnih potencialov:
+
+\begin{itemize}
+	\item{$\pr^\prime = \pr + \underline{q}$ -- potenciali, podobni na translacije,}
+	\item{$\pr^\prime = q\pr$ -- potenciali, podobni na skaliranje.}
+\end{itemize}
