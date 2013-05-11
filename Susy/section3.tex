@@ -13,7 +13,7 @@ $V_1$ in $V_2$ podobna, potem veljajo slede\v ci identiteti:
 	\pr_2 &= \underline{f} (\pr_1). \label{osnova}
 \end{align}
 
-Prek en.~\eqref{osnova} lahko definiramo cel razred potencialov, ki so podobni $V_1$:
+Prek en.~\eqref{osnova} lahko definiramo celo dru\v zino potencialov, ki so podobni $V_1$:
 
 parametre dobimo prek kompozituma funkcije $f$,
 \begin{align}
@@ -32,7 +32,7 @@ potenciali pa so potem
 	V_n (x; \pr_1) &= V_1 (x; \pr_n) + \sum_{k = 1}^{n-1} R (\pr_k),
 \end{align}
 
-ki je spet o\v citno podoben $V_1 (x)$. Sedaj dobimo razred podobnih Hamiltonianov,
+ki je spet o\v citno podoben $V_1 (x)$. Sedaj dobimo dru\v zino podobnih Hamiltonianov,
 
 \begin{equation}
 	H_n = - \frac{1}{2}\px^2 + V_n (x;\pr_1) = - \frac{1}{2}\px^2+V_1(x;\pr_n)+\sum_{k = 1}^{n-1}R(\pr_k).
@@ -106,6 +106,29 @@ Splo\v sen problem je \v se nere\v sen, saj pravzaprav splo\v sen re\v sljivi po
 Je pa fitzikom kljub temu uspelo zaenkrat pokazati, da obstajata dve pasmi podobnih potencialov:
 
 \begin{itemize}
-	\item{$\pr^\prime = \pr + \underline{q}$ -- potenciali, podobni na translacije,}
-	\item{$\pr^\prime = q\pr$ -- potenciali, podobni na skaliranje.}
+	\item{$\pr^\prime = \pr + \underline{q}$ -- potenciali, podobni na translacije parametrov,}
+	\item{$\pr^\prime = q\pr$ -- potenciali, podobni na skaliranje parametrov.}
 \end{itemize}
+
+\subsubsection{Re\v sitve povezane s translacijami}
+
+Iz $\pr_1$ lahko preidemo v $\pr_2$ prek transformacije $\underline{f}$, ki je v tem primeru enostavna
+translacija:
+
+\[
+	\pr_2 = \underline{f}(\pr_1) = \pr_1 + \underline{q}.
+\]
+
+Kot sem napisal prej, je sta si supersimetri\v cna partnerja "`podobna"'. Torej poleg vseh do sedaj zapisanih
+identitet, velja tudi pravilo
+
+\begin{equation}
+	V_2 (x; \pr_1) - V_1 (x; \pr_1 + \underline{q}) = R (\pr_1).
+\end{equation}
+
+Oba sta povezana prek istega superpotenciala v en.~\eqref{v2pot}, torej
+
+\begin{multline}
+	W^2 (x; \pr_1) + \frac{1}{\sqrt{2}}\px W(x; \pr_1) + \frac{1}{\sqrt{2}}\px W (x; \pr_1 + \underline{q}) - W^2
+		(x; \pr_1 + \underline{q}) =\\= R (\pr_1) = L (\pr_1) - L (\pr_1 + \underline{q})
+\end{multline}
