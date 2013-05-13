@@ -110,6 +110,11 @@ Je pa fitzikom kljub temu uspelo zaenkrat pokazati, da obstajata dve pasmi podob
 	\item{$\pr^\prime = q\pr$ -- potenciali, podobni na skaliranje parametrov.}
 \end{itemize}
 
+Poleg teh imamo \v se primere, ko je $\underline{f}$ nelinearna transformacija, takrat se lahko
+zgodi npr. $p^\prime_k = q \cdot p_k^2$.
+
+Potenciali, ki imajo lastnost podobnosti ne rabijo biti centralni.
+
 \subsubsection{Re\v sitve povezane s translacijami}
 
 Iz $\pr_1$ lahko preidemo v $\pr_2$ prek transformacije $\underline{f}$, ki je v tem primeru enostavna
@@ -132,3 +137,27 @@ Oba sta povezana prek istega superpotenciala v en.~\eqref{v2pot}, torej
 	W^2 (x; \pr_1) + \frac{1}{\sqrt{2}}\px W(x; \pr_1) + \frac{1}{\sqrt{2}}\px W (x; \pr_1 + \underline{q}) - W^2
 		(x; \pr_1 + \underline{q}) =\\= R (\pr_1) = L (\pr_1) - L (\pr_1 + \underline{q})
 \end{multline}
+
+Tabela~\ref{tab1} prikazuje nekaj potencialov, ki pripadajo tej dru\v zini.
+
+\begin{table}[H]\centering
+	\caption{Nekaj preprostih potencialov, ki pripadajo podobnim na translacije. Rosen-Morse I je res podoben
+		neskon\v cni potencialni jami -- Rosen-Morse I, pri $\alpha = \pi$, $A = \pi$ in $B = 0$. Coulombov
+		potencial se da transformirati v 3D harmonski oscilator.}
+	\label{tab1}
+	\vspace{0.2cm}
+	\begin{tabular}{l || c | c | c}
+		Naziv & $W(x)$ & $V(x)$ & pogoj\\ \hline
+		Rosen-Morse I & $-A \cot \alpha x - B/A$ & $\frac{A (A - \alpha)}{\sin^2 \alpha x} + 2B\cot\alpha x - A^2
+			+ (B/A)^2$ & $0 \leq \alpha x \leq \pi$ \\
+		Coulomb & $\frac{e^2}{2(\ell+1)} - \frac{(\ell+1)}{r}$ & $-\frac{e^2}{r} + \frac{\ell(\ell+1)}{r^2} -
+			\frac{e^4}{4(\ell + 1)^2}$ & brez \\
+		1D harmonski oscilator & $\frac{1}{2}\w x - b$ & $\frac{1}{4}\w^2\big(x - \frac{2b}{\w}\big)^2 - \frac{\w}{2}$
+			& brez \\
+		3D harmonski oscilator & $\frac{1}{2}\w r - \frac{\ell + 1}{r}$ & $\frac{1}{4}\w^2r^2 +
+			\frac{\ell(\ell + 1)}{r^2} - (\ell + 3/2)\w$ & brez \\
+		Eckart & $-A\coth\alpha r + B/A$ & $A^2 + (B/A)^2 - 2B\coth\alpha r + \frac{A(A + \alpha)}{\sinh^2 \alpha r}$
+			& $B > A^2$ \\
+	\end{tabular}
+\end{table}
+

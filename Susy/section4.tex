@@ -1,0 +1,66 @@
+\section{Izospektralni Hamiltoniani}
+
+Izospektralni Hamiltoniani v klasi\v cni kvantni mehaniki so taki, ki imajo strogo enake energijske
+spektre vezanih stanj in enake transmisijske/refleksijske koeficiente sipalnih stanj. Edino, kar se
+med njima razlikuje, so valovne funkcije posledi\v cno nekateri momenti ($\langle x \rangle$, $\langle
+x^2 \rangle$ \ldots).
+
+Izospektralne dru\v zine hamiltonianov so intimno povezane z multisolitonskimi re\v sitvami nelinarnih
+evolucijskih ena\v cb.
+
+\subsection{Enoparametri\v cne dru\v zine izospektralnih potencialov}
+
+Ideja je ta: superpotencial $W(x)$ ni enoli\v cen, zato lahko poi\v scemo dru\v zino potencialov
+$\{\tilde{V}_1(x;\lambda_1\}$, ki imajo vsi istega supersimetri\v cnega partnerja. Da se bomo ognili
+nanavadnim koeficientom bomo delali v enotah $\hbar = 2m = 1$, zaradi \v cesar se bomo iznebili raznoraznih
+koeficientov $(\sqrt{2})^{\pm 1}$ (pozor, cele potence $2$ ostanejo). Hamiltoniani, oblike
+
+\begin{equation}
+	H = \frac{\d^2}{\d x^2} + \tilde{V}_1 (x;\lambda_1),
+\end{equation}
+
+so vsi izospektralni glede na parameter $\lambda_1$.
+
+Recimo, da $W(x)$ ni enoli\v cen. Potem poleg $W(x)$ obstaja \v se $\tilde{W}(x)$. Najpreprostej\v sa ideja
+bi bila potem
+
+\begin{equation}
+	W(x) \to \tilde{W}(x) = W(x) + \phi(x),
+\end{equation}
+
+kjer zahtevamo, da $\tilde{W}(x)$ prav tako uboga en.~\eqref{riccati} za $V_2(x)$, ki se v teh enotah
+glasi
+
+\begin{equation}
+	V_2 (x) = W^2(x) + \px W(x) = \tilde{W}^2(x) + \px\tilde{W}(x),
+\end{equation}
+
+od koder sledi
+
+\begin{align}
+	W^2 + \odv W &= W^2 + \odv W + 2W\phi + \odv \phi + \phi^2, \notag \\
+	2W(x)\phi(x) + \phi^2(x) &= -\odv \phi (x), \notag \\
+	\frac{2W(x)}{\phi(x)} + 1 &= -\frac{1}{\phi^2(x)}\odv\phi(x),\qquad y(x) = 1/\phi(x), \notag \\
+	2W(x)y(x) + 1 &= -\odv y(x).
+\end{align}
+
+Ko to ena\v cbo re\v simo, dobimo
+
+\begin{equation}
+	\phi(x) = \odv \ln \bigg[\int_{-\infty}^x \psi_0^2(u)\d u + \lambda_1\bigg] =
+		\odv \ln \big[\mathcal{I}_1(x) + \lambda_1\big],
+\end{equation}
+
+kjer je $\psi_0(x)$ spet normirana funkcija izvornega potenciala $V_1 (x)$.
+
+Dru\v zina potencialov $\tilde{V}_1 (x; \lambda_1)$, ki ima partnerski potencial $V_2(x)$ je torej
+
+\begin{equation}
+	\tilde{V}_1 (x;\lambda_1) = V_1(x) - 2\frac{\d^2}{\d x^2}\ln\big[\mathcal{I}_1(x) + \lambda_1\big].
+\end{equation}
+
+Parameter $\lambda_1$ se je notri pri\v stulil kot integralska konstanta in ne more biti \v cisto poljuben, ampak
+$\lambda_1 \notin [0,1]$, tj $\lambda_1 \in \mathbb{R}\textbackslash[0,1]$ -- v tistem re\v zimu je osnovno stanje
+$\psi_0 (x; \lambda_1)$ potenciala $\tilde{V}_1(x; \lambda_1)$ nenormalizabilno, ampak je sipalno stanje -- torej
+nam kot pri supersimetri\v cnih partnerjih manjka ostnovno stanje, \v ceprav so vsa ostala stanja nespremenjena.
+Prvotni potencial $V_1(x)$ dobimo kot limito $\lambda_1 \to \pm \infty$.

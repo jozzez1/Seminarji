@@ -3,7 +3,27 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\usepackage{amsmath, amssymb, hyperref, fullpage, float}
+\usepackage{amsmath, amssymb, hyperref, fullpage, float, caption}
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage[pdftex]{graphicx}
+
+%to get the colourful hyperlinks ... not just square boxes around them ...
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black!60!red,
+	citecolor=black!60!green,
+	urlcolor=black!60!cyan,
+	filecolor=black!60!magenta
+}
+
+%set up custom captions
+\captionsetup{
+	font=small,
+	margin=10pt,
+	labelfont=it,
+	format=hang,
+	width=0.9\textwidth
+}
 
 \newcommand{\px}{
 	\ensuremath{\partial_x}
@@ -37,7 +57,36 @@
 	\ensuremath{\underline{p}}
 }
 
+\newcommand{\w}{
+	\ensuremath{\omega}
+}
+
+\renewcommand{\d}{
+	\ensuremath{\text{d}}
+}
+
+\newcommand{\odv}{
+	\ensuremath{\frac{\d}{\d x}}
+}
+
+\renewenvironment{abstract}[1][1.0]
+{
+	\begin{center}
+		{\bf Povzetek}\\[12pt]
+		\begin{minipage}{#1\textwidth}
+}
+{
+		\end{minipage}
+	\end{center}
+}
+
 \begin{document}
+
+\input{titlepg.tex}
+
+\tableofcontents
+
+\pagebreak
 
 \input{uvod.tex}
 
@@ -46,5 +95,7 @@
 \input{section2.tex}
 
 \input{section3.tex}
+
+\input{section4.tex}
 
 \end{document}
