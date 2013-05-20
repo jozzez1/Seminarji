@@ -60,7 +60,40 @@ Dru\v zina potencialov $\tilde{V}_1 (x; \lambda_1)$, ki ima partnerski potencial
 \end{equation}
 
 Parameter $\lambda_1$ se je notri pri\v stulil kot integralska konstanta in ne more biti \v cisto poljuben, ampak
-$\lambda_1 \notin [0,1]$, tj $\lambda_1 \in \mathbb{R}\textbackslash[0,1]$ -- v tistem re\v zimu je osnovno stanje
+$\lambda_1 \notin [0,1]$, tj $\lambda_1 \in \mathbb{R}\text{\textbackslash}[-1,0]$ -- v tistem re\v zimu je osnovno stanje
 $\psi_0 (x; \lambda_1)$ potenciala $\tilde{V}_1(x; \lambda_1)$ nenormalizabilno, ampak je sipalno stanje -- torej
 nam kot pri supersimetri\v cnih partnerjih manjka ostnovno stanje, \v ceprav so vsa ostala stanja nespremenjena.
 Prvotni potencial $V_1(x)$ dobimo kot limito $\lambda_1 \to \pm \infty$.
+
+\subsection{Ve\v cparametri\v cne dru\v zine izospektralnih potencialov}
+Isto lahko naredimo tudi na malo druga\v cen na\v cin. Partnerski potencial $V_2$ je v bistvu $V_1$ brez osnovnega stanja.
+Dru\v zina potencialov $\tilde{V}_1$ niso ni\v c drugega, kot $V_1$ z modificiranim osnovnim stanjem.
+
+Malo bom spremenil notacijo: $\psi_1$ je osnovno stanje $V_1$ in ima energijo $E_1$, $\psi_2$ je osnovno stanje $V_2$ in
+ima energijo $E_2$, $\psi_n$ je osnovno stanje $V_n$ z energijo $E_n$.
+
+Na enoparametri\v cnem primeru odre\v zemo osnovno stanje kot $V_2 = V_1 - 2\px^2 \ln\psi_1$. Nato moramo $V_2$ dodati
+splo\v sno stanje, ki bi ustrezalo energiji $E_1$ To stanje je linearna kombinacija $1/\psi_1$ in
+$\mathcal{I}_1/\psi_1$, torej je novo osnovno stanje
+
+\begin{equation}
+	\Phi_1 (x;\lambda_1) = \frac{\alpha\mathcal{I}_1 + \beta}{\psi_1} = \frac{\mathcal{I}_1 + \lambda_1}{\psi_1}.
+\end{equation}
+
+Tu smo upo\v stevali, da $\alpha$ in $\beta$ v resnici nista neodvisna parametra, saj imamo \v se pogoj, da je to novo stanje
+normalizirano -- potem zado\v s\v ca le en parameter -- $\lambda_1$. Ko to stanje vstavimo nazaj v $V_2$ dobimo
+
+\begin{align}
+	\tilde{V}_1(x;\lambda_1) &= V_2 - 2\odv[2]\ln\Phi_1(x;\lambda_1) = \notag \\
+		&= V_1 - 2\odv[2]\ln\psi_1 - 2\odv[2]\ln\Phi_1 = \notag \\
+		&= V_1 - 2\odv[2]\ln (\psi_1 \Phi_1) = \notag \\
+		&= V_1 - 2\odv[2]\ln (\mathcal{I}_1 + \lambda_1).
+\end{align}
+
+Osnovno stanje takega potenciala je $\tilde{\psi_1}(x;\lambda_1) = 1/\Phi_1 (x;\lambda_1)$ in v limiti $\lambda_1 \to \pm
+\infty$ vrne $\psi_1$. Kot prej sledi, da mora biti $\lambda_1 \in \mathbb{R}\text{\textbackslash [-1,0]}$. Ta postopek
+lahko posplo\v simo na ve\v c parametri\v cne primere: ne samo, da od\v stejemo $\psi_1$ in ga vrnemo s parametrom $\lambda_1$,
+od\v stejemo \v se osnovno stnanje $V_2$, $V_3$, \ldots in na koncu dobimo
+$\tilde{V}_1 (x;\lambda_1,\lambda_2\ldots\lambda_n) = \tilde{V}_1 (x; \underline{\lambda})$, kjer imamo toliko $\lambda_i$, da
+parametriziramo vsa vezana stanja.
+

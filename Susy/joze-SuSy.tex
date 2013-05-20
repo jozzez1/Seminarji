@@ -65,8 +65,8 @@
 	\ensuremath{\text{d}}
 }
 
-\newcommand{\odv}{
-	\ensuremath{\frac{\d}{\d x}}
+\newcommand{\odv}[1][{}\ ]{
+	\ensuremath{\frac{\d^#1}{\d x^#1}}
 }
 
 \renewenvironment{abstract}[1][1.0]
@@ -78,6 +78,18 @@
 {
 		\end{minipage}
 	\end{center}
+}
+
+\newcommand{\koren}{
+	\ensuremath{\frac{1}{\sqrt{2}}}
+}
+
+\newcommand{\intinf}{
+	\ensuremath{\int_{-\infty}^\infty\d x}
+}
+
+\newcommand{\pe}{
+	\ensuremath{\partial_\eta}
 }
 
 \begin{document}
@@ -97,5 +109,7 @@
 \input{section3.tex}
 
 \input{section4.tex}
+
+\input{section5.tex}
 
 \end{document}

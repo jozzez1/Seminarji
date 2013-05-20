@@ -1,0 +1,122 @@
+\section{Supersimetrija v teoriji perturbacij}
+
+Supersimetrija omogo\v ca dve novi perturbacijski metodi. Variacijska metoda je bolj intuitivna in tudi bistveno bolj
+natan\v cna, ti. $\delta$-razvoj pa spominja na razvoj po zankah iz kvantne teorije polja, saj uporablja podobne prijeme
+ki se uporabljajo pri regularizaciji interakcijskih \v clenov.
+
+\subsection{Variacijski pristop}
+
+Potencial $V_1$ ima \v clene, ki jih je treba obravnavati perturbativno. Za metodo potrebujemo testno valovno funckijo, $\psi_v$,
+ki aproksimira osnovno stanje. Pri\v cakovana energija tega stanja bo na\v sa aproksimacija prave osnovne energije.
+Upo\v stevamo en.~\eqref{riccati}.
+
+\begin{equation}
+	V_1(x) - E_0 = W^2(x) - \koren\px W(x).
+\end{equation}
+
+s katero izra\v cunamo $W(x)$ do neke natan\v cnosti. Z njim lahko prek en.~\eqref{anihilator} in~\eqref{kreator} izra\v cunamo
+operatorje dviganja, $a^\dagger$, in spu\v s\v canja, $a$, s katerima se lahko zavihtimo v vzbujena stanja.
+
+Za\v cetno aproksimacijo $W(x)$ in $E_0$ dobimo prek variacijske metode, s testno funkcijo, ki aproksimira osnovno stanje. Po
+navadi se jo aproksimira z Gaussovo krivuljo. Imejmo testno funkcijo $\psi_v (x;\eta)$, kjer parameter $\eta$ dolo\v cimo tako,
+da minimizira energijo -- s tem dobimo aproksimacijo osnovnega stanja. Pri\v cakovana energija take testne valovne funkcije je
+
+\begin{align}
+	\langle E \rangle_\eta &= \langle \psi_v| H |\psi_v \rangle \notag \\
+	&= \intinf\ \psi_v (x; \eta) H \psi_v (x; \eta) \notag \\
+	&= \intinf\ \psi_v (x;\eta) \bigg[-\frac{1}{2}\px^2 + V_1(x)\bigg]\psi_v(x;\eta) \notag \\
+	&= -\frac{1}{2}\intinf\ \psi_v(x;\eta)\ \px^2\ \psi_v (x;\eta) + \intinf\ \psi_v(x;\eta)V_1(x)\psi_v(x;\eta) \notag \\
+	&= \intinf \bigg[\koren \px \psi_v(x;\eta)\bigg]^2 + \intinf\ \psi_v^2 (x; \eta) V_1 (x), \label{eeta}
+\end{align}
+
+kjer smo v en.~\eqref{eeta} predpostavili, da je na\v sa testna funkcija integrabilna, analiti\v cna in da dovolj hitro pada, ko
+$x \to \pm \infty$ -- ker je testna funkcija arbitrarna, lahko zadostimo vsem tem pogojem. Prav tako smo zgolj zaradi preprostosti
+pisave predpostavili, da potencial $V_1$ komutira z falovno funkcijo, vendar to ni pravi pogoj.
+
+Parameter $\eta$ dolo\v cimo tako, da minimizira energijo $\langle E \rangle_\eta$, tj. zahtevamo
+
+\begin{equation}
+	\frac{\partial \langle E \rangle_\eta}{\partial\eta}\bigg|_{\eta = \xi} = 0, \qquad
+	\frac{\partial^2 \langle E \rangle_\eta}{\partial\eta^2}\bigg|_{\eta = \xi} > 0.
+\end{equation}
+
+Energijo zato odvajamo po parametru $\eta$,
+
+\begin{equation}
+	\pe\langle E\rangle_\eta = \intinf\bigg[(\px \psi_v) \pe (\px \psi_v) +  2 \psi_v (\pe \psi_v) V_1\bigg].
+\end{equation}
+
+Sedaj, ko imamo pribli\v zek za $E_0$ in $\psi_0$ lahko izra\v cunamo $W(x)$ prek identitete~\eqref{superpotencial}, tj.
+
+\begin{equation}
+	W (x; \xi) = -\koren\px\ln\psi_v (x;\xi),
+\end{equation}
+
+s \v cimer dobimo par $V_1^\prime$ in $V_2^\prime$, ki sta pribli\v zka za $V_1$ in $V_2$. Potenciala $V_1^\prime$ in $V_2^\prime$
+bi radi tak\v sna, da poznamo njuno to\v cno re\v sitev.
+
+Ta metoda ima zelo veliko pomankljivost -- zelo dobro moramo uganiti $\psi_v$. Po navadi se uporablja ve\v c parametrov $\eta_i$, kjer
+potem zahtevamo
+
+\begin{equation}
+	\partial_{\eta_i} \langle E \rangle_{\underline\eta}\Big|_{\underline{\eta} = \underline{\xi}} = 0, \ \forall \eta_i
+\end{equation}
+
+in pozitivnost determinante Hessejeve matrike glede na $n$-terec parametrov $\eta_i$ (pogoj za lokalni minimum).
+
+\subsection{$\delta$-razvoj}
+
+Razvoj po potencah $\delta$ nekoliko spominja na razvoj po zankah iz kvantne teorije polja. Metodo bom predstavil na konkretnem
+primeru. Naj bo $V_1 (x) = 2gx^4$ anharmonski oscilator. Potenca $4$ je previsoka, re\v siti znamo samo za $x^2$, zato bomo
+$V_1$ definirali kot analiti\v cno nadaljevanje harmonskega oscilatorja
+
+\begin{equation}
+	V_1 = 2gx^4 = M^{2 + \delta}x^{2 + 2\delta} - C(\delta) = W^2 - \koren\px W.
+\end{equation}
+
+Parameter $M$ se je notri pri\v stulil tako kot pri dimenzijski regularizaciji iz kvantne teorije polja. Sicer je res, da delamo
+z brezdimenzijskimi koli\v cinami, vendar ta skalirni faktor ostaja. Parameter $\delta$ nam predstavlja "`anharmonskost"' oscilatorja.
+Energijo osnovnega stanja, $C(\delta)$ od\v stejemo za faktorizacijo hamiltoniana z operatorji $a$ in $a^\dagger$.
+
+Pri $\delta = 0$ imamo $M = m$, pri kvarti\v cnem anharmonskem oscilatorju, $\delta = 1$, pa je $M = (2g)^{1/3}$. \v Ce sta $V_1$ in
+$W$ analiti\v cna, potem za oba obstaja Taylorjev razvoj po potencah $\delta$,
+
+\begin{equation}
+	V_1 = M^2x^2\sum_{k = 0}^\infty \delta^k \frac{[\ln(Mx^2)]^k}{k!} - 2 \sum_{k = 0}^\infty \delta^k E_k,
+	\label{delta-razvoj}
+\end{equation}
+
+$E_k$ je energija osnovnega stanja potenciala $V_1$, ki je znan do reda $\delta^k$ nata\v cno. Analogno aproksimiramo tudi superpotencial
+$W(x)$,
+
+\begin{equation}
+	W(x) = \sum_{k = 0}^\infty \delta^k W_{(k)}(x).
+	\label{w-razvoj}
+\end{equation}
+
+Nadaljujemo tako, da na obeh straneh en.~\eqref{riccati} upo\v stevamo en.~\eqref{delta-razvoj} in~\eqref{w-razvoj}, ki mora veljati v
+vseh redih razvoja -- dobimo sistem diferencialnih ena\v cb po redih $\delta^k$.
+
+V prvem redu dobimo harmonski oscilator
+
+\begin{equation}
+	W_{(0)}^2 - \px W_{(0)} = M^2x^2 - 2E_0,
+	\label{diffena}
+\end{equation}
+
+ki ima re\v sitve $W_{(0)} = Mx$ in $E_0 = M/2$. V drugem redu dobimo poleg en~\eqref{diffena} \v se ena\v cbo
+
+\begin{equation}
+	\px W_{(1)} - 2W_{(1)}W_{(0)} = - M^2x^2 \ln Mx^2 + 2E_1,
+\end{equation}
+
+z re\v sitvami
+
+\begin{equation}
+	W_{(1)} = -\text{e}^{Mx^2} \int_0^x \d y\ \text{e}^{-My^2}\big[M^2y^2 \ln My^2 - 2E_1\big].
+\end{equation}
+
+Ta metoda je dobra, \v ce nimamo nobene predstave o problemu in si \v zelimo relativno grobo oceno osnovnega stanja. Za vzbujena stanja
+je variacijska metoda natan\v cnej\v sa, vendar za visoka vzbujena stanja tudi ta podle\v ze vsled \v cesar moramo pose\v ci po
+standarnih metodah.
+
