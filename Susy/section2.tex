@@ -1,49 +1,43 @@
-\section{Zgledi}
+\section{Neskon\v cna potencialna jama}
 
-Take stvari je vedno la\v zje razumeti na konkretnem zgledu, zato poka\v zimo, bolj kot zanimivost,
-kako lahko to teorijo uporabimo na starih znancih iz takih ali druga\v cnih kurzov kvantne mehanike.
-
-\subsection{Neskon\v cna potencialna jama}
-
-Za\v cetni\v ski potencial, (vstavi sliko), omejen od $0$ do $1$. Lastne fukcije so kar
+Stvari je la\v zje razumeti na konkretnem zgledu, zato si bomo pogledali supersimetrijo na primeru neskon\v cne
+potencialne jame. Gre za\v cetni\v ski potencial, (vstavi sliko), omejen od $0$ do $1$. Lastne fukcije so potem kar
 
 \begin{equation}
 	\psi_n^{(1)} (x) = \frac{1}{2}\sin n\pi x, \quad E_n^{(1)} = \frac{(n\pi)^2}{2}
 		\quad n = 1,2,\ldots
 \end{equation}
 
-stanja za $n = 0$ ni, ker to stanje ustreza situaciji brez delca (verjetnost, da se delec nahaja v jami
-je natanko 0). Osnovni lastni par je torej za $n = 1$, vendar ga bolj kljub temu ozna\v cil z indeksom 0.
+\ni stanja za $n = 0$ ni, ker to stanje ustreza situaciji brez delca\footnote{Verjetnost, da se delec nahaja v jami
+je natanko 0.}. Osnovni lastni par je torej za $n = 1$, vendar ga bolj kljub temu ozna\v cil z indeksom 0.
 
 \begin{equation}
 	\psi_0^{(1)} (x) = \frac{1}{2}\sin\pi x, \quad \frac{2}{\pi^2}E_0^{(1)} = 1 \neq 0.
 \end{equation}
 
-Supersimetrija je v tem primeru zlomljena, saj $E_0 \neq 0$, zato moramo za\v cetni Hamiltonian
-translirati v energiji:
+\ni Supersimetrija je v tem primeru zlomljena, saj $E_0 \neq 0$, zato moramo za\v cetnemu Hamiltonianu
+od\v steti energijo osnovnega stanja.
 
 \begin{equation}
 	(\underbrace{H - E_0^{(1)}}_{H_1})\psi_0^{(1)} = (E_0^{(1)} - E_0^{(1)})\psi_0^{(1)} =
 		0\cdot\psi_0^{(1)} = 0. \label{translacija}
 \end{equation}
 
-Od tod lahko poi\v s\v cemo superpotencial $W(x)$ in to kar po definiciji iz
-ena\v cbe~\eqref{superpotencial}
+\ni Od tod lahko poi\v s\v cemo superpotencial $W(x)$ iz en.~\eqref{superpotencial}
 
 \begin{equation}
 	W(x) = -\frac{1}{\sqrt{2}} \frac{\px \sin \pi x}{\sin \pi x} = -\frac{\pi}{\sqrt{2}}\cot \pi x.
 \end{equation}
 
-Sedaj lahko poi\v cemo supersimetri\v cnega partnerja neskon\v cne potencialne jame s pomo\v cjo
-ena\v cbe~\eqref{v2pot}
+\ni S pomo\v cjo en.~\eqref{v2pot} lahko poi\v s\v cemo supersimetri\v cnega partnerja neskon\v cne potencialne jame
 
 \begin{equation}
 	V_2 (x) = \frac{\pi^2}{2}\bigg(\cot^2 \pi x + \frac{1}{\sin^2 \pi x}\bigg)
-		= \pi^2\bigg(\frac{1}{\sin^2 \pi x} - \frac{1}{2}\bigg),
+		= \frac{\pi^2}{2}\bigg(\frac{1}{\sin^2 \pi x} - 1\bigg),
 	\label{pot-nes-jama}
 \end{equation}
 
-kar o\v citno ni ve\v c neskon\v cna potencialna jama, za katero dobimo $V_1(x) = \pi^2/2$, ki pa se ravno
+\ni kar o\v citno ni ve\v c neskon\v cna potencialna jama, za katero dobimo $V_1(x) = \pi^2/2$, ki pa se ravno
 prikladno od\v steje s konstantno $E_0^{(1)}$ v ena\v cbi~\eqref{translacija}. Potencial $V_2$ je poseben primer
 potenciala Rosen Morse I (tj. triginometri\v cna izvedenka).
 
@@ -54,16 +48,12 @@ Sedaj smo dobili oba Hamiltoniana,
 	H_2 &= -\frac{1}{2}\px^2 - V_2(x),
 \end{align}
 
-od koder lahko \v ze sklepamo, kako bo izgledal supersimetri\v cni Hamiltonian $\H$.
+\ni od koder lahko \v ze sklepamo, kako bo izgledal supersimetri\v cni Hamiltonian $\H$.
 
 Poglejmo \v se kako izgledajo valovne funkcije $\psi_n^{(2)}(x)$. Za to bomo seveda uporabili
-operatorje "`vi\v sanja"' in "`ni\v zanja"', vendar bi morali za "`brute force"' pristop
-izra\v cunati ne preve\v c lepo diferencialno ena\v cbo za $H_2$.
-
-Vendar lahko tudi tokrat uporabimo izraze iz prej\v snjega poglavja in sicer~\eqref{degenener}.
-Vemo, da $H_2$ nima stanja pri $n = 1$, ampak da se \v stetje za\v cne pri $n = 2$.
-
-Da bomo dobili $\psi_0^{(2)}$ bomo uporabili identiteto
+operatorje vi\v sanja in ni\v zanja iz en.~\eqref{degenener}.
+Vemo, da $H_2$ nima stanja pri $n = 1$, ampak da se \v stetje za\v cne pri $n = 2$, vendar bomo tudi
+sedaj pisali indeks 0. Uporabili bomo identiteto
 
 \begin{align}
 	\psi_0^{(2)} (x) = a\psi_2^{(1)} &= -\frac{1}{2\sqrt{2}}(\pi \cot \pi x -
@@ -71,15 +61,12 @@ Da bomo dobili $\psi_0^{(2)}$ bomo uporabili identiteto
 	&= \frac{2\pi}{2\sqrt{2}}(\cos^2\pi x - \cos 2\pi x) = \frac{\pi}{\sqrt{2}}\sin^2\pi x.
 \end{align}
 
-Operatorja $a$ in $a^\dagger$ ne slu\v zita ve\v c vi\v sanju in ni\v zanju energije, ampak
-pretvorbi stanj med $H_1$ in $H_2$.
-
-Splo\v sen izraz za $\psi_n^{(2)}$ je dolg in grd. Zapisal bom raje le \v se za
-$\psi_3^{(2)}$, za $n=3$, se pravi prvo vzbujeno stanje $H_2$:
+Splo\v sen izraz za $\psi_n^{(2)}$ je dolg. Zapisal bom raje le \v se za
+$\psi_3^{(2)}$, za $n=3$, tj. prvo vzbujeno stanje $H_2$:
 
 \begin{equation}
 	\psi_3^{(2)}(x) \propto \sin (\pi x) \sin (2\pi x),
 \end{equation}
 
-se pravi do normalizacijske konstante natan\v cno. Operatorja $a$ in $a^\dagger$ seveda
-po pretvorbi pokvarita normalizacijo, tako da so rezultati narobe normirani.
+\ni Operatorja $a$ in $a^\dagger$ seveda po pretvorbi pokvarita normalizacijo, tako da rezultati niso nujno
+normirani.

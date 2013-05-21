@@ -2,11 +2,11 @@
 
 Izospektralni Hamiltoniani v klasi\v cni kvantni mehaniki so taki, ki imajo strogo enake energijske
 spektre vezanih stanj in enake transmisijske/refleksijske koeficiente sipalnih stanj. Edino, kar se
-med njima razlikuje, so valovne funkcije posledi\v cno nekateri momenti ($\langle x \rangle$, $\langle
+med njima razlikuje, so valovne funkcije in posledi\v cno nekateri momenti ($\langle x \rangle$, $\langle
 x^2 \rangle$ \ldots).
 
 Izospektralne dru\v zine hamiltonianov so intimno povezane z multisolitonskimi re\v sitvami nelinarnih
-evolucijskih ena\v cb.
+evolucijskih ena\v cb, ki nam vra\v cajo solitonske re\v sitve.
 
 \subsection{Enoparametri\v cne dru\v zine izospektralnih potencialov}
 
@@ -19,23 +19,23 @@ koeficientov $(\sqrt{2})^{\pm 1}$ (pozor, cele potence $2$ ostanejo). Hamiltonia
 	H = \frac{\d^2}{\d x^2} + \tilde{V}_1 (x;\lambda_1),
 \end{equation}
 
-so vsi izospektralni glede na parameter $\lambda_1$.
+\ni so vsi izospektralni glede na parameter $\lambda_1$.
 
-Recimo, da $W(x)$ ni enoli\v cen. Potem poleg $W(x)$ obstaja \v se $\tilde{W}(x)$. Najpreprostej\v sa ideja
-bi bila potem
+Recimo, da $W(x)$ ni enoli\v cen. Potem poleg $W(x)$ obstaja \v se $\tilde{W}(x)$, ki prav tako ustreza
+en.~\eqref{v2pot}. Najpreprostej\v sa ideja bi bila potem
 
 \begin{equation}
 	W(x) \to \tilde{W}(x) = W(x) + \phi(x),
 \end{equation}
 
-kjer zahtevamo, da $\tilde{W}(x)$ prav tako uboga en.~\eqref{riccati} za $V_2(x)$, ki se v teh enotah
+\ni kjer zahtevamo, da $\tilde{W}(x)$ prav tako uboga en.~\eqref{riccati} za $V_2(x)$, ki se v teh enotah
 glasi
 
 \begin{equation}
 	V_2 (x) = W^2(x) + \px W(x) = \tilde{W}^2(x) + \px\tilde{W}(x),
 \end{equation}
 
-od koder sledi
+\ni od koder sledi
 
 \begin{align}
 	W^2 + \odv W &= W^2 + \odv W + 2W\phi + \odv \phi + \phi^2, \notag \\
@@ -44,14 +44,14 @@ od koder sledi
 	2W(x)y(x) + 1 &= -\odv y(x).
 \end{align}
 
-Ko to ena\v cbo re\v simo, dobimo
+\ni Ko to ena\v cbo re\v simo, dobimo
 
 \begin{equation}
 	\phi(x) = \odv \ln \bigg[\int_{-\infty}^x \psi_0^2(u)\d u + \lambda_1\bigg] =
 		\odv \ln \big[\mathcal{I}_1(x) + \lambda_1\big],
 \end{equation}
 
-kjer je $\psi_0(x)$ spet normirana funkcija izvornega potenciala $V_1 (x)$.
+\ni kjer je $\psi_0(x)$ spet normirana funkcija izvornega potenciala $V_1 (x)$.
 
 Dru\v zina potencialov $\tilde{V}_1 (x; \lambda_1)$, ki ima partnerski potencial $V_2(x)$ je torej
 
@@ -59,7 +59,7 @@ Dru\v zina potencialov $\tilde{V}_1 (x; \lambda_1)$, ki ima partnerski potencial
 	\tilde{V}_1 (x;\lambda_1) = V_1(x) - 2\frac{\d^2}{\d x^2}\ln\big[\mathcal{I}_1(x) + \lambda_1\big].
 \end{equation}
 
-Parameter $\lambda_1$ se je notri pri\v stulil kot integralska konstanta in ne more biti \v cisto poljuben, ampak
+\ni Parameter $\lambda_1$ se je notri pri\v stulil kot integralska konstanta in ne more biti \v cisto poljuben, ampak
 $\lambda_1 \notin [0,1]$, tj $\lambda_1 \in \mathbb{R}\text{\textbackslash}[-1,0]$ -- v tistem re\v zimu je osnovno stanje
 $\psi_0 (x; \lambda_1)$ potenciala $\tilde{V}_1(x; \lambda_1)$ nenormalizabilno, ampak je sipalno stanje -- torej
 nam kot pri supersimetri\v cnih partnerjih manjka ostnovno stanje, \v ceprav so vsa ostala stanja nespremenjena.
@@ -72,16 +72,17 @@ Dru\v zina potencialov $\tilde{V}_1$ niso ni\v c drugega, kot $V_1$ z modificira
 Malo bom spremenil notacijo: $\psi_1$ je osnovno stanje $V_1$ in ima energijo $E_1$, $\psi_2$ je osnovno stanje $V_2$ in
 ima energijo $E_2$, $\psi_n$ je osnovno stanje $V_n$ z energijo $E_n$.
 
-Na enoparametri\v cnem primeru odre\v zemo osnovno stanje kot $V_2 = V_1 - 2\px^2 \ln\psi_1$. Nato moramo $V_2$ dodati
-splo\v sno stanje, ki bi ustrezalo energiji $E_1$ To stanje je linearna kombinacija $1/\psi_1$ in
+Na enoparametri\v cnem primeru odre\v zemo\footnote{Od potenciala od\v stejemo funkcijo $g(x)$, zaradi \v cesar izgubi
+osnovno stanje.} osnovno stanje kot $V_2 = V_1 - 2\px^2 \ln\psi_1$. Nato moramo $V_2$ dodati splo\v sno stanje, ki bi ustrezalo
+energiji $E_1$ To stanje je linearna kombinacija $1/\psi_1$ in
 $\mathcal{I}_1/\psi_1$, torej je novo osnovno stanje
 
 \begin{equation}
 	\Phi_1 (x;\lambda_1) = \frac{\alpha\mathcal{I}_1 + \beta}{\psi_1} = \frac{\mathcal{I}_1 + \lambda_1}{\psi_1}.
 \end{equation}
 
-Tu smo upo\v stevali, da $\alpha$ in $\beta$ v resnici nista neodvisna parametra, saj imamo \v se pogoj, da je to novo stanje
-normalizirano -- potem zado\v s\v ca le en parameter -- $\lambda_1$. Ko to stanje vstavimo nazaj v $V_2$ dobimo
+\ni Tu smo upo\v stevali, da $\alpha$ in $\beta$ v resnici nista neodvisna parametra, saj imamo \v se pogoj, da je to novo stanje
+normirano -- potem zado\v s\v ca le en parameter -- $\lambda_1$. Ko to stanje vstavimo nazaj v $V_2$ dobimo
 
 \begin{align}
 	\tilde{V}_1(x;\lambda_1) &= V_2 - 2\odv[2]\ln\Phi_1(x;\lambda_1) = \notag \\
@@ -90,9 +91,9 @@ normalizirano -- potem zado\v s\v ca le en parameter -- $\lambda_1$. Ko to stanj
 		&= V_1 - 2\odv[2]\ln (\mathcal{I}_1 + \lambda_1).
 \end{align}
 
-Osnovno stanje takega potenciala je $\tilde{\psi_1}(x;\lambda_1) = 1/\Phi_1 (x;\lambda_1)$ in v limiti $\lambda_1 \to \pm
+\ni Osnovno stanje takega potenciala je $\tilde{\psi_1}(x;\lambda_1) = 1/\Phi_1 (x;\lambda_1)$ in v limiti $\lambda_1 \to \pm
 \infty$ vrne $\psi_1$. Kot prej sledi, da mora biti $\lambda_1 \in \mathbb{R}\text{\textbackslash [-1,0]}$. Ta postopek
-lahko posplo\v simo na ve\v c parametri\v cne primere: ne samo, da od\v stejemo $\psi_1$ in ga vrnemo s parametrom $\lambda_1$,
+lahko posplo\v simo na ve\v cparametri\v cne primere: ne samo, da od\v stejemo $\psi_1$ in ga vrnemo s parametrom $\lambda_1$,
 od\v stejemo \v se osnovno stnanje $V_2$, $V_3$, \ldots in na koncu dobimo
 $\tilde{V}_1 (x;\lambda_1,\lambda_2\ldots\lambda_n) = \tilde{V}_1 (x; \underline{\lambda})$, kjer imamo toliko $\lambda_i$, da
 parametriziramo vsa vezana stanja.
