@@ -8,14 +8,14 @@ energije in gibalne koli\v cine sta posledici invariantnosti fizikalnih zakonov 
 prostoru in \v casu. Operatorji teh transformacij tvorijo grupo, ki se imenuje po francoskem fiziku Henriju Poincaré
 -- Poincaréjeva grupa. Ta upo\v steva transformacije klasi\v cne fizike in splo\v sne teorije relativnosti.
 
-Notranje simetrije, so simetrije med individualnimi polji in so lahko skorajda arbitrarne.
-Operatorji teh transformacij so lahko rotacije v ve\v cdimenzionalnem prostoru in sestavljajo Liejevo
-grupo, lahko so to\v ckovne simetrije, lahko so pa tudi kar polja sama -- opi\v semo jih
+Notranje simetrije so simetrije med posameznimi polji, ki nastopajo v na\v sem problemu.
+Operatorji teh transformacij, na katere je na\v s problem invarianten, so lahko rotacije v ve\v cdimenzionalnem
+prostoru in mogo\v ce sestavljajo grupo, lahko pa so tudi kar polja sama -- opi\v semo jih
 namre\v c s ti. operatorji polja, ki morajo zado\v s\v cati bodisi bozonski, bodisi fermionski algebri.
 
-Supersimetrija je nastala iz te\v znje po zdru\v zitvi notranjih simetrij z zunanjimi. Lahko si jo mislimo kot
-naravno raz\v siritev Poincaréjeve grupe. Supersimetrija je edini mo\v zen na\v cin kako povezati notranje in zunanje
-simetrije.
+V sedemdesetih letih prej\v snjega stoletja, so si ljudje prizadevali, da bi poenotili opis fermionov in bozonov.
+Supersimetrija je otrok te zveze in hkrati predstavlja edino mo\v znost cin zdru\v zitve notranjih simetrij z
+zunanjimi, tj. naravno raz\v siri Poincaréjevo grupo s simetrijami polj.
 
 Tekom celotnega seminarja bomo imeli v mislih re\v sevanje Schr\" odingerjeve ena\v cbe,
 
@@ -32,24 +32,22 @@ Omejili se bomo na enodimenzionalne probleme, tj. Hamiltonian en.~\eqref{s1} pre
 	\label{sx}
 \end{equation}
 
-\ni Predpostavimo, da je na\v s potencial neni\v celen in navzdol omejen. Velja
+\ni Na\v s potencial naj bo neni\v celen in navzdol omejen\footnote{Obstaja tak $V_0$, da $V(x) \geq V_0,\ \forall x$.}. Potem
+lahko izmed vezanih stanj poi\v s\v cemo lastne pare $E_n$, $\psi_n (x)$ Hamiltonovega operatorja $H$,
 
 \begin{equation}
 	H\psi_n(x) = E_n\psi_n(x) = i\pt\psi_n(x).
 \end{equation}
 
-\ni Za $E_0 = 0$ torej velja $H|\psi_0\rangle = 0$. Od tod dobimo pogoj za potencial
+\ni Za $E_0 = 0$ velja $H|\psi_0\rangle = 0$. Od tod dobimo pogoj za potencial
 
 \begin{equation}
 	V(x) = \frac{1}{2}\frac{\px^2\psi_0}{\psi_0},
 	\label{vpogoj}
 \end{equation}
 
-\ni kjer smo predpostavili, da so stanja $\psi_n(x)$ vezana, tj. $\psi_0(x)$ je dobro dolo\v cen in legitimnost
-en.~\eqref{vpogoj} ni vpra\v sljiva.
-
 Na\v s Hamiltonian bi radi razcepili na produkt posplo\v senega kreacijskega in anihilacijskega operatorja, tj.
-$H = a^\dagger a$, tj. neke vrste operator \v stetja. Vidimo, da je~\eqref{sx} oblike
+$H = a^\dagger a$. Vidimo, da je~\eqref{sx} oblike
 $H \sim (A + B)(A - B)$, tako bomo definirali superpotencial $W(x)$, da bo
 
 \begin{align}
@@ -62,9 +60,7 @@ odvoda natan\v cno).
 
 Pogoje za obstoj $W(x)$ bomo dolo\v cili retrospektivno, kot se to mnogokrat zgodi v fiziki.
 En.~\eqref{anihilator} in~\eqref{kreator} vstavimo v Hamiltonov operator, od koder bodo vezi,
-katerim mora zado\v s\v cati, o\v citnej\v se.
-
-Poglejmo si kako faktoriziran $H$ deluje na neko funkcijo $\phi (x)$:
+katerim mora zado\v s\v cati, o\v citnej\v se. Faktoriziran $H$ na neki funkciji $\phi (x)$ stori
 
 \begin{align}
 	H\phi(x) = a^\dagger a\ \phi(x)&= \Big[W(x) - \frac{1}{\sqrt{2}}\px\Big]\Big[W(x) +
@@ -72,11 +68,11 @@ Poglejmo si kako faktoriziran $H$ deluje na neko funkcijo $\phi (x)$:
 	&= \Big[-\frac{1}{2}\px^2 + W^2(x)\Big]\phi(x) - \frac{1}{\sqrt{2}}\Big[
 		\underbrace{\px \big(W(x)\phi(x)\big) - W(x)\px\phi(x)}_{(\px W(x))\phi(x)} \Big] \notag \\
 	&= \bigg\{-\frac{1}{2}\px^2 +
-		\underbrace{W^2(x) - \frac{1}{\sqrt{2}}\big[\px W(x)\big]}_{V(x)}\bigg\}\phi(x),
+		\underbrace{W^2(x) - \frac{1}{\sqrt{2}}\big[\px W(x)\big]}_{V(x)}\bigg\}\phi(x).
 	\label{dokaz.aad}
 \end{align}
 
-\ni To je Schr\" odingerjeva ena\v cba, natanko tedaj, kadar $W (x)$ spo\v stuje slede\v ca izraza:
+\ni To je prvotna Schr\" odingerjeva ena\v cba~\eqref{sx} natanko tedaj, kadar $W (x)$ spo\v stuje slede\v ca izraza:
 
 \begin{align}
 	V(x) &=\frac{1}{2}\frac{\px^2\psi_0(x)}{\psi_0(x)} = W^2(x) - \frac{1}{\sqrt{2}}\px
@@ -87,23 +83,22 @@ Poglejmo si kako faktoriziran $H$ deluje na neko funkcijo $\phi (x)$:
 \ni kjer smo izraz~\eqref{superpotencial} dobili z re\v sevanjem Riccatijeve ena\v cbe~\eqref{riccati}.
 
 Tako smo dobili $H_1 = a^\dagger a$ in ima re\v sitve $\psi_n(x)$ in $E_n$, kot jih poznamo
-od prej. Poglejmo, kaj se zgodi, \v ce obrnemo vrstni red operatorjev -- definirajmo \v se $H_2 = aa^\dagger$,
-ki ga dobimo kot
+od prej. Poglejmo, kaj se zgodi, \v ce zamenjamo vrstni red operatorjev -- definirajmo $H_2 = aa^\dagger$.
+Dobimo par Hamiltonianov $H_1$ in $H_2$,
 
 \begin{align}
 	H_1 &= -\frac{1}{2}\px^2 + V_1(x) = a^\dagger a, \\
 	H_2 &= -\frac{1}{2}\px^2 + V_2(x) = aa^\dagger,
 \end{align}
 
-\ni kjer
+\ni kjer sta $V_1(x)$ in $V_2(x)$ povezana prek
 
 \begin{align}
 	V_1(x) &= W^2(x) - \frac{1}{\sqrt{2}}\px W(x), \notag \\
 	V_2(x) &= W^2(x) + \frac{1}{\sqrt{2}}\px W(x). \label{v2pot}
 \end{align}
 
-\ni Ena\v cbo~\eqref{v2pot} lahko doka\v zemo z istim postopkom kot~\eqref{dokaz.aad}, le da na funkcijo $\phi(x)$
-delujemo z operatorjem $aa^\dagger$.
+\ni Ena\v cbo~\eqref{v2pot} lahko doka\v zemo z istim postopkom kot v en.~\eqref{dokaz.aad}.
 
 Pravimo, da je $V_2(x)$ supersimetri\v cni partner $V_1(x)$. Hamiltonian $H_1$ ima lastne pare $\psi^{(1)}_n(x)$,
 $E^{(1)}_n$, $H_2$ pa $\psi^{(2)}_n(x)$, $E^{(2)}_n$. Lastne funkcije in energijski spekter $H_2$ lahko dobimo z
@@ -113,9 +108,9 @@ re\v sevanjem, ali pa ga uganemo:
 	\psi^{(2)}_n(x) = a\psi^{(1)}_n(x),
 \end{equation}
 
-od koder vidimo da $\psi^{(2)}_0(x)$ ne obstaja, saj anihilacijski operator iz vakuuma naredi
-ni\v clo po definiciji. Energijski spekter $H_2$ je enak tistemu iz $H_1$, s tem da nima
-osnovnega stanja $E_0$, kar lahko poka\v zemo kot
+\ni od koder vidimo da $\psi^{(2)}_0(x)$ ne obstaja, saj anihilacijski operator iz vakuuma po definiciji naredi
+ni\v clo. Energijski spekter $H_2$ je enak tistemu iz $H_1$, s tem da nima osnovnega stanja $E_0$, kar lahko
+poka\v zemo kot
 
 \begin{align}
 	H_2\psi^{(2)}_n(x) &= aa^\dagger (a\psi^{(1)}_n(x)) = a(a^\dagger a)\psi^{(1)}_n(x) = \notag \\
@@ -129,10 +124,13 @@ osnovnega stanja $E_0$, kar lahko poka\v zemo kot
 	E^{(1)}_n \equiv E^{(2)}_n, \qquad n = 1, 2, 3 \ldots
 \end{equation}
 
-\ni Zaradi tega, spremenimo definicijo $H_1$ tako, da ne bo imel ve\v c osnovnega stanja
+\ni Zaradi tega redefiniramo $H_1$, da bo po novem osnovno stanje $\psi_0^{(1)}$ v jedru operatorja $H_1$
+
 \begin{equation}
 	H_1 \to H_1^\prime = H_1 - E_0.
 \end{equation}
+
+Kadar $E_0 \neq 0$ govorimo o zlomu supersimetrije.
 
 Hamiltoniana $H_1$ in $H_2$ bi radi zdru\v zili v enega, tako da se prostora ne me\v sata. Zato
 definiramo
@@ -166,20 +164,21 @@ Bozonski in fermionski operatorji tvorijo algebro, ki zado\v s\v ca kanoni\v cni
 	[a_i, a_j]_\pm &= 0,
 \end{align}
 
-\ni kjer je $[\bullet,\bullet]_+ \equiv [\bullet,\bullet]$ komutator in velja za bozone,
-$[\bullet,\bullet]_- \equiv \{\bullet,\bullet\}$ pa je anti-komutator in velja za fermione.
+\ni kjer je $[\bullet,\bullet]_- \equiv [\bullet,\bullet]$ komutator in velja za bozone,
+$[\bullet,\bullet]_+ \equiv \{\bullet,\bullet\}$ pa je anti-komutator in velja za fermione.
 
-V supersimetri\v cnih teorijah obstaja direktna linija, ki povezuje bozonske operatorje s fermionskimi.
-To je posebej razvidno iz operatorjev $Q$ in $Q^\dagger$ iz en.~\eqref{superop}. Operatorja
+V supersimetri\v cnih teorijah bozonske in fermionske operatorje opi\v semo na identi\v cno enak
+na\v cin. To je posebej razvidno iz operatorjev $Q$ in $Q^\dagger$ iz en.~\eqref{superop}. Operatorja
 $a$ in $a^\dagger$ tvorita boznonsko algebro
 
 \begin{equation}
 	[a, a^\dagger] = (\px W), \qquad [a, a] = 0.
 \end{equation}
 
-\ni V splo\v snem je $\px W = 1$ le za harmonski oscilator, za vi\v sje \v clene pa je problem bolj
-kompliciran, zarade anharmonske sklopitve, vendar obstaja dokaz za splo\v sen polinomski potencial, v katerem
-opis v Fockovem prostoru ni ve\v c tako enostaven. Definirajmo operatorje $c$ in $c^\dagger$, tako da
+\ni V splo\v snem je $\px W = 1$ le za harmonski oscilator, za vi\v sje \v clene pa je problem zaradi anharmonske
+sklopitve bolj kompliciran, vendar obstaja dokaz za splo\v sen polinomski potencial, v katerem
+opis v Fockovem prostoru ni ve\v c tako enostaven, so pa $a$, $a^\dagger$ \v se vedno bozonski.
+Definirajmo operatorje $c$ in $c^\dagger$, tako da
 
 \begin{equation}
 	c = \sigma^+, \qquad c^\dagger = \sigma^-,
@@ -201,32 +200,9 @@ opis v Fockovem prostoru ni ve\v c tako enostaven. Definirajmo operatorje $c$ in
 velja
 
 \begin{equation}
-	[Q, H] = [Q^\dagger, H] = 0,
+	[Q, \mathbf{H}] = [Q^\dagger, \mathbf{H}] = 0,
 \end{equation}
 
-\ni ti operatorji menjajo bozonska in fermionska stanja, ne da bi pri tem spremenili energijo sistema.
-
-\subsection{Zlom supersimetrije}
-
-Hamiltonian $\mathbf{H}$ ima degeneriran spekter, saj imata $H_1$ in $H_2$ iste lastne vrednosti. Kadar velja
-$E^{(1)}_0 = 0$ pravimo, da je supersimetrija zlomljena, saj Hamiltoniana nista ve\v c degenerirana
-in takih operatorjev $Q$ nimamo ve\v c. V teorijah polja to merimo s tako imenovanim Witten-ovim
-indeksom,
-
-\begin{equation}
-	\Delta (\beta) = \Tr\big[\e^{-\beta H_1} - \e^{-\beta H_2}\big].
-\end{equation}
-
-\ni Za supersimetri\v cne teorije je 
-\begin{equation}
-	\lim_{\beta \to 0} \Delta(\beta) = 0,
-\end{equation}
-
-\ni za teorije z zlomljeno supersimetrijo pa 
-
-\begin{equation}
-	\lim_{\beta \to 0} \Delta (\beta) = 1,
-\end{equation}
-
-\ni saj osnovno stanje $H_1$ pre\v zivi.
+\ni vidimo, da $Q$ in $Q^\dagger$ menjata bozonska in fermionska stanja, ne da bi pri tem spremenila energijo sistema,
+hkrati pa prenesejo stanja iz $H_1$ v $H_2$ oz. $H_2$ v $H_1$. Torej $H_1$ ustreza bozonom, $H_2$ pa fermionom.
 

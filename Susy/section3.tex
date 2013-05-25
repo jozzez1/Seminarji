@@ -2,7 +2,7 @@
 
 Prava mo\v c supersimetrije se poka\v ze pri obravnavi re\v sljivih problemov. Njihov nabor je sicer neskon\v cen,
 vendar pa obstaja kon\v cna podmno\v zica, iz katere lahko dobimo vse ostale. Tudi znotraj te podmno\v zice imamo
-v resnici transformacije, ki iz en "`generatorskegi"' potencial slika v drugega.
+v resnici transformacije, ki "`generatorski"' potencial slika v drugega.
 
 Imejmo potencial $V_1 (x; \pr_1)$ in potencial
 $V_2 (x; \pr_2)$, kjer sta $\pr_1$ in $\pr_2$ urejena nabora parametrov v potencialih. \v Ce sta
@@ -13,7 +13,7 @@ $V_1$ in $V_2$ podobna, potem veljata slede\v ci identiteti:
 	\pr_2 &= \underline{f} (\pr_1). \label{osnova}
 \end{align}
 
-\ni Prek en.~\eqref{osnova} dobimo dru\v zino potencialov, ki so podobni $V_1$. Parametre lahko dobimo prek
+\ni Prek en.~\eqref{osnova} dobimo dru\v zino potencialov, ki so podobni $V_1$. Nove parametre dobimo iz
 kompozituma funkcije $f$
 
 \begin{align}
@@ -28,7 +28,7 @@ kompozituma funkcije $f$
 \begin{align}
 	V_2 (x; \pr_1) &= V_1 (x; \pr_2) + R (\pr_1), \notag \\
 	V_3 (x; \pr_1) &= V_2 (x; \pr_2) + R (\pr_2) = V_1 (x; \pr_3) + R (\pr_1) + R (\pr_2), \notag \\
-	&\ldots \notag \\
+	&\vdots \notag \\
 	V_n (x; \pr_1) &= V_1 (x; \pr_n) + \sum_{k = 1}^{n-1} R (\pr_k),
 \end{align}
 
@@ -45,7 +45,7 @@ osnovnih stanj so o\v citno
 	E^{(n)}_0 = \sum_{k = 1}^{n - 1} R(\pr_k).
 \end{equation}
 
-Ker so spektri od neke energije dalje enaki, sledi da energije vakuumov teh hamiltonianov sovpadajo z energijami
+Ker so spektri od neke energije dalje enaki, sledi da energije vakuumov teh Hamiltonianov sovpadajo z energijami
 vzbujenih stanj Hamiltonianov z indeksom $m < n$. Seveda gremo lahko do konca nazaj, pridemo do
 $m = 1$ in $E^{(1)}_0 = 0$ in tako dobimo celoten vezani spekter Hamiltoniana $H_1$:
 
@@ -72,8 +72,8 @@ saj
 	a^\dagger \equiv a^\dagger (x; \pr) \equiv W(x; \pr) - \frac{1}{\sqrt{2}}\px,
 \]
 
-Hamiltonianu $H_1$ pripada supersimetri\v cni partner $H_2$, ki ima enak spekter, zato lahko $H_2$
-obravnavamo ko podoben Hamiltonian, vemo, da se razlikuje ravno za vakuumsko stanje.
+Hamiltonianu $H_1$ pripada supersimetri\v cni partner $H_2$, ki ima enak spekter, hkrati pa nima lastnega
+stanja pri vakuumski energiji $H_1$, zato lahko $H_2$ obravnavamo kot $H_1$ podoben Hamiltonian.
 
 Vi\v sja vzbujena stanja moramo o\v citno dobiti kot
 
@@ -83,7 +83,7 @@ Vi\v sja vzbujena stanja moramo o\v citno dobiti kot
 \end{equation}
 
 \ni Odtod sledi pomembna posledica: supersimetri\v cna partnerja $V_1$ in $V_2$ sta si podobna potenciala, kar
-pomeni, da je med njima lahko netrivialna podobsnostna transformacija -- konkretno lahko spet za zgled vzamemo
+pomeni, da je med njima lahko netrivialna podobnostna transformacija -- konkretno si lahko spet za zgled vzamemo
 neskon\v cno potencialno jamo in en.~\eqref{pot-nes-jama}.
 
 Ker je neprikladno ra\v cunati poljubno visok $\pr_k$ na zalogo, se po navadi raje uporabi kar
@@ -112,49 +112,25 @@ zgodi npr. $p^\prime_k = q \cdot p_k^2$, teh niso na\v sli veliko.
 
 Potenciali, ki imajo lastnost podobnosti ne rabijo biti centralni.
 
-\subsubsection{Re\v sitve povezane s translacijami}
-
-Iz $\pr_1$ lahko preidemo v $\pr_2$ prek transformacije $\underline{f}$, ki je v tem primeru enostavna
-translacija:
-
-\[
-	\pr_2 = \underline{f}(\pr_1) = \pr_1 + \underline{q}.
-\]
-
-Kot sem napisal prej, je sta si supersimetri\v cna partnerja "`podobna"'. Torej poleg vseh do sedaj zapisanih
-identitet, velja tudi pravilo
-
-\begin{equation}
-	V_2 (x; \pr_1) - V_1 (x; \pr_1 + \underline{q}) = R (\pr_1).
-\end{equation}
-
-\ni Oba sta povezana prek istega superpotenciala v en.~\eqref{v2pot}, torej
-
-\begin{multline}
-	W^2 (x; \pr_1) + \frac{1}{\sqrt{2}}\px W(x; \pr_1) + \frac{1}{\sqrt{2}}\px W (x; \pr_1 + \underline{q}) - W^2
-		(x; \pr_1 + \underline{q}) =\\= R (\pr_1) = L (\pr_1) - L (\pr_1 + \underline{q})
-\end{multline}
-
-\ni Tabela~\ref{tab1} prikazuje primere potencialov, ki pripadajo tej dru\v zini.
+\ni Tabela~\ref{tab1} prikazuje potenciale, ki pripadajo translatorni dru\v zini.
 
 \begin{table}[H]\centering
 	\caption{Nekaj preprostih potencialov, ki pripadajo podobnim na translacije. Rosen-Morse I je res podoben
 		neskon\v cni potencialni jami -- Rosen-Morse I, pri $\alpha = \pi$, $A = \pi$ in $B = 0$. Coulombov
-		potencial se da transformirati v 3D harmonski oscilator.}
+		potencial se da transformirati v 3D harmonski oscilator. Rosen-Morse I ima pogoj $0 \leq \alpha x \leq \pi$,
+		Eckart pa $B > A^2$.}
 	\label{tab1}
 	\vspace{0.2cm}
-	\begin{tabular}{l || c | c | c}
-		Naziv & $W(x)$ & $V(x)$ & pogoj\\ \hline
+	\begin{tabular}{l || c | c}
+		Naziv & $W(x)$ & $V(x)$\\ \hline
 		Rosen-Morse I & $-A \cot \alpha x - B/A$ & $\frac{A (A - \alpha)}{\sin^2 \alpha x} + 2B\cot\alpha x - A^2
-			+ (B/A)^2$ & $0 \leq \alpha x \leq \pi$ \\
+			+ (B/A)^2$ \\
 		Coulomb & $\frac{e^2}{2(\ell+1)} - \frac{(\ell+1)}{r}$ & $-\frac{e^2}{r} + \frac{\ell(\ell+1)}{r^2} -
-			\frac{e^4}{4(\ell + 1)^2}$ & brez \\
-		1D harmonski oscilator & $\frac{1}{2}\w x - b$ & $\frac{1}{4}\w^2\big(x - \frac{2b}{\w}\big)^2 - \frac{\w}{2}$
-			& brez \\
+			\frac{e^4}{4(\ell + 1)^2}$ \\
+		1D harmonski oscilator & $\frac{1}{2}\w x - b$ & $\frac{1}{4}\w^2\big(x - \frac{2b}{\w}\big)^2 - \frac{\w}{2}$ \\
 		3D harmonski oscilator & $\frac{1}{2}\w r - \frac{\ell + 1}{r}$ & $\frac{1}{4}\w^2r^2 +
-			\frac{\ell(\ell + 1)}{r^2} - (\ell + 3/2)\w$ & brez \\
-		Eckart & $-A\coth\alpha r + B/A$ & $A^2 + (B/A)^2 - 2B\coth\alpha r + \frac{A(A + \alpha)}{\sinh^2 \alpha r}$
-			& $B > A^2$ \\
+			\frac{\ell(\ell + 1)}{r^2} - (\ell + 3/2)\w$ \\
+		Eckart & $-A\coth\alpha r + B/A$ & $A^2 + (B/A)^2 - 2B\coth\alpha r + \frac{A(A + \alpha)}{\sinh^2 \alpha r}$ \\
 	\end{tabular}
 \end{table}
 
