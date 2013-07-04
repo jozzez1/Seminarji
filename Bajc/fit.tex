@@ -1,0 +1,366 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, fullpage, dsfont}
+
+\newcommand{\x}{
+	\ensuremath{\vec{x}}
+}
+
+\newcommand{\y}{
+	\ensuremath{\vec{y}}
+}
+
+\newcommand{\diag}{
+	\operatorname{diag}
+}
+
+\renewcommand{\ni}{
+	\noindent
+}
+
+\newcommand{\M}{
+	\ensuremath{\mathbf{M}}
+}
+
+\renewcommand{\L}{
+	\ensuremath{\mathbf{\Lambda}}
+}
+
+\newcommand{\D}{
+	\ensuremath{\mathbf{D}}
+}
+
+\newcommand{\De}{
+	\ensuremath{\mathbf{\Delta}}
+}
+
+\newcommand{\I}{
+	\ensuremath{\mathds{1}}
+}
+
+\newcommand{\A}{
+	\ensuremath{\mathbf{A}}
+}
+
+\newcommand{\B}{
+	\ensuremath{\mathbf{B}}
+}
+
+\newcommand{\C}{
+	\ensuremath{\mathbf{C}}
+}
+
+\newcommand{\w}{
+	\ensuremath{\omega}
+}
+
+\newcommand{\R}{
+	\ensuremath{\mathbf{R}}
+}
+
+\newcommand{\Le}{
+	\ensuremath{\mathbf{L}}
+}
+
+\newcommand{\V}{
+	\ensuremath{\mathbf{V}}
+}
+
+\begin{document}
+
+\section{Extract}
+
+\subsection{Foreword on notation}
+In order to perhaps not puzzle the reader, all matrices have dimension $3 \times 3$ and will be denoted in bold font. Vectors
+will be considered as colums\footnote{transposed vectors are then rows of dimension 3} of dimension $3$ and, like
+mathematicians usually do, will be denoted with small latin letters. Components of either matrices or vectors will use the
+same letter, in matrix case without bold font, equipped with an indices, scalars which are not components of anything will
+be denoted with small greek letters. Unit matrix will be denoted by the `$\I$' symbol.
+
+\subsection{General mass matrix}
+General form of the mass matrices $\M$ for vectors $a$ and $b$ is
+\[
+	\M (a,b) = \L(a)(\D + d_4 ab^T)\L(b),
+\]
+
+\ni where 
+\[
+	\L(x) = \I - \underbrace{\frac{\lambda^2(x)}{1 + \lambda(x)}}_{\alpha(x)} xx^T, \quad \lambda(x) =
+		\frac{1}{\sqrt{1 + x^Tx}}
+\]
+
+\ni and $D = \diag (d_{11}, d_{22}, d_{33})$. In order to determine the eigenvalues of the matrix $M$, we have to calculate its
+components. For simplicity we will use the aforementioned $\alpha(x)$, and so
+
+\[
+	\L(x) = \I - \alpha (x) xx^T.
+\]
+
+Let's start by calculating this matrix further. Almost without thinking, we can guess its form is
+
+\[
+	\L(x) = (-\alpha) \begin{pmatrix}
+		x_1^2 - 1/\alpha & x_1 x_2 & x_1 x_3 \\
+		x_2 x_1 & x_2^2 - 1/\alpha & x_2 x_3 \\
+		x_3 x_1 & x_3 x_2 & x_3^3 - 1/\alpha
+		\end{pmatrix}.
+\]
+
+\ni We not turn to the central part of the matrix product: the sum between $\D$ and the `$d_4$' part
+
+\[
+	\diag(d_{11}, d_{22}, d_{33}) + d_4 ab^T = \begin{pmatrix}
+		d_{11} + a_1 b_1 & a_1 b_2 & a_1 b_3 \\
+		a_2 b_1 & d_{22} + a_2 b_2 & a_2 b_3 \\
+		a_3 b_1 & a_3 b_2 & d_{33} + a_3 b_3
+	\end{pmatrix} = \De(a,b; d),
+\]
+
+\ni where $d = (d_{11}, d_{22}, d_{33}, d_4)$.
+
+Now let us calculate the product $\De (a,b;d) \L(b)$. Since the form of this matrix is really not
+esthetically pleasing, I will use component notation with Einstein's rule for summation. For the sake of clarity, we will
+use
+\[
+	\beta \equiv \frac{\lambda^2(b)}{1 + \lambda(b)},\qquad \alpha \equiv \frac{\lambda^2(a)}{1 + \lambda(a)}
+\]
+
+\[
+	\Delta_{ij}\Lambda_{jk} = (d_{ij} + d_4 a_i b_j) (\delta_{ik} - \beta b_j b_k) = d_{jk} - \beta d_{ij}b_j b_k +
+		d_4 a_i b_k - \beta d_4 b^2 a_i b_k.
+\]
+
+\ni To clarify, $b^2 \equiv |b|^2 = b^T b$. We reached the point, where we must multiply from the left with $\L(a)$
+
+\begin{align*}
+	(\delta_{\ell i} - \alpha a_\ell a_i) \Delta_{ij}\Lambda_{jk} &= (\delta_{\ell i} - \alpha a_\ell a_i)
+		(d_{ik} - \beta d_{ij}b_j b_k + d_4 a_i b_k - \beta d_4 b^2 a_i b_k) \\
+	&= d_{\ell k} - \beta d_{\ell j} b_j b_k + d_4 a_\ell b_k - \beta d_4 b^2 a_\ell b_k -\\
+	&- \alpha a_\ell a_i d_{ik} + \alpha\beta a_\ell a_i d_{ij} b_j b_k - \alpha d_4 a^2 a_\ell b_k +
+		\alpha\beta d_4 a^2 b^2 a_\ell b_k,
+\end{align*}
+
+\ni which are then the components of the mass matrix $\M (a, b)$
+
+\begin{align}
+	M_{ij} (a, b) =&\ d_{ij} + d_4 a_i b_j - \beta d_{ik} b_k b_j - \alpha a_i a_k d_{kj} - \notag \\
+	&-(\beta b^2 + \alpha a^2) d_4 a_i b_j + \alpha \beta a_i a_k d_{k\ell} b_\ell b_j +
+		\alpha \beta d_4 a^2 b^2 a_i b_j \notag \\
+	=&\ d_{ij} - \alpha a_i a_k d_{kj} - \beta d_{ik} b_k b_j - \bigg\{\beta b^2 + \alpha a^2 - d_4\bigg[1 +
+		\alpha\beta\bigg(a^2 b^2 + a_k\frac{d_{k\ell}}{d_4}b_\ell\bigg)\bigg]\bigg\} a_ib_j \notag \\
+	=&\ d_{ij} - \alpha a_i a_k d_{kj} - \beta d_{ik} b_k b_j -\gamma a_i b_j, 
+	\label{mass-matrix}
+\end{align}
+
+\ni where we defined $\gamma$ as the entire term from eqn.~\eqref{mass-matrix} in curly brackets. So far we didn't use
+the fact, that in our base, $\D$ was originally diagonal.
+
+\paragraph{Problem ahead!}
+We can inquire about the properties of the matrix $\M$. Since all of its components are real and masses
+must also be real, the matrix should be symmetric. So far, this doesn't seem so. Perhaps using $\M^T \M$ would be more
+prudent, as this matrix is strictly symmetric and has real eigenvalues.
+\\[0.5cm]
+From eqn.~\eqref{mass-matrix} we see that $\M$ can be written as a sum of four different matrices. Our matrix $\M$ is
+
+\begin{equation}
+	\M = \begin{pmatrix}
+		M_{11} & M_{12} & M_{13} \\
+		M_{21} & M_{22} & M_{23} \\
+		M_{31} & M_{32} & M_{33}
+	\end{pmatrix}.
+\end{equation}
+
+\ni Let us also define three submatrices:
+
+\begin{equation}
+	\A = \begin{pmatrix}
+		M_{11} & M_{12} \\
+		M_{21} & M_{22}
+	\end{pmatrix}, \quad
+	\B = \begin{pmatrix}
+		M_{11} & M_{13} \\
+		M_{31} & M_{33}
+	\end{pmatrix}, \quad
+	\C = \begin{pmatrix}
+		M_{22} & M_{23} \\
+		M_{32} & M_{33}
+	\end{pmatrix},
+\end{equation}
+
+\ni with which we can write the characteristic polynomial $p(\w) \equiv \det(\M - \omega\I)$ in a cleaner fashion as
+\begin{equation}
+	p(\w) = -\w^3 + \w^2 (M_{11} + M_{22} + M_{33}) - \w(\det\A + \det\B + \det\C) + \det\M.
+\end{equation}
+
+\ni Roots of the characteristic polynomial are eigenvalues of the mass matrix $\M$. We can obtain them with either
+explicit diagonalization, or by using the Cardano's formula, which gives us explicit solution without much trouble, and
+can be hard-coded into the program with which we can perform the minimization.
+
+Cardano's formula is nevertheless a bit clumsy, and imposes several special conditions one must be approach in
+a different manner, so diagonalization sounds more attractive. We will enforce the $\M \in \mathbb{R}$ condition
+with $\M \to \M^T \M$, with eigenvalues
+
+\[
+	\M^T \M = \begin{pmatrix}
+		M_{1}^2 & 0 & 0\\
+		0 & M_{2}^2 & 0\\
+		0 & 0 & M_{3}^2
+	\end{pmatrix}, \quad M_1 \leq M_2 \leq M_3.
+\]
+
+\section{Minimization}
+
+I diagonalized the matrix using the {\tt gsl\_eigen\_symmv} function from the {\tt GSL}. This returned me
+a set of squared masses for the matrices $\M_D$, $\M_U$ and $\M_E$. These diagonalized matrices I used then
+to construct the combined charged fermions' matrix $\M_F$:
+
+\begin{equation}
+	\M_F^T \M_F = \diag (m_d^2, m_s^2, m_b^2, m_u^2, m_c^2, m_t^2, m_e^2, m_\mu^2, m_\tau^2).
+\end{equation}
+
+We know those measured values at $\Lambda_\text{GUT}$ and therefore can compare them for given set of parameters
+$x$, $y$, $u$, $d$, $v$ and $\beta$, where
+
+\begin{align*}
+	v^T &\equiv (\bar{v}_d, \bar{v}_u), \\
+	v_u &= v\cos\alpha_u\sin\beta = \bar{v}_u\sin\beta, \\
+	v_d &= v\cos\alpha_d\cos\beta = \bar{v}_d\cos\beta.
+\end{align*}
+
+\ni For $\bar{v}_{d,u}$ we have a condition, that $\bar{v}_{d,u} \in (-246/\sqrt{2}, 246/\sqrt{2})$ GeV. To enforce this
+condition, we parametrize them with angles $\gamma_u$ and $\gamma_d$,
+
+\[
+	\bar{v}_{d,u} = \frac{246\ \text{ GeV}}{\pi/\sqrt{2}}\bigg(\arctan \gamma_{d,u} +
+		\frac{\pi}{2}\bigg),
+\]
+
+\ni which ensures, that any random real variable will be mapped to $(-246/\sqrt{2}, 246/\sqrt{2})$ interval.
+
+We can use measured masses $m_i^e$ to compare them with our calculated masses $m_i^c$ to compute $\chi^2$.
+
+\begin{equation}
+	\chi^2_{m^2} = \frac{1}{9}\sum_{i=1}^9 \bigg[\frac{(m_i^c)^2 - (m_i^e)^2}{2m_i^e\sigma_{m_i^e}}\bigg]^2.
+\end{equation}
+
+\ni note that such definition of $\chi^2$ measures discrepancies between squares of masses, and not the masses
+themselves. Thus, we can define $f(x,y,u,d,v,\beta) = \chi^2$ which we can minimize. To do so, I used the
+{\tt gsl\_multimin\_fminimizer\_nmsimplex2} function again from the {\tt GSL}.
+
+Usually, we would get problems, because number of measure points is smaller than the number of free parameters,
+but seeing things from a different angle, we can think of our problem as finding the minimum of a simple scalar
+function, which can be done regardless of the number of the arguments.
+
+\section{Adding the CKM matrix conditions}
+
+Apart from getting correct masses, we must also account for the CKM matrix -- $\V_\text{CKM}$. A general real matrix
+can be diagonalized as
+
+\begin{equation}
+	\M_X = \R_X \De_X \Le_X^T,
+\end{equation}
+
+\ni where both $\R_X$ and $\Le_X$ are orthogonal matrices and $\De_X$ is diagonal. The $\V_\text{CKM}$ is defined as
+
+\begin{equation}
+	\V_\text{CKM} = \Le_U^T\Le_D.
+\end{equation}
+
+\ni We have been diagonalizing the $\M_X^T \M_X$ matrices, which are
+
+\begin{equation}
+	\M_X^T \M_X = \Le_X \De_X \underbrace{\R_X^T \R_X}_{\I} \De_X \Le_X^T = \Le_X (\De_X)^2 \Le_X^T.
+\end{equation}
+
+\ni The matrices we seek for are then those which diagonalize the matrix $\M^T_X \M_X$. This gives us additional constraints
+on the results, since eigenvectors of $\M_U^T\M_U$ and $\M_D^T\M_D$ must obey the $\V_\text{CKM}$ matrix, because
+
+\begin{equation}
+	\Le_X^T = \begin{bmatrix}
+			    & & & & \\
+			e^X_1 &\Bigg|& e^X_2 &\Bigg|& e^X_3\\
+			    & & & &
+		\end{bmatrix},\ \text{where}\ e_i^X = \begin{pmatrix}
+			e^X_{1i} \\ e^X_{2i} \\ e^X_{3i}
+		\end{pmatrix}
+\end{equation}
+
+\ni are eigenvectors of matrix $\Le_X^T$. Since we are dealing with real values, out $\V_\text{CKM}$ is
+going to be real orthogonal matrix (so our matrices can $\Le_X^T$ also anti-orthogonal). We will
+use parametrization with the Euler angles -- $\theta_1$, $\theta_2$ and $\theta_3$. In order to shorten the notation, we
+shall use
+\[
+	c_j \equiv \cos\theta_j, \quad s_j \equiv \sin\theta_j.
+\]
+
+Our $\V_\text{CKM}$ is general rotation (ortogonal) matrix from $SO(3)$, that can be written as
+
+\begin{equation}
+	\V_\text{CKM} = \begin{pmatrix}
+		V_{11} & V_{12} & V_{13} \\
+		V_{21} & V_{22} & V_{23} \\
+		V_{31} & V_{32} & V_{33}
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		c_2 & -c_3 s_2 & s_2 s_3 \\
+		c_1 s_2 & c_1 c_2 c_3 - s_1 s_3 & -c_3 s_1 - c_1 c_2 s_3 \\
+		s_1 s_2 & c_1 s_3 + c_2 c_3 s_1 & c_1 c_3 - c_2 s_1 s_3
+	\end{pmatrix}
+\end{equation}
+
+\ni These angles do not form a triangle. In order to determine the angles, the best numerical solution is to calculate
+$\tan\theta_i$, since they can be both positive, infinite and can take up any value on the real axis. We can quickly see, that
+for such parametrization
+\begin{align}
+	\tan\theta_1 &= V_{31}/V_{21}, \notag \\
+	\tan\theta_3 &= -V_{13}/V_{12}, \notag \\
+	\tan\theta_2 &= \mp \frac{V_{11}}{V_{12}}\sqrt{\frac{V_{31} - V_{11}V_{13}V_{21}/V_{12}}{V_{23}V_{12}}} \approx
+		\mp\frac{V_{11}}{V_{12}}
+	\label{thetas}
+\end{align}
+\ni The final approximation is due to the empirical observation, that the square root term in the CKM matrix is close to
+one. In Wolfenstein parametrization the $\V_\text{CKM}$ matrix is defined by 4 real parameters: $A$, $\lambda$, $\bar{\rho}$
+and $\bar{\eta}$. Parameter $\bar{\eta}$ is the complex phase we're not interested in, so we set it to zero. Using the
+eqn.~\eqref{thetas} one can obtain
+
+\begin{align}
+	\tan\theta_1 &\approx (\bar{\rho} - 1)A\lambda^2, \notag \\
+	\tan\theta_3 &\approx A\lambda^2\bar{\rho}, \notag \\
+	\tan\theta_2 &\approx \mp\frac{\lambda}{1 - \lambda^2/2}
+		\bigg[\frac{1 - \lambda^2/2 + A^2\lambda^4\bar{\rho}(1 - \bar{\rho})}{1 - \lambda^2/2}\bigg]^{1/2} \approx
+		\frac{\lambda}{1 - \lambda^2/2},
+\end{align}
+
+\ni which for the $\V_\text{CKM}$ are
+\begin{align}
+	\lambda = 0.2257^{+0.0009}_{-0.0010}, &\qquad A = 0.0814^{+0.021}_{-0.022}, \\
+	\bar{\rho} = 0.135^{+0.031}_{-0.016}, &\qquad \bar{\eta} = 0.349^{+0.015}_{-0.017}
+\end{align}
+
+\begin{align}
+	\sigma_1 &= \pm\big\{(A\lambda^2 \sigma_{\bar{\rho}})^2 + [\lambda^2(\bar{\rho}-1)\sigma_A]^2 +
+		[2\lambda A(\bar{\rho}-1)\sigma_\lambda]^2\big\}^{1/2} \notag \\
+	\sigma_2 &= \pm\big[\sigma_\lambda + (\sigma_\lambda - \delta_\lambda)\tan\theta_2\big] \notag \\
+	\sigma_3 &= \pm\tan\theta_3 \big(\delta_A^2 + \delta_{\bar{\rho}}^2 + 4\delta_\lambda^2\big)^{1/2},
+\end{align}
+
+\ni where $\delta_\lambda = \sigma_\lambda/\lambda$. Numerical values for each of these angles are
+
+\begin{align}
+	\tan\theta_1 &= (-3.587 \pm 0.928)\cdot10^{-3}, \notag \\
+	\tan\theta_2 &= (0.23159888 \pm 0.0001849), \notag \\
+	\tan\theta_3 &= \mp(5.59785045 \pm 1.58989434)\cdot 10^{-4},
+\end{align}
+
+\ni which are the values we will use to determine the fit. In order to get rid of the alternating sign of the $\tan\theta_2$
+we are going to use the absolute value.
+
+The complete $\chi^2$ is modified. This in total gives us 15 free parameters for 12 measure points, or rather 15 parameters
+to solve 12 equations. Solutions of such problems are not well defined ambiguous. In principle, we have infinitely many
+solutions that minimize this problem, and solutions are lying on a three-dimensional manifold. However, we can try to save
+ourselves, and filter out most of these solutions. We do so, by searching for those parameters, that don't affect our solution
+-- the bad parameters. We find them by making a singular value decomposition (SVD) of the covariance matrix after we minimize,
+and then get linear combinations of our parameters which are good, and linear combinations, that cancel each other out. Linear
+combinations with small singular values can be neglected.
+
+\end{document}
