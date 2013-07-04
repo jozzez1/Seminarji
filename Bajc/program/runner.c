@@ -239,8 +239,8 @@ int main (int argc, char ** argv)
 	       * v = (double *) malloc (15 * sizeof (double));
 	
 	char * command = (char *) malloc (100 * sizeof (char));
-	sprintf (command, "./fermion -i runner4fitter.txt -M%lf -n%d -f%s",
-			min_length, maxI, output);
+	sprintf (command, "./fermion -i runner4fitter.txt -M%lf -n%d -f%s -I%lf",
+			min_length, maxI, output, init_length);
 
 	if (sloppy)
 		sprintf (command, "%s -s%lf", command, sl_error);
@@ -267,3 +267,4 @@ int main (int argc, char ** argv)
 
 	exit(EXIT_SUCCESS);
 }
+
