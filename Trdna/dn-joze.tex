@@ -40,6 +40,42 @@
 	\ensuremath{\frac{1}{\sqrt{V}}}
 }
 
+\newcommand{\vR}{
+	\ensuremath{\vec{R}_{ij}}
+}
+
+\newcommand{\s}{
+	\ensuremath{\sigma}
+}
+
+\newcommand{\ex}{
+	\ensuremath{\vec{e}_x}
+}
+
+\newcommand{\ey}{
+	\ensuremath{\vec{e}_y}
+}
+
+\newcommand{\fV}{
+	\ensuremath{\frac{1}{V}}
+}
+
+\renewcommand{\ni}{
+	\noindent
+}
+
+\newcommand{\pred}{
+	\ensuremath{\frac{e^2}{\e_0 q^2 V}}
+}
+
+\newcommand{\dd}{
+	\ensuremath{\text{d}}
+}
+
+\newcommand{\I}{
+	\ensuremath{\mathcal{I}}
+}
+
 \begin{document}
 
 \section{Navodilo}
@@ -54,8 +90,9 @@ bli\v zini valovnih vektorjev (nesting) gnezdenja.
 V skripti, poglavje 8, imamo na voljo ti. \emph{Lindhardovo ena\v cbo},
 
 \begin{equation}
-	\e (\vq, \w) = 1 - \frac{e^2}{\e_0 q^2 V} \sum_{\vec{k}} \frac{f_{\vec{k}}^0 - f^0_{\vec{k}+\vq}}
-		{\e_{\vec{q}} - \e_{\vec{k}+\vq} + \hbar\w + i\hbar\alpha}
+	\e (\vq, \w) = 1 - \frac{e^2}{\e_0 q^2 V} \sum_{\vec{k}} \frac{f_{\vec{k}}^0 -
+		f^0_{\vec{k}+\vq}} {\e_{\vec{k}} - \e_{\vec{k}+\vq} + \hbar\w + i\hbar\alpha}
+	\label{lindhard}
 \end{equation}
 
 V izpeljavi le-te smo delali s splo\v sno valovno funkcijo, tj. velja tudi za nas. Ugotoviti moramo
@@ -71,7 +108,7 @@ Uporabimo operatorje polja
 	\label{polje}
 \end{align}
 
-ki ustvarijo (uni\v cijo) delec s spinom $\sigma$ na mre\v zi -- $\vec{R}_{ij}$ je vozli\v sce
+\ni ki ustvarijo (uni\v cijo) delec s spinom $\sigma$ na mre\v zi -- $\vec{R}_{ij}$ je vozli\v sce
 kristalne mre\v ze (tj. lokacija atoma), $\vec{r}$ pa je odmik elektrona v okolici. Delamo v
 adiabatnem pribli\v zku, tj. mre\v za je za na\v se potrebe stacionarna. Funkcije $\phi_n (\vec{r})$
 so znamenite Wannierove funkcije. Vendar, ker imamo samo en elektron, lahko zapi\v semo tako:
@@ -82,7 +119,7 @@ so znamenite Wannierove funkcije. Vendar, ker imamo samo en elektron, lahko zapi
 	&= c_{m,\sigma} \phi_m (\vec{R}_{ij} + \vec{r}).
 \end{align}
 
-Ker imamo kreacijsko anihilacijske operatorje le za en delec, jih bomo opremili druga\v ce -- indeks
+\ni Ker imamo kreacijsko anihilacijske operatorje le za en delec, jih bomo opremili druga\v ce -- indeks
 ne bo ve\v c pomenil stanje, ampak lokacijo na mre\v zi:
 
 \begin{align}
@@ -98,9 +135,10 @@ primeru so za energijo vozli\v sca $h_{ij}$ to
 \begin{equation}
 	\oh_{ij} = -t \sum_{\sigma} [c^\dagger_{i,j,\sigma} (c_{i,j+1,\sigma} + c_{i+1,j,\sigma} +
 		c_{i,j-1,\sigma} + c_{i-1,j,\sigma}) + \text{h.c.}]
+	\label{oh}
 \end{equation}
 
-Celotno kineti\v cno energijo lahko zapi\v semo kot vsoto po vseh vozli\v s\v cih, vendar moramo biti
+\ni Celotno kineti\v cno energijo lahko zapi\v semo kot vsoto po vseh vozli\v s\v cih, vendar moramo biti
 pazljivi: na tak na\v cin bomo vsako "`vez"' \v steli dvakrat\footnote{To v splo\v snem ni res, zaradi
 efektov na robu. Vendar mi delamo s periodi\v cnimi robnimi pogoji, zato je vse v redu.}, zato moramo
 vsoto obte\v ziti z ustrezno multiplikativno konstanto, tj. $1/2$:
@@ -109,14 +147,13 @@ vsoto obte\v ziti z ustrezno multiplikativno konstanto, tj. $1/2$:
 	\hat{H} = \frac{1}{2}\sum_{ij} \oh_{ij} + \mathcal{U}\sum_{ij} \hn_{ij,\u} \hn_{ij,\d}.
 \end{equation}
 
-Operator $\hn$ je operator \v stetja. Zapisal sem ga s stre\v sico, da se ga lo\v ci od indeksa
-energijskega stanja. Na vsak ion imamo le en elektron, tj. bo interakcijski \v clen neutola\v zljivo
-enak ni\v c.
+\ni Operator $\hn$ je operator \v stetja. Zapisal sem ga s stre\v sico, da se ga lo\v ci od indeksa
+energijskega stanja.
 
 Imamo dva na\v cina, kako nadaljujemo z re\v sevanjem problema: $h_{ij}$ lahko izra\v cunamo v
 matri\v cni obliki in dobimo energijski spekter, ali pa Hamiltonian pretvorimo v impulzno bazo.
 
-Za pretvorbo v impulzno bazo poglejmo najprej operatorje polja, iz en.~\eqref{polje}
+Za pretvorbo v impulzno bazo poglejmo najprej operatorje polja, iz en.~\eqref{polje}:
 \begin{equation}
 	\psi_{ij,\sigma} (\vec{r}) = \frac{1}{\sqrt{V}}\sum_{\vec{k}}
 		c_{\vec{k},\sigma}\varphi_{\vec{k}}(\vec{R}_{ij} + \vec{r}) = 
@@ -124,10 +161,126 @@ Za pretvorbo v impulzno bazo poglejmo najprej operatorje polja, iz en.~\eqref{po
 		\varphi_{\vec{k}}(\vec{r})
 \end{equation}
 
-Po primerjavi s staro izjavo hitro ugotovimo, da je
+\ni Po primerjavi s staro izjavo hitro uganemo, da je
 \begin{align}
 	c_{ij,\sigma} &= \koren \sum_{\vk} c_{\vk,\sigma} e^{i\vk\cdot\vec{R}_{ij}}, \\
 	c^\dagger_{ij,\sigma} &= \koren \sum_{\vk} c^\dagger_{\vk, \sigma} e^{-i\vk\cdot\vec{R}_{ij}}.
+\end{align}
+
+\ni Sedaj transformirajmo \v clene ki nastopajo v en.~\eqref{oh}. Recimo $\vec{R}_{i,j\pm1} = \vec{R}_{ij}
+\pm a\vec{e}_y$, $a > 0$, $a$ je razdalja med ioni na mre\v zi. Ker je mre\v za kvadratna, lahko
+isto naredimo v drugi smeri, tj. $\vec{R}_{i\pm1, j} = \vec{R}_{ij} \pm a\vec{e}_x$.
+
+\begin{align}
+	\sum_\s\sum_{i,j} c^\dagger_{i,j,\sigma}c_{i,j \pm 1,\sigma} 
+	&=\fV \sum_\s\sum_{i,j}\sum_{\vk} c^\dagger_{\vk,\s}c_{\vq,\s} e^{-i\vk \cdot \vR}
+		\sum_{\vq}c_{\vq,\s} e^{i\vq\cdot\vec{R}_{i,j \pm 1}}, \notag \\
+	&=\fV \sum_\s \sum_{\vk,\vq} \sum_{i,j}c^\dagger_{\vk,\s} c_{\vq,\s} e^{-i(\vk - \vq)\cdot \vR}
+		e^{\pm i\vq \cdot a \ey}, \notag \\
+	&=\fV \sum_\s \sum_{\vk, \vq} c^\dagger_{\vk, \s} c_{\vq, \s} e^{\pm i q_y a}\ 
+		V \delta_{\vk,\vq}\ ,\notag \\
+	&= \sum_{\vk} \sum_\s c^\dagger_{\vk, \s} c_{\vk, \s} e^{\pm ik_y a}, \notag \\
+	&= \sum_{\vk} (\hat{n}_{\vk,\u} + \hat{n}_{\vk,\d})e^{\pm ik_y a}, \notag \\
+	&= \sum_{\vk} \hat{n}_{\vk}\ e^{\pm ik_y a}.
+\end{align}
+
+\ni Opazimo, da je analogno za primer, ko imamo $c^\dagger_{i,j,\s} c_{i\pm 1,j\s}$ in sicer
+\begin{equation}
+	\sum_\s \sum_{i,j} c^\dagger_{i,j,\s} c_{i\pm 1,j\s} = \sum_{\vk}
+		\hat{n}_{\vk}\ e^{\pm ik_x a}.
+\end{equation}
+
+\ni Torej lahko kineti\v cni del $\hat{H}_\text{kin}$ zapi\v semo kot
+
+\begin{align}
+	\hat{H}_\text{kin} &= -\frac{t}{2} \sum_{\vk} \hat{n}_{\vk}\ 2(e^{ik_xa} + e^{-ik_xa} +
+		e^{ik_ya} + e^{-ik_ya}), \notag \\
+	&= \sum_{\vk} \underbrace{(-2t) \hat{n}_{\vk} \big[\cos k_xa + \cos k_ya \big]}_{\oh_{\vk}}.
+\end{align}
+
+\ni Dodatni faktor `$2$' se prikrade notri od hermitsko konjugiranih \v clenov.
+
+Torej operator kineti\v cne energije pri momentu $\vk$,
+
+\begin{equation}
+	\oh_{\vk} = -2t\ \hat{n}_{\vk} \big(\cos k_x a + \cos k_y a),
+\end{equation}
+
+\ni oz. \v ce gledamo $\e_{\vk}^\text{kin}$,
+
+\begin{equation}
+	\e_{\vk}^\text{kin} = -2t (\cos k_x a + \cos k_y a).
+\end{equation}
+
+Transformirati moramo \v se interakcijski \v clen, da se dokon\v cno prepri\v camo o njegovi naravi:
+
+\begin{align}
+	\hat{H}_\text{int} &= \mathcal{U}\sum_{i,j}\hat{n}_{i,j,\u}\hat{n}_{i,j,\d}
+		= \mathcal{U}\sum_{i,j} c^\dagger_{i,j,\u}c_{i,j,\u} c^\dagger_{i,j,\d} c_{i,j,\d}
+		\notag \\
+	&= \frac{\mathcal{U}}{V^2} \sum_{\vk,\vq}\sum_{\vk^\prime,\vq\ ^\prime}
+		c^\dagger_{\vk,\u}c_{\vq,\u}c^\dagger_{\vk',\d}c_{\vq\ ',\d} \sum_{i,j}
+		e^{-i \vR\cdot (\vk + \vk' - \vq - \vq\ ')} \notag \\
+	&= \frac{\mathcal{U}}{V^2} \sum_{\vk,\vq}\sum_{\vk^\prime,\vq\ ^\prime}
+		c^\dagger_{\vk,\u}c_{\vq,\u}c^\dagger_{\vk',\d}c_{\vq\ ',\d}
+		V \delta_{\vq\ ',\ \vk + \vk' - \vq} \notag  \\
+	&= \frac{\mathcal{U}}{V} \sum_{\vk, \vk', \vq} c^\dagger_{\vk,\u} c_{\vq, \u}
+		c^\dagger_{\vk', \d} c_{\vk + \vk' - \vq, \d}
+\end{align}
+
+\ni Na tem mestu upo\v stevamo identiteto iz kurza vi\v sje kvantne mehanike:
+
+\begin{equation}
+	\hat{n}_{\vq,\s} = \sum_{\vk} c^\dagger_{\vk, \s} c_{\vk + \vq, \s},
+\end{equation}
+
+\ni ki nam vrne (po ustreznih fermionskih zamenjavah)
+
+\begin{equation}
+	\hat{H}_\text{int} = \frac{\mathcal{U}}{V} \sum_{\vk,\vq} c^\dagger_{\vk,\u}
+		\hat{n}_{\vk - \vq,\d} c_{\vq, \u}.
+\end{equation}
+
+\ni To sprva ni videti enako ni\v c (kar smo si \v zeleli). Vendar lahko ta \v clen prepi\v semo
+nazaj v kreacijsko-anihilacijske operatorje in dobimo
+
+\begin{equation}
+	\hat{H}_\text{int} = \frac{\mathcal{U}}{V}\sum_{\vk, \vq} c^\dagger_{\vk, \u} c^\dagger_{\vk
+		-\vq, \d} c_{\vk - \vq, \d} c_{\vq, \u},
+\end{equation}
+
+\ni koder lahko sedaj uporabimo Wickov izrek in poka\v zemo, da je pri\v cakovana vrednost tega
+operatorja enaka ni\v c (ker $\langle\hat{n}_{\vec{0}\s}\rangle = 0$).
+
+Torej sledi
+
+\begin{equation}
+	\e_{\vk} \equiv \e^\text{kin}_{\vk} = -2t (\cos k_x a + \cos k_y a).
+	\label{eps}
+\end{equation}
+
+\ni Za $f_{\vk}^0$ upo\v stevamo Fermi-Diracovo porazdelitev, tj.
+
+\begin{equation}
+	f_{\vk}^0 = \frac{1}{e^{\beta\e_{\vk}} - 1}
+	\label{favela}
+\end{equation}
+
+\ni Izraza \eqref{eps} in \eqref{favela} vstavimo v en.~\eqref{lindhard}. Na\v so vsoto pretvorimo
+v integral
+
+\begin{align}
+	\e(\vq, \w) &= 1 - \pred a^2 \underbrace{\int \frac{\dd^2 \vk}{(2\pi)^2} \frac{f^0_{\vk} -
+		f^0_{\vk+\vq}}{\e_{\vk} - \e_{\vk+\vq} + \hbar\w + i\hbar\alpha}}_{\I}.
+\end{align}
+
+\ni Integral $\I$ bomo raz\v clenili v $\I = \I_1 - \I_2$, kjer sta
+
+\begin{align}
+	\I_1 &= \int\frac{\dd k_x}{2\pi}\int\frac{\dd k_y}{2\pi} \frac{1}{(e^{\beta\e_{\vk}} - 1)
+		(\e_{\vk} - \e_{\vk + \vq} + \hbar\w + i\hbar\alpha)}, \notag \\
+	\I_2 &= \int\frac{\dd k_x}{2\pi}\int\frac{\dd k_y}{2\pi} \frac{1}{(e^{\beta\e_{\vk+\vq}} - 1)
+		(\e_{\vk} - \e_{\vk + \vq} + \hbar\w + i\hbar\alpha)}. \notag \\
 \end{align}
 
 \end{document}
