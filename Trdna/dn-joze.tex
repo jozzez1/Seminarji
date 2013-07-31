@@ -1,0 +1,133 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage, amsmath, amssymb}
+
+\newcommand{\vq}{
+	\ensuremath{\vec{q}}
+}
+
+\newcommand{\w}{
+	\ensuremath{\omega}
+}
+
+\newcommand{\e}{
+	\ensuremath{\epsilon}
+}
+
+\renewcommand{\u}{
+	\ensuremath{\uparrow}
+}
+
+\renewcommand{\d}{
+	\ensuremath{\downarrow}
+}
+
+\newcommand{\hn}{
+	\ensuremath{\hat{n}}
+}
+
+\newcommand{\oh}{
+	\ensuremath{\hat{h}}
+}
+
+\newcommand{\vk}{
+	\ensuremath{\vec{k}}
+}
+
+\newcommand{\koren}{
+	\ensuremath{\frac{1}{\sqrt{V}}}
+}
+
+\begin{document}
+
+\section{Navodilo}
+
+Atomi z enim valen\v cnim elektronom na povr\v sini tvorijo kvadratno mre\v zo. Elektronski pas
+popi\v semo v pribli\v zku tesne vezi. Zapi\v si dielektri\v cno odzivno funkcijo za tako kovino.
+Razi\v s\v ci (frekven\v cno, momentno, temperaturno) obna\v sanje dielektri\v cne konstante v
+bli\v zini valovnih vektorjev (nesting) gnezdenja.
+
+\section{Naloga}
+
+V skripti, poglavje 8, imamo na voljo ti. \emph{Lindhardovo ena\v cbo},
+
+\begin{equation}
+	\e (\vq, \w) = 1 - \frac{e^2}{\e_0 q^2 V} \sum_{\vec{k}} \frac{f_{\vec{k}}^0 - f^0_{\vec{k}+\vq}}
+		{\e_{\vec{q}} - \e_{\vec{k}+\vq} + \hbar\w + i\hbar\alpha}
+\end{equation}
+
+V izpeljavi le-te smo delali s splo\v sno valovno funkcijo, tj. velja tudi za nas. Ugotoviti moramo
+le energijsko disperzijo, $\e_{\vq}$. Za to moramo re\v siti Hamiltonian. Za re\v sevanje bomo
+uporabili ti. \emph{Hubbardov model}, ki upo\v steva tesno vez.
+
+Uporabimo operatorje polja
+
+\begin{align}
+	\psi_{i,j,\sigma}(\vec{r}) &= \sum_n c_{n,\sigma} \phi_n (\vec{R}_{ij} + \vec{r}),\notag  \\
+	\psi^\dagger_{i,j,\sigma}(\vec{r}) &= \sum_n c^\dagger_{n,\sigma} \phi_n (\vec{R}_{ij} +
+		\vec{r}),
+	\label{polje}
+\end{align}
+
+ki ustvarijo (uni\v cijo) delec s spinom $\sigma$ na mre\v zi -- $\vec{R}_{ij}$ je vozli\v sce
+kristalne mre\v ze (tj. lokacija atoma), $\vec{r}$ pa je odmik elektrona v okolici. Delamo v
+adiabatnem pribli\v zku, tj. mre\v za je za na\v se potrebe stacionarna. Funkcije $\phi_n (\vec{r})$
+so znamenite Wannierove funkcije. Vendar, ker imamo samo en elektron, lahko zapi\v semo tako:
+
+\begin{align}
+	\psi_{ij,\sigma,m}(\vec{r}) &= \sum_n c_{n,\sigma} \phi_n (\vec{R}_{ij} + \vec{r})
+		\delta_{mn} \notag \\
+	&= c_{m,\sigma} \phi_m (\vec{R}_{ij} + \vec{r}).
+\end{align}
+
+Ker imamo kreacijsko anihilacijske operatorje le za en delec, jih bomo opremili druga\v ce -- indeks
+ne bo ve\v c pomenil stanje, ampak lokacijo na mre\v zi:
+
+\begin{align}
+	\psi_{ij,\sigma,n} (\vec{r}) &= c_{ij,\sigma} \phi_n (\vec{R}_{ij} + \vec{r}), \notag \\
+	\psi^\dagger_{ij,\sigma,n} (\vec{r}) &= c^\dagger_{ij,\sigma} \phi_n (\vec{R}_{ij} + \vec{r}).
+	\label{polje2}
+\end{align}
+
+Pribli\v zek tesne vezi pomeni, da imamo neni\v celne prispevke le za najbli\v zje sosede in sicer
+dobimo `$-t$' na soseda. V na\v sem
+primeru so za energijo vozli\v sca $h_{ij}$ to
+
+\begin{equation}
+	\oh_{ij} = -t \sum_{\sigma} [c^\dagger_{i,j,\sigma} (c_{i,j+1,\sigma} + c_{i+1,j,\sigma} +
+		c_{i,j-1,\sigma} + c_{i-1,j,\sigma}) + \text{h.c.}]
+\end{equation}
+
+Celotno kineti\v cno energijo lahko zapi\v semo kot vsoto po vseh vozli\v s\v cih, vendar moramo biti
+pazljivi: na tak na\v cin bomo vsako "`vez"' \v steli dvakrat\footnote{To v splo\v snem ni res, zaradi
+efektov na robu. Vendar mi delamo s periodi\v cnimi robnimi pogoji, zato je vse v redu.}, zato moramo
+vsoto obte\v ziti z ustrezno multiplikativno konstanto, tj. $1/2$:
+
+\begin{equation}
+	\hat{H} = \frac{1}{2}\sum_{ij} \oh_{ij} + \mathcal{U}\sum_{ij} \hn_{ij,\u} \hn_{ij,\d}.
+\end{equation}
+
+Operator $\hn$ je operator \v stetja. Zapisal sem ga s stre\v sico, da se ga lo\v ci od indeksa
+energijskega stanja. Na vsak ion imamo le en elektron, tj. bo interakcijski \v clen neutola\v zljivo
+enak ni\v c.
+
+Imamo dva na\v cina, kako nadaljujemo z re\v sevanjem problema: $h_{ij}$ lahko izra\v cunamo v
+matri\v cni obliki in dobimo energijski spekter, ali pa Hamiltonian pretvorimo v impulzno bazo.
+
+Za pretvorbo v impulzno bazo poglejmo najprej operatorje polja, iz en.~\eqref{polje}
+\begin{equation}
+	\psi_{ij,\sigma} (\vec{r}) = \frac{1}{\sqrt{V}}\sum_{\vec{k}}
+		c_{\vec{k},\sigma}\varphi_{\vec{k}}(\vec{R}_{ij} + \vec{r}) = 
+		\frac{1}{\sqrt{V}}\sum_{\vec{k}} c_{\vec{k},\sigma} e^{i\vec{k}\cdot\vec{R}_{ij}}
+		\varphi_{\vec{k}}(\vec{r})
+\end{equation}
+
+Po primerjavi s staro izjavo hitro ugotovimo, da je
+\begin{align}
+	c_{ij,\sigma} &= \koren \sum_{\vk} c_{\vk,\sigma} e^{i\vk\cdot\vec{R}_{ij}}, \\
+	c^\dagger_{ij,\sigma} &= \koren \sum_{\vk} c^\dagger_{\vk, \sigma} e^{-i\vk\cdot\vec{R}_{ij}}.
+\end{align}
+
+\end{document}
