@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <time.h>
 
 static const double ef = 5;
 static const double t  = 1;
@@ -197,6 +198,9 @@ void loop_plotter (Control * control, FILE * fout)
 	    b	= (int) (((control->bmax - control->bmin)/control->dbeta) *
 			    ((control->wmax - control->wmin)/control->dw));
 	
+	time_t start;
+	time (&start);
+
 	do
 	{
 		do
@@ -209,7 +213,8 @@ void loop_plotter (Control * control, FILE * fout)
 				control->dat->beta,
 				1 - integral/(q*q));
 
-			progress_bar (a, b, NULL);
+			progress_bar (a, b, &start);
+			a++;
 			
 		} while (control->dat->beta <= control->bmax);
 		
