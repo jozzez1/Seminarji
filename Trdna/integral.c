@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 static const double ef = 5;
 static const double t  = 1;
@@ -55,7 +57,7 @@ typedef struct
 void init_Control (int M,
 		   double bmin,
 		   double bmax,
-		   double dbeta
+		   double dbeta,
 		   double wmin,
 		   double wmax,
 		   double dw,
@@ -92,7 +94,7 @@ double fI1 (double kx,
 	   double kin)
 {
 	double pred	= 0.5 / kin,
-	       f	= exp ((-2) * beta * (cos (kx) + cos (ky)) - beta * mu) + 1;
+	       f	= exp ((-2) * beta * (cos (kx) + cos (ky)) - beta * mu) + 1,
 	       g	= cos (kx) + cos (ky) +
 				sin (kx) * sin (qx) + sin (ky) * sin (qy) -
 				cos (kx) * cos (qx) - cos (ky) * cos (qy) -
@@ -114,7 +116,7 @@ double fI2 (double kx,
 	double pred	= (-0.5) / kin,
 	       f	= exp ((-2) * kin * beta * (cos (kx)*cos (qx) +
 				cos (ky)*cos (qy) - sin (kx)*sin(qx) -
-				sin (ky)*sin (qy)) - beta * mu) + 1;
+				sin (ky)*sin (qy)) - beta * mu) + 1,
 	       g	= cos (kx) + cos (ky) +
 				sin (kx) * sin (qx) + sin (ky) * sin (qy) -
 				cos (kx) * cos (qx) - cos (ky) * cos (qy) -
@@ -157,7 +159,7 @@ double integrate (Data * dat)
 	return sum;
 }
 
-void loop-plotter (Control * control, FILE * fout)
+void loop_plotter (Control * control, FILE * fout)
 {
 	double q = sqrt (pow (control->dat->qx,2) + pow (control->dat->qy,2));
 	
@@ -185,6 +187,12 @@ void loop-plotter (Control * control, FILE * fout)
 void readfile (char * name, double * a)
 {
 	FILE * fin = fopen (name, "r");
+
+	if (fin == NULL)
+	{
+		printf ("No input file!\n");
+		exit (EXIT_FAILURE);
+	}
 	
 	int p	= 0,
 	    c	= 0;
@@ -203,9 +211,8 @@ void readfile (char * name, double * a)
 		else if (p < 2)
 		{
 			fseek (fin, -1, SEEK_CUR);
-			fscanf (fin, "%lf %lf %lf %lf %lf %lf %lf %lf",
-					&a[0], &a[1], &a[2], &a[3],
-					&a[4], &a[5], &a[6], &a[7]);
+			fscanf (fin, "%lf %lf %lf %lf %lf %lf",
+					&a[0], &a[1], &a[2], &a[3], &a[4], &a[5]);
 			p++;
 		}
 		
@@ -219,7 +226,9 @@ void readfile (char * name, double * a)
 void calculate (int M,
 		double qx,
 		double qy,
-		char * name
+		double mu,
+		double kin,
+		char * name,
 		char * dout)
 {
 	Control * control = (Control *) malloc (sizeof (Control));
@@ -233,7 +242,7 @@ void calculate (int M,
 	free (a);
 
 	FILE * fout = fopen (dout, "w");
-	loop-plotter (control, fout);
+	loop_plotter (control, fout);
 
 	fclose (fout);
 	free_Control (control);
@@ -241,7 +250,50 @@ void calculate (int M,
 
 int main (int argc, char ** argv)
 {
-	int M	= 100;
+	int M	= 100,
+	    arg;
+
+	double qx	= M_PI,
+	       qy	= M_PI,
+	       kin	= t,
+	       mu	= ef;
+
+
+	while ((arg = getopt (argc, argv, "M:x:y:t:e:h")) != -1)
+	{
+		switch (arg)
+		{
+			case 'M':
+				M = atoi (optarg);
+				break;
+			case 'x':
+				qx = atof (optarg);
+				break;
+			case 'y':
+				qy = atof (optarg);
+				break;
+			case 't':
+				kin = atof (optarg);
+				break;
+			case 'e':
+				mu = atof (optarg);
+				break;
+			case 'h':
+				printf ("-M <int>\n");
+				printf ("-x <double>: qx\n");
+				printf ("-y <double>: qy\n");
+				printf ("-t <double>: kinetic constant\n");
+				printf ("-e <double>: mu -- fermi energy\n");
+				printf ("-h -- print this list\n");
+				exit (EXIT_SUCCESS);
+			default:
+				printf ("Unknown command!\n");
+				exit (EXIT_FAILURE);
+		}
+	}
+
+	calculate (M, qx, qy, mu, kin, "input.txt", "output.txt");
+	exit (EXIT_SUCCESS);
 }
 
 
