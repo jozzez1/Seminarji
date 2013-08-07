@@ -159,9 +159,43 @@ double integrate (Data * dat)
 	return sum;
 }
 
+void progress_bar (int a, int b, time_t * start)
+{
+	time_t now;
+	double dsec,
+	       left;
+
+	if (start)
+	{
+		time (&now);
+
+		dsec = difftime (now, *start);
+		left = (b - a) * dsec/b;
+
+		printf ("ETA:% 3.2lfs | ", left);
+	}
+
+	int percent = 20 * a/b,
+	    i;
+
+	printf ("DONE: % d/%d (% 3.0lf%%) [", a, b, 100.0 * a/b);
+
+	for (i = 0; i <= percent - 1; i++)
+		printf ("=");
+	printf (">");
+
+	for (i = percent; i<= 18; i++)
+		printf (" ");
+	printf ("]\n\033[F\033[J");
+}
+
 void loop_plotter (Control * control, FILE * fout)
 {
 	double q = sqrt (pow (control->dat->qx,2) + pow (control->dat->qy,2));
+
+	int a	= 0,	// counter as to how far we've come
+	    b	= (int) (((control->bmax - control->bmin)/control->dbeta) *
+			    ((control->wmax - control->wmin)/control->dw));
 	
 	do
 	{
@@ -174,6 +208,8 @@ void loop_plotter (Control * control, FILE * fout)
 				control->dat->w,
 				control->dat->beta,
 				1 - integral/(q*q));
+
+			progress_bar (a, b, NULL);
 			
 		} while (control->dat->beta <= control->bmax);
 		
@@ -295,13 +331,4 @@ int main (int argc, char ** argv)
 	calculate (M, qx, qy, mu, kin, "input.txt", "output.txt");
 	exit (EXIT_SUCCESS);
 }
-
-
-
-
-
-
-
-
-
 
