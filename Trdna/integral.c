@@ -5,13 +5,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-static const double ef = 5;
+static const double ef = 4 / (M_PI * M_PI);
 static const double t  = 1;
 
 typedef struct
 {
 	int M;
-	
+
 	double qx,
 	       qy,
 	       w,
@@ -51,11 +51,15 @@ typedef struct
 	       wmin,
 	       wmax,
 	       dw;
+
+	int fix_beta,
+	    fix_w;
 	
 	Data * dat;
 } Control;
 
 void init_Control (int M,
+		   int fbeta,
 		   double bmin,
 		   double bmax,
 		   double dbeta,
@@ -77,6 +81,9 @@ void init_Control (int M,
 	control->wmin	= wmin;
 	control->wmax	= wmax;
 	control->dw	= dw;
+
+	control->fix_beta = fbeta;
+	control->fix_w    = 0;
 }
 
 void free_Control (Control * control)
@@ -95,7 +102,7 @@ double fI1 (double kx,
 	   double kin)
 {
 	double pred	= 0.5 / kin,
-	       f	= exp ((-2) * beta * (cos (kx) + cos (ky)) - beta * mu) + 1,
+	       f	= exp ((-2) * kin * beta * (cos (kx) + cos (ky) - mu)) + 1,
 	       g	= cos (kx) + cos (ky) +
 				sin (kx) * sin (qx) + sin (ky) * sin (qy) -
 				cos (kx) * cos (qx) - cos (ky) * cos (qy) -
@@ -117,7 +124,7 @@ double fI2 (double kx,
 	double pred	= (-0.5) / kin,
 	       f	= exp ((-2) * kin * beta * (cos (kx)*cos (qx) +
 				cos (ky)*cos (qy) - sin (kx)*sin(qx) -
-				sin (ky)*sin (qy)) - beta * mu) + 1,
+				sin (ky)*sin (qy) - mu)) + 1,
 	       g	= cos (kx) + cos (ky) +
 				sin (kx) * sin (qx) + sin (ky) * sin (qy) -
 				cos (kx) * cos (qx) - cos (ky) * cos (qy) -
@@ -134,12 +141,12 @@ double f (int i, int j, Data * dat)
 	       kx   = i * U + D,
 	       ky   = j * U + D;
 	
-	double f1 = fI1 (kx, ky, 
-		dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin),
+	double f1 = fI1 (kx, ky,
+			dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin),
 	       f2 = fI2 (kx, ky,
-		dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin);
+			dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin);
 	
-	return f1 - f2;
+	return f1 + f2;
 }
 
 double integrate (Data * dat)
@@ -160,19 +167,12 @@ double integrate (Data * dat)
 	return sum;
 }
 
-void progress_bar (int a, int b, time_t * start)
+void progress_bar (int a, int b, double dsec)
 {
-	time_t now;
-	double dsec,
-	       left;
-
-	if (start)
+	double left;
+	if (dsec)
 	{
-		time (&now);
-
-		dsec = difftime (now, *start);
 		left = (b - a) * dsec/b;
-
 		printf ("ETA:% 3.2lfs | ", left);
 	}
 
@@ -192,37 +192,50 @@ void progress_bar (int a, int b, time_t * start)
 
 void loop_plotter (Control * control, FILE * fout)
 {
-	double q = sqrt (pow (control->dat->qx,2) + pow (control->dat->qy,2));
+	double q2 = pow (control->dat->qx,2) + pow (control->dat->qy,2);
 
 	int a	= 0,	// counter as to how far we've come
 	    b	= (int) (((control->bmax - control->bmin)/control->dbeta) *
 			    ((control->wmax - control->wmin)/control->dw));
+
+	if (control->fix_beta)
+		b = (int) ((control->wmax - control->wmin)/control->dw);
 	
-	time_t start;
-	time (&start);
+	time_t start,
+	       stop;
+
+	double dtime;
 
 	do
 	{
 		do
 		{
+			time (&start);
 			double integral = integrate (control->dat);
-			control->dat->beta += control->dbeta;
 			
 			fprintf (fout, "% 9.6lf % 9.6lf % 9.6lf\n",
 				control->dat->w,
 				control->dat->beta,
-				1 - integral/(q*q));
+				1 - integral/q2);
 
-			progress_bar (a, b, &start);
+			control->dat->w	+= control->dw;
+
+			time (&stop);
+			dtime = difftime (stop, start);
+
+			progress_bar (a, b, dtime);
 			a++;
 			
-		} while (control->dat->beta <= control->bmax);
+		} while (control->dat->w <= control->wmax);
 		
-		control->dat->beta	 = control->bmin;
-		control->dat->w		+= control->dw;
+		if (control->fix_beta)
+			break;
+
+		control->dat->w	 = control->wmin;
+		control->dat->beta += control->dbeta;
 		fprintf (fout, "\n");
 	
-	} while (control->dat->w <= control->wmax);
+	} while (control->dat->beta <= control->bmax);
 }
 
 void readfile (char * name, double * a)
@@ -236,6 +249,7 @@ void readfile (char * name, double * a)
 	}
 	
 	int p	= 0,
+	    gg	= 0,
 	    c	= 0;
 	    
 	while (1)
@@ -246,10 +260,11 @@ void readfile (char * name, double * a)
 			do
 			{
 				c = fgetc (fin);
+				gg++;
 			} while (c != '\n' || c == '#');
 		}
 		
-		else if (p < 2)
+		else if (p < 2 && gg != 0)
 		{
 			fseek (fin, -1, SEEK_CUR);
 			fscanf (fin, "%lf %lf %lf %lf %lf %lf",
@@ -265,6 +280,7 @@ void readfile (char * name, double * a)
 }
 
 void calculate (int M,
+		int fbeta,
 		double qx,
 		double qy,
 		double mu,
@@ -277,7 +293,7 @@ void calculate (int M,
 
 	readfile (name, a);
 
-	init_Control (M, a[0], a[1], a[2], a[3], a[4], a[5],
+	init_Control (M, fbeta, a[0], a[1], a[2], a[3], a[4], a[5],
 			qx, qy, mu, kin, control);
 
 	free (a);
@@ -292,6 +308,7 @@ void calculate (int M,
 int main (int argc, char ** argv)
 {
 	int M	= 100,
+	    fbeta = 0,
 	    arg;
 
 	double qx	= M_PI,
@@ -300,7 +317,7 @@ int main (int argc, char ** argv)
 	       mu	= ef;
 
 
-	while ((arg = getopt (argc, argv, "M:x:y:t:e:h")) != -1)
+	while ((arg = getopt (argc, argv, "M:x:y:t:e:fh")) != -1)
 	{
 		switch (arg)
 		{
@@ -319,6 +336,9 @@ int main (int argc, char ** argv)
 			case 'e':
 				mu = atof (optarg);
 				break;
+			case 'f':
+				fbeta = 1;
+				break;
 			case 'h':
 				printf ("-M <int>\n");
 				printf ("-x <double>: qx\n");
@@ -333,7 +353,7 @@ int main (int argc, char ** argv)
 		}
 	}
 
-	calculate (M, qx, qy, mu, kin, "input.txt", "output.txt");
+	calculate (M, fbeta, qx, qy, mu, kin, "input.txt", "output.txt");
 	exit (EXIT_SUCCESS);
 }
 
