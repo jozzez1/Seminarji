@@ -129,8 +129,8 @@ ne bo ve\v c pomenil stanje, ampak lokacijo na mre\v zi:
 \end{align}
 
 Pribli\v zek tesne vezi pomeni, da imamo neni\v celne prispevke le za najbli\v zje sosede in sicer
-dobimo `$-t$' na soseda. V na\v sem
-primeru so za energijo vozli\v sca $h_{ij}$ to
+dobimo `$-t$' na par sosedov. V na\v sem
+primeru so za energijo vozli\v sca $\oh_{ij}$ to
 
 \begin{equation}
 	\oh_{ij} = -t \sum_{\sigma} [c^\dagger_{i,j,\sigma} (c_{i,j+1,\sigma} + c_{i+1,j,\sigma} +
@@ -173,7 +173,7 @@ isto naredimo v drugi smeri, tj. $\vec{R}_{i\pm1, j} = \vec{R}_{ij} \pm a\vec{e}
 
 \begin{align}
 	\sum_\s\sum_{i,j} c^\dagger_{i,j,\sigma}c_{i,j \pm 1,\sigma} 
-	&=\fV \sum_\s\sum_{i,j}\sum_{\vk} c^\dagger_{\vk,\s}c_{\vq,\s} e^{-i\vk \cdot \vR}
+	&=\fV \sum_\s\sum_{i,j}\sum_{\vk} c^\dagger_{\vk,\s} e^{-i\vk \cdot \vR}
 		\sum_{\vq}c_{\vq,\s} e^{i\vq\cdot\vec{R}_{i,j \pm 1}}, \notag \\
 	&=\fV \sum_\s \sum_{\vk,\vq} \sum_{i,j}c^\dagger_{\vk,\s} c_{\vq,\s} e^{-i(\vk - \vq)\cdot \vR}
 		e^{\pm i\vq \cdot a \ey}, \notag \\
@@ -228,41 +228,70 @@ Transformirati moramo \v se interakcijski \v clen, da se dokon\v cno prepri\v ca
 		c^\dagger_{\vk', \d} c_{\vk + \vk' - \vq, \d}
 \end{align}
 
-\ni Na tem mestu upo\v stevamo identiteto iz kurza vi\v sje kvantne mehanike:
+\ni Na tem mestu upo\v stevamo identiteto iz kurza vi\v sje kvantne mehanike,
 
 \begin{equation}
-	\hat{n}_{\vq,\s} = \sum_{\vk} c^\dagger_{\vk, \s} c_{\vk + \vq, \s},
+	\hat{n}_{\vq,\s} = \frac{1}{V}\sum_{\vk} c^\dagger_{\vk, \s} c_{\vk + \vq, \s},
 \end{equation}
 
 \ni ki nam vrne (po ustreznih fermionskih zamenjavah)
 
 \begin{equation}
-	\hat{H}_\text{int} = \frac{\mathcal{U}}{V} \sum_{\vk,\vq} c^\dagger_{\vk,\u}
+	\hat{H}_\text{int} = \mathcal{U} \sum_{\vk,\vq} c^\dagger_{\vk,\u}
 		\hat{n}_{\vk - \vq,\d} c_{\vq, \u}.
 \end{equation}
 
-\ni To sprva ni videti enako ni\v c (kar smo si \v zeleli). Vendar lahko ta \v clen prepi\v semo
+\ni To \v zal ni enako ni\v c. Vendar lahko ta \v clen prepi\v semo
 nazaj v kreacijsko-anihilacijske operatorje in dobimo
 
 \begin{equation}
-	\hat{H}_\text{int} = \frac{\mathcal{U}}{V}\sum_{\vk, \vq} c^\dagger_{\vk, \u} c^\dagger_{\vk
+	\hat{H}_\text{int} = \mathcal{U}\sum_{\vk, \vq} c^\dagger_{\vk, \u} c^\dagger_{\vk
 		-\vq, \d} c_{\vk - \vq, \d} c_{\vq, \u},
 \end{equation}
 
-\ni koder lahko sedaj uporabimo Wickov izrek in poka\v zemo, da je pri\v cakovana vrednost tega
-operatorja enaka ni\v c (ker $\langle\hat{n}_{\vec{0}\s}\rangle = 0$).
-
-Torej sledi
+\ni koder lahko sedaj uporabimo Wickov izrek, ki nam vrne
 
 \begin{equation}
-	\e_{\vk} \equiv \e^\text{kin}_{\vk} = -2t (\cos k_x a + \cos k_y a).
+	\hat{H}_\text{int} = \mathcal{U}\sum_{\vk} \hat{n}_{\vk,\u} \hat{n}_{\vec{0},\d}.
+\end{equation}
+
+\ni Vendar gremo lahko isto z druge smeri, na za\v cetku se pa\v c ne iznebimo $\vq\ '$ ampak kak\v snega
+drugega vektorja in dobimo
+
+\begin{equation}
+	\hat{H}_\text{int} = \mathcal{U}\sum_{\vk} \hat{n}_{\vec{0},\u} \hat{n}_{\vk, \d},
+\end{equation}
+
+\ni kar nam vrne identiteto
+
+\begin{equation}
+	\hat{n}_{\vk, \u} \hat{n}_{\vec{0}, \d} = \hat{n}_{\vec{0},\u} \hat{n}_{\vk, \d},
+\end{equation}
+
+\ni ki jo bomo uporabili v naslednjih en.~\eqref{zamenjava}. Stanja so zapolnjena v Fermijevi krogli, ki je
+popolnoma polna z ostrim robom v osnovnem stanju, v vi\v sjih vzbujenih stanjih pa bolj napihnjena in preluknjana.
+Vseeno recimo, da $\hat{n}_{\vec{0}, \u} = 1$ in $\hat{n}_{\vec{0}, \d} = 1$, kar je res za nizke temperature.
+Potem sledi
+
+\begin{equation}
+	\hat{H}_\text{int} = \mathcal{U}\frac{1}{2}\sum_{\vk} (\hat{n}_{\vk, \u} \hat{n}_{\vec{0}, \d}
+		+ \hat{n}_{\vk, \u} \hat{n}_{\vec{0}, \d}) = \frac{\mathcal{U}}{2}\sum_{\vk} (\hat{n}_{\vk, \u}
+		\overbrace{\hat{n}_{\vec{0}, \d}}^1 + \overbrace{\hat{n}_{\vec{0},\u}}^1 \hat{n}_{\vk, \d}) =
+		\frac{\mathcal{U}}{2}\sum_{\vk} \hat{n}_{\vk}
+	\label{zamenjava}
+\end{equation}
+
+Sedaj imamo vse, kar potrebujemo za $\e_{\vk}$:
+
+\begin{equation}
+	\e_{\vk} = -2t (\cos k_x a + \cos k_y a) + \mathcal{U}/2.
 	\label{eps}
 \end{equation}
 
 \ni Za $f_{\vk}^0$ upo\v stevamo Fermi-Diracovo porazdelitev, tj.
 
 \begin{equation}
-	f_{\vk}^0 = \frac{1}{e^{\beta\e_{\vk}} - 1}
+	f_{\vk}^0 = \frac{1}{e^{\beta(\e_{\vk} - \e_F)} + 1}.
 	\label{favela}
 \end{equation}
 
@@ -270,17 +299,85 @@ Torej sledi
 v integral
 
 \begin{align}
-	\e(\vq, \w) &= 1 - \pred a^2 \underbrace{\int \frac{\dd^2 \vk}{(2\pi)^2} \frac{f^0_{\vk} -
+	\e(\vq, \w) &= 1 - \pred \frac{a^2}{\pi^2} \underbrace{ \int\dd^2 \vk \frac{f^0_{\vk} -
 		f^0_{\vk+\vq}}{\e_{\vk} - \e_{\vk+\vq} + \hbar\w + i\hbar\alpha}}_{\I}.
 \end{align}
 
 \ni Integral $\I$ bomo raz\v clenili v $\I = \I_1 - \I_2$, kjer sta
 
 \begin{align}
-	\I_1 &= \int\frac{\dd k_x}{2\pi}\int\frac{\dd k_y}{2\pi} \frac{1}{(e^{\beta\e_{\vk}} - 1)
+	\I_1 &= \int\dd^2 \vk \frac{1}{(e^{\beta(\e_{\vk} - \e_F)} + 1)
 		(\e_{\vk} - \e_{\vk + \vq} + \hbar\w + i\hbar\alpha)}, \notag \\
-	\I_2 &= \int\frac{\dd k_x}{2\pi}\int\frac{\dd k_y}{2\pi} \frac{1}{(e^{\beta\e_{\vk+\vq}} - 1)
-		(\e_{\vk} - \e_{\vk + \vq} + \hbar\w + i\hbar\alpha)}. \notag \\
+	\I_2 &= \int\dd^2 \vk \frac{1}{(e^{\beta(\e_{\vk+\vq} - \e_F)} + 1)
+		(\e_{\vk} - \e_{\vk + \vq} + \hbar\w + i\hbar\alpha)}.
+	\label{integrali}
 \end{align}
+
+\ni Da bo manj pisanja bomo kar vnaprej uvedli oznake
+
+\begin{align}
+	c_{x,y}^k \equiv \cos k_{x,y} a, &\quad	c_{x,y}^q \equiv \cos q_{x,y} a, \notag \\
+	s_{x,y}^k \equiv \sin k_{x,y} a, &\quad s_{x,y}^q \equiv \sin q_{x,y} a.
+\end{align}
+
+\ni Torej
+
+\begin{equation}
+	\cos [(k_{x,y} + q_{x,y}) a] = c_{x,y}^k c_{x,y}^q - s_{x,y}^k s_{x,y}^q.
+\end{equation}
+
+\ni To uporabimo v en.~\eqref{integrali} in dobimo, 
+
+\begin{align}
+	\I_1 &= -\frac{1}{2t}\int \dd^2 \vk \frac{1}
+		{\big[e^{-2t\beta(c_x^k + c_y^k) + \beta\mathcal{U}/2 - \beta\e_F} + 1\big]
+		\big[c_x^k + c_y^k + s_x^k s_x^q + s_y^k s_y^q - c_x^k c_x^q - c_y^k c_y^q -
+		\hbar(\w + i\alpha)/2t\big]}, \notag \\
+	\I_2 &= -\frac{1}{2t}\int \dd^2 \vk \frac{1}
+		{\big[e^{-2t\beta (c_x^k c_x^q + c_y^k c_y^q - s_x^k s_x^q - s_y^k s_y^q) + 
+		\beta\mathcal{U}/2 - \beta\e_F} + 1\big][ \ldots ]}.
+\end{align}
+
+Sedaj si moramo ogledati obna\v sanje v bli\v zini vektorjev gnezdenja, tj. $\vq = \vq_0 =
+\pi/a (1,1)$. To na\v se integrale zelo poenostavi. V okolici lahko naredimo razvoj v Taylorjevo
+vrsto:
+
+\begin{equation}
+	\e (\vq + \vq_0, \w, \beta) = \e (\vq_0, \w, \beta) + \sum_i q_i \bigg(\frac{\partial\e}
+		{\partial q_i}\bigg)_{\vq = \vq_0}
+		+ \sum_{i,j} q_j \bigg(\frac{\partial^2 \e}{\partial q_i
+		\partial q_j}\bigg)_{\vq = \vq_0} q_i + \mathcal{O}(|\vq|^3).
+\end{equation}
+
+\ni V primeru $\vq = \vq_0$ velja
+
+\begin{equation}
+	c_{x,y}^q = -1, \quad s_{x,y}^q = 0,
+\end{equation}
+
+\ni kar poenostavi na\v sa integrala v
+
+\begin{align}
+	\I_1^0 &= -\frac{1}{2t}\int \dd k_x\int \dd k_y \frac{1}
+		{\big[e^{-2t\beta(c_x^k + c_y^k) + \beta\mathcal{U}/2 - \beta\e_F} + 1\big]\big[
+		2(c_x^k + c_y^k) - \hbar(\w + i\alpha)/2t\big]}, \notag \\
+	\I_2^0 &= -\frac{1}{2t}\int \dd k_x\int \dd k_y \frac{1}
+	{\big[e^{+2t\beta(c_x^k + c_y^k) + \beta\mathcal{U}/2 - \beta\e_F} + 1\big]\big[
+		2(c_x^k + c_y^k) - \hbar(\w + i\alpha)/2t\big]}.
+\end{align}
+
+\ni Energijo vakuuma (tj. Fermijeve krogle) dobimo tako: v dve krogli\footnote{Dve krogli, ker imamo
+dvojno degeneracijo zaradi spina, oz. $N/2$ pride v vsako kroglo.} (v na\v sem primeru kroga) spravimo
+$N$ delcev, se pravi
+
+\begin{equation}
+	2\pi \Big(k_F \frac{a}{\pi}\Big)^2 = N,
+\end{equation}
+
+\ni kar nam vrne energijo Fermijeve krogle na delec
+\begin{equation}
+	\e_F = \frac{1}{N}\frac{\hbar^2 k_F^2}{2 m_e} = \frac{\hbar^2}{2 m_e} \frac{\pi}{2a^2} =
+		\frac{\pi\hbar^2}{4 m_e a^2}.
+\end{equation}
 
 \end{document}
