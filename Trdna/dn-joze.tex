@@ -299,16 +299,16 @@ Sedaj imamo vse, kar potrebujemo za $\e_{\vk}$:
 v integral
 
 \begin{align}
-	\e(\vq, \w) &= 1 - \pred \frac{a^2}{\pi^2} \underbrace{ \int\dd^2 \vk \frac{f^0_{\vk} -
+	\e(\vq, \w) &= 1 - \pred \Big(\frac{a}{2\pi}\Big)^2 \underbrace{ \iint\limits_\text{1. BC}\dd^2 \vk \frac{f^0_{\vk} -
 		f^0_{\vk+\vq}}{\e_{\vk} - \e_{\vk+\vq} + \hbar\w + i\hbar\alpha}}_{\I}.
 \end{align}
 
 \ni Integral $\I$ bomo raz\v clenili v $\I = \I_1 - \I_2$, kjer sta
 
 \begin{align}
-	\I_1 &= \int\dd^2 \vk \frac{1}{(e^{\beta(\e_{\vk} - \e_F)} + 1)
+	\I_1 &= \iint\limits_\text{1. BC}\dd^2 \vk \frac{1}{(e^{\beta(\e_{\vk} - \e_F)} + 1)
 		(\e_{\vk} - \e_{\vk + \vq} + \hbar\w + i\hbar\alpha)}, \notag \\
-	\I_2 &= \int\dd^2 \vk \frac{1}{(e^{\beta(\e_{\vk+\vq} - \e_F)} + 1)
+	\I_2 &= \iint\limits_\text{1. BC}\dd^2 \vk \frac{1}{(e^{\beta(\e_{\vk+\vq} - \e_F)} + 1)
 		(\e_{\vk} - \e_{\vk + \vq} + \hbar\w + i\hbar\alpha)}.
 	\label{integrali}
 \end{align}
@@ -329,27 +329,17 @@ v integral
 \ni To uporabimo v en.~\eqref{integrali} in dobimo, 
 
 \begin{align}
-	\I_1 &= -\frac{1}{2t}\int \dd^2 \vk \frac{1}
+	\I_1 &= -\frac{1}{2t}\iint \dd^2 \vk \frac{1}
 		{\big[e^{-2t\beta(c_x^k + c_y^k) + \beta\mathcal{U}/2 - \beta\e_F} + 1\big]
 		\big[c_x^k + c_y^k + s_x^k s_x^q + s_y^k s_y^q - c_x^k c_x^q - c_y^k c_y^q -
 		\hbar(\w + i\alpha)/2t\big]}, \notag \\
-	\I_2 &= -\frac{1}{2t}\int \dd^2 \vk \frac{1}
+	\I_2 &= -\frac{1}{2t}\iint \dd^2 \vk \frac{1}
 		{\big[e^{-2t\beta (c_x^k c_x^q + c_y^k c_y^q - s_x^k s_x^q - s_y^k s_y^q) + 
 		\beta\mathcal{U}/2 - \beta\e_F} + 1\big][ \ldots ]}.
 \end{align}
 
 Sedaj si moramo ogledati obna\v sanje v bli\v zini vektorjev gnezdenja, tj. $\vq = \vq_0 =
-\pi/a (1,1)$. To na\v se integrale zelo poenostavi. V okolici lahko naredimo razvoj v Taylorjevo
-vrsto:
-
-\begin{equation}
-	\e (\vq + \vq_0, \w, \beta) = \e (\vq_0, \w, \beta) + \sum_i q_i \bigg(\frac{\partial\e}
-		{\partial q_i}\bigg)_{\vq = \vq_0}
-		+ \sum_{i,j} q_j \bigg(\frac{\partial^2 \e}{\partial q_i
-		\partial q_j}\bigg)_{\vq = \vq_0} q_i + \mathcal{O}(|\vq|^3).
-\end{equation}
-
-\ni V primeru $\vq = \vq_0$ velja
+\pi/a (1,1)$. To na\v se integrale zelo poenostavi. V primeru $\vq = \vq_0$ velja
 
 \begin{equation}
 	c_{x,y}^q = -1, \quad s_{x,y}^q = 0,
@@ -366,18 +356,45 @@ vrsto:
 		2(c_x^k + c_y^k) - \hbar(\w + i\alpha)/2t\big]}.
 \end{align}
 
-\ni Energijo vakuuma (tj. Fermijeve krogle) dobimo tako: v dve krogli\footnote{Dve krogli, ker imamo
-dvojno degeneracijo zaradi spina, oz. $N/2$ pride v vsako kroglo.} (v na\v sem primeru kroga) spravimo
-$N$ delcev, se pravi
+\ni Izra\v cunati moramo \v se energijo vakuuma, saj je to pribli\v zno kemijski potencial in nastopa v na\v si
+porazdelitveni funkciji. V prvi Brillouinovi coni so izoenergijske \v crte za energijo ni\v c tiste, ki te\v cejo od
+to\v cke $A (0, -\pi/a)$ do $B (\pi/a, 0)$, od $B$ do $C (0, \pi/a)$, od $C$ do $D (-\pi/a, 0)$ in potem \v se $D$ od $A$.
 
-\begin{equation}
-	2\pi \Big(k_F \frac{a}{\pi}\Big)^2 = N,
-\end{equation}
+To nam predstavlja kvadrat, ki je v\v crtan robu prve Brillouinove cone in ima polovi\v cno povr\v sino le-te.
+Namesto, da integriramo po celem podro\v cju, lahko zaradi simetrije integracijskih mej in simetrije integranda na
+zamenjavo $k_x$ in $k_y$ integriramo le po enem izmed kvadrantov, nato pa pomno\v zimo s 4. Torej pri\v cnemo z
 
-\ni kar nam vrne energijo Fermijeve krogle na delec
-\begin{equation}
-	\e_F = \frac{1}{N}\frac{\hbar^2 k_F^2}{2 m_e} = \frac{\hbar^2}{2 m_e} \frac{\pi}{2a^2} =
-		\frac{\pi\hbar^2}{4 m_e a^2}.
-\end{equation}
+\begin{align}
+	\e_F &= \bigg(\frac{a}{2\pi}\bigg)^2 \iint\limits_{ABCD} \dd k_x \dd k_y \big[-2t (\cos k_x a + \cos k_y a)
+		\big] \notag \\
+	&= -2t \cdot 4 \bigg(\frac{a}{2\pi}\bigg)^2 \int_0^{\pi/a} \dd k_x \int_0^{\pi/a - k_x} \dd k_y (\cos k_x a +
+		\cos k_y a) \notag \\
+	&= -2t \frac{a^2}{\pi^2} \int_0^{\pi/a} \dd k_x \bigg[\Big(\frac{\pi}{a} - k_x\Big)\cos k_x a +
+		\frac{1}{a}\sin(\pi - k_x a)\bigg] \notag \\
+	&= -2t \frac{a^2}{\pi^2} \int_0^{\pi/a} \dd k_x \bigg[\Big(\frac{\pi}{a} - k_x\Big)\cos k_x a +
+		\frac{1}{a}\sin k_x a \bigg] \notag \\
+	&= -2t \frac{a^2}{\pi^2} \bigg\{\Big[\frac{\pi}{a^2}\sin k_x a - \frac{1}{a^2}\cos k_x a\Big]_0^{\pi/a} -
+		\int_0^{\pi/a} \dd k_x k_x \cos k_x a\bigg\} \notag \\
+	&= -2t \frac{a^2}{\pi^2} \cdot \frac{1}{a^2} \bigg\{\pi \underbrace{(\sin\pi - \sin 0)}_{=\ 0} - \cos\pi + \cos 0 - a^2
+		\int_0^{\pi/a} \dd k_x k_x \cos k_x a\bigg\} \notag \\
+	&= -\frac{2t}{\pi^2} \bigg[2 - a^2 \int_0^{\pi/a} \dd k_x k_x \cos k_x a\bigg] = -\frac{2t}{\pi^2}
+		\bigg[2 - \int_0^\pi \dd x x \cos x\bigg] \notag \\
+	&= -\frac{2t}{\pi^2}\big[2 - (\cos x + x\sin x)\big]_0^\pi = -\frac{2t}{\pi^2} \big[2 - (-2)\big] =
+		-2t \frac{4}{\pi^2}.
+\end{align}
+
+Dielektri\v cna funkcija, $\e$, nas zanima v brezdimenzijski obliki (ozna\v cena z $\varepsilon$, namesto $\e$), ki jo bomo
+definirali kot
+
+\begin{align}
+	\varepsilon (\vq_0, \beta, \w) = 1 - x (\I^0_1 - \I^0_2),
+\end{align}
+
+kjer bomo vzeli $\alpha = 0$, $t = 1$, $\mathcal{U} = 0$, $\hbar = 1$, in $x = 1$, tj. $k_x$, $\w$ itd. so vsi brezdimenzijski.
+
+\begin{align}
+	\varepsilon = 1 + \frac{1}{2}\iint\limits_\text{1. BC} \dd \vk \frac{1}{2(c_x^k + c_y^k) - \w/2}
+		\bigg[\frac{1}{e^{-2t(c_x^k + c_y^k - 4/\pi^2)} + 1} - \frac{1}{e^{+2t(c_x^k + c_y^k + 4/\pi^2)} + 1}\bigg]
+\end{align}
 
 \end{document}
