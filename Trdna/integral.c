@@ -162,7 +162,7 @@ double integrate (Data * dat)
 			sum += f (i, j, dat);
 	}
 	
-	sum *= A;
+	sum *= 4*A;
 	
 	return sum;
 }
@@ -216,7 +216,7 @@ void loop_plotter (Control * control, FILE * fout)
 			fprintf (fout, "% 9.6lf % 9.6lf % 9.6lf\n",
 				control->dat->w,
 				control->dat->beta,
-				1 - integral/q2);
+				1 + integral/q2);
 
 			control->dat->w	+= control->dw;
 
