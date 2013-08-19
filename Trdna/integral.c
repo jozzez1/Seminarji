@@ -141,12 +141,28 @@ double f (int i, int j, Data * dat)
 	       kx   = i * U + D,
 	       ky   = j * U + D;
 	
-	double f1 = fI1 (kx, ky,
+/*	double f1 = fI1 (kx, ky,
 			dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin),
 	       f2 = fI2 (kx, ky,
 			dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin);
-	
+
 	return f1 + f2;
+*/
+
+	// to hell with the general \vec{q}, we'll use the q = (pi, pi)
+	double cx	= cos (kx),
+	       cy	= cos (ky),
+	       w	= dat->w,
+	       b	= dat->beta,
+	       g	= 1.0/(2 * (cx + cy) - w/2),
+	       e1	= exp ((-2) * b * (cx + cy - 4.0/(M_PI * M_PI))),
+	       e2	= exp (2 * b * (cx + cy + 4.0/(M_PI * M_PI))),
+	       f1	= 1.0/(e1 + 1),
+	       f2	= 1.0/(e2 + 1),
+	       pred	= 1.0/(4 * M_PI * M_PI),
+	       re	= pred * g * (f1 - f2);
+
+	return re;
 }
 
 double integrate (Data * dat)
@@ -192,7 +208,7 @@ void progress_bar (int a, int b, double dsec)
 
 void loop_plotter (Control * control, FILE * fout)
 {
-	double q2 = pow (control->dat->qx,2) + pow (control->dat->qy,2);
+	//double q2 = pow (control->dat->qx,2) + pow (control->dat->qy,2);
 
 	int a	= 0,	// counter as to how far we've come
 	    b	= (int) (((control->bmax - control->bmin)/control->dbeta) *
@@ -216,7 +232,7 @@ void loop_plotter (Control * control, FILE * fout)
 			fprintf (fout, "% 9.6lf % 9.6lf % 9.6lf\n",
 				control->dat->w,
 				control->dat->beta,
-				1 + integral/q2);
+				1 + integral);
 
 			control->dat->w	+= control->dw;
 

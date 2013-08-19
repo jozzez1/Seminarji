@@ -2,7 +2,7 @@
 \usepackage[slovene]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{fullpage, amsmath, amssymb}
+\usepackage{fullpage, amsmath, amssymb, graphicx, caption, float}
 
 \newcommand{\vq}{
 	\ensuremath{\vec{q}}
@@ -394,7 +394,42 @@ kjer bomo vzeli $\alpha = 0$, $t = 1$, $\mathcal{U} = 0$, $\hbar = 1$, in $x = 1
 
 \begin{align}
 	\varepsilon = 1 + \frac{1}{4\pi^2}\iint\limits_\text{1. BC} \dd^2 \vk \frac{1}{2(c_x^k + c_y^k) - \w/2}
-		\bigg[\frac{1}{e^{-2\beta(c_x^k + c_y^k - 4/\pi^2)} + 1} - \frac{1}{e^{+2\beta(c_x^k + c_y^k + 4/\pi^2)} + 1}\bigg]
+		\bigg[\frac{1}{e^{-2\beta(c_x^k + c_y^k - 4/\pi^2)} + 1} - \frac{1}{e^{+2\beta(c_x^k + c_y^k + 4/\pi^2)} + 1}\bigg].
 \end{align}
+
+\ni Odvisnost od $\beta$ igra pomembno vlogo le kadar le le-ta koli\v cina majhna (tj. visoke temperature), za velike $\beta$ (tj. $\beta 
+\geq 6$) pa je dielektri\v cna funkcija $\varepsilon$ glede na $\beta$ prakti\v cno konstantna. Spremembe s frekvenco so veliko
+burnej\v se, zato sem jih narisal v upanju, da bom na\v sel kak\v sno divergenco.
+
+\section{Rezultati}
+
+Dielektri\v cno funkcijo $\varepsilon$ pri vektorju gnezdenja $\vq = (\pi, \pi)$ prikazuje
+sl.~\ref{sl2}.
+
+\begin{figure}[H]
+	\centering
+	\input{graf2.tex}
+	\caption{Dielektri\v cna funkcija $\varepsilon$ v odvisnosti $\beta$ in $\omega$.}
+	\label{sl2}
+\end{figure}
+
+\ni Kot vidimo, $\beta$ skrbi za to, da po\v casi naraste, vendar po neki vrednosti saturira,
+in se z $\beta$ ne spreminja ve\v c. Tu $\beta$ v bistvu predstavlja multiplikativni
+predfaktor in opazujemo le dogajanje v odvisnosti od $\w$, kar lahko vidimo na sl.~\ref{sl1}.
+
+\begin{figure}[H]
+	\centering
+	\input{graf1.tex}
+	\caption{Na tej sliki vidimo, kako se spreminja dielektri\v cna funkcija v odvisnosti
+		od frekvenc. \v Sum je tu bolj izrazit, ker je korak po frekvencah kraj\v si.}
+	\label{sl1}
+\end{figure}
+
+\subsection{Diskusija}
+
+Divergenc ni. Zanimivo je, da se dielektri\v cna funkcija obna\v sa precej burno za
+$\w < 8$. Za $\w \geq 8$ vsako opletanje preneha in funkcija monotono limitira k 1, torej
+gre integral $\I$ proti ni\v c. Tudi v to\v cki $\varepsilon (\beta = 0, \w = 0)$ ni
+singularnosti, ampak izraz limitira k 1 (spet gre $\I \to 0$).
 
 \end{document}
