@@ -1,31 +1,42 @@
 \section{Osnove supersimetrije}
 
-V fiziki visokih energij moramo za opis konsistentne teorije upo\v stevati simetrije problema. Te se delijo
-na notranje in zunanje.
+S simetrijami problema lahko v veliko primerih pojasnimo dobljene fizikalne re\v sitve: energijska stanja molekul,
+sipanje na kristalih, ohranjene koli\v cine itd. Pravilno upo\v stevanje simetrij lahko poenostavi marsikateri problem,
+v nekaterih vejah fizike pa je uporaba teorije grup obvezna.
 
-Zunanje simetrije so tiste, ki veljajo v splo\v snem za vse fizikalne probleme: ohranitvi
-energije in gibalne koli\v cine sta posledici invariantnosti fizikalnih zakonov na translacije (oz. rotacije) po
-prostoru in \v casu. Operatorji teh transformacij tvorijo grupo, ki se imenuje po francoskem fiziku Henriju Poincaré
--- Poincaréjeva grupa. Ta upo\v steva transformacije klasi\v cne fizike in splo\v sne teorije relativnosti.
+V grobem simetrije delimo na zunanje in notranje.
+\begin{itemize}
+	\item{Zunanje simetrije so tiste, ki niso vezane na specifi\v cen problem: fizikalni zakoni so invariantni
+		na translacije v prostoru (ohranitev gibalne koli\v cine), \v casu (ohranitev energije) in rotacije
+		(ohranitev vrtilne koli\v cine). To so simetrije makroskopskega sistema.}
+	\item{Notranje simetrije so povezane z mikroskopsko sliko. \v Ce pogledamo res od blizu in zamrznemo
+		\v cas, lahko ugotovimo v katerem mikroskopskem stanju smo in preu\v cimo njegove simetrije. Lahko ugotovimo
+		kako so delci urejeni, kaj se zgodi ob enostavni zamenjavi dveh ali ve\v c delcev, ali \v ce nad njimi
+		izvedemo abstraktno rotacijo. Lahko Te simetrije nam vrnejo npr. ohranitev elektri\v cnega naboja, fermionskega
+		\v stevila, itd.}
+\end{itemize}
 
-Notranje simetrije so simetrije med posameznimi polji, ki nastopajo v na\v sem problemu.
-Operatorji teh transformacij, na katere je na\v s problem invarianten, so lahko rotacije v ve\v cdimenzionalnem
-prostoru in mogo\v ce sestavljajo grupo, lahko pa so tudi kar polja sama -- opi\v semo jih
-namre\v c s ti. operatorji polja, ki morajo zado\v s\v cati bodisi bozonski, bodisi fermionski algebri.
+Obstaja izrek, ki pravi, da z Liejevo algebro ni mo\v c zdru\v ziti notranjih in zunanjih simetrij. Fiziki so iskali razne alterntive,
+edina mo\v zna je supersimetrija, ki je Liejeva superalgebra.
 
-V sedemdesetih letih prej\v snjega stoletja, so si ljudje prizadevali, da bi poenotili opis fermionov in bozonov.
-Supersimetrija je otrok te zveze in hkrati predstavlja edino mo\v znost cin zdru\v zitve notranjih simetrij z
-zunanjimi, tj. naravno raz\v siri Poincaréjevo grupo s simetrijami polj.
+\ni Ko je bila ustvarjena vizija ti. velike teorije poenotnenja~\footnote{Ang. \emph{Grand Unified Theory}, ali na kratko GUT.}
+so fiziki iskali poleg poenotenja sil, tudi enoten zapis za bozone in fermione, hkrati pa tudi zdru\v zitev notranjih
+z zunanjimi simetrijami. Supersimetrija je otrok tega prizadevanja. Uvede namre\v c enoten zapis za obravnavo tako bozonov,
+kot fermionov.
+
+Supersimetrija je od takrat naprej napredovala in prekora\v cila meje relativisti\v cne kvantne mehanike. Formalna obravnava
+supersimetrije kot matemati\v cnega pripomo\v cka, je raz\v sirila njeno uporabo na nerelativisti\v cno kvantno mehaniko
 
 Tekom celotnega seminarja bomo imeli v mislih re\v sevanje Schr\" odingerjeve ena\v cbe,
 
 \begin{equation}
-	H = -\frac{\hbar^2}{2m}\nabla^2 + mV(\vec{x}).
+	H = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{x}).
 	\label{s1}
 \end{equation}
 
-\ni Zaradi enostavnosti pisave bomo imeli brezdimenzijske koli\v cine $\hbar = m = 1$.
-Omejili se bomo na enodimenzionalne probleme, tj. Hamiltonian en.~\eqref{s1} prepi\v semo v
+\ni Zaradi enostavnosti pisave bomo razdalje in energijo merili v primeru $\hbar = m = 1$, kar ustreza preprosti
+brezdimenzijski transformaciji. Omejili se bomo na enodimenzionalne probleme, tj. Hamiltonian iz en.~\eqref{s1}
+prepi\v semo v
 
 \begin{equation}
 	H = -\frac{1}{2}\px^2 + V(x).
@@ -58,9 +69,7 @@ $H \sim (A + B)(A - B)$, tako bomo definirali superpotencial $W(x)$, da bo
 \ni Taka operatorja sta res drug drugemu hermitsko adjungirana, saj je operator $\px$ anti-hermitski (do totalnega
 odvoda natan\v cno).
 
-Pogoje za obstoj $W(x)$ bomo dolo\v cili retrospektivno, kot se to mnogokrat zgodi v fiziki.
-En.~\eqref{anihilator} in~\eqref{kreator} vstavimo v Hamiltonov operator, od koder bodo vezi,
-katerim mora zado\v s\v cati, o\v citnej\v se. Faktoriziran $H$ na neki funkciji $\phi (x)$ stori
+Tak $W(x)$ mora vrniti Schr\" odingerjevo ena\v cbo~\eqref{sx}, torej mora veljati
 
 \begin{align}
 	H\phi(x) = a^\dagger a\ \phi(x)&= \Big[W(x) - \frac{1}{\sqrt{2}}\px\Big]\Big[W(x) +
@@ -82,62 +91,64 @@ katerim mora zado\v s\v cati, o\v citnej\v se. Faktoriziran $H$ na neki funkciji
 
 \ni kjer smo izraz~\eqref{superpotencial} dobili z re\v sevanjem Riccatijeve ena\v cbe~\eqref{riccati}.
 
-Tako smo dobili $H_1 = a^\dagger a$ in ima re\v sitve $\psi_n(x)$ in $E_n$, kot jih poznamo
-od prej. Poglejmo, kaj se zgodi, \v ce zamenjamo vrstni red operatorjev -- definirajmo $H_2 = aa^\dagger$.
-Dobimo par Hamiltonianov $H_1$ in $H_2$,
+Tako smo dobili $H = a^\dagger a$, z lastnimi funkcijami $\psi_n(x)$ in $E_n$, ki jih poznamo
+od prej. Poglejmo, kaj se zgodi, \v ce zamenjamo vrstni red operatorjev $a$ in $a^\dagger$ -- definirajmo $\tilde{H} = aa^\dagger$,
+z lastnimi funkcijami $\tilde{\psi}_n$. Dobimo par Hamiltonianov $H$ in $\tilde{H}$,
 
 \begin{align}
-	H_1 &= -\frac{1}{2}\px^2 + V_1(x) = a^\dagger a, \\
-	H_2 &= -\frac{1}{2}\px^2 + V_2(x) = aa^\dagger,
+	H &= -\frac{1}{2}\px^2 + V(x) = a^\dagger a, \\
+	\tilde{H} &= -\frac{1}{2}\px^2 + \tilde{V}(x) = aa^\dagger,
 \end{align}
 
-\ni kjer sta $V_1(x)$ in $V_2(x)$ povezana prek
+\ni kjer sta $V(x)$ in $\tilde{V}(x)$ povezana prek
 
 \begin{align}
-	V_1(x) &= W^2(x) - \frac{1}{\sqrt{2}}\px W(x), \notag \\
-	V_2(x) &= W^2(x) + \frac{1}{\sqrt{2}}\px W(x). \label{v2pot}
+	V(x) &= W^2(x) - \frac{1}{\sqrt{2}}\px W(x), \notag \\
+	\tilde{V}(x) &= W^2(x) + \frac{1}{\sqrt{2}}\px W(x). \label{v2pot}
 \end{align}
 
 \ni Ena\v cbo~\eqref{v2pot} lahko doka\v zemo z istim postopkom kot v en.~\eqref{dokaz.aad}.
 
-Pravimo, da je $V_2(x)$ supersimetri\v cni partner $V_1(x)$. Hamiltonian $H_1$ ima lastne pare $\psi^{(1)}_n(x)$,
-$E^{(1)}_n$, $H_2$ pa $\psi^{(2)}_n(x)$, $E^{(2)}_n$. Lastne funkcije in energijski spekter $H_2$ lahko dobimo z
-re\v sevanjem, ali pa ga uganemo:
+Pravimo, da je $\tilde{V}(x)$ supersimetri\v cni partner potenciala $V(x)$. Lastne funkcije in energijski spekter $\tilde{H}$
+lahko dobimo z re\v sevanjem, ali pa ga uganemo:
 
 \begin{equation}
-	\psi^{(2)}_n(x) = a\psi^{(1)}_n(x),
+	\tilde{\psi}_n(x) = a\psi_n(x),
 \end{equation}
 
-\ni od koder vidimo da $\psi^{(2)}_0(x)$ ne obstaja, saj anihilacijski operator iz vakuuma po definiciji naredi
-ni\v clo. Energijski spekter $H_2$ je enak tistemu iz $H_1$, s tem da nima osnovnega stanja $E_0$, kar lahko
+\ni od koder vidimo da $\psi_0(x)$ ne obstaja, saj anihilacijski operator\footnote{Operatorja $a$ in $a^\dagger$ nista nujno
+operatorja vi\v sanja/ni\v zanja, vendar se v tem konkretnem primeru zgodi ravno to, da $a\psi_0 = 0$.} iz vakuuma po definiciji
+naredi ni\v clo. Energijski spekter $\tilde{H}$ je enak tistemu iz $H$, s tem da nima osnovnega stanja $E_0$, kar lahko
 poka\v zemo kot
 
 \begin{align}
-	H_2\psi^{(2)}_n(x) &= aa^\dagger (a\psi^{(1)}_n(x)) = a(a^\dagger a)\psi^{(1)}_n(x) = \notag \\
-		&= aE^{(1)}_n\psi^{(1)}_n(x) = E_n^{(1)}(a\psi_n^{(1)}) = E_n^{(1)}\psi_n^{(2)},
+	\tilde{H}\tilde{\psi}_n(x) &= aa^\dagger [a\psi_n(x)] = a(a^\dagger a)\psi_n(x) = \notag \\
+		&= aE_n\psi_n = E_n(a\psi_n) = E_n\psi_n^{(2)},
 	\label{degenener}
 \end{align}
 
-\ni se pravi
+\ni zaradi \v cesar lahko sklepamo
+\begin{itemize}
+	\item{energijski nivoji $\tilde{H}$ sovpadajo z nivoji iz $H$, vendar pa $\tilde{H}$ nima vezanega stanja pri
+		$E_0$, zato se zanj \v stetje energij pri\v cne pri $E_1$,}
+	\item{$a$ in $a^\dagger$ ne moremo interpretirati, kot kreacijsko-anihilacijska operatorja, ampak kot operatorja
+		"`me\v sanja"', saj brez spremembe energije delec iz $H$ preslikata v $\tilde{H}$.}
+\end{itemize}
+
+Energija vakuuma $E_0$ je v mnogih primerih lahko arbitrarna in se je z ustrezno konstanto lahko znebimo:
 
 \begin{equation}
-	E^{(1)}_n \equiv E^{(2)}_n, \qquad n = 1, 2, 3 \ldots
+	H \to H^\prime = H - E_0.
 \end{equation}
 
-\ni Zaradi tega redefiniramo $H_1$, da bo po novem osnovno stanje $\psi_0^{(1)}$ v jedru operatorja $H_1$
+\ni Takrat sta $H$ in $\tilde{H}$ v supersimetriji, sicer pa pravimo, da je spontano zlomljena.
+
+Tu je supersimetrija uporabljena zgolj kot matemati\v cni pripomo\v cek, vendar pa se kljub temu poznajo ostanki
+formalizma iz fizike visokih energij, \v ce definiramo supersimetri\v cni hamiltonian $\H$:
 
 \begin{equation}
-	H_1 \to H_1^\prime = H_1 - E_0.
-\end{equation}
-
-Kadar $E_0 \neq 0$ govorimo o zlomu supersimetrije.
-
-Hamiltoniana $H_1$ in $H_2$ bi radi zdru\v zili v enega, tako da se prostora ne me\v sata. Zato
-definiramo
-
-\begin{equation}
-	\H \equiv H_1 \oplus H_2 \equiv \begin{bmatrix}H_1 & \\
-		& H_2 \end{bmatrix},
+	\H \equiv H \oplus \tilde{H} \equiv \begin{bmatrix}H & \\
+		& \tilde{H} \end{bmatrix},
 \end{equation}
 
 \begin{equation}
@@ -152,24 +163,18 @@ definiramo
 	Q^\dagger Q + QQ^\dagger = \{Q, Q^\dagger\} = \H.
 \end{equation}
 
-Operatorji $Q$ in $Q^\dagger$ skupaj s generatorji Poincaréjeve grupe tvorijo ti. supersimetri\v cno algebro, ali
-na kratko "`superalgebro"'.
+Operatorja $Q$ in $Q^\dagger$ skupaj z generatorji grupe zunanjih simetrij tvorijo supersimetri\v cno algebro. Od tod
+se, \v ceprav nismo ve\v c v relativisti\v cnem pribli\v zku, \v se vedno pozna supersimetrijsko izro\v cilo.
 
 \subsection{Me\v sanje bozonskih in fermionskih stanj}
 
-Bozonski in fermionski operatorji tvorijo algebro, ki zado\v s\v ca kanoni\v cnim komutacijskim relacijam
+\v Ceprav v enodimenzionalnem nerelativisti\v cnem modelu enega delca nimamo dobrega opisa, ki bi lo\v cil med bozoni in
+fermioni, lahko uporabimo supersimetrijsko izro\v cilo in poka\v zemo kje je ideja supersimetrije v relativisti\v cni
+kvantni mehaniki.
 
-\begin{align}
-	[a_i, a_j^\dagger]_\pm &= \delta_{ij}, \\
-	[a_i, a_j]_\pm &= 0,
-\end{align}
-
-\ni kjer je $[\bullet,\bullet]_- \equiv [\bullet,\bullet]$ komutator in velja za bozone,
-$[\bullet,\bullet]_+ \equiv \{\bullet,\bullet\}$ pa je anti-komutator in velja za fermione.
-
-V supersimetri\v cnih teorijah bozonske in fermionske operatorje opi\v semo na identi\v cno enak
-na\v cin. To je posebej razvidno iz operatorjev $Q$ in $Q^\dagger$ iz en.~\eqref{superop}. Operatorja
-$a$ in $a^\dagger$ tvorita boznonsko algebro
+V supersimetri\v cnih teorijah bozonske in fermionske operatorje opi\v semo zgolj z eno samo dru\v zino operatorjev -- to
+so $Q$ in $Q^\dagger$, ki v relativisti\v cnem opisu ne lo\v cijo med bozoni in fermioni. Operatorja $a$ in $a^\dagger$
+zado\v s\v cata kanoni\v cnim komutacijskim relacijam za bozone, zato sklepamo da sta to bozonska operatorja
 
 \begin{equation}
 	[a, a^\dagger] = (\px W), \qquad [a, a] = 0.
@@ -184,13 +189,18 @@ Definirajmo operatorje $c$ in $c^\dagger$, tako da
 	c = \sigma^+, \qquad c^\dagger = \sigma^-,
 \end{equation}
 
-\ni Poka\v zemo lahko, da operatorji $c$ in $c^\dagger$ zadostijo enostavni fermionski algebri,
+\ni Poka\v zemo lahko, da operatorji $c$ in $c^\dagger$ zadostijo enostavnim fermionskim kanoni\v cnim anti-komutacijskim
+relacijam
 
 \begin{equation}
 	\{c, c^\dagger\} = 1, \quad \{c, c\} = 0, \quad n_F = \frac{1 - [c,c^\dagger]}{2},
 \end{equation}
 
-\ni kjer je $n_F$ fermionski operator \v stetja. $Q$ in $Q^\dagger$ lahko potem zapi\v semo kot
+\ni kjer je $n_F$ fermionski operator \v stetja. Sevada je to le trik in v nerelativisti\v cnem opisu ne gre za prave fermione,
+ampak to mo\v cno spominja na Jordan-Wignerjevo transformacijo -- spinski prostor ima namre\v c kon\v cno dimenzijo glede na vrednost
+celotnega spina, Fockov prostor za prave fermione pa je neskon\v cno dimenzionalen. Se pravi, spinski operatorji zado\v scajo
+kanoni\v cnim anti-komutacijskim relacijem za fermione, vendar kljub temu niso fermioni. Kljub temu, lahko z njimi \v se
+vedno poka\v zemo globlji pomen operatorjev $Q$ in $Q^\dagger$, ki ju lahko zapi\v semo kot
 
 \begin{equation}
 	Q = c^\dagger a, \qquad Q^\dagger = a^\dagger c.
@@ -203,6 +213,7 @@ velja
 	[Q, \mathbf{H}] = [Q^\dagger, \mathbf{H}] = 0,
 \end{equation}
 
-\ni vidimo, da $Q$ in $Q^\dagger$ menjata bozonska in fermionska stanja, ne da bi pri tem spremenila energijo sistema,
-hkrati pa prenesejo stanja iz $H_1$ v $H_2$ oz. $H_2$ v $H_1$. Torej $H_1$ ustreza bozonom, $H_2$ pa fermionom.
+\ni vidimo, da $Q$ in $Q^\dagger$ menjata bozonska in fermionska stanja, ne da bi pri tem spremenila energijo sistema.
+\v Ceprav imata $Q$ in $Q^\dagger$ velik pomen v kvantni teoriji polja, sta na tem nivoju odve\v c -- za celosten opis
+za na\v se potrebe zado\v s\v cata namre\v c \v ze $a$ in $a^\dagger$.
 

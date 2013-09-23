@@ -1,20 +1,19 @@
 \section{Podobni Hamiltoniani}
 
-Prava mo\v c supersimetrije se poka\v ze pri obravnavi re\v sljivih problemov. Njihov nabor je sicer neskon\v cen,
-vendar pa obstaja kon\v cna podmno\v zica, iz katere lahko dobimo vse ostale. Tudi znotraj te podmno\v zice imamo
-v resnici transformacije, ki "`generatorski"' potencial slika v drugega.
+Supersimetrije je imenitno pomagalo pri iskanju splo\v snega re\v sljivega potenciala, saj nam omogo\v ca, da iz znanih re\v sljivih
+potencialov konstruiramo nove. Odtod bomo malo spremenili oznake: $V \to V^{(1)}$ in $\tilde{V} \to V^{(2)}$.
 
-Imejmo potencial $V_1 (x; \pr_1)$ in potencial
-$V_2 (x; \pr_2)$, kjer sta $\pr_1$ in $\pr_2$ urejena nabora parametrov v potencialih. \v Ce sta
-$V_1$ in $V_2$ podobna, potem veljata slede\v ci identiteti:
+Imejmo potencial $V^{(1)} (x; \pr_1)$ in potencial
+$V^{(2)} (x; \pr_2)$, kjer sta $\pr_1$ in $\pr_2$ urejena nabora parametrov v potencialih. \v Ce sta
+$V^{(1)}$ in $V^{(2)}$ podobna, potem veljata slede\v ci identiteti:
 
 \begin{align}
-	V_2 (x; \pr_1) &= V_1 (x; \pr_2) + R (\pr_1), \\
+	V^{(2)} (x; \pr_1) &= V_1 (x; \pr_2) + R (\pr_1), \\
 	\pr_2 &= \underline{f} (\pr_1). \label{osnova}
 \end{align}
 
-\ni Prek en.~\eqref{osnova} dobimo dru\v zino potencialov, ki so podobni $V_1$. Nove parametre dobimo iz
-kompozituma funkcije $f$
+\ni Prek en.~\eqref{osnova} dobimo dru\v zino potencialov, ki so podobni potencialu $V^{(1)}$. Nove parametre dobimo iz
+kompozituma funkcije $\underline{f}$
 
 \begin{align}
 	\pr_2 &= \underline{f} (\pr_1), \notag \\
@@ -26,16 +25,16 @@ kompozituma funkcije $f$
 \ni potenciali pa so potem
 
 \begin{align}
-	V_2 (x; \pr_1) &= V_1 (x; \pr_2) + R (\pr_1), \notag \\
-	V_3 (x; \pr_1) &= V_2 (x; \pr_2) + R (\pr_2) = V_1 (x; \pr_3) + R (\pr_1) + R (\pr_2), \notag \\
+	V^{(2)} (x; \pr_1) &= V^{(1)} (x; \pr_2) + R (\pr_1), \notag \\
+	V^{(3)} (x; \pr_1) &= V^{(2)} (x; \pr_2) + R (\pr_2) = V^{(1)} (x; \pr_3) + R (\pr_1) + R (\pr_2), \notag \\
 	&\vdots \notag \\
-	V_n (x; \pr_1) &= V_1 (x; \pr_n) + \sum_{k = 1}^{n-1} R (\pr_k),
+	V^{(n)} (x; \pr_1) &= V^{(1)} (x; \pr_n) + \sum_{k = 1}^{n-1} R (\pr_k),
 \end{align}
 
-\ni ki je spet o\v citno podoben $V_1 (x)$. Sedaj dobimo dru\v zino podobnih Hamiltonianov,
+\ni ki je spet o\v citno podoben $V^{(1)} (x)$. Sedaj dobimo dru\v zino podobnih Hamiltonianov,
 
 \begin{equation}
-	H_n = - \frac{1}{2}\px^2 + V_n (x;\pr_1) = - \frac{1}{2}\px^2+V_1(x;\pr_n)+\sum_{k = 1}^{n-1}R(\pr_k).
+	H^{(n)} \equiv - \frac{1}{2}\px^2 + V^{(n)} (x;\pr_1) = - \frac{1}{2}\px^2+V^{(1)}(x;\pr_n)+\sum_{k = 1}^{n-1}R(\pr_k).
 \end{equation}
 
 \ni Dobljeni Hamiltoniani imajo enak spekter, z izjemo vakuumov in prvih nekaj stanj. Energije 
@@ -47,24 +46,25 @@ osnovnih stanj so o\v citno
 
 Ker so spektri od neke energije dalje enaki, sledi da energije vakuumov teh Hamiltonianov sovpadajo z energijami
 vzbujenih stanj Hamiltonianov z indeksom $m < n$. Seveda gremo lahko do konca nazaj, pridemo do
-$m = 1$ in $E^{(1)}_0 = 0$ in tako dobimo celoten vezani spekter Hamiltoniana $H_1$:
+$m = 1$ in $E^{(1)}_0 = 0$ in tako dobimo celoten vezani spekter Hamiltoniana $H^{(1)}$:
 
 \begin{equation}
 	E_n^{(1)} (\pr_1) = \sum_{k = 1}^n R (\pr_k).
 	\label{v2-pogoj}
 \end{equation}
 
-\ni Seveda to pomeni, da $V_2$ (in posledi\v cno $\pr_2$) ne sme biti arbitraren, ampak tak, da zadosti pogoju
+\ni Seveda to pomeni, da $V^{(2)}$ (in posledi\v cno $\pr_2$) ne sme biti arbitraren, ampak tak, da zadosti pogoju
 en.~\eqref{v2-pogoj}, sicer pademo lahko v poljubno vzbujeno stanje. Tak na\v cin iskanja spektra je dosti
 enostavnej\v si, vendar moramo za to poznati funkcijo $\underline{f}$. 
 
 \subsection{Operatorji vi\v sanja}
 
-Razumeti je treba, da so $a$ in $a^\dagger$ posplo\v sitvi pravi opeatorjev vi\v sanja ali ni\v zanja iz harmonskega
+Operatorja $a$ in $a^\dagger$ sta operatorja me\v sanja, vendar pa ju lahko posplo\v simo v prava opatorja vi\v sanja in ni\v zanja
+iz harmonskega
 oscialtorja. Pokazali smo, kako z njimi me\v samo bozone s fermioni, sedaj bom pokazal, kako jih
 je treba uporabiti, da z njimi dejansko lahko dvignemo oz. spustimo stanje.
 
-Spet imejmo Hamiltonian $H_1$ z energijo osnovnega stanja $E^{(1)}_0 = 0$ in valovno funkcijo
+Spet imejmo Hamiltonian $H^{(1)}$ z energijo osnovnega stanja $E^{(1)}_0 = 0$ in valovno funkcijo
 $\psi_0^{(1)} (x; \pr_1)$. Operatorje $a^\dagger$ bi morali dejansko ves \v cas pisati kot $a^\dagger (x; \pr)$,
 saj
 
@@ -72,8 +72,8 @@ saj
 	a^\dagger \equiv a^\dagger (x; \pr) \equiv W(x; \pr) - \frac{1}{\sqrt{2}}\px,
 \]
 
-Hamiltonianu $H_1$ pripada supersimetri\v cni partner $H_2$, ki ima enak spekter, hkrati pa nima lastnega
-stanja pri vakuumski energiji $H_1$, zato lahko $H_2$ obravnavamo kot $H_1$ podoben Hamiltonian.
+Hamiltonianu $H^{(1)}$ pripada supersimetri\v cni partner $H^{(2)}$, ki ima enak spekter, hkrati pa nima lastnega
+stanja pri vakuumski energiji $H^{(1)}$, zato lahko $H^{(2)}$ obravnavamo kot $H^{(1)}$ podoben Hamiltonian.
 
 Vi\v sja vzbujena stanja moramo o\v citno dobiti kot
 
@@ -82,7 +82,7 @@ Vi\v sja vzbujena stanja moramo o\v citno dobiti kot
 		\psi^{(1)}_0 (x; \pr_{n+1}),
 \end{equation}
 
-\ni Odtod sledi pomembna posledica: supersimetri\v cna partnerja $V_1$ in $V_2$ sta si podobna potenciala, kar
+\ni Odtod sledi pomembna posledica: supersimetri\v cna partnerja $V^{(1)}$ in $V^{(2)}$ sta si podobna potenciala, kar
 pomeni, da je med njima lahko netrivialna podobnostna transformacija -- konkretno si lahko spet za zgled vzamemo
 neskon\v cno potencialno jamo in en.~\eqref{pot-nes-jama}.
 
@@ -95,30 +95,13 @@ Ker je neprikladno ra\v cunati poljubno visok $\pr_k$ na zalogo, se po navadi ra
 \ni ki nam namiguje, da je za dviganje in spu\v s\v canje spet dejansko dovolj le poznavanje supersimetri\v cnih
 partnerjev.
 
-\subsection{Klasifikacija podobnih potencialov}
-
-Posebej prikladno je, \v ce znamo podobne potenciale, ki pripadajo podobnostnim transformacijam iste ba\v ze,
-razvrstiti v mno\v zice. Ta problem je \v se nere\v sen, saj pravzaprav splo\v sen eksaktno re\v sljivi potencial
-\v se ni definiran. Kljub temu so fiziki na\v sli dva tipa podobnih potencialov, v katere sodi ve\v cina
-potencialov iz raznih u\v cbenikov.
-
-\begin{itemize}
-	\item{$\pr^\prime = \pr + \underline{q}$ -- potenciali, podobni na translacije parametrov,}
-	\item{$\pr^\prime = q\pr$ -- potenciali, podobni na skaliranje parametrov.}
-\end{itemize}
-
-Poleg teh imamo \v se primere, ko je $\underline{f}$ nelinearna transformacija, takrat se lahko
-zgodi npr. $p^\prime_k = q \cdot p_k^2$, teh niso na\v sli veliko.
-
-Potenciali, ki imajo lastnost podobnosti ne rabijo biti centralni.
-
-\ni Tabela~\ref{tab1} prikazuje potenciale, ki pripadajo translatorni dru\v zini.
+\ni Tabela~\ref{tab1} prikazuje nekaj (super)potencialov in nabor prostih parametrov.
 
 \begin{table}[H]\centering
 	\caption{Nekaj preprostih potencialov, ki pripadajo podobnim na translacije. Rosen-Morse I je res podoben
 		neskon\v cni potencialni jami -- Rosen-Morse I, pri $\alpha = \pi$, $A = \pi$ in $B = 0$. Coulombov
 		potencial se da transformirati v 3D harmonski oscilator. Rosen-Morse I ima pogoj $0 \leq \alpha x \leq \pi$,
-		Eckart pa $B > A^2$.}
+		Eckart pa $B > A^2$. Potenciale $\tilde{V}(x)$ lahko dobimo iz $W(x)$.}
 	\label{tab1}
 	\vspace{0.2cm}
 	\begin{tabular}{l || c | c}

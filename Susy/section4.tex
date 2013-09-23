@@ -2,21 +2,19 @@
 
 Izospektralni Hamiltoniani v nerelativisti\v cni kvantni mehaniki so taki, ki imajo strogo enake energijske
 spektre vezanih stanj in enake transmisijske/refleksijske koeficiente sipalnih stanj. Edino, kar se
-med njima razlikuje, so valovne funkcije in posledi\v cno nekateri momenti ($\langle x \rangle$, $\langle
+med njimi razlikuje, so valovne funkcije in posledi\v cno nekateri momenti ($\langle x \rangle$, $\langle
 x^2 \rangle$ \ldots).
 
-Izospektralne dru\v zine hamiltonianov so intimno povezane z multisolitonskimi re\v sitvami nelinarnih
-evolucijskih ena\v cb, ki nam vra\v cajo solitonske re\v sitve.
-
-\subsection{Enoparametri\v cne dru\v zine izospektralnih potencialov}
-
-Ideja je ta: superpotencial $W(x)$ ni enoli\v cen, zato lahko poi\v scemo dru\v zino potencialov
-$\{\tilde{V}_1(x;\lambda_1)\}$, ki imajo vsi istega supersimetri\v cnega partnerja. Da se bomo ognili
+Ideja je ta: superpotencial $W(x)$, ki povezuje $V^{(1)}$ in $V^{(2)}$ ni enoli\v cen, zato lahko poi\v scemo
+dru\v zino superpotencialov $\tilde{W}$, ki povezujejo $\tilde{V}^{(1)}$ in $V^{(2)}$. Tako dobimo dru\v zino
+$\{\tilde{V}^{(1)}(x;\lambda_1)\}$, ki imajo vsi istega supersimetri\v cnega partnerja $V^{(2)}$. Da se bomo ognili
 nanavadnim koeficientom bomo delali v enotah $\hbar = 2m = 1$, zaradi \v cesar se bomo iznebili raznoraznih
-koeficientov $(\sqrt{2})^{\pm 1}$ (pozor, cele potence $2$ ostanejo). Hamiltoniani, oblike
+koeficientov $(\sqrt{2})^{\pm 1}$ (pozor, cele potence \v stevila $2$ ostanejo).
+
+Hamiltoniani, oblike
 
 \begin{equation}
-	H = \frac{\d^2}{\d x^2} + \tilde{V}_1 (x;\lambda_1),
+	H = \frac{\d^2}{\d x^2} + \tilde{V}^{(1)} (x;\lambda_1),
 \end{equation}
 
 \ni so vsi izospektralni glede na parameter $\lambda_1$.
@@ -28,11 +26,11 @@ en.~\eqref{v2pot}. Najpreprostej\v sa ideja bi bila potem
 	W(x) \to \tilde{W}(x) = W(x) + \phi(x),
 \end{equation}
 
-\ni kjer zahtevamo, da $\tilde{W}(x)$ prav tako uboga en.~\eqref{riccati} za $V_2(x)$, ki se v teh enotah
+\ni kjer zahtevamo, da $\tilde{W}(x)$ prav tako uboga en.~\eqref{riccati} za $V^{(2)}(x)$, ki se v teh enotah
 glasi
 
 \begin{equation}
-	V_2 (x) = W^2(x) + \px W(x) = \tilde{W}^2(x) + \px\tilde{W}(x),
+	V^{(2)} (x) = W^2(x) + \px W(x) = \tilde{W}^2(x) + \px\tilde{W}(x),
 \end{equation}
 
 \ni od koder sledi
@@ -51,51 +49,39 @@ glasi
 		\odv \ln \big[\mathcal{I}_1(x) + \lambda_1\big],
 \end{equation}
 
-\ni kjer je $\psi_0(x)$ spet normirana funkcija izvornega potenciala $V_1 (x)$.
+\ni kjer je $\psi_0(x)$ spet normirana funkcija izvornega potenciala $V^{(1)} (x)$.
 
-Dru\v zina potencialov $\tilde{V}_1 (x; \lambda_1)$, ki ima partnerski potencial $V_2(x)$ je torej
+Dru\v zina potencialov $\tilde{V}^{(1)} (x; \lambda_1)$, ki ima partnerski potencial $V^{(2)}(x)$ je torej
 
 \begin{equation}
-	\tilde{V}_1 (x;\lambda_1) = V_1(x) - 2\frac{\d^2}{\d x^2}\ln\big[\mathcal{I}_1(x) + \lambda_1\big].
+	\tilde{V}^{(1)} (x;\lambda_1) = V^{(1)}(x) - 2\frac{\d^2}{\d x^2}\ln\big[\mathcal{I}_1(x) + \lambda_1\big].
 \end{equation}
 
 \ni Parameter $\lambda_1$ se je notri pri\v stulil kot integralska konstanta in ne more biti \v cisto poljuben, ampak
-$\lambda_1 \notin [0,1]$, tj $\lambda_1 \in \mathbb{R}\text{\textbackslash}[-1,0]$ -- v tistem re\v zimu je osnovno stanje
-$\psi_0 (x; \lambda_1)$ potenciala $\tilde{V}_1(x; \lambda_1)$ nenormalizabilno, ampak je sipalno stanje -- torej
-nam kot pri supersimetri\v cnih partnerjih manjka ostnovno stanje, \v ceprav so vsa ostala stanja nespremenjena.
-Prvotni potencial $V_1(x)$ dobimo kot limito $\lambda_1 \to \pm \infty$.
+$\lambda_1 \notin [0,1]$, tj $\lambda_1 \in \mathbb{R}\text{\textbackslash}[-1,0]$ -- v tistem re\v zimu osnovno stanje
+$\psi_0 (x; \lambda_1)$, potenciala $\tilde{V}^{(1)}(x; \lambda_1)$, ni mo\v c normirati. Izvorni potencial $V^{(1)}(x)$
+dobimo kot limito $\lambda_1 \to \pm \infty$. Sliki~\ref{sl2} in~\ref{sl3} ka\v zeta primer za harmonski oscilator.
 
-\subsection{Ve\v cparametri\v cne dru\v zine izospektralnih potencialov}
-V obravnavi enoparametri\v cnih dru\v zin obstaja druga\v cen pristop, ki ga lahko posplo\v simo v ve\v cparametri\v cnega.
-Partnerski potencial $V_2$ je v bistvu $V_1$ brez osnovnega stanja.
-Dru\v zina potencialov $\tilde{V}_1$ niso ni\v c drugega, kot $V_1$ z modificiranim osnovnim stanjem.
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=8cm, keepaspectratio=1, trim=0cm 7cm 0cm 7cm]{pics/slika2}
+	\caption{Potenciali $\tilde{V}^{(1)}$ za razli\v cne vrednosti $\lambda_1$. Izvorni $V^{(1)}$ je bil Harmonski
+		oscilator, ki je tudi prikazan na grafu. Hamiltoniani s temi potenciali so popolnoma izospektralni.}
+	\label{sl2}
+\end{figure}
 
-Malo bom spremenil notacijo: $\psi_1$ je osnovno stanje $V_1$ in ima energijo $E_1$, $\psi_2$ je osnovno stanje $V_2$ in
-ima energijo $E_2$, $\psi_n$ je osnovno stanje $V_n$ z energijo $E_n$.
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=8cm, keepaspectratio=1, trim=0cm 7cm 0cm 7cm]{pics/slika4}
+	\caption{Graf prikazuje osnovne valovne funkcije k grafu iz slike~\ref{sl2}.}
+	\label{sl3}
+\end{figure}
 
-Na enoparametri\v cnem primeru odre\v zemo\footnote{Od potenciala od\v stejemo funkcijo $g(x)$, zaradi \v cesar izgubi
-osnovno stanje.} osnovno stanje kot $V_2 = V_1 - 2\px^2 \ln\psi_1$. Nato moramo $V_2$ dodati splo\v sno stanje, ki bi ustrezalo
-energiji $E_1$ To stanje je linearna kombinacija $1/\psi_1$ in
-$\mathcal{I}_1/\psi_1$, torej je novo osnovno stanje
+Sedaj smo dobili dru\v zine potencialov, ki vrnejo vsa stanja ista, razen osnovnega, ki je odvisen od parametra $\lambda_1$.
+Vendar gremo lahko korak dlje in isto naredimo za $V^{(2)}$, ki ga spremenimo v $\tilde{V}^{(2)}(x; \lambda_2)$, kar se potem
+pomeni $V^{(1)} \to \tilde{V}^{(1)} (x; \lambda_1, \lambda_2)$. To lahko posplo\v simo na vsa vezana stanja in dobimo $\tilde{V}
+^{(1)}(x; \underline{\lambda})$.
 
-\begin{equation}
-	\Phi_1 (x;\lambda_1) = \frac{\alpha\mathcal{I}_1 + \beta}{\psi_1} = \frac{\mathcal{I}_1 + \lambda_1}{\psi_1}.
-\end{equation}
-
-\ni Tu smo upo\v stevali, da $\alpha$ in $\beta$ v resnici nista neodvisna parametra, saj imamo \v se pogoj, da je to novo stanje
-normirano -- potem zado\v s\v ca le en parameter -- $\lambda_1$. Ko to stanje vstavimo nazaj v $V_2$ dobimo
-
-\begin{align}
-	\tilde{V}_1(x;\lambda_1) &= V_2 - 2\odv[2]\ln\Phi_1(x;\lambda_1) = \notag \\
-		&= V_1 - 2\odv[2]\ln\psi_1 - 2\odv[2]\ln\Phi_1 = \notag \\
-		&= V_1 - 2\odv[2]\ln (\psi_1 \Phi_1) = \notag \\
-		&= V_1 - 2\odv[2]\ln (\mathcal{I}_1 + \lambda_1).
-\end{align}
-
-\ni Osnovno stanje takega potenciala je $\tilde{\psi_1}(x;\lambda_1) = 1/\Phi_1 (x;\lambda_1)$ in v limiti $\lambda_1 \to \pm
-\infty$ vrne $\psi_1$. Kot prej sledi, da mora biti $\lambda_1 \in \mathbb{R}\text{\textbackslash [-1,0]}$. Ta postopek
-lahko posplo\v simo na ve\v cparametri\v cne primere: ne samo, da od\v stejemo $\psi_1$ in ga vrnemo s parametrom $\lambda_1$,
-od\v stejemo \v se osnovno stnanje $V_2$, $V_3$, \ldots in na koncu dobimo
-$\tilde{V}_1 (x;\lambda_1,\lambda_2\ldots\lambda_n) = \tilde{V}_1 (x; \underline{\lambda})$, kjer imamo toliko $\lambda_i$, da
-parametriziramo vsa vezana stanja.
+Taka dru\v zina potencialov, $\tilde{V}^{(1)}(x;\underline{\lambda})$, je popolnoma izospektralna, momente pa lahko nastavljamo
+poljubno prek $\underline{\lambda}$.
 
