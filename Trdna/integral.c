@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-static const double ef = 4 / (M_PI * M_PI);
 static const double t  = 1;
 
 typedef struct
@@ -17,7 +16,8 @@ typedef struct
 	       w,
 	       beta,
 	       mu,
-	       kin;
+	       kin,
+	       alpha;
 } Data;
 
 void init_Data (int M,
@@ -27,6 +27,7 @@ void init_Data (int M,
 		double beta,
 		double mu,
 		double kin,
+		double alpha,
 		Data * dat)
 {
 	dat->M		= M;
@@ -36,6 +37,7 @@ void init_Data (int M,
 	dat->beta	= beta;
 	dat->mu		= mu;
 	dat->kin	= kin;
+	dat->alpha	= alpha;
 }
 
 void free_Data (Data * dat)
@@ -53,13 +55,14 @@ typedef struct
 	       dw;
 
 	int fix_beta,
-	    fix_w;
+	    fix_wmega;
 	
 	Data * dat;
 } Control;
 
 void init_Control (int M,
 		   int fbeta,
+		   int fwmega,
 		   double bmin,
 		   double bmax,
 		   double dbeta,
@@ -70,10 +73,11 @@ void init_Control (int M,
 		   double qy,
 		   double mu,
 		   double kin,
+		   double alpha,
 		   Control * control)
 {
 	control->dat = (Data *) malloc (sizeof (Data));
-	init_Data (M, qx, qy, wmin, bmin, mu, kin, control->dat);
+	init_Data (M, qx, qy, wmin, bmin, mu, kin, alpha, control->dat);
 	
 	control->bmin	= bmin;
 	control->bmax	= bmax;
@@ -82,8 +86,8 @@ void init_Control (int M,
 	control->wmax	= wmax;
 	control->dw	= dw;
 
-	control->fix_beta = fbeta;
-	control->fix_w    = 0;
+	control->fix_beta  = fbeta;
+	control->fix_wmega = fwmega;
 }
 
 void free_Control (Control * control)
@@ -92,71 +96,88 @@ void free_Control (Control * control)
 	free (control);
 }
 
-double fI1 (double kx,
-           double ky,
-	   double qx,
-	   double qy,
-	   double w,
-	   double beta,
-	   double mu,
-	   double kin)
+double other_f_for_mi (int i, int j, Data * dat, double mu)
 {
-	double pred	= 0.5 / kin,
-	       f	= exp ((-2) * kin * beta * (cos (kx) + cos (ky) - mu)) + 1,
-	       g	= cos (kx) + cos (ky) +
-				sin (kx) * sin (qx) + sin (ky) * sin (qy) -
-				cos (kx) * cos (qx) - cos (ky) * cos (qy) -
-				w/(2 * kin),
-	       re	= pred / (f * g);
-	
-	return re;
+	double U	= M_PI / (dat->M - 1),
+	       D	= 0.5 * U,
+	       kx	= i*U + D,
+	       ky	= j*U + D;
+
+	double cx	= cos (kx),
+	       cy	= cos (ky),
+	       b	= dat->beta,
+	       f1	= exp ((-2) * b *(cx + cy) - b*mu),
+	       f	= 1.0 / (f1 + 1);
+
+	return f;
 }
 
-double fI2 (double kx,
-            double ky,
-	    double qx,
-	    double qy,
-	    double w,
-	    double beta,
-	    double mu,
-	    double kin)
+double crap_integrate_for_mu (Data * dat, double mu)
 {
-	double pred	= (-0.5) / kin,
-	       f	= exp ((-2) * kin * beta * (cos (kx)*cos (qx) +
-				cos (ky)*cos (qy) - sin (kx)*sin(qx) -
-				sin (ky)*sin (qy) - mu)) + 1,
-	       g	= cos (kx) + cos (ky) +
-				sin (kx) * sin (qx) + sin (ky) * sin (qy) -
-				cos (kx) * cos (qx) - cos (ky) * cos (qy) -
-				w/(2 * kin),
-	       re	= pred / (f * g);
-	
-	return re;
+	double U	= M_PI / dat->M,
+	       A	= U*U,
+	       sum	= 0.0;
+
+	int i, j;
+	for (i = 0; i <= dat->M - 1; i++)
+	{
+		for (j = 0; j <= dat->M - 1; j++)
+			sum += other_f_for_mi (i, j, dat, mu);
+	}
+
+	sum *= 4*A;
+	sum -= 0.5 * (M_PI * M_PI);
+
+	return sum;
 }
 
-double f (int i, int j, Data * dat)
+double find_mu (Data * dat)
+{
+	double prec	= 0.001,
+	       mu1	= 10,
+	       mu2	= 5;
+
+	do
+	{
+		double I2	= crap_integrate_for_mu (dat, mu2),
+		       I1	= crap_integrate_for_mu (dat, mu1),
+		       mu3	= mu2 - (I2 * ((mu2 - mu1)/(I2 - I1)));
+
+		mu1 = mu2;
+		mu2 = mu3;
+	} while (fabs (mu2 - mu1) > prec);
+/*
+	if (isnan (mu1))
+	{
+		exit (EXIT_FAILURE);
+		fprintf (stderr, "Sorry, but mu2 doesn't converge.\n");
+	}
+
+	if (isinf (mu1))
+	{
+		exit (EXIT_FAILURE);
+		fprintf (stderr, "Sorry, but mu2 returns infinity.\n");
+	}
+*/
+	return mu1;
+}
+
+double f (int i, int j, Data * dat, double mu)
 {
 	double U    = M_PI / (dat->M - 1),
 	       D    = 0.5 * U,
 	       kx   = i * U + D,
 	       ky   = j * U + D;
 	
-/*	double f1 = fI1 (kx, ky,
-			dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin),
-	       f2 = fI2 (kx, ky,
-			dat->qx, dat->qy, dat->w, dat->beta, dat->mu, dat->kin);
-
-	return f1 + f2;
-*/
-
-	// to hell with the general \vec{q}, we'll use the q = (pi, pi)
 	double cx	= cos (kx),
 	       cy	= cos (ky),
 	       w	= dat->w,
 	       b	= dat->beta,
-	       g	= 1.0/(2 * (cx + cy) - w/2),
-	       e1	= exp ((-2) * b * (cx + cy - 4.0/(M_PI * M_PI))),
-	       e2	= exp (2 * b * (cx + cy + 4.0/(M_PI * M_PI))),
+	       g1	= 2 * (cx + cy) - w/2,
+	       g2	= dat->alpha*0.25,
+	       g	= g1 / (g1*g1 + g2*g2),
+	       e1	= exp ((-2) * b * (cx + cy) - b * mu),	// ef == 0
+	       e2	= exp (2 * b * (cx + cy) - b * mu),	// ef == 0
 	       f1	= 1.0/(e1 + 1),
 	       f2	= 1.0/(e2 + 1),
 	       pred	= 1.0/(4 * M_PI * M_PI),
@@ -165,7 +186,7 @@ double f (int i, int j, Data * dat)
 	return re;
 }
 
-double integrate (Data * dat)
+double integrate (Data * dat, double mu)
 {
 	double U	= M_PI / dat->M,
 	       A	= U * U,
@@ -175,7 +196,7 @@ double integrate (Data * dat)
 	for (i = 0; i <= dat->M - 1; i++)
 	{
 		for (j = 0; j <= dat->M - 1; j++)
-			sum += f (i, j, dat);
+			sum += f (i, j, dat, mu);
 	}
 	
 	sum *= 4*A;
@@ -208,7 +229,7 @@ void progress_bar (int a, int b, double dsec)
 
 void loop_plotter (Control * control, FILE * fout)
 {
-	//double q2 = pow (control->dat->qx,2) + pow (control->dat->qy,2);
+	double mu = find_mu (control->dat);
 
 	int a	= 0,	// counter as to how far we've come
 	    b	= (int) (((control->bmax - control->bmin)/control->dbeta) *
@@ -216,42 +237,60 @@ void loop_plotter (Control * control, FILE * fout)
 
 	if (control->fix_beta)
 		b = (int) ((control->wmax - control->wmin)/control->dw);
-	
-	time_t start,
-	       stop;
 
-	double dtime;
-
-	do
+	if (!control->fix_wmega)
 	{
 		do
 		{
-			time (&start);
-			double integral = integrate (control->dat);
-			
-			fprintf (fout, "% 9.6lf % 9.6lf % 9.6lf\n",
-				control->dat->w,
-				control->dat->beta,
-				1 + integral);
+			do
+			{
+				double integral = integrate (control->dat, mu);
 
-			control->dat->w	+= control->dw;
+				fprintf (fout, "% 9.6lf % 9.6lf % 9.6lf %9.6lf\n",
+						control->dat->w,
+						control->dat->beta,
+						integral,
+						mu);
 
-			time (&stop);
-			dtime = difftime (stop, start);
+				control->dat->w	+= control->dw;
+				progress_bar (a, b, 0);
 
-			progress_bar (a, b, dtime);
-			a++;
-			
-		} while (control->dat->w <= control->wmax);
+				a++;
+
+			} while (control->dat->w <= control->wmax);
+
+			if (control->fix_beta)
+				break;
+
+			control->dat->w	 = control->wmin;
+			control->dat->beta += control->dbeta;
+			mu = find_mu (control->dat);
+			fprintf (fout, "\n");
 		
-		if (control->fix_beta)
-			break;
+		} while (control->dat->beta <= control->bmax);
+	}
 
-		control->dat->w	 = control->wmin;
-		control->dat->beta += control->dbeta;
-		fprintf (fout, "\n");
-	
-	} while (control->dat->beta <= control->bmax);
+	else if (control->fix_wmega)
+	{
+		b = (int) ((control->bmax - control->bmin)/control->dbeta);
+		
+		do
+		{
+			double integral = integrate (control->dat, mu);
+
+			fprintf (fout, "% 9.6lf % 9.6lf % 9.6lf %9.6lf\n",
+					control->dat->beta,
+					control->dat->w,
+					integral,
+					mu);
+
+			control->dat->beta += control->dbeta;
+			mu = find_mu (control->dat);
+			progress_bar (a, b, 0);
+
+			a++;
+		} while (control->dat->beta <= control->bmax);
+	}
 }
 
 void readfile (char * name, double * a)
@@ -297,10 +336,12 @@ void readfile (char * name, double * a)
 
 void calculate (int M,
 		int fbeta,
+		int fwmega,
 		double qx,
 		double qy,
 		double mu,
 		double kin,
+		double alpha,
 		char * name,
 		char * dout)
 {
@@ -309,8 +350,8 @@ void calculate (int M,
 
 	readfile (name, a);
 
-	init_Control (M, fbeta, a[0], a[1], a[2], a[3], a[4], a[5],
-			qx, qy, mu, kin, control);
+	init_Control (M, fbeta, fwmega, a[0], a[1], a[2], a[3], a[4], a[5],
+			qx, qy, mu, kin, alpha, control);
 
 	free (a);
 
@@ -323,22 +364,24 @@ void calculate (int M,
 
 int main (int argc, char ** argv)
 {
-	int M	= 100,
-	    fbeta = 0,
+	int M	   = 100,
+	    fbeta  = 0,
+	    fwmega = 0,
 	    arg;
 
 	double qx	= M_PI,
 	       qy	= M_PI,
 	       kin	= t,
-	       mu	= ef;
+	       a	= 1.0 / M;
 
 
-	while ((arg = getopt (argc, argv, "M:x:y:t:e:fh")) != -1)
+	while ((arg = getopt (argc, argv, "M:x:y:t:a:fwh")) != -1)
 	{
 		switch (arg)
 		{
 			case 'M':
 				M = atoi (optarg);
+				a = 12.5 / M;
 				break;
 			case 'x':
 				qx = atof (optarg);
@@ -349,11 +392,14 @@ int main (int argc, char ** argv)
 			case 't':
 				kin = atof (optarg);
 				break;
-			case 'e':
-				mu = atof (optarg);
-				break;
 			case 'f':
 				fbeta = 1;
+				break;
+			case 'w':
+				fwmega = 1;
+				break;
+			case 'a':
+				a = atof (optarg);
 				break;
 			case 'h':
 				printf ("-M <int>\n");
@@ -361,6 +407,9 @@ int main (int argc, char ** argv)
 				printf ("-y <double>: qy\n");
 				printf ("-t <double>: kinetic constant\n");
 				printf ("-e <double>: mu -- fermi energy\n");
+				printf ("-f -- work at fixed beta_min\n");
+				printf ("-w -- work at fixed wmega_min\n");
+				printf ("-a <double>: alpha -- regularization parameter\n");
 				printf ("-h -- print this list\n");
 				exit (EXIT_SUCCESS);
 			default:
@@ -369,7 +418,17 @@ int main (int argc, char ** argv)
 		}
 	}
 
-	calculate (M, fbeta, qx, qy, mu, kin, "input.txt", "output.txt");
+	calculate (M, fbeta, fwmega, qx, qy, 0.0, kin, a, "input.txt", "output.txt");
+
+	if (!fbeta && !fwmega)
+		system ("./slika.sh");
+
+	else if (fbeta)
+		system ("./slika1.sh");
+
+	else if (fwmega)
+		system ("./slika2.sh");
+
 	exit (EXIT_SUCCESS);
 }
 
