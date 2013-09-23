@@ -91,7 +91,8 @@ int main (int argc, char ** argv)
 	
 	double sl_error		= 0.05,
 	       min_length	= 0.0001,
-	       init_length	= 3.0;
+	       init_length	= 3.0,
+	       cut		= 5;
 
 	// we declare our options
 	struct option longopts[] =
@@ -101,6 +102,7 @@ int main (int argc, char ** argv)
 		{"min-step",          required_argument,     NULL,    'M'},
 		{"initial-step",      required_argument,     NULL,    'I'},
 		{"max-iter",          required_argument,     NULL,    'n'},
+		{"cut",               required_argument,     NULL,    'c'},
 		{"output-file",       required_argument,     NULL,    'o'},
 		{"full",              no_argument,           NULL,    'f'},
 		{"sloppy-errors",     optional_argument,     NULL,    's'},
@@ -109,7 +111,7 @@ int main (int argc, char ** argv)
 		{NULL,                0,                     NULL,      0}
 	};
 
-	while ((arg = getopt_long (argc, argv, "i:N:M:I:n:o:fs::hv", longopts, NULL)) != -1)
+	while ((arg = getopt_long (argc, argv, "i:N:M:I:c:n:o:fs::hv", longopts, NULL)) != -1)
 	{
 		switch (arg)
 		{
@@ -135,6 +137,9 @@ int main (int argc, char ** argv)
 				break;
 			case 'f':
 				full = 1;
+				break;
+			case 'c':
+				cut = atof (optarg);
 				break;
 			case 's':
 				sloppy = 1;
@@ -170,6 +175,9 @@ int main (int argc, char ** argv)
 				printf ("-o <filename>\n");
 				printf ("--output-file=<filename>\n");
 				printf ("    The name of the output file for the fitter.c program.\n\n");
+				printf ("-c <real number>\n");
+				printf ("--cut=<real number>\n");
+				printf ("    The cut for chi^2, we put in the output file.\n\n");
 				printf ("-f\n");
 				printf ("--full\n");
 				printf ("    Enable the more detailed format for the fitter.c program output.\n");
@@ -239,8 +247,8 @@ int main (int argc, char ** argv)
 	       * v = (double *) malloc (15 * sizeof (double));
 	
 	char * command = (char *) malloc (100 * sizeof (char));
-	sprintf (command, "./fermion -i runner4fitter.txt -M%lf -n%d -f%s -I%lf",
-			min_length, maxI, output, init_length);
+	sprintf (command, "./fermion -i runner4fitter.txt -M%lf -n%d -f%s -I%lf -c%lf",
+			min_length, maxI, output, init_length, cut);
 
 	if (sloppy)
 		sprintf (command, "%s -s%lf", command, sl_error);
