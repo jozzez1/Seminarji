@@ -325,7 +325,7 @@ $G$, $H$ grupi. Preslikava $f : G \to H$ je \emph{homomorfizem}, \v ce je $f(a,b
 
 \paragraph{Primeri:}
 \begin{itemize}
-	\item{$H, G$ grupi, $H \leq G$. \emph{Inkluzijska preslikava} $i: H \to G,\ h\mapsto h$ je homomorfizem.}
+	\item{$H, G$ grupi, $H \leq G$. \emph{Inkluzijska preslikava} $i: H \to G,\ h\mapsto h$ je homomorfizem. \label{inkluzija}}
 	\item{$G$ grupa, $a \in G$.
 		\begin{itemize}
 			\item{\underline{\emph{Leva translacija} za $a$} je $L_a: G\to G,\ g \mapsto ag$.}
@@ -385,3 +385,93 @@ $G$, $H$ grupi. Preslikava $f : G \to H$ je \emph{homomorfizem}, \v ce je $f(a,b
 \end{lema}
 
 \paragraph{Dokaz:}
+\begin{itemize}
+	\item[($\Leftarrow$)]{O\v citno, saj je $a H a^{-1} = H \leq H$.}
+	\item[($\then$)]{Vemo: $aHa^{-1} \subseteq H,\ \forall a \in G$. Za poljubno izbrani $a \in G$ velja $aHa^{-1} \subseteq H$. Za
+		svoj "`$a$"' izberem njegov inverz, tj. `$a^{-1}$', kar nam da $a^{-1}Ha \subseteq H$. To pomeni, $\forall h \in H, a^{-1} h a \in H$,
+		torej $a^{-1} h a = k \in H \then h = aka^{-1} \in a H a^{-1} \then \forall h \in H$ je $h \in aHa^{-1} \then H\subseteq a H a^{-1}$.
+		Vemo, da \v ce $A \subseteq B$ in $B \subseteq A \then A = B$, tj.
+		\[
+			a H a^{-1} = H.
+		\]}
+\end{itemize}
+\qed
+
+\pagebreak
+\begin{trditev}
+	Naj bo $f : G \to H$ homomorfizem grup. Potem velja:
+	\begin{itemize}
+		\item[(1)]{Slika $f$: $\im f = \{ f(g)\ |\ g\in G\} \leq H$.}
+		\item[(2)]{Jedro $f$: $\ker f = \{ g \in G\ |\ f(g) = e\} \lhd G$.}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item[{\bf (1)}]{Poka\v zimo, da je $\im f$ res podgrupa v $H$:
+
+		Za $f(g_1)$, $f(g_2) \in \im f$ moramo preveriti, da je $f(g_1) \big(f(g_2)\big)^{-1} \in \im f$.
+	\[
+		f(g_1) \big(f(g_2)\big)^{-1} = f (\underbrace{g_1 g_2^{-1}}_{\in G}) \in \im f \then\ \text{je res grupa.}
+	\]}
+	\item[{\bf (2)}]{Poka\v zimo, da je $\ker f$ res edinka v $G$:
+		\begin{itemize}
+			\item[$\bullet$]{Res grupa:
+			\begin{itemize}
+				\item[--]{$e \in \ker f$, ker je homomorfizem (identiteto slika v identiteto, tj. $e \in \ker f$).}
+				\item[--]{$a \in \ker f\ \then f(a) = e \then f(a^{-1}) = e^{-1} = e \then a^{-1} \in \ker f$,}
+				\item[--]{$a,b \in \ker f\ \then\ f(a) = e = f (b) \then f(ab) = f(a) f(b) = ee = e\ \then\ ab \in \ker f$.}
+			\end{itemize}}
+			\item[$\bullet$]{Res edinka:
+				\[
+					g\in \ker f\ \text{in}\ a \in G:\ f(aga^{-1}) = f(a) f(g) f(a^{-1}) = f(a) e f(a^{-1}) ) e\ \then aga^{-1} \in \ker f.
+				\]}
+		\end{itemize}
+		}
+\end{itemize}
+\qed
+
+\ni Na osnovi tega dobimo kanoni\v cno dekompozicijo homomorfizma $f : G \to H$ tako, da ga predstavimo kot kompozitum surjektivnega homomorfizma, izomorfizma
+in injektivnega homomorfizma.
+
+\ni To znamo narediti pri linearni algebri:
+\begin{trditev}
+	\v Ce sta $V, W$ vektorska prostora nad obsegom $\F$ in je $T : V\to W$ linearna preslikava, ozna\v cimo s $\ker T = \{v \in V\ |\ T(v) = 0\}$; in
+	$\im T = \{T(v)\ |\ v\in V\}$, velja
+	\[
+		V\ \to\ ^V/_{\ker T}\ \stackrel{\overline{T}}{\longrightarrow}\ \im T \hookrightarrow W
+	\]
+\end{trditev}
+
+To "`klobaso"' interpretiramo kot
+\begin{itemize}
+	\item{$V \to\ ^V/_{\ker T}$ je kvocientna projekcija: $v_1 \sim v_2$, \v ce je $(v_1 - v_2) \in \ker T$. Simbol `$\sim$' predstavlja ekvivalen\v cno relacijo.}
+	\item{$^V/_{\ker T} \stackrel{\overline{T}}{\longrightarrow} \im T$ je preslikava inducirana s $T$, tj. slika enako, kot $T$.}
+	\item{$\im T \hookrightarrow W$ je inkluzija (oz. inkluzijska preslikava, glej str.~\pageref{inkluzija}).}
+\end{itemize}
+
+Podobno bi radi naredili za grupe (tj. dobili kanoni\v cno dekompozicijo homomorfizma grup).
+
+\pagebreak
+\begin{defin}
+	Naj bo $H \leq G$. \emph{Levi odsek} $H$ v $G$ je $aH$, $a \in H$, \emph{desni odsek} pa $Ha$, $a \in G$. Element $a$ je \emph{predstavnik} odseka.
+\end{defin}
+
+\paragraph{Opomba:} Odsek ima ve\v c predstavnikov. Kdaj je $aH = bH$ (kdaj je levi odsek za dva predstavnika enak)?
+\begin{itemize}
+	\item{\v Ce na desni v $H$ izberemo $e$, sledi $b\cdot e \in bH = aH$ ($\then b \in aH$).
+		\[
+			\then b = ah\ \text{za nek}\ h \in H \then a^{-1}b = h \in H.
+		\]
+		\v Ce $a$ in $b$ predstavljata isti odsek, potem je $ab^{-1} \in H$ (in ekvivalentno $b^{-1}a \in H\ \then$ v eno smer velja).}
+	\item{\v Ce je $a^{-1}b = h \in H$, potem $b = ah$, zato je $bH = ahH$. Ker je $H$ grupa, je $hH \in H \then \overbrace{ah}^b H \subseteq aH$. Lahko tudi
+		zamenjamo vlogi $a$ in $b$ $\then\ aH = bH$.}
+	\item{$a \sim b \stackrel{\text{def}}{\iff} a^{-1}b \in H$ je ekvivalen\v cna relacija. $a \sim b$ v tem primeru pomeni $aH = bH$.}
+\end{itemize}
+
+\begin{trditev}
+	Naj bo $H \leq G$. Potem sta odseka $aH$ in $bH$ bodisi disjunktna (presek je prazna mno\v zica), bodisi enaka. Slednje velja $\iff a^{-1}b \in H$.
+\end{trditev}
+
+\paragraph{Dokaz:}
+\v Ce $aH$ in $bH$ nista disjunktna obstaja $c \in aH \cap bH \then c = ah = bk;\ h,k \in H$.
