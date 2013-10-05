@@ -353,7 +353,7 @@ $G$, $H$ grupi. Preslikava $f : G \to H$ je \emph{homomorfizem}, \v ce je $f(a,b
 		\paragraph{Dokaz:} Res slika v $C_{nd}$:
 		\[
 			z^n = 1;\ f(z) = z^d\ \then\ z^{nd} = (z^n)^d = 1^d = 1.
-		\] To je o\v citno homomorizem, ki slika v $C_{nd}$, vendar $f_d$ ni surjektivna.}
+		\] To je o\v citno homomorizem, ki slika v $C_{nd}$, vendar $f_d$ ni surjektivna. $\blacksquare$}
 	\item{Matri\v cna homomorfizma nad obsegom $\F$:
 		\begin{itemize}
 			\item{Determinanta za mno\v zenje matrik: $\det: (GL_n (\F, \cdot) \to (\F, +)$, $A \mapsto \det A$ obseg.
@@ -474,4 +474,194 @@ Podobno bi radi naredili za grupe (tj. dobili kanoni\v cno dekompozicijo homomor
 \end{trditev}
 
 \paragraph{Dokaz:}
-\v Ce $aH$ in $bH$ nista disjunktna obstaja $c \in aH \cap bH \then c = ah = bk;\ h,k \in H$.
+\v Ce $aH$ in $bH$ nista disjunktna obstaja $c \in aH \cap bH \then c = ah = bk;\ h,k \in H$. Ker $H \owns hk^{-1} = a^{-1}b \then a^{-1}b \in H \then$ sta
+enaka.
+\[
+	\then a^{-1} b \in H \then aH = bH\ \text{(dokazali v opombi)\footnote{Dokaz: \v ce imata 1 skupni element, sta enaka.}}.
+\]
+\qed
+
+\begin{posledica}
+	Po zadnji trditvi grupa $G$ razpade na disjunktne odseke po podgrupi $H$:
+	\[
+		G = a_1 H \cup a_2 H \cup \ldots \cup a_n H = \bigcup_{i \in I} a_i H,
+	\]
+	izberemo tako, da iz vsakega ekvivalen\v cnega razreda vzamemo enega predstavnika. Podobno lahko naredimo z desnimi odseki:
+	\[
+		G = Hb_1 \cup Hb_2 \cup \ldots \cup Hb_n = \bigcup_{i \in I} Hb_i
+	\]
+\end{posledica}
+
+Ali je \v stevilo (medsebojno disjunktnih) levih odsekov enako \v stevilu (medsebojno disjunktnih) desnih odsekov? Ustrezajo\v ci levi in desni odseki
+\emph{niso nujno enaki}!
+
+\pagebreak
+\begin{defin}
+	\begin{itemize}
+		\item{\v ce je $G$ kon\v cna grupa, in $H \leq G$, ozna\v cimo \v st. odsekov $H$ v $G$ kot $[G:H]$. Isto oznako uporabimo tudi, \v ce je
+		$G$ neskon\v cna, $[G:H]$ pa je \v se vedno kon\v cno. To \v stevilo imenujemo \emph{indeks} grupe $H$ v $G$.}
+		\item{\v Stevilo elementov grupe $G$ ozna\v cimo z $|G| \in \mathbb{N}\cup\{\infty\}$. To imenujemo \emph{mo\v c} ali \emph{red} grupe.}
+		\item{Naj bo $a \in G$. Najman\v se \v stevilo $n \in \mathbb{N}$, za katerega je $a^n = e$, imenujemo \emph{red elementa} $a$. \v Ce tak $n$
+		ne obstaja, je red $\infty$ (neskon\v cno).}
+	\end{itemize}
+\end{defin}
+
+\begin{trditev}
+\paragraph{Lagrangejev izrek:} $G$ kon\v cna grupa, $H \leq G$. Potem
+\[
+	[G:H] = \frac{|G|}{|H|}.
+\]
+Posebej sledi, da mo\v c podgrupe deli mo\v c grupe.
+\end{trditev}
+
+\paragraph{Dokaz:}
+Odseki $H$ v $G$ dolo\v cajo (razcep) za $G$: $G = a_1 H\cup a_2 H \cup \ldots \cup a_n H$, vsi navedeni odseki so disjunktni.
+\begin{itemize}
+	\item{Da unija odsekov zastopa ves $G$, saj je poljuben $a \in G$ v odseku $aH$ (ker $e \in H$).}
+	\item{V $a_i H$ je ravno $|H|$ elementov ($\forall i\in I$), saj je $L_{a_i}$ bijekcija.
+		\[
+			|G| = |a_1 H| + \ldots + |a_n H| = n \cdot |H| = [G:H] \cdot |H|.
+		\]}
+\end{itemize}
+\qed
+
+\begin{trditev}
+	$G,H$ grupi, $H \leq G$. Levi odseki $H$ v $G$ so v bijektivni korsespondenci z desnimi odseki.
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item{I\v s\v cemo preslikavo, za katero bi radi pozneje pokazali, da je bijekcija:
+	\begin{align*}
+		F:\{\text{levi odseki}\} &\to \{\text{desni odseki}\}, \\
+		aH &\to Ha^{-1}.
+	\end{align*}
+	Zakaj je dobro $F(aH) = Ha^{-1}$ vidimo, \v ce preverimo, kdaj sta desna odseka enaka: $Hb = Hc
+	\iff b = hc \iff bc^{-1} \in H$, za leve je pa $a^{-1}b \in H\ \then$ na eni strani moramo dobiti
+	inverz, da bosta pogoja enaka.}
+	\item{Preverimo, da je $F$ dobro definirana (tj. da je relacija $F$ res preslikava): \v ce sta $aH$
+	in $bH$ enaka leva odseka, jih mora $F$ preslikati v enaka desna,
+	\begin{align*}
+		aH = bH &\iff a^{-1}b \in H, \\
+		Ha^{-1} = Hb^{-1} &\iff a^{-1}(b^{-1})^{-1} = a^{-1} b \in H,
+	\end{align*}
+	to pa pomeni
+	\begin{itemize}	
+		\item{Dva enaka slika v dva enaka $\then$ je funkcija.}
+		\item{Dva razli\v cna slika v 2 razli\v cna -- $a^{-1}b \notin H \then a^{-1}(b^{-1})^{-1} =
+			(b^{-1}a)^{-1} \notin H \then$ injekcija.}
+		\item{Vsi so slike: vsak ima $a^{-1}$ inverz.}
+	\end{itemize}}
+	\item{O\v citno je bijekcija.}
+\end{itemize}
+\qed
+
+\begin{posledica}
+	\v Ce je $G$ kon\v cna grupa in $a \in G$, potem 
+	\[
+		\red(a)\ \big|\ |G|
+	\] (red $a$ deli mo\v c grupe $G$). \v Se ve\v c, $\red(a)$ je mo\v c cikli\v cne podgrupe, generirane
+	z $a$:
+	\[
+		\red(a) = |\langle a \rangle|\ 
+	\]
+\end{posledica}
+
+\paragraph{Dokaz:}
+Naj bo $H = \langle a \rangle \leq G$, po Langrangejevem izreku sledi $|H|$ deli $|G|$. Dokazati moramo le \v se $\red (a) = |\langle a \rangle |$. Elementi
+$H$ so
+\[
+	\langle a \rangle = \{e, a^{\pm 1}, a^{\pm 2}, a^{\pm 3} \ldots\}.
+\]
+Ker je $G$ kon\v cna, se bodo za\v celi ponavljati. Naj bo $k\in \mathbb{N}$ najmanj\v se \v stevilo, da za nek $m \in \mathbb{Z}$
+velja $a^{m+k} = a^m$. Od tod z mno\v zenjem z $a^{-m}$ dobimo $a^k = e$. Ker je $k$ najmanj\v si mo\v zni, je to ravno
+$\red(a)$. Potem $\forall m \in \mathbb{Z}$ velja
+\begin{align*}
+	m &= qk + r,\quad q \in \mathbb{Z}, \quad 0 \leq r < k, \\
+	a^m &= a^{qk} \cdot a^r = (a^k)^q a^r = e^q a^r = a^r.
+\end{align*}
+\begin{itemize}
+	\item[$\then$]{v cikli\v cni grupi so natanko elementi $e, a, \ldots, a^{k-1}$.}
+	\item[$\then$]{$|\langle a \rangle| = k = \red (a)$.}
+\end{itemize}
+\qed
+
+\begin{zgled}
+\v Ce je $[G:H] = 2$, je $H \lhd G$.
+\paragraph{Re\v sitev:}
+\begin{itemize}
+	\item{$G$ razpade na dva odseka (vemo).}
+	\item{Radi bi pokazali: $\forall a \in G$ je $aHa^{-1} \subseteq H$.
+		\begin{itemize}
+			\item{\v ce je $a \in H \then a H a^{-1} \subseteq H$, ker je $H$ grupa.}
+			\item{izberimo poljuben $a \notin H$ ($\then a^{-1} \notin H$) -- spet \v zelimo $aHa^{-1} \subseteq H$. Opazimo:
+				$aH \neq H = eH$ \then sta disjunktna $\then G = eH \cup aH$.}
+			\item{Podobno velja, da sta $H$ in $Ha$ dva razli\v cna desna odseka $\then aH = Ha \neq H$. Ta izraz lahko
+				z desne mno\v zimo z $a^{-1}$ dobimo
+				\[
+					aHa^{-1} = H.
+				\]}
+		\end{itemize}}
+\end{itemize}
+\qed
+\end{zgled}
+
+\begin{zgled}
+	$G, H$ grupi, $H \leq G$. Velja $H \lhd G \iff \forall$ levi odsek, je tudi desni odsek.
+	\paragraph{Re\v sitev:}
+	\begin{itemize}
+		\item[$(\then)$:]{$aHa^{-1} = Ha\ \then\ aH = Ha,\ \forall a \in G$. $\square$}
+		\item[$(\Leftarrow)$:]{$\forall a \exists b$, tako da: $aH = Hb$. \v zeliko $b = a$. Ali smemo?
+		
+		Za $e \in H$ na desni dobimo $eb = b \in aH; b = ah, h \in H$. $a^{-1}b \in H$.
+		\begin{align*}
+			aH &= Hb, \\
+			aHb^{-1} &= H, \\
+			aH (ah)^{-1} &= a\underbrace{Hh^{-1}}_{H}a^{-1} = aHa^{-1}.\ \square
+		\end{align*}}
+	\end{itemize}
+\qed
+\end{zgled}
+
+\begin{trditev}
+	$G$ grupa, $H \lhd G$. Potem je mno\v zica levih odsekov $H$ v $G$ grupa za operacijo
+	\[
+		aH \cdot bH \stackrel{\text{def}}{=} abH.
+	\]
+	\begin{itemize}
+		\item{Oznaka za to grupo je $\ ^G/_H = \{aH\ |\ a\in G\}$. Imenujemo jo \emph{faktorska}, ali
+			\emph{kvocientna} grupa grupe $G$ po edinki $H$ (z operacijo \ldots).}
+		\item{Enota za $\ ^G/_H$ je $eH = eH$, inverz pa $(aH)^{-1} = a^{-1} H$.}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Dokaz}
+\begin{itemize}
+	\item{Asociativnost sledi iz asociativnosti mno\v zenja v $G$.}
+	\item{Notranja: $aH \cdot bH \in\ ^G/_H$.
+		\[
+			aH \cdot bH = abb^{-1}HbH = ab HH = ab H \in ^G/_H.
+		\]}
+\end{itemize}
+\qed
+
+\ni Zgornji izrek nam da tolde zaporedje grup in homomorfizmov:
+
+\begin{align*}
+	p : a &\longrightarrow aH, \\
+	\{e\} \to H \stackrel{i}{\hookrightarrow} G &\stackrel{p}{\longrightarrow}\ ^G/_H \to \{e\}.
+\end{align*}
+
+\ni Tu se moramo spomniti
+\begin{itemize}
+	\item{inkluzija $i$ je injektivna,}
+	\item{inducirana preslikava $G \stackrel{p}{\to}\ ^G/_H$ je surjektivna,}
+	\item{$\ker p = H$, $\im(i) = H$.}
+\end{itemize}
+
+\ni Vse preslikave tu so homomorfizmi. To zaporedje je \emph{eksaktno}: pri vski grupi je jedro izhodnega
+homomorfizma enako sliki vhodnega.
+\begin{itemize}
+	\item{pri $H$: slika je $\{e\}$; jedro je $\{e\}$, ker je inkluzija injektivna.}
+	\item{pri $G$: slika je $H$; jedro je $\{a \in G\ |\ p(a) = aH = eH = H\}$. Pogoj $aH = H \iff a \in H$.}
+\end{itemize}
