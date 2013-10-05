@@ -611,7 +611,7 @@ $\red(a)$. Potem $\forall m \in \mathbb{Z}$ velja
 	\paragraph{Re\v sitev:}
 	\begin{itemize}
 		\item[$(\then)$:]{$aHa^{-1} = Ha\ \then\ aH = Ha,\ \forall a \in G$. $\square$}
-		\item[$(\Leftarrow)$:]{$\forall a \exists b$, tako da: $aH = Hb$. \v zeliko $b = a$. Ali smemo?
+		\item[$(\Leftarrow)$:]{$\forall a\ \exists b$, tako da: $aH = Hb$. \v zelimo $b = a$. Ali smemo?
 		
 		Za $e \in H$ na desni dobimo $eb = b \in aH; b = ah, h \in H$. $a^{-1}b \in H$.
 		\begin{align*}
@@ -647,10 +647,10 @@ $\red(a)$. Potem $\forall m \in \mathbb{Z}$ velja
 
 \ni Zgornji izrek nam da tolde zaporedje grup in homomorfizmov:
 
-\begin{align*}
-	p : a &\longrightarrow aH, \\
+\begin{align}
+	p : a &\longrightarrow aH, \notag \\
 	\{e\} \to H \stackrel{i}{\hookrightarrow} G &\stackrel{p}{\longrightarrow}\ ^G/_H \to \{e\}.
-\end{align*}
+\end{align}
 
 \ni Tu se moramo spomniti
 \begin{itemize}
@@ -664,4 +664,73 @@ homomorfizma enako sliki vhodnega.
 \begin{itemize}
 	\item{pri $H$: slika je $\{e\}$; jedro je $\{e\}$, ker je inkluzija injektivna.}
 	\item{pri $G$: slika je $H$; jedro je $\{a \in G\ |\ p(a) = aH = eH = H\}$. Pogoj $aH = H \iff a \in H$.}
+	\item{pri $^G/_H$: slika od $p$ je $^G/_H$; jedro je $^G/_H$, ker se vse slika v $e$.}
 \end{itemize}
+
+\begin{trditev}
+	$H \lhd G,\ f : G \to K$ homomorfizem, za katerega velja $H \subseteq \ker f$ ($f : \{H\} \to \{e\}$).
+	
+	\ni Potem $f$ dolo\v ca homomorfizem $\overline{f} :\ ^G/_H \to K$ s predpisom
+	\begin{alignat*}{2}
+		G &\stackrel{f}{\longrightarrow} &K \\
+		\stackrel[p]{}{\searrow} &^G/_H &\stackrel[\overline{f}]{}{\nearrow}
+	\end{alignat*}
+	se pravi
+	\begin{align*}
+		G &\stackrel{f}{\to} K \\
+		\text{in}\ &\text{hkrati} \\
+		G \stackrel[p]{}{\to}\ &^G/_H \stackrel[\overline{f}]{}{\to} K
+	\end{align*}
+	za katerega velja $f = \overline{f}\circ p$.
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item{Preveriti moramo, da je $\overline{f}$, da je $\overline{f}$ dobro definiran in homomorfizem. Te\v zava
+	je v tem, da odsek nima samo enega predstavnika. ($aH = bH$, $a \neq b$), $\overline{f}$ pa je dolo\v cena 
+	predstavnikom. $aH = bH \then$ \v zelimo vedeti $f(a) = \overline{f}(ab) ) = \overline{f}(bH) = f (b)$.
+	\begin{align*}
+		\then a^{-1}b \in &H \subseteq \ker f \\
+		f(a^{-1}b) = f(&a)^{-1} f(b) = e. \quad \square
+	\end{align*}}
+	\item{Da je $\overline{f}$ homomorfizem takoj sledi: $\overline{f}(aH \cdot bH) = \overline{f}(abH) = f(ab) = f(a)
+		\cdot f(b) = \overline{f}(aH) \cdot \overline{f}(bH)$.}
+\end{itemize}
+\qed
+
+Od tod takoj sledi kanoni\v cna dekompozicija homomorfizma.
+\begin{trditev}
+	\paragraph{Prvi izrek o izomorfizmu:} Naj bo $f:G \to H$ homomorfizem (kot \v ze vemo, je jedro edinka). Potem je
+	\[
+		\overline{f}:\ ^G/_{\ker f} \to \im f
+	\] izomorfizem in zaporedje
+	\[
+		\{e\} \to \ker f \hookrightarrow G \stackrel{P}{\longrightarrow}\ ^G/_{\ker f} \stackrel{f}{\to} \im f \hookrightarrow H
+	\] je \emph{kanoni\v cna dekompozicija homomorfizma grup} $f$, kar lahko zapi\v semo tudi
+	\[
+		f = i \circ \overline{f} \circ P
+	\]
+\end{trditev}
+
+\paragraph{Dokaz:} Jedro homomorfizma, $\ker f$, je edinka v $G$, zato sledi, da obstaja inducirani homomorfizem $\overline{f}:\ ^G/_{\ker f} \to H$.
+\underline{Trdimo:} $\overline{f}$ je injektiven in zato bijektiven na $\im f$. \v Ce je $a\cdot \ker f$ v jedru $\overline{f}$, torej
+$\overline{f}(a\cdot \ker f) = e$, je $f(a) = e$ in $a \in \ker f \then a\cdot \ker f = \ker f$, ki je identiteta v $^G/_{\ker f}$.
+Edini odsek, ki se z $\overline{f}$ preslika v $e$ je identiteta .
+\qed
+
+\begin{zgled}
+$(\mathbb{Z}, +)$; $n\mathbb{Z} = \{nk\ |\ k \in \mathbb{Z}\}$ je podgrupa v $\mathbb{Z}$. Potem je $n\mathbb{Z} \lhd \mathbb{Z}$ (edinka).\\[6pt]
+
+\ni {\bf Bolj na splo\v sno:} \v Ce je $G$ abelova in $H \leq G$, je $H$ edinka, tj. $aHa^{-1} = \{aha^{-1}\ |\ h \in H\} = \{aa^{-1}h\ |\ h\in H\} = H$.\\[6pt]
+
+\ni Kaj je kvocientna grupa po edinki $n\mathbb{Z}$? $^{\mathbb{Z}}/_{n\mathbb{Z}}$ je mno\v zica odsekov $n\mathbb{Z}$ v $\mathbb{Z}$. Hitro vidimo,
+da je $^{\mathbb{Z}}/_{n\mathbb{Z}} = \{n\mathbb{Z}, (1 + n)\mathbb{Z}, \ldots, (n - 1 + n)\mathbb{Z}\}$ je izomorfna grupi ostankov pri deljenju z $n$, tj.
+
+\begin{align*}
+	f:\mathbb{Z} &\to \mathbb{Z}_n\\
+	k &\mapsto k\ (\text{mod}\ n)
+\end{align*}
+
+\paragraph{Doka\v zi:} $f$ je surjetkivni homomorfizem in $\ker f = n\mathbb{Z}$, zato je $\overline{f}:\ ^{\mathbb{Z}}/_{n\mathbb{Z}} \to \mathbb{Z}_n.$
+\end{zgled}
+
