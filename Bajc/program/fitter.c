@@ -20,6 +20,8 @@ typedef struct
 	       vd_bar,	// 1	| v_d = vd_bar \cos\beta, parametrized with gamma_d
 	       vu_bar;	// 1	| v_u = vu_bar \sin\beta, parametrized with gamma_u
 
+	double cut_chi;	// the cut we impose on chi to display date
+
 	// eigenvalues of each matrix -- 3 for each
 	double * M,	// so this has dimension 9: first 3 or slect=1, and so on
 	       * m,	// the correct masses + CKM matrix orthogonal angles
@@ -48,9 +50,9 @@ void hod_init (hod * u, gsl_vector * v, double * p)
 	u->y = (double *) malloc (3 * sizeof (double));
 	u->u = (double *) malloc (2 * sizeof (double));
 	u->d = (double *) malloc (4 * sizeof (double));
-	u->M = (double *) malloc (12 * sizeof (double));
-	u->m = (double *) malloc (12 * sizeof (double));
-	u->e = (double *) malloc (12 * sizeof (double));
+	u->M = (double *) malloc (12* sizeof (double));
+	u->m = (double *) malloc (12* sizeof (double));
+	u->e = (double *) malloc (12* sizeof (double));
 	u->V = (double *) malloc (9 * sizeof (double));
 	u->L = (double *) malloc (9 * sizeof (double));
 
@@ -503,7 +505,7 @@ void parameter_print (FILE * fout, int select, gsl_vector * v)
 	}
 }
 
-void print_all (FILE * fout, const gsl_vector * v, double * p, double * a, int full)
+void print_all (FILE * fout, const gsl_vector * v, double * p, double * a, int full, double cut)
 {
 	hod * u = (hod *) malloc (sizeof (hod));
 	hod_init (u, (gsl_vector *) v, p);
@@ -513,7 +515,7 @@ void print_all (FILE * fout, const gsl_vector * v, double * p, double * a, int f
 	// relavant solutions, that are small enough
 	if (fout != stdout)
 	{
-		if (chi2 > 10)
+		if (chi2 > cut)
 		{
 			fclose (fout);
 			fout = fopen ("/dev/null", "a");
@@ -612,7 +614,8 @@ int main (int argc, char ** argv)
 
 	double E_length	= 1e-5,		// final symplex step length
 	       I_length	= 100.0,	// initial symplex step length
-	       sl_err	= 0.05;		// sloppy relative error to use
+	       sl_err	= 0.05,		// sloppy relative error to use
+	       cut	= 10;
 
 	struct option longopts[] =
 	{
@@ -620,6 +623,7 @@ int main (int argc, char ** argv)
 		{"min-step",        required_argument,   NULL,   'M'},
 		{"initial-step",    required_argument,   NULL,   'I'},
 		{"max-iter",        required_argument,   NULL,   'n'},
+		{"cut",             required_argument,   NULL,   'c'},
 		{"write",           optional_argument,   NULL,   'w'},
 		{"write-full",      optional_argument,   NULL,   'f'},
 		{"sloppy-errors",   optional_argument,   NULL,   's'},
@@ -628,7 +632,7 @@ int main (int argc, char ** argv)
 		{NULL,              0,                   NULL,     0}
 	};
 
-	while ((arg = getopt_long (argc, argv, "i:M:I:n:w::f::s::hv", longopts, NULL)) != -1)
+	while ((arg = getopt_long (argc, argv, "i:M:I:n:c:w::f::s::hv", longopts, NULL)) != -1)
 	{
 		switch (arg)
 		{
@@ -678,6 +682,9 @@ int main (int argc, char ** argv)
 					sl_err = atof (optarg);
 
 				break;
+			case 'c':
+				cut = atof (optarg);
+				break;
 			case 'h':
 				printf ("List of commands\n");
 				printf ("------------------------------\n");
@@ -699,6 +706,10 @@ int main (int argc, char ** argv)
 				printf ("    Initial step length -- if our initial guess was  too close to a \n");
 				printf ("    local minimum, we can remedy this by using a larger initial\n");
 				printf ("    step.\n\n");
+				printf ("-c <real number>\n");
+				printf ("--cut=<real number>\n");
+				printf ("    The number, from which chi^2 must be lower, in order to be acce-\n");
+				printf ("    pted into the output file.\n\n");
 				printf ("-n <integer>\n");
 				printf ("--max-iter=<integer>\n");
 				printf ("    Another stopping condition is maximum number of iterations. It's\n");
@@ -879,13 +890,13 @@ int main (int argc, char ** argv)
 		}
 
 		FILE * fout = fopen (output, "a");
-		print_all (fout, s->x, Masses, a, f);
+		print_all (fout, s->x, Masses, a, f, cut);
 
 		fclose (fout);
 	}
 
 	else
-		print_all (stdout, s->x, Masses, a, 1);
+		print_all (stdout, s->x, Masses, a, 1, 1.0e+30);
 
 	if (s) gsl_multimin_fminimizer_free (s);
 	if (output) free (output);
