@@ -1,0 +1,387 @@
+\part{Grupe}
+
+\chapter{Osnovni pojmi}
+
+\begin{defin}
+	\emph{Grupa} $G$ je neprazna mno\v zica z binarno operacijo $\mu$, ki jo imenujemo
+	mno\v zenje: $\mu: G\times G \to G$, za katero velja ($a, b, c \in G)$:
+	\begin{enumerate}
+		\item{operacija $\mu$ je asociativna: $\mu(\mu(a,b), c) = \mu(a, \mu(b, c))$.}
+		\item{mno\v zica $G$ vsebuje element, ki je za operacijo $\mu$ identiteta -- $e$: $\mu (e, a) = a$.}
+		\item{$\forall a \in G,\ \exists\ a^{-1} \in G$, ki je inverzni element za operacijo $\mu$: $\mu (a, a^{-1}) = e$.}
+	\end{enumerate}
+\end{defin}
+
+\ni Z drugimi besedami, imamo mno\v zico, ki je zaprta za neko asociativno operacijo $\mu$. Po navadi ena\v cimo $\mu (a, b) \equiv ab$
+in pi\v semo skraj\v sano.
+
+\begin{defin}
+	Grupa $G$ je \emph{komutativna} ali \emph{abelova}, \v ce za $\forall a,b \in G$ velja $ab = ba$. V tem primeru
+	operacijo $\mu$ imenujemo se\v stevanje in zapi\v semo $a + b = b + a$.
+\end{defin}
+
+\paragraph{Opombe:}
+\begin{itemize}
+	\item{Mno\v zica z asociativno operacijo je \emph{polgrupa} (tj. nima nujno vseh inverzov ali identitete).}
+	\item{Polgrupa z enoto (identiteto) je \emph{monoid}.}
+	\item{Identiteto, $e$, obi\v cajno ozna\v cimo z 1.}
+	\item{V primeru abelove grupe v\v casih operacijo ozna\v cimo z znakom `$+$' in identiteto z `$0$'.}
+\end{itemize}
+
+\ni Primeri iz znanih mno\v zic \v stevil:
+\begin{itemize}
+	\item{($\mathbb{N},+$), $+: \mathbb{N}\times\mathbb{N} \to \mathbb{N}$ je asociativna, vendar nima identitete
+		(\v stevilo $0$ ni naravno \v stevilo) -- torej je polgrupa.}
+	\item{($\mathbb{N}\cup\{0\}, +$) je monoid, saj nimamo inverzov. Do grupe dopolnimo tako: $(\mathbb{Z}, +)$.}
+	\item{($\mathbb{N},\cdot$) je spet monoid. Do grupe manjkajo ulomki. Grupa je torej $(\mathbb{Q}, \cdot)$.}
+\end{itemize}
+
+\ni Opazimo, da imamo nad mno\v zico $\mathbb{Q}$ v resnici dve asociativni operaciji: mno\v zenje in se\v stevanje.
+
+\begin{defin}
+	\emph{Obseg} je (neprazna) mno\v zica $O$, ki ima med svojimi elementi dve asociativni operaciji: mno\v zenje, za
+	katero je $O$ grupa; in se\v stevanje, za katero je $O$ abelova grupa, med operacijama pa velja distributivnostni zakon.
+	Tj. $\forall a,b,c \in O,\ a (b + c) = ab + ac$.
+\end{defin}
+
+\ni Kadar imamo opravka z mno\v zico, ki je abelova grupa za operacijo se\v stevanja, za operacijo mno\v zenja pa le polgrupa,
+govorimo o \emph{kolobarju}.
+
+Ostali primeri grup:
+\begin{itemize}
+	\item{Za $\forall n \in \mathbb{N}$ je mno\v zica ostankov pri deljenju z $n$ kon\v cna grupa z $n$ elementi, operacija
+		je `$+$', po modulu $n$. Ta grupa je $\mathbb{Z}_n = \{0, 1, 2, \ldots, n-1\};$ $(a,b) \mapsto a + b\ (\text{mod}\ n)$:
+		\begin{itemize}
+			\item{identiteta: 0,}
+			\item{inverz: $a^{-1} = n - a$}
+		\end{itemize}}
+	\item{$S^1 =\mathbb{T}$ -- kro\v znica. $S^1 = \{z \in \mathbb{C}\ \big|\ |z| = 1\}$ je grupa za operacijo mno\v zenja kompleksnih \v stevil,
+		to je gladka krivulja. Enotsko kro\v znico lahko parametri\v cno zapi\v semo tudi kot $\{e^{i\phi}\ |\ \phi \in \mathbb{R}\}$.}
+	\item{$C_n = \{e^{2i\pi k/n}\ |\ k \in 0, 1, 2,\ldots,n-1\}$, oz. cikli\v cna grupa z $n$ elementi. Grupna operacija je
+		mno\v zenje kompleksnih \v stevil. Dobimo jo kot grupo $n$-tih korenov. $C_n$ in $\mathbb{Z}_n$ sta algebraji\v cno ekvivalentna.}
+\end{itemize}
+
+\begin{defin}
+	\v Ce sta $G$ in $H$ grupi, je preslikava $f: G \to H$ \emph{homomorfizem}, \v ce velja $f (g_1 \cdot g_2) = f(g_1) f(g_2)$. Bijektivni
+	homomorfizem imenujemo \emph{izomorfizem}. $G$ in $H$ sta \emph{izomorfni}, \v ce med njima obstaja kak tak izomorfizem.
+\end{defin}
+
+\begin{zgled}
+Trdimo, da sta $\mathbb{Z}_n$ in $C_n$ izomorfni. Poiskati moramo $f: \mathbb{Z}_n \to C_n$. Uganemo
+\[
+	f(k) \equiv e^{2i\pi k/n},
+\]
+
+\ni kar je o\v citno bijekcija. Pokazati moramo, da je \v se homomorfizem. V grupi $\mathbb{Z}_n$ je na\v sa operacija
+grupnega mno\v zenja se\v stevanje po modulu $n$. Torej
+
+\[
+	f (k_1 \cdot k_2) = f\big(k_1 + k_2\ (\text{mod}\ n)\big) = e^{2i\pi (k_1 + k_2)/n} = e^{2i\pi k_1/n}e^{2i\pi
+		k_2/n} = f(k_1) f(k_2).
+\]
+\qed
+
+\end{zgled}
+
+\pagebreak
+\section{Grupe linearnih transformacij}
+
+\begin{defin}
+	Mno\v zica $V$ je \emph{vektorski prostor} nad obsegom $\mathbb{F} \in \{\mathbb{R}, \mathbb{C}, \mathbb{H}\}$, kadar imamo
+	elementi operaciji se\v stevanja:
+	\begin{align*}
+		+: V\times V &\to V, \\
+		(v, w) &\mapsto v + w,
+	\end{align*}
+	za katero je abelova grupa; in mno\v zenje s skalarji,
+	\begin{align*}
+		\cdot: \mathbb{F}\times V &\to V,\\
+		(\lambda, v) &\mapsto \lambda v,
+	\end{align*}
+	za katero je asociativna in velja distributivnostni zakon. Pri mno\v zenju s skalarjem ponavadi ne pi\v smo pike.
+
+	$\emph{Algebra}$ je vektorski prostor nad kolobarjem.
+\end{defin}
+
+\ni Naj bo $V$ vektorski prostor nad obsegom $\mathbb{F}$ in naj bo $L_{\mathbb{F}}(V)$ mno\v zica linearnih preslikav (veljata \emph{asociativnost}
+in \emph{homogenost}):
+\begin{align*}
+	T: V &\to V,\\
+	T(\lambda v + \mu w) &= \lambda T(v) + \mu T(w).
+\end{align*}
+
+\ni Linearne preslikave lahko mno\v zimo s skalarji:
+\begin{align*}
+	(S + T)v &= Sv + Tv, \\
+	(\lambda S)v &= \lambda (Sv).
+\end{align*}
+
+\ni Opazimo, da je $L_{\mathbb{F}}(V)$ vektorski prostor nad $\mathbb{F}$. Poleg tega, pa lahko preslikave v $L_{\mathbb{F}}(V)$ \v se komponiramo,
+\v cemur re\v cemo produkt:
+\[
+	(ST)(v) = S (T (v)).
+\]
+
+\ni Poraja se nam vpra\v sanje: ali je $L_{\mathbb{F}}(V)$ za mno\v zenje (komponiranje) grupa? Ni\v celna linearna preslikava gotovo ni obrnljiva,
+$0: V \to V,\ v \mapsto 0$. Kaj pa ostale? Preslikava $T:\mathbb{R}^2 \to \mathbb{R}^2,\ (x,y) \mapsto (x, 0)$ ni obrnljiva.
+
+Obrnljive so natanko \emph{bijektivne linearne preslikave}. Mno\v zico vseh teh ozna\v cimo z
+\[
+	GL_{\mathbb{F}}(V) = \{T \in L_{\mathbb{F}}(V)\ |\ T\ \text{ima inverz}\}.
+\]
+
+$GL_{\mathbb{F}}(V)$ imenujemo \emph{splo\v sna linearna grupa} -- grupa za komponiranje linearnih preslikav. Naj bo $\{v_1, v_2, \ldots, v_n\}$ baza
+v prostoru $V$, nad obsegom $\mathbb{F}$. Potem lahko linearne preslikave predstavimo z matrikami
+\[
+	M_n (\mathbb{F}) = \{\text{matrike dimenzije $n\times n$, s koeficienti v $\mathbb{F}$}\}.
+\]
+
+\ni Potem $GL_{\mathbb{F}}(V)$ ustrezajo obrnljive matrike dimenzije $n\times n$ s koeficienti v $\mathbb{F}$, ki jih ozna\v cimo z
+
+\[
+	GL_{\mathbb{F}}(V) = \{A \in M_n (\mathbb{F})\ |\ \text{det}A \neq 0\}.
+\]
+
+V definiciji grupe nismo trdili dnoli\v cnosti inverzov in enote, pa te kljub temu velja. \v Se ve\v c, za grupo potrebujemo le "`polovico"' lastnosti.
+
+\pagebreak
+
+\begin{trditev}
+	Naj bo $G$ mno\v zica z asociativno operacijo, za katero velja:
+	\begin{itemize}
+		\item{$\exists e \in G$, tako da $a\cdot e = a,\ \forall a \in G$,}
+		\item{$\forall a \in G$, $\exists b \in G$, tako da $a\cdot b = e$.}
+	\end{itemize}
+	\ni Potem velja:
+	\begin{itemize}
+		\item[(1)]{\v Ce je $a\cdot a = a\ \Rightarrow a = e$.}
+		\item[(2)]{$G$ je grupa (zgoraj velja \v se $ae = a$ in $ab = e$).}
+		\item[(3)]{$e$ je en sam in $b$ je za $a$ enoli\v cno dolo\v cen.}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Dokaz:}
+
+Dokazali bomo cikli\v cno: $(1) \Rightarrow (3) \Rightarrow (2) \Rightarrow (1) \Rightarrow (3)$.
+
+\ni {\bf (1)} Recimo, da je $a\cdot a = a$. Velja $\forall a$ $\exists b$, tako da $a\cdot b = e$.
+\begin{align*}
+	aa &= a\ / \cdot b \\
+	(aa) b &= \underbrace{ab}_e \\
+	a (ab) &= e \\
+	\Rightarrow ae &= e
+\end{align*}
+To je o\v citno res lahko samo, kadar $a = e$.
+
+\ni {\bf (3)} $e$ je en sam: recimo, da obstaja \v se $e'$ z istimi lastnostmi: $\Rightarrow a e' = a, \forall a\in G$.
+Ker velja $\forall a \in G$, si za $a$ izberemo $a = e'$
+\[
+\Rightarrow\ a = e': e'\cdot e' = e' \Rightarrow e' = e,\ \text{po to\v cki (1).}
+\]
+Za dani $a$ je $b$ en sam: pa recimo, da je $ab = e$ in $ab' = e$.
+
+\ni {\bf (2)} Naj za $a$ in $b$ velja $ab = e$. Videti \v zelimo
+\[
+ba = e:\ (ba)\cdot (ba) = b \underbrace{(ab)}_e a = \underbrace{(be)}_b a =b a.
+\]
+
+Po to\v cki (1) sledi, da je $(ba) = e$. Preveriti moramo \v se, da je $ea = a,\ \forall a\in G$:
+\[
+	\underbrace{e}_{ab} a = (ab)a= a(ba) = ae = a.
+\] 
+
+\ni {\bf (3)} Vrnimo se \v se nazaj k to\v cki (3) in poka\v zimo enoli\v cnost $b$:
+\begin{align*}
+	ab = e, &\quad ab' = e,\\
+	ab' &= e\ / b\cdot\ \text{(mno\v zimo z leve)}\\
+	\Rightarrow \underbrace{(ba)}_e b' &= b\\
+	eb' &\Rightarrow b
+\end{align*}
+\qed
+
+\begin{defin}
+	Naj bo $G$ grupa. Podmno\v zica $H \subseteq G$ je \emph{podgrupa}, \v ce je $H$ skupaj z operacijo v $G$
+	grupa. To ozna\v cimo s $H \leq G$.
+\end{defin}
+
+O\v citno za $H$ velja:
+
+\begin{enumerate}
+	\item{$e \in H$, identiteta,}
+	\item{$a \in H$, potem je tudi $a^{-1} \in H$,}
+	\item{$\forall a,b \in H$ je $ab \in H$.}
+\end{enumerate}
+
+\begin{trditev}
+	Neprazna podmno\v zica $H \subseteq G$ je podgrupa, \v ce in samo \v ce:
+	\begin{itemize}
+		\item[(i)]{$e \in H$}
+		\item[(ii)]{$\forall a \in H$ je $a^{-1} \in H$}
+		\item[(iii)]{$\forall a,b \in H$ je $ab \in H$}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Dokaz:} Res iz privzetkov in lastnosti mno\v zenja v $G$.
+
+\begin{trditev}
+	Neprazna podmno\v zica $H \subseteq G$ je podgrupa $\iff \forall a,b \in H$ velja $ab^{-1} \in H$.
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item[($\then$)]{ O\v citno.}
+	\item[($\Leftarrow$)]{Tu si bomo pomagali s prej\v snjim izrekom:
+		\begin{itemize}
+			\item{za $b = a$ dobimo $a\cdot a^{-1} \in H$, kar zadosti pogoju (i).}
+			\item{\v ce vzamemo $a = e$ in $b = a \then ab^{-1} = ea^{-1} = a^{-1} \in H$, kar zadosti pogoju (ii).}
+			\item{$ab = a \cdot (b^{-1})^{-1} \in H$, kar zadosti pogoju (iii).}
+		\end{itemize}}
+\end{itemize}
+\qed
+
+\begin{posledica} Naj bo $G$ grupa; $\forall a \in G$ je mno\v zica
+\[
+	\langle a \rangle = \{a^n\ |\ n\in\mathbb{Z}\}
+\]
+podgrupa v $G$, ki jo imenujemo \emph{cikli\v cna grupa}, generirana z $a$. Pri tem $a^n$ pomeni:
+\begin{align*}
+	a^0 &\equiv e, \\
+	a^1 &\equiv a, \\
+	a^2 &\equiv a\cdot a, \\
+	&\ldots \\
+	a^n &\equiv a\cdot a^{n-1} = \underbrace{a\cdot a\cdot \ldots \cdot a}_{n\text{-krat}},\ n\in \mathbb{N}.
+\end{align*}
+
+\ni Element $a^{-1}$ imenujemo inverz $a$. Velja $a^{-n} \equiv (a^{-1})^n$.
+\end{posledica}
+
+\paragraph{Dokaz:}
+Preveriti moramo, da je za $a^n,a^m \in \langle a \rangle \in$, tudi $a^n\cdot a^{-m} \in \langle a\rangle$.
+\[
+	a^n\cdot a^{-m} = a^{n-m}
+\]
+
+\ni Recimo, da je $n,m > 0$. Za $n \geq m$ velja:
+\[
+	a^n a^{-m} = a^n (a^{-1})^m = a^{n-m+m} (a^{-1})^m = a^{n-m} \underbrace{a^m\cdot(a^{-1})^m}_{e} = a^{n-m}.
+\]
+Za $n < m$ velja:
+\[
+	a^n a^{-m} = a^n(a^{-1})^m = \ldots = a^{n-m} = (a^{-1})^{m-n}.
+\]
+\qed
+
+\paragraph{Primeri podgrup:}
+\begin{enumerate}
+	\item{$(S^1,\cdot) \leq (\mathbb{C}\backslash\{0\}, \cdot)$},
+	\item{$(C_n,\cdot) \leq (S^1, \cdot)$},
+	\item{$(\mathbb{Z}_n, +_{\text{mod}\ n}) \nleq (\mathbb{Z}, +)$, ker operaciji nista isti,}
+	\item{$(n\mathbb{Z}, +) \leq (\mathbb{Z}, +)$, kjer $n\mathbb{Z} = \{nk\ |\ k \in \mathbb{Z}\}$, torej mno\v zica celih ve\v ckratnikov
+		\v stevila $n$. Opazimo lahko, da je $n\mathbb{Z}$ cikli\v cna grupa, generirana z $n$: $kn$ pomeni
+		\[
+			\underbrace{n + n + n \ldots + n}_{k\text{-krat}},
+		\] v multiplikativnem smislu, je to $n^k$. Aditivni inverz je $(-1)n$, kar multiplikativno pi\v semo $n^{-1}$.}
+	\item{$\underbrace{SL_n(\mathbb{F})}_{\leq GL_n(\mathbb{F})} = \{A \in GL_n(\mathbb{F})\ |\ \text{det}A = 1\}$. Enostavno se lahko prepri\v camo, da je
+		res podgrupa:
+		\begin{itemize}
+			\item{$I \in SL_n(\mathbb{F})$, $\text{det}I = 1$}
+			\item{$A \in SL_n(\mathbb{F})$, $A^{-1}:\ \det (A^{-1}) = 1/\det A = 1\ \then A^{-1} \in SL_n(\mathbb{F})$}
+			\item{$A,B \in SL_n(\mathbb{F})$, $\det (AB) = \det A\det B = 1 \then AB \in SL_n(\mathbb{F})$}
+		\end{itemize}}
+	\item{$O_n = \{A \in GL_n(\mathbb{R})\ |\ A^T A = I\} \leq GL_n (\mathbb{R})$}
+	\item{$U_n = \{A \in GL_n(\mathbb{C})\ |\ A^* A = I\} \leq GL_n (\mathbb{C})$, v fiziki bi $A^*$ pisali kot $A^\dagger$.}
+	\item{$SO_n = SL_n (\mathbb{R}) \cap O_n$}
+	\item{$SU_n = SL_n (\mathbb{C}) \cap U_n$}
+	\item{$Sp_n = \{A \in GL_n(\mathbb{H})\ |\ A^* A = I\} \leq GL_n (\mathbb{H})$\}, \emph{simplekti\v cna} grupa -- ohranja neko koli\v cino (v fiziki bi to bila energija). Mno\v zica
+		$\mathbb{H}$ je prostor kvaternionov.}
+\end{enumerate}
+
+\begin{trditev}
+	Naj bodo $H_i \leq G$, za $i \in I$ ($I$ je indeksna mno\v zica in se bo \v se velikokrat pojavljala). Potem je tudi
+	\[
+		\bigcap_{i\in I} H_i \leq G
+	\]
+\end{trditev}
+
+\paragraph{Dokaz:} Sledi iz trditve o $ab^{-1}$\ldots O\v citno res. $\blacksquare$
+
+\begin{posledica}
+	$\forall X \subseteq G$ obstaja najmanj\v sa podgrupa v $G$, ki vsebuje $X$. Tej grupi re\v cemo podgrupa, generirana z $X$ in jo ozna\v cimo z $\langle X \rangle$.
+\end{posledica}
+
+\section{Homomorfizmi in izomorfizmi}
+
+\begin{defin}
+$G$, $H$ grupi. Preslikava $f : G \to H$ je \emph{homomorfizem}, \v ce je $f(a,b) = f(a) f(b)\ \forall a,b \in G$. Bijektivni homomorfizem imenujemo \emph{izomorfizem}:
+
+\paragraph{Opomba:} \v Ce je $f : G \to H$ homomorfizem, potem je $f(e) = e$ in $f(a^{-1}) = \big(f(a)\big)^{-1}$ (torej enoto preslika v enoto in inverze preslika v inverze).
+\end{defin}
+
+\begin{defin}
+	\emph{Endomorfizem} je homomorfizem, ki slika sam nase.
+
+	\ni \emph{Avtomorfizem} je bijektivni endomorfizem, tj. izomorfizem, ki slika sam nase.
+\end{defin}
+
+\paragraph{Primeri:}
+\begin{itemize}
+	\item{$H, G$ grupi, $H \leq G$. \emph{Inkluzijska preslikava} $i: H \to G,\ h\mapsto h$ je homomorfizem.}
+	\item{$G$ grupa, $a \in G$.
+		\begin{itemize}
+			\item{\underline{\emph{Leva translacija} za $a$} je $L_a: G\to G,\ g \mapsto ag$.}
+			\item{\underline{\emph{Desna translacija} za $a$} je $R_a: G\to G,\ g \mapsto ga$.}
+		\end{itemize}
+		$L_a$ in $R_a$ sta homomorfizma le za $a = e$, tedaj je $L_a = R_a$, tj. identiteta. Za $a \neq e$ pa velja $L_a (e) \neq e$, $R_a(e) = a \neq e$.
+		Ampak: $L_a$ in $R_a$ sta bijekciji, inverza sta $L_{a^{-1}}$ in $R_{a^{-1}}$.}
+	\item{$f_a : G \to G,\ g \mapsto aga^{-1}$ je \emph{konjugacija} ali \emph{notranji avtomorfizem}.
+		\paragraph{Dokaz:}
+		\begin{itemize}
+			\item{$f_a (gh) = agha^{-1} = ag\underbrace{a^{-1}a}_{e}ha^{-1} = f_a (g) \cdot f_a (h)$ -- res endomorfizem.}
+			\item{$f_a = L_a \circ R_{a^{-1}}$, obe sta bijektivni, tj. je tudi njun kompozitum, $f_a$ bijektivna -- res avtomorfizem. $\blacksquare$}
+		\end{itemize}}
+	\item{$\exp: (\mathbb{R},+) \to \big((0,\infty), \cdot\big)$ je izomorizem (inverz je $\ln$, oz. $\log$).
+		\paragraph{Dokaz:}
+		\begin{itemize}
+			\item{O\v citno bijektivna funkcija.}
+			\item{Dokazati moramo, da je homomorfizem:
+			\[
+				\exp (x+y) = \exp(x) \cdot \exp(y)\quad \blacksquare
+			\]}
+		\end{itemize}}
+	\item{Za $d,n \in \mathbb{N}$ je $f_d : C_n \to C_{nd},\ z \mapsto z^d$ (spomnimo se, da je $C_n = \{z \in \mathbb{C}\ |\ z^n = 1\}$ grupa
+		$n$-tih korenov) homomorfizem.
+		\paragraph{Dokaz:} Res slika v $C_{nd}$:
+		\[
+			z^n = 1;\ f(z) = z^d\ \then\ z^{nd} = (z^n)^d = 1^d = 1.
+		\] To je o\v citno homomorizem, ki slika v $C_{nd}$, vendar $f_d$ ni surjektivna.}
+	\item{Matri\v cna homomorfizma nad obsegom $\F$:
+		\begin{itemize}
+			\item{Determinanta za mno\v zenje matrik: $\det: (GL_n (\F, \cdot) \to (\F, +)$, $A \mapsto \det A$ obseg.
+				\paragraph{Dokaz:} $\det (AB) = \det A \det B.\ \blacksquare$}
+			\item{Sled za se\v stevanje matrik: $\tr : \big(M_n(\F), +\big)$, $A = \big[a_{ij}\big]^n_{i,j = 1} \mapsto \tr (A) = \sum_{i=1}^n a_{ii}$
+				\paragraph{Dokaz:} $\tr(A + B) = \tr(A) + \tr(B)$. $\blacksquare$}
+		\end{itemize}}
+\end{itemize}
+
+\ni Za la\v zjo pisavo bomo uvedli nekaj oznak.
+
+\paragraph{Oznaka:} $G$ grupa, $A,B \subseteq G$ podmno\v zici.
+\begin{itemize}
+	\item{$AB \equiv \{ab\ |\ a \in A, b \in B\}$}
+	\item{$Ab \equiv \{ab\ |\ a \in A\}$}
+	\item{$aB \equiv \{ab\ |\ b \in B\}$}
+\end{itemize}
+
+\begin{defin}
+	$G, H$ grupi, $H \leq G$. $H$ je \emph{edinka} v $G$ (\emph{normalna podgrupa}), \v ce $\forall a \in G$ velja
+	\[
+		a H a^{-1} \subseteq H.
+	\]
+	Oznaka je $H \lhd G$.
+\end{defin}
+
+\begin{lema}
+	$H \leq G$ je edinka $\iff a H a^{-1} = H\ \forall a \in G$.
+\end{lema}
+
+\paragraph{Dokaz:}
