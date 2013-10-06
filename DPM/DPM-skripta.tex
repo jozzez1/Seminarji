@@ -155,6 +155,39 @@
 	\operatorname{red}
 }
 
+\newcommand{\f}{
+	\ensuremath{\overline{f}}
+}
+
+\newcommand{\quot}[2]{
+	\ensuremath{
+		\raisebox{0.5ex}{$\displaystyle{#1}$\hspace{-0.5ex}}\big/\hspace{-0.5ex}\raisebox{-0.5ex}{$\displaystyle{#2}$}}
+}
+
+\newcommand{\Quot}[4]{
+	\ensuremath{
+		\raisebox{0.5ex}{$\displaystyle{\quot{#1}{#2}}$\hspace{-0.5ex}}\Big/\hspace{-0.5ex}\raisebox{-0.5ex}{$\displaystyle{\quot{#3}{#4}}$}
+	}
+}
+
+\newcommand{\Qquot}[3]{
+	\ensuremath{
+		\raisebox{0.5ex}{$\displaystyle{\quot{#1}{#2}}$\hspace{-0.5ex}}\Big/\hspace{-0.5ex}\raisebox{-0.5ex}{$\displaystyle{#3}$}
+	}
+}
+
+\newcommand{\sign}{
+	\operatorname{sign}
+}
+
+\newcommand{\nehookarrow}{
+	\mathrel{\rotatebox[origin=c]{45}{$\hookrightarrow$}}
+}
+
+\newcommand{\id}{
+	\operatorname{id}
+}
+
 \begin{document}
 
 \begin{titlepage}
@@ -180,5 +213,7 @@
 \input{uvod.tex}
 
 \input{chapter1.tex}
+
+\input{chapter2.tex}
 
 \end{document}

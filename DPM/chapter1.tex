@@ -221,7 +221,7 @@ O\v citno za $H$ velja:
 	\end{itemize}
 \end{trditev}
 
-\paragraph{Dokaz:} Res iz privzetkov in lastnosti mno\v zenja v $G$.
+\paragraph{Dokaz:} Res iz privzetkov in lastnosti mno\v zenja v $G$. $\blacksquare$
 
 \begin{trditev}
 	Neprazna podmno\v zica $H \subseteq G$ je podgrupa $\iff \forall a,b \in H$ velja $ab^{-1} \in H$.
@@ -275,7 +275,7 @@ Za $n < m$ velja:
 \begin{enumerate}
 	\item{$(S^1,\cdot) \leq (\mathbb{C}\backslash\{0\}, \cdot)$},
 	\item{$(C_n,\cdot) \leq (S^1, \cdot)$},
-	\item{$(\mathbb{Z}_n, +_{\text{mod}\ n}) \nleq (\mathbb{Z}, +)$, ker operaciji nista isti,}
+	\item{$(\mathbb{Z}_n, +\ {}_{\text{mod}\ n}) \nleq (\mathbb{Z}, +)$, ker operaciji nista isti,}
 	\item{$(n\mathbb{Z}, +) \leq (\mathbb{Z}, +)$, kjer $n\mathbb{Z} = \{nk\ |\ k \in \mathbb{Z}\}$, torej mno\v zica celih ve\v ckratnikov
 		\v stevila $n$. Opazimo lahko, da je $n\mathbb{Z}$ cikli\v cna grupa, generirana z $n$: $kn$ pomeni
 		\[
@@ -328,7 +328,7 @@ $G$, $H$ grupi. Preslikava $f : G \to H$ je \emph{homomorfizem}, \v ce je $f(a,b
 	\item{$H, G$ grupi, $H \leq G$. \emph{Inkluzijska preslikava} $i: H \to G,\ h\mapsto h$ je homomorfizem. \label{inkluzija}}
 	\item{$G$ grupa, $a \in G$.
 		\begin{itemize}
-			\item{\underline{\emph{Leva translacija} za $a$} je $L_a: G\to G,\ g \mapsto ag$.}
+			\item{\underline{\emph{Leva translacija} za $a$} je $L_a: G\to G,\ g \mapsto ag$. \label{translacija}}
 			\item{\underline{\emph{Desna translacija} za $a$} je $R_a: G\to G,\ g \mapsto ga$.}
 		\end{itemize}
 		$L_a$ in $R_a$ sta homomorfizma le za $a = e$, tedaj je $L_a = R_a$, tj. identiteta. Za $a \neq e$ pa velja $L_a (e) \neq e$, $R_a(e) = a \neq e$.
@@ -439,14 +439,14 @@ in injektivnega homomorfizma.
 	\v Ce sta $V, W$ vektorska prostora nad obsegom $\F$ in je $T : V\to W$ linearna preslikava, ozna\v cimo s $\ker T = \{v \in V\ |\ T(v) = 0\}$; in
 	$\im T = \{T(v)\ |\ v\in V\}$, velja
 	\[
-		V\ \to\ ^V/_{\ker T}\ \stackrel{\overline{T}}{\longrightarrow}\ \im T \hookrightarrow W
+		V\ \to \quot{V}{\ker T} \stackrel{\overline{T}}{\longrightarrow}\ \im T \hookrightarrow W
 	\]
 \end{trditev}
 
 To "`klobaso"' interpretiramo kot
 \begin{itemize}
-	\item{$V \to\ ^V/_{\ker T}$ je kvocientna projekcija: $v_1 \sim v_2$, \v ce je $(v_1 - v_2) \in \ker T$. Simbol `$\sim$' predstavlja ekvivalen\v cno relacijo.}
-	\item{$^V/_{\ker T} \stackrel{\overline{T}}{\longrightarrow} \im T$ je preslikava inducirana s $T$, tj. slika enako, kot $T$.}
+	\item{$V \to \quot{V}{\ker T}$ je kvocientna projekcija: $v_1 \sim v_2$, \v ce je $(v_1 - v_2) \in \ker T$. Simbol `$\sim$' predstavlja ekvivalen\v cno relacijo.}
+	\item{$\quot{V}{\ker T} \stackrel{\overline{T}}{\longrightarrow} \im T$ je preslikava inducirana s $T$, tj. slika enako, kot $T$.}
 	\item{$\im T \hookrightarrow W$ je inkluzija (oz. inkluzijska preslikava, glej str.~\pageref{inkluzija}).}
 \end{itemize}
 
@@ -626,36 +626,37 @@ $\red(a)$. Potem $\forall m \in \mathbb{Z}$ velja
 \begin{trditev}
 	$G$ grupa, $H \lhd G$. Potem je mno\v zica levih odsekov $H$ v $G$ grupa za operacijo
 	\[
-		aH \cdot bH \stackrel{\text{def}}{=} abH.
+		aH \cdot bH \stackrel{\text{def}}{=} abH,
 	\]
+	kar nakazuje, da je to natanko tedaj, ko so levi odseki enaki desnim.
 	\begin{itemize}
-		\item{Oznaka za to grupo je $\ ^G/_H = \{aH\ |\ a\in G\}$. Imenujemo jo \emph{faktorska}, ali
+		\item{Oznaka za to grupo je $\quot{G}{H} = \{aH\ |\ a\in G\}$. Imenujemo jo \emph{faktorska}, ali
 			\emph{kvocientna} grupa grupe $G$ po edinki $H$ (z operacijo \ldots).}
-		\item{Enota za $\ ^G/_H$ je $eH = eH$, inverz pa $(aH)^{-1} = a^{-1} H$.}
+		\item{Enota za $\quot{G}{H}$ je $eH = eH$, inverz pa $(aH)^{-1} = a^{-1} H$.}
 	\end{itemize}
 \end{trditev}
 
 \paragraph{Dokaz}
 \begin{itemize}
 	\item{Asociativnost sledi iz asociativnosti mno\v zenja v $G$.}
-	\item{Notranja: $aH \cdot bH \in\ ^G/_H$.
+	\item{Notranja: $aH \cdot bH \in \quot{G}{H}$.
 		\[
-			aH \cdot bH = abb^{-1}HbH = ab HH = ab H \in ^G/_H.
+			aH \cdot bH = abb^{-1}HbH = ab HH = ab H \in \quot{G}{H}.
 		\]}
 \end{itemize}
 \qed
 
-\ni Zgornji izrek nam da tolde zaporedje grup in homomorfizmov:
+\ni Zgornji izrek nam da tole zaporedje grup in homomorfizmov:
 
 \begin{align}
 	p : a &\longrightarrow aH, \notag \\
-	\{e\} \to H \stackrel{i}{\hookrightarrow} G &\stackrel{p}{\longrightarrow}\ ^G/_H \to \{e\}.
+	\{e\} \to H \stackrel{i}{\hookrightarrow} G &\stackrel{p}{\longrightarrow}\ \quot{G}{H} \to \{e\}.
 \end{align}
 
 \ni Tu se moramo spomniti
 \begin{itemize}
 	\item{inkluzija $i$ je injektivna,}
-	\item{inducirana preslikava $G \stackrel{p}{\to}\ ^G/_H$ je surjektivna,}
+	\item{inducirana preslikava $G \stackrel{p}{\to} \quot{G}{H}$ je surjektivna,}
 	\item{$\ker p = H$, $\im(i) = H$.}
 \end{itemize}
 
@@ -664,22 +665,22 @@ homomorfizma enako sliki vhodnega.
 \begin{itemize}
 	\item{pri $H$: slika je $\{e\}$; jedro je $\{e\}$, ker je inkluzija injektivna.}
 	\item{pri $G$: slika je $H$; jedro je $\{a \in G\ |\ p(a) = aH = eH = H\}$. Pogoj $aH = H \iff a \in H$.}
-	\item{pri $^G/_H$: slika od $p$ je $^G/_H$; jedro je $^G/_H$, ker se vse slika v $e$.}
+	\item{pri $\quot{G}{H}$: slika od $p$ je $\quot{G}{H}$; jedro je $\quot{G}{H}$, ker se vse slika v $e$.}
 \end{itemize}
 
 \begin{trditev}
 	$H \lhd G,\ f : G \to K$ homomorfizem, za katerega velja $H \subseteq \ker f$ ($f : \{H\} \to \{e\}$).
 	
-	\ni Potem $f$ dolo\v ca homomorfizem $\overline{f} :\ ^G/_H \to K$ s predpisom
+	\ni Potem $f$ dolo\v ca homomorfizem $\overline{f} : \quot{G}{H} \to K$ s predpisom
 	\begin{alignat*}{2}
-		G &\stackrel{f}{\longrightarrow} &K \\
-		\stackrel[p]{}{\searrow} &^G/_H &\stackrel[\overline{f}]{}{\nearrow}
+		G \hspace{2ex} &\stackrel{f}{\longrightarrow} &K \\
+		\stackrel[p]{}{\searrow} &\raisebox{-2ex}{$\quot{G}{H}$} &\stackrel[\overline{f}]{}{\nearrow}
 	\end{alignat*}
 	se pravi
 	\begin{align*}
 		G &\stackrel{f}{\to} K \\
 		\text{in}\ &\text{hkrati} \\
-		G \stackrel[p]{}{\to}\ &^G/_H \stackrel[\overline{f}]{}{\to} K
+		G \stackrel[p]{}{\to}\ &\quot{G}{H} \stackrel[\overline{f}]{}{\to} K
 	\end{align*}
 	za katerega velja $f = \overline{f}\circ p$.
 \end{trditev}
@@ -698,24 +699,24 @@ homomorfizma enako sliki vhodnega.
 \end{itemize}
 \qed
 
-Od tod takoj sledi kanoni\v cna dekompozicija homomorfizma.
+\ni Od tod takoj sledi kanoni\v cna dekompozicija homomorfizma.
 \begin{trditev}
 	\paragraph{Prvi izrek o izomorfizmu:} Naj bo $f:G \to H$ homomorfizem (kot \v ze vemo, je jedro edinka). Potem je
 	\[
-		\overline{f}:\ ^G/_{\ker f} \to \im f
+		\overline{f}: \quot{G}{\ker f} \to \im f
 	\] izomorfizem in zaporedje
 	\[
-		\{e\} \to \ker f \hookrightarrow G \stackrel{P}{\longrightarrow}\ ^G/_{\ker f} \stackrel{f}{\to} \im f \hookrightarrow H
+		\{e\} \to \ker f \hookrightarrow G \stackrel{P}{\longrightarrow} \quot{G}{\ker f} \stackrel{f}{\to} \im f \hookrightarrow H
 	\] je \emph{kanoni\v cna dekompozicija homomorfizma grup} $f$, kar lahko zapi\v semo tudi
 	\[
 		f = i \circ \overline{f} \circ P
 	\]
 \end{trditev}
 
-\paragraph{Dokaz:} Jedro homomorfizma, $\ker f$, je edinka v $G$, zato sledi, da obstaja inducirani homomorfizem $\overline{f}:\ ^G/_{\ker f} \to H$.
+\paragraph{Dokaz:} Jedro homomorfizma, $\ker f$, je edinka v $G$, zato sledi, da obstaja inducirani homomorfizem $\overline{f}: \quot{G}{\ker f} \to H$.
 \underline{Trdimo:} $\overline{f}$ je injektiven in zato bijektiven na $\im f$. \v Ce je $a\cdot \ker f$ v jedru $\overline{f}$, torej
-$\overline{f}(a\cdot \ker f) = e$, je $f(a) = e$ in $a \in \ker f \then a\cdot \ker f = \ker f$, ki je identiteta v $^G/_{\ker f}$.
-Edini odsek, ki se z $\overline{f}$ preslika v $e$ je identiteta .
+$\overline{f}(a\cdot \ker f) = e$, je $f(a) = e$ in $a \in \ker f \then a\cdot \ker f = \ker f$, ki je identiteta v $\quot{G}{\ker f}$.
+Edini odsek, ki se s $\overline{f}$ preslika v $e$ je identiteta .
 \qed
 
 \begin{zgled}
@@ -723,14 +724,190 @@ $(\mathbb{Z}, +)$; $n\mathbb{Z} = \{nk\ |\ k \in \mathbb{Z}\}$ je podgrupa v $\m
 
 \ni {\bf Bolj na splo\v sno:} \v Ce je $G$ abelova in $H \leq G$, je $H$ edinka, tj. $aHa^{-1} = \{aha^{-1}\ |\ h \in H\} = \{aa^{-1}h\ |\ h\in H\} = H$.\\[6pt]
 
-\ni Kaj je kvocientna grupa po edinki $n\mathbb{Z}$? $^{\mathbb{Z}}/_{n\mathbb{Z}}$ je mno\v zica odsekov $n\mathbb{Z}$ v $\mathbb{Z}$. Hitro vidimo,
-da je $^{\mathbb{Z}}/_{n\mathbb{Z}} = \{n\mathbb{Z}, (1 + n)\mathbb{Z}, \ldots, (n - 1 + n)\mathbb{Z}\}$ je izomorfna grupi ostankov pri deljenju z $n$, tj.
+\ni Kaj je kvocientna grupa po edinki $n\mathbb{Z}$? Grupa $\quot{\mathbb{Z}}{n\mathbb{Z}}$ je mno\v zica odsekov $n\mathbb{Z}$ v $\mathbb{Z}$. Hitro vidimo,
+da je $\quot{\mathbb{Z}}{n\mathbb{Z}} = \{n\mathbb{Z}, 1 + n\mathbb{Z}, \ldots, n - 1 + n\mathbb{Z}\}$ je izomorfna grupi ostankov pri deljenju z $n$, tj.
 
 \begin{align*}
 	f:\mathbb{Z} &\to \mathbb{Z}_n\\
 	k &\mapsto k\ (\text{mod}\ n)
 \end{align*}
 
-\paragraph{Doka\v zi:} $f$ je surjetkivni homomorfizem in $\ker f = n\mathbb{Z}$, zato je $\overline{f}:\ ^{\mathbb{Z}}/_{n\mathbb{Z}} \to \mathbb{Z}_n.$
+\paragraph{Doka\v zi:} $f$ je surjetkivni homomorfizem in $\ker f = n\mathbb{Z}$, zato je $\overline{f}: \quot{\mathbb{Z}}{n\mathbb{Z}} \stackrel{\cong}{\longrightarrow} \mathbb{Z}_n.$
 \end{zgled}
+
+\paragraph{Ponovitev:}
+$G, H$ grupi, $H \leq G \iff \forall a, b \in H: ab^{-1} \in H$.
+\begin{itemize}
+	\item[(1)]{$H$ je \emph{edinka}, \v ce jo ohranjajo konjugacije, $aHa^{-1} \subseteq H\ \forall a \in G\ 
+		(\iff aHa^{-1} = H)$.}
+	\item[(2)]{\emph{Kvocientna grupa}: $\quot{G}{H} = \{aH\ |\ a \in G\}$ je grupa, \v ce je $H$ edinka (tedaj so levi odseki enaki desnim in velja $aH \cdot bH = a HH b = a H b = ab H$).}
+	\item[(3)]{$f : G \to H$ homomorfizem grup $\then\ \ker f \lhd G$.}
+	\item[(4)]{$\im f$ inducira izomorfizem $\overline{f} : \quot{G}{\ker f} \stackrel{\cong}{\longrightarrow} \im f$}
+	\item[(5)]{To da dekompozicijo kot $f : G \stackrel{p}{\longrightarrow} \quot{G}{\ker f}\stackrel{\overline{f}}{\longrightarrow} \im f \hookrightarrow H$}
+\end{itemize}
+
+\ni To\v cki (4) in (5) sta \emph{prvi izrek o izomorfizmu}. Grupa $\quot{G}{\ker f}$ ima za elemente mno\v zico $\{a\cdot \ker f\ |\ a \in G\}$.
+
+\begin{zgled}
+	Poka\v zi, da je $SL_n (\F)$ edinka v $GL_n (\F)$ in "`izra\v cunaj"' pripadujo\v co kvocientno grupo (tj. poi\v s\v ci znano grupo, ki ji je kvocientna grupa izomorfna).
+
+	\paragraph{Ideja:} Poi\v scemo homomorfizem $f : GL_n (\F) \to H$ v primeru grupe $H$ tako, da je $\ker f = SL_n (\F)$. Potem bo prvi izrek o izomorfizmu
+	\[
+		\f : \quot{GL_n(\F)}{SL_n(\F)} \stackrel{\cong}{\longrightarrow} \im f \subseteq H
+	\]
+
+	\paragraph{Re\v sitev:} Ta homomorfizem je o\v citno determinanta (vse matrike iz $SL_n(\F)$ so v jedru), za $\F$ pa vzamemo $\F^* \equiv \F\backslash\{0\}$.
+	\begin{align*}
+		\det : GL_n (\F) &\to \F^* \\
+		A &\mapsto \det A
+	\end{align*}
+	Velja tudi, da je $SL_n (\F)$ edinka:
+	\paragraph{Dokaz:}
+	Naj bosta $A, A^{-1} \in GL_n (\F)$ in $S \in SL_n(\F)$, $SL_n(\F) = \{S\ |\ \det S = 1\}$.
+	\begin{align*}
+		\det (A^{-1}) &= (\det A)^{-1},\ \text{lastnost homomorfizma},\ \\
+		\det (A S A^{-1}) &= \det(A) \det(S) \big(\det (A)\big)^{-1} = \det S = 1, \\
+		&\then A S A^{-1} \in SL_n (\F),\ \forall A \in GL_n (\F), \\
+		&\then A \big(SL_n (\F)\big) A^{-1} = SL_n (\F),
+	\end{align*}
+	Kar pa pomeni $SL_n (\F) \lhd GL_n (\F)$. $\blacksquare$
+
+	\ni Kaj pa je $\im (\det)$? Determinanta je surjektivna, saj za poljuben $a \in \F^*$ velja
+	\[
+		\det\begin{bmatrix}
+			1 &   &        &   &   &   &        &  \\
+			  & 1 &        &   &   &   &        &  \\
+			  &   & \ddots &   &   &   &        &  \\
+			  &   &        & 1 &   &   &        &  \\
+			  &   &        &   & a &   &        &  \\
+			  &   &        &   &   & 1 &        &  \\
+			  &   &        &   &   &   & \ddots &  \\
+			  &   &        &   &   &   &        & 1
+		\end{bmatrix} = a.
+	\]
+	Potem to pomeni
+	\[
+		\overline{\det}: \quot{GL_n(\F)}{SL_n(\F)} \stackrel{\cong}{\longrightarrow} \F^*,
+	\]
+	torej je kvocientna grupa $\quot{GL_n(\F)}{SL_n(\F)} \cong \F^*$, kar pa pomeni, da je kvocientna
+	grupa kar $\F^*$. 
+\end{zgled}
+
+\begin{trditev}
+	\paragraph{Drugi in tretji izrek o izomorfizmu:}
+	Naj bo $G$ grupa in $H, K \leq G$. Potem velja:
+	\begin{itemize}
+		\item[{\bf (2)}]{\v Ce je $K \lhd G$, potem je $H \cap K \lhd H$ in $\quot{H}{K\cap H} \cong \quot{HK}{K}$}
+		\item[{\bf (3)}]{\v Ce je $K \leq H$ in sta obe edinki v $G$, potem je
+			\begin{align*}
+				\quot{H}{K} &\lhd \quot{G}{K} \\
+				&\text{in} \\
+				\Quot{G}{K}{H}{K} &\cong \quot{G}{H}
+			\end{align*}}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item[{\bf (3)}]{Naj bo $f : \quot{G}{K} \to \quot{G}{H}$ homomorfizem s predpisom $f (aK) = aH$. Relacija $f$ je res homomorfizem, saj je
+		\[
+			f (aK \cdot bK) = f (ab K) = ab H = aH \cdot bH = f (aK) f(bK).
+		\]
+		
+		$f$ je o\v citno surjektiven, saj dobimo v sliki vse odseke, zato moramo izra\v cunati le $\ker f$, pa dobimo izomorfizem
+		\[
+			\f: \Qquot{G}{K}{\ker f} \to \quot{G}{H}.
+		\]
+			
+		V $\ker (f)$ so vsi odseki $aK$, ki se s $f$ preslikajo v identi\v cni odsek $eH \equiv H$, v $\quot{G}{H}$,
+		\[
+			aK \stackrel{f}{\longmapsto} aH = H \iff a \in H.
+		\]
+		
+		Torej so v jedru ravno tisti odseki, ki imajo predstavnike v $H$:
+		\[
+			\{aK\ |\ a\in H\} \equiv \quot{H}{K} \cong \ker f.
+		\]
+		\qed}
+	\item[{\bf (2)}]{Naj bo $p : G \to \quot{G}{K}$ kvocientni homomorfizem in $q \equiv \quot{p}{H}$,
+		\[
+			q : H \to \quot{G}{K}.
+		\]
+
+		Trdimo, da je jedro $q$: $\ker q = H \cap K$; in slika $q$: $\im q = \quot{HK}{K}$. Velja
+		\[
+			q(a) = \text{identiteta} \iff p(a)= \text{identiteta} \iff a \in K.
+		\] Vendar $a \in H$. Torej velja $a \in K\cap H \then K\cap H \lhd H$.
+
+		Po prvem izreku o izomorfizmu sledi $q : \quot{H}{K\cap H} \stackrel{\cong}{\longrightarrow} \im q$. V sliki so vsi odseki oblike $aK$, $a \in H$. Kot mno\v zica
+		elementov v $G$ to ustreza produktu mno\v zic $HK = \{ab\ |\ a\in H,\ b\in K\}$. Ta mno\v zica je podgrupa v $G$, ker je $K$ edinka.
+		\[
+			a_1b_1 \cdot a_2 b_2  = \underbrace{a_1 a_2}_{\in H} \underbrace{(\underbrace{a_2^{-1} b_1 a_2}_{\in K\ \text{(edinka)}}) b_2}_{\in K} \in HK.
+		\] Torej so $\im q$ odseki $HK$ po $K$, to je $\quot{HK}{K}$.
+		\qed}
+\end{itemize}
+
+\subsection{Komutatorska podgrupa}
+
+Grupa je \emph{abelova}, \v ce produkt komutira: $ab = ba$, $\forall a,b \in G$.
+\begin{align*}
+	ab &= ba \quad / \cdot a^{-1} \\
+	aba^{-1} &= b \quad / \cdot b^{-1} \\
+	aba^{-1}b^{-1} &= e \ \stackrel{(!)}{\longleftarrow}
+\end{align*}
+
+\begin{defin}
+	Za $a,b \in G$ je $[a,b] \equiv aba^{-1}b^{-1}$ \emph{komutator} elementov $a$ in $b$. \emph{Komutatorska podgrupa}, $[G,G]$, je najmanj\v sa podgrupa, ki vsebuje vse komutatorje
+	v $G$.
+
+	\paragraph{Opomba:} $[G,G]$ o\v citno vsebuje produkte komutatorjev in vsi elementi so take oblike: $e [a,a]$.
+	\[
+		[a,b]^{-1} = (aba^{-1}b^{-1})^{-1} = bab^{-1}a^{-1} = [b,a].
+	\]
+\end{defin}
+
+\begin{trditev}
+	Naj bo $G$ poljubna grupa. Velja:
+	\begin{itemize}
+		\item[(1)]{$[G,G] \lhd G$,}
+		\item[(2)]{$\quot{G}{[G,G]}$ je abelova in jo imenujemo \emph{abelacija} ali \emph{abelianizacija} grupe $G$.}
+		\item[(3)]{\v Ce je $H$ poljubna abelova grupa in $f : G \to H$ homomorfizem, potem $[G,G] \leq \ker f$}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item[{\bf (1)}]{Ker je vsak element iz $[G,G]$ produkt komutatorjev za poljuben $a \in G$, tudi $c[a,b]c^{-1}$ nek komutator, saj za
+		produkt
+		\[
+			[a_1, b_1] \cdot [a_2, b_2] \cdot \ldots \cdot [a_k, b_k]	
+		\]velja
+		\[
+			c[a_1, b_1]\cdot\ldots\cdot[a_k,b_k]c^{-1} = c[a_1, b_1]c^{-1}c[a_2,b_2]c^{-1}\ldots c[a_k,b_k]c^{-1} 
+		\]
+
+		Izra\v cunajmo konjugacijo:
+		\begin{align*}
+			c[a,b]c^{-1} &= c ab a^{-1} b^{-1} c^{-1} = cac^{-1}c bc^{-1}c a^{-1}c^{-1}cb^{-1}c^{-1}\\
+				&= (cac^{-1}) (cbc^{-1}) (cac^{-1})^{-1} (cbc^{-1})^{-1} = [cac^{-1}, cbc^{-1}] \in [G,G].\ \blacksquare
+		\end{align*}}
+	\item[{\bf (2)}]{Pokazati moramo, da odseki v $\quot{G}{[G,G]}$ komutirajo (tj. ta kvocientna grupa je abelova):
+		\begin{align*}
+			a[G,G] \cdot b[G,G] \stackrel{?}{=} b[G,G]\cdot a[G,G]
+		\end{align*}
+		Pokazati moramo, da $ab$ in $ba$ predstavljati isti odsek, to pa je $\iff (ba)^{-1}ab \in [G,G]$:
+		\[
+			(ba)^{-1} ab = a^{-1}b^{-1}ab = [a^{-1}, b^{-1}] \in [G,G].\ \blacksquare
+		\]}
+	\item[{\bf (3)}]{\v Ce je $f : G \to H$ homomorfizem v abelovo grupo, \v celimo videti, da je $[G,G] \leq \ker f$. Dovolj je, \v ce
+		\[
+			f\big([a,b]\big) = e,
+		\]\v ce poka\v zemo za enega, to je
+		\[
+			f\big(aba^{-1}b^{-1}\big) = \overbrace{f(a)f(b)f(a^{-1})f(b^{-1})}^{\text{elementi v $H$ komutirajo}} =
+				f(a) f(a^{-1}) f (b) f (b^{-1}) \stackrel{\text{homo.}}{=} f(a) f(a)^{-1} f(b) f(b)^{-1} = e
+		\]\qed}
+\end{itemize}
+
+\ni \paragraph{Vsebina:} Komutatorska podgrupa je najmanj\v sa edinka v $G$, po kateri je kvocient abelov.
 

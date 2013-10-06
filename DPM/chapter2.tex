@@ -1,0 +1,307 @@
+\chapter{Simetrije in upodobitve}
+
+\begin{defin}
+	Naj bo $X$ poljubna mno\v zica. \emph{Simetri\v cna} ali \emph{permutacijska mno\v zica} $X$ je mno\v zica vseh bijekcij
+	$X \to X$.\vspace{2ex}
+
+	\ni To imenujemo \emph{permutacije} ali \emph{simetrije} na $X$, oznaka za grupo je $S(X)$. Posebej \v ce je $X$ kon\v cna in
+	$|X| = n$, ozna\v cimo $S(X)$ z $S_n$ in elemente $X$ ozna\v cimo z $\{1, 2, \ldots, n\}$. V tem primeru permutacije opi\v semo
+	\[
+		\begin{pmatrix}
+			1 & 2 & 3 & \ldots & n \\
+			\alpha(1) & \alpha(2) & \alpha(3) & \ldots & \alpha (n)
+		\end{pmatrix},
+	\]
+	\v ce je $\alpha$ permutacija.
+\end{defin}
+
+\ni Posebne permutacije so cikli:
+
+\begin{defin}
+	$\alpha \in S_n$ je $r$-cikel, \v ce $\exists\ \overbrace{i_1, i_2, \ldots, i_r}^{\text{vsi razli\v cni}} \in \{1, 2, \ldots, n\}$, ki jih
+	$\alpha$ premakne, ostale elemente pa pusti pri miru (oz. jih fiksira) in velja:
+	\[
+		\alpha (i_1) = i_2,\ \alpha(i_2) = i_3, \ldots,\ \alpha(i_{r-1}) = i_r,\ \alpha(i_r) = i_1.
+	\]
+	Tak $\alpha$ ponavadi zapi\v semo kot $\alpha = (i_1, i_2, i_3, \ldots, i_r)$.
+\end{defin}
+
+\begin{defin}
+	Dva cikla, $\alpha$ in $\beta$ sta \emph{disjunktna}, \v ce premakneta razli\v cne elemente -- tj. $\beta$ lahko premika kve\v cjemu
+	elemente, ki jih $\alpha$ fiksira in obratno.
+\end{defin}
+
+\paragraph{Vaja:}
+\begin{enumerate}
+	\item{$|S_n| = n!$ (o\v citno).}
+	\item{\v Ce je $\alpha$ $r$-cikel, je $\red(\alpha) = r$:
+		\paragraph{Dokaz:} $\red(\alpha) = k$, \v ce $\alpha^k = e$ in $k$ najmanj\v se tako \v stevilo. Jasno je, da je $\alpha^r = e$. Tak
+		$r$ je najmanj\v si: za $k < r$, $\alpha^k$ preslika $i_1$ v $i_{1+k}$, kjer je $1 + k \in \{2, \ldots, r\}$, zato
+		$i_{i+k} \neq i_1$. $\blacksquare$}
+	\item{Naj bo $\alpha$ $r$-cikel in $d \in \mathbb{N}$. Potem $\alpha^d$ produkt $(d, r)$ disjunktnih ciklov dol\v zine $r/(d,r)$ (oznaka
+		$(d, r)$ naj bi predstavljala najve\v cji skupni delitelj \v stevil $d$ in $r$).
+		\paragraph{Dokaz:}
+		\begin{itemize}
+			\item{$G = \langle a \rangle$ je cikli\v cna grupa reda $r$.}
+			\item{$H = \langle a^d \rangle$ je podgrupa v $G$}
+		\end{itemize}
+		$x = e^{2i\pi/12}$ generira $C_{12}$, $x^d$ generira podgrupo: $\langle x^d \rangle = \{x^{dk}\ |\ k \in \mathbb{Z}\}$
+		\begin{itemize}
+			\item[$\diamond$]{$\underline{d = 5:}$ $\langle x^5 \rangle = \{e, x^5, (x^5)^2, \ldots, (x^5)^12\}$ -- imamo 12 razli\v cnih elementov -- seveda,
+				najve\v cji skupni delitelj grup je $1$, ker sta si 5 in 12 tuji \v stevili $\then \langle x^5 \rangle = \langle x \rangle = C_{12} \leq C_{12}$, saj
+				je $12 / (12, 5) = 12/1 = 12$.}
+			\item[$\diamond$]{$\underline{d = 3:}$ $\langle x^3 \rangle = \{e, x^3, (x^3)^2, (x^3)^3\} \cong C_4$, ker je $12 / (12, 3) = 12/3 = 4$.}
+		\end{itemize} Odtod sklepamo, da \v ce $k = (d, r)$, potem je $H$ cikli\v cna podgrupa mo\v ci (reda) $r/k$. Dobiti moramo najmnanj\v si $n$, da je
+		$(\alpha^d)^n  = e$. O\v citno je $(\alpha^d)^{r/k},\ \alpha^{dr/k} = (\alpha^r)^{d/k} = e$. To \v stevilo je najmanj\v se s to lastnostjo:
+		\[
+			\alpha^{dn} = e,\quad \text{upo\v stevamo, da je $\alpha$ reda $r$}
+		\]
+
+		\ni $\then r|dn$ ($r$ najmanj\v se \v stevilo, pri katerem $\alpha^r = e$). Ker je $k = (d,r) \then (r/k)|n \then n \geq r/k$.
+		\paragraph{Sklep:}\v Ce je najve\v cja skupna mera \v stevil $d$ in $r$ enaka 1 $\big(\text{tj.}\ (d,r) = 1\big)$, $\alpha^d$ dolo\v ca isto grupo mo\v ci
+		$r$ in je zato $r$-cikel. V primeru, da $k \neq 1$ trdimo, da $\alpha$ razpade na produkt $k$ disjunktnih ciklov.
+		\qed}
+\end{enumerate}
+
+\paragraph{Opomba:} disjunktni permutaciji (cikla) komutirata.
+
+\begin{trditev}
+	Vsaka permutacija v $S_n\backslash\{e\}$ je produkt disjunktnih ciklov dol\v zine $\geq 2$. Ta produkt je do vrstnega reda faktorjev enoli\v cen.
+\end{trditev}
+
+\begin{posledica}
+	Vsaka permutacija je produkt \emph{transpozicij}, tj. ciklov dol\v zine (reda) 2: $(a,b)$, $a \neq b$.
+
+	\paragraph{Opomba:} Ta izrazitev \emph{ni} enoli\v cna. Enoli\v cna je le parnost \v stevila transpozicij).
+\end{posledica}
+
+\begin{defin}
+	\emph{Predznak} ali \emph{parnost} permutacije, je \v stevilo, ki ga dobimo kot $(-1)^{\# \text{transpozicij}}$ v poljubni izrazitvi permutacije s transpozicijami.
+	
+	\paragraph{Oznaka:} $\alpha$ permutacija $\then$ predznak $\alpha\ \ldots\ \sign(\alpha) \in \{\pm 1\}$.
+\end{defin}
+
+\begin{trditev}
+	$\sign : S_n \to C_2 = \{\pm 1\}$, je homomorfizem in jedro tega imenujemo \emph{alternirajo\v ca grupa}, $A_n$.
+	\paragraph{Sledi:} $A_n \lhd S_n$, indeksa $2$.
+\end{trditev}
+
+\paragraph{Dokaz:}
+
+$\alpha$ $r$-cikel, $\beta$ $p$-cikel $\then \sign(\alpha \beta) = (-1)^{r + p} = (-1)^r (-1)^p = \sign (\alpha) \sign (\beta)$. $\sign$ torej res homomorfizem in je
+hkrati surjektiven, saj je znak $\forall$ transpozicije $-1$. $A_n = \ker (\sign)$ je edinka,
+\[
+	\quot{S_n}{A_n} = \{\pm 1\},
+\]
+
+\ni kar pa pomeni $[S_n : A_n] = 2$.
+\qed
+
+\paragraph{Ponovitev:}
+\begin{itemize}
+	\item{$X$ mno\v zica, $S(X) = \{\text{bijekcije} X \to X\}$}
+	\item{$X = \{1, 2, \ldots, n\} \to S(X) = S_n$}
+\end{itemize}
+
+\begin{trditev}
+	\paragraph{Caylejev izrek:}
+	\begin{itemize}
+		\item{$G$ poljubna grupa. Potem je $G$ izomorfna podgrupi simetri\v cne grupe $S(G)$.}
+		\item{\v Ce je $G$ kon\v cna in $|G| = n$, potem je $G$ izomorna podgrupi v $S_n$.}
+	\end{itemize}
+\end{trditev}
+\paragraph{Dokaz:} Za dano $G$ \v zelimo poiskati \ldots
+\begin{itemize}
+	\item{$S(G) = \{f: G \to G\ |\ f\ \text{bijekcija}\}$}
+	\item{$G$ je grupa z operacijo $G\times G \to G$ in potem injektivni homomorfizem $G \to S(G)$.}
+\end{itemize}
+
+\ni Naj bo $L : G \to S(G),\ g \mapsto L_g$ (leva translacija). Za levo translacijo velja (str.~\pageref{translacija}):
+\begin{itemize}
+	\item{$L_g$ je bijekcija, njen inverz je $L_{g^{-1}}$}
+	\item{$L$ je homomorfizem: $L(gh) = L_g \circ L_h$ \big(kompozitum v $S(G)$\big).}
+	\item{$L$ je injektivna: \v ce je $L_g$ identiteta, je $L_g(e) = ge = e \then g = e\ \then\ \ker L = e$.}
+\end{itemize}
+
+\ni Slika $L(G) \in S(G)$ je torej izomorfna $G$.
+\qed
+
+\begin{posledica}
+	Naj bo $G$ kon\v cna grupa, $|G| = n$, in $\F$ poljuben obseg. Tedaj je \emph{$G$ izomorfna podgrupi v $GL_n(\F)$} in
+	$\exists$ homomorfizem $\varphi : G \to GL_n(\F)$ ki je injektiven.
+\end{posledica}
+
+\paragraph{Dokaz:}
+
+Bolj na splo\v sno: naj bo $X$ poljubna kon\v cna mno\v zica in $\varphi: G \to S(X)$ homomorfizem. Ta homomorfizem lahko "`dvignemo"'
+do homomorfizma v neko splo\v sno linearno grupo,
+\begin{itemize}
+	\item{Naj bo $V$ vektorski prostor nad $\F$ za bazo $X$, torej
+		\begin{align*}
+			X &= \{x_1, x2, \ldots, x_m\}, \\
+			V &= \bigg\{\sum_{i = 1}^m \lambda_i x_i\ \bigg|\ \lambda_i \in \F\bigg\}.
+		\end{align*}}
+	\item{Grupo $S(X)$ lahko vlo\v zimo v $GL_{\F}(V)$, tako da vsakemu elementu 
+		$\sigma \in S(X)$ priredimo linearno preslikavo, ki permutira vektorje v bazi
+		\begin{align*}
+			\sigma &\mapsto A_{\sigma};\\
+			A_{\sigma} : V &\to V \\
+			x_i &\mapsto \sigma(x_i) = x_{\sigma(i)}
+		\end{align*}}
+	\item{Matrika tak\v sne preslikave je \emph{permutacijska matrika}, ki je obrnljiva ($\det A_\sigma = \pm 1$) in jo dobimo
+		z zamenjavo matrike identitete. Na ta na\v cin $S(X)$ postane podgrupa v $GL_{\F}(V)$ in $\varphi$ porodi
+		\begin{equation*}
+		\begin{matrix}
+			\hat{\varphi} :\ &G                              & \longrightarrow & GL_{\F} (V) \\
+			                 &\stackrel[\varphi]{}{\searrow} &                 & \nehookarrow \\
+			                 &                               & S(X)            &
+		\end{matrix}
+		\end{equation*}
+	}
+\end{itemize}
+
+\paragraph{Posebej:} \v Ce je $\varphi: G \to S(X)$ injektiven dobimo injektiven $\hat{\varphi}$. Za $X = G$ je $|X| = |G| = n$, zato je $V$ vektorski
+prostor na $\F$ dimenzije $n$ in je $GL_\F (V) \equiv GL_n (\F)$.
+
+\qed
+
+\section{Teorija upodobitev in pridru\v zenih delovanj}
+
+\begin{defin}
+	Naj bo $G$ grupa in $X$ mno\v zica. Potem homomorfizem $\varphi : G \to S(X)$ imenujemo \emph{upodobitev} (\emph{reprezentacija}).
+\end{defin}
+
+\begin{defin}
+	Naj bo $V$ vektorski prostor nad obsegom $\F$. Homomorfizem $\varphi : G \to GL_{\F}(V)$ imenujemo \emph{linearna upodobitev} $G$ na $V$.
+\end{defin}
+
+\paragraph{Opomba:}
+\begin{itemize}
+	\item{Iz dokaza zadnje posledice sledi, da poljubna upodobitev $G \to S(X)$ porodi linearno upodobitev $G \to GL_\F(V)$, kjer je $V$
+		vektorski prostor z bazo $X$ nad obsegom $\F$.}
+	\item{Upodobitvi $G \to S(G)$, oz. $G \to GL_\F(V)$, kjer je $V$ vektorski prostor z bazo $G$, re\v cemo \emph{regularna upodobitev} (tj. $X = G$).}
+\end{itemize}
+
+\ni Glavni rezultat teorije upodobitev kon\v cnih grup je, da {\bf linearna regularna upodobitev vsebuje vse linearne upodobitve}.
+
+Poljubna upodobitev $\varphi : G \to S(X),\ g \mapsto \sigma$ porodi \emph{delovanje} grupe $G$ na mno\v zico $X$, tj. preslikavo
+\begin{align*}
+	\tilde{\varphi}: G \times X &\to X, \\
+	(g, x) &\mapsto \varphi(g)(x) = \sigma (x),
+\end{align*}
+
+\ni z lastnostima:
+\begin{itemize}
+	\item{$\tilde{\varphi}(e, x) = \varphi(e) (x) = x$, ker je $\varphi$ homomorfizem, je $\varphi(e)$ spet identiteta.}
+	\item{$\tilde{\varphi}\big(g, \tilde{\varphi}(h,x)\big) = \big[\varphi(g) \circ \varphi(h)\big] (x) = \varphi (gh)(x) = \tilde{\varphi}(gh,x)$}
+\end{itemize}
+
+\paragraph{Dogovor:} Kjer imamo opraviti le z enim delovanjem, izpustimo ime preslikave in pi\v semo kar
+\[
+	\tilde{\varphi}(g,x) = gx.
+\]
+V tem zapisu sta zgornji lastnosti
+\begin{align*}
+	\varphi(e) = \id \then ex &= x \\
+		(gh)x &= g(hx)
+\end{align*}
+\ni izgledata kot definicija identitete in asociativnost.
+
+\ni Velja tudi obratno: vsako delovanje $G$ na $X$ dolo\v ca upodobitev $G$ na $X$:
+\begin{align*}
+	\left.
+	\begin{array}{rl}
+		\text{\underline{Upodobitve}} & \\
+		G \to S(X) & \\
+		\text{homomorfizmi} &
+	\end{array} \right\} \longleftrightarrow
+	\left\{
+	\begin{array}{rl}
+		\text{\underline{Delovanja}} & \\
+		G \times X \to X & \\
+		ex = x &\\
+		(gh)x = g(hx)
+	\end{array}\right.
+\end{align*}
+
+\ni Analogno za linearne upodobitve dobimo korespondenco z delovanji, ki so pri fiksnem $g$ linearni.
+
+\begin{align*}
+	\left.
+	\begin{array}{rl}
+		G \to GL_\F(V) & \\
+		\text{$V$ vekt. prostor} \\
+		\text{homo.} &
+	\end{array} \right\} \longleftrightarrow
+	\left\{
+	\begin{array}{rl}
+		G \times V \to V& \\
+		ex = x & \\
+		(gh)x = g(hx)
+		x \mapsto gx\ \text{je linearna}
+	\end{array}\right.
+\end{align*}
+
+\begin{defin}
+	Naj $G$ deluje na $X$ (imamo delovanje $G \times X \to X$).
+	\begin{itemize}
+		\item{\emph{Orbita} elementa $x \in X$ je $Gx = \{gx\ |\ g\in G\}$.}
+		\item{\emph{Stabilizatorska podgrupa} elementa $x \in X$ je $G_x = \{g \in G\ |\ gx = x\}$.}
+	\end{itemize}
+\end{defin}
+
+\begin{trditev}
+	Naj $G$ deluje na $X$.
+	\begin{enumerate}
+		\item{Potem je $G_x \leq G, \forall x \in X$.}
+		\item{Stabilizator poljubne druge to\v cke na orbiti $Gx$ je konjugiran stabilizatorju $x$.}
+		\item{\v Ce je $X$ kon\v cen, je $|Gx| = [G:G_x]$}
+	\end{enumerate}
+\end{trditev}
+
+\paragraph{Dokaz:}[\emph{Vaja}]
+\begin{enumerate}
+	\item{$G_x$ je res podgrupa:
+		\begin{itemize}
+			\item{$e \in G_x:\ ex = e \then e \in G_x$ po definiciji}
+			\item{$g \in G_x \then g^{-1} \in G_x$:
+				\begin{align*}
+					gx &= x,\quad /\cdot g^{-1},\ \text{asociatovnost} \\
+					x &= g^{-1}g x = g^{-1} x \then g^{-1} \in G_x \\
+				\end{align*}}
+			\item{produkt: $ghx = gx = gx = x$ (o\v citno, ker $gx = x$ in $hx = x$). $\blacksquare$}
+		\end{itemize}}
+	\item{Izberimo poljuben $y \in Gx$. Dokazujemo, da je $G_y$ konjugiran $G_x$, tj. $\exists a$, tako da: $G_y = a G_x a^{-1}$.
+		Vemo: $y = gx$ za nek $g \in G$. Naj bo $h \in G_y: hy = y$,
+		\begin{align*}
+			\left.
+			\begin{array}{rl}
+			hgx &= gx\\
+			g^{-1} hgx &= x\\
+			g^{-1} h g &\in G_x
+			\end{array} \right\} G_y \subseteq g G_x g^{-1}
+		\end{align*}}
+		Sedaj enako naredimo za $g^{-1}:\ x = g^{-1} y$, ostalo je enako. Od tam sledi, da je tudi $G_x \subseteq g^{-1} G_y g$.
+		To je res natanko tedaj, ko $G_y = gG_x g^{-1}$. $\blacksquare$
+	\item{$X$ kon\v cna, $Y = G_x \subseteq X$ tudi kon\v cna. $Y \subseteq X$ je invariantna za delovanje $G$, v smislu, da je
+		$\forall g \in G$ in $\forall y \in Y: gy \in Y$.
+
+		\ni Trdimo, da je $|Y|$ enaka \v st. odsekov $G_x$ v $G$. Glejmo preslikavo $f : G \to Y$, $g \mapsto gx$. $f$ je surjektivna  (po definiciji $Y$) in
+		\[
+			f(g) = f(h) \iff gx = hx \iff h^{-1}gx = x,\ h^{-1}g \in G_x,
+		\] to pa je natanko tedaj, ko $h$ in $g$ dolo\v cata isti odsek $\then$ \v st. razli\v cnih to\v ck v $Y$ je enako \v st. razli\v cnih odsekov $G_x$
+		v $G$. $|Y| = [G:G_x]$.}
+\end{enumerate}
+\qed
+
+\section{Operacije na grupah in strukturni izreki}
+
+\begin{defin}
+	\emph{Direktni produkt grup} $G$ in $H$ je grupa $G \times H$ z operacijo mno\v zenja po komponentah:
+	\[
+		(g_1, h_1) \cdot (g_2, h_2) = (g_1 g_2, h_1 h_2).
+	\]
+	Identiteta je $(e, e)$, inverz elementa $(g, h)$ je $(g, h)^{-1} = (g^{-1}, h^{-1})$, asociativnost pa
+	sledi iz asociativnosti v $G$ in $H$.
+\end{defin}
+
