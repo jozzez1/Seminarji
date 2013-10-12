@@ -160,8 +160,8 @@ do homomorfizma v neko splo\v sno linearno grupo,
 	}
 \end{itemize}
 
-\paragraph{Posebej:} \v Ce je $\varphi: G \to S(X)$ injektiven dobimo injektiven $\hat{\varphi}$. Za $X = G$ je $|X| = |G| = n$, zato je $V$ vektorski
-prostor na $\F$ dimenzije $n$ in je $GL_\F (V) \equiv GL_n (\F)$.
+\paragraph{Posebej:} \v Ce je $\varphi: G \to S(X)$ injektiven, dobimo injektiven $\hat{\varphi}$. Za $X = G$ je $|X| = |G| = n$, zato je $V$ vektorski
+prostor nad $\F$ dimenzije $n$ in je $GL_\F (V) \equiv GL_n (\F)$.
 
 \qed
 
@@ -235,10 +235,10 @@ V tem zapisu sta zgornji lastnosti
 	\end{array} \right\} \longleftrightarrow
 	\left\{
 	\begin{array}{rl}
-		G \times V \to V& \\
-		ex = x & \\
-		(gh)x = g(hx)
-		x \mapsto gx\ \text{je linearna}
+		G \times V &\to V \\
+		ex &= x \\
+		(gh)x &= g(hx) \\
+		x &\mapsto gx\ \text{je linearna}
 	\end{array}\right.
 \end{align*}
 
@@ -570,7 +570,7 @@ kanoni\v cna dekompozicija.
 	\{0\} \to \underbrace{K}_{\ker f} \to \stackrel[e_i]{}{\Z^m} \stackrel[\mapsto]{}{\to} \stackrel[x_i]{}{A} \to \{ 0\},
 \]
 \[
-	e_i = (0,\ldots,0,\overbrace{1}^{n},0,\ldots,0).
+	e_i = (0,\ldots,0,\overbrace{1}^{i},0,\ldots,0).
 \]
 
 \ni \v Ce generatorje v $\Z^m$ poimenujemo $y_i = e_i$, potem je $K$ kot podgrupa v $\Z^m$ generirana z nekimi $r_j$, ki so linearne kombinacije $y_i$
@@ -694,7 +694,283 @@ Nadaljujemo na matriki $R''$.
 				c_3 &= 9
 			\end{array}\right.,\quad \rang A = 0,
 		\]
-		$R$ je matrika relacij za grupo $\quot{\Z_x \oplus \Z_y \oplus \Z_z}{\langle3x, 3y, 9z \rangle} =
-		[x,y,z\ |\ 3x, 3y, 9z]$.
+		$R$ je matrika relacij za grupo $A = \quot{\Z^3}{K} = \quot{\Z_x \oplus \Z_y \oplus \Z_z}{\langle3x, 3y, 9z \rangle} =
+		\big[x,y,z\ |\ 3x, 3y, 9z\big] = \Z_3 \oplus \Z_3 \oplus \Z_9$.
+		\paragraph{Opomba:} Operacije iz trditve delamo na vrsticah in s tem spreminjamo generatorje podgrupe relacij
+		ter na stolpcih in s tem spreminjamo generatorje proste grupe.
+	}
+	\item{Dolo\v ci KD kvocienta $\Z^3$ po podgrupi, generirani z $(2,4,2)$ in $(4,3,1)$:
+		\[
+			R = \begin{bmatrix}
+				2 & 4 & 2 \\
+				4 & 3 & 1
+			\end{bmatrix} \to \begin{bmatrix}
+				1 & 3 & 4 \\
+				2 & 4 & 2
+			\end{bmatrix} \to \begin{bmatrix}
+				1 & 0 & 0 \\
+				0 & -2 & -6
+			\end{bmatrix} \to \begin{bmatrix}
+				1 & 0 & 0 \\
+				0 & 2 & 0
+			\end{bmatrix},
+		\]
+		\[
+			A \cong \Z \oplus \Z_1 \oplus \Z_2 \cong \Z \oplus \Z_2 = \big[x_1, x_2, x_3\ |\ x_1, 2x_2\big]
+		\]
+		V tem primeru $x_3$ generira prosti del, $x_1$ ne nastopa v kvocientu, $x_2$ je reda 2, tj. generira $\Z_2$.
 	}
 \end{itemize}
+
+\section{Proste grupe, prosti produkti in predstavitve grup}
+
+V prosti abelovi grupi med generatorji velja komutativnost. Vendar, pa ni vsaka prosta grupa abelova. Raz\v cistimo pojem, kaj
+pomeni prosta grupa:
+\begin{defin}
+	{\em Prosta grupa} je taka, v kateri poleg osnovnih zahtev za grupo ni nobene druge relacije. Elemente take grupe
+	predstavljamo kot besede.\vspace{6pt} 
+
+	\ni \v Ce so $x_1, \ldots, x_n$ v prosti grupi, potem je tudi $x_1 x_2 \ldots x_n$ element te grupe in ta se ne da
+	poenostaviti v noben drug element, \v ce $x_i \neq e \forall i$ in \v ce v $x_i$ in $x_{i+1}$ ne nastopajo elementi skupaj z
+	inverzom.\vspace{6pt}
+
+	\ni To idejo lahko uporabimo za konstrukcijo proste grupe na dani mno\v zici generatorjev:
+	\begin{itemize}
+		\item{Naj bo $X = \big(x_i\big)_{i\in I}$ mno\v zica generatorjev grupe $G$. Prosto grupo nad $X$ ozna\v cimo s $F_X$
+			({\em free}), in dobimo takole: tvorimo besede nad abecedo s simboli $x_i$, $x_i^{-1}$, `$\_$' (s `\_' sem
+			ozna\v cil presledek).} 
+		\item{Besede so kon\v cni nabori \v crk abecede:
+			$x_{i_1}^{\epsilon_1}x_{i_2}^{\epsilon_2}\ldots x_{i_k}^{\epsilon_k}$,
+			kjer je $\epsilon_i = \pm 1$. Npr.
+			\[
+				x_1x_1x_3x_2^{-1}x_7x_{11}^{-1}x_{12}x_{12}^{-1}x_{12}x_{12}
+			\]
+		}
+		\item{Te\v zave z grupno strukturo: $x_i x_i^{-1} \neq `\_$'. Te bi lahko izlo\v cili, ampak se naravno pojavijo pri
+			mno\v zenju, ki je stikanje besed. Iz mno\v zice besed za opisano operacijo dobimo grupo tako, da vpeljemo
+			relacijo na besedah, ki $x_i x_i^{-1} = x_i^{-1} x_i = e = `\_$' ena\v ci z identiteto.
+		}
+		\item{Ta kvocient imenujemo {\em prosta grupa nad X}.}
+	\end{itemize}
+\end{defin}
+
+\paragraph{Opomba:} Preveriti je treba, \v ce ta konstrukt res ustreza definiciji grupe:
+\begin{itemize}
+	\item{ima identiteto: prazna beseda (presledek),}
+	\item{vsaka beseda ima inverz: $\big(x_{i_1}^{\epsilon_1}\ldots x_{i_k}^{\epsilon_k}\big)^{-1} = x_{i_k}^{-\epsilon_k} 
+		\ldots\ x_{i_1}^{-\epsilon_1}$}
+	\item{Pokazati jo je sitno, zaradi kraj\v sanja, vendar dr\v zi ({\em verjamemo na besedo} -- "`pun intended"').}
+\end{itemize}
+
+\paragraph{Pomen:}
+Analogno kot pri abelovih je vsaka grupa kvocient neke proste grupe. To izkoristimo za predstavitev poljubne grupe z generatorji
+in relacijami.
+
+\begin{lema}
+	Naj bo $G$ grupa in $X$ mno\v zica njenih generatorjev. Potem je $G$ kvocient proste grupe nad $X$, tj. imamo eksaktno
+	zaporedje
+	\[
+		\{e\} \to \stackrel[= \ker f]{}{K} \to F_X \stackrel{f\ \text{(homo.)}}{\longrightarrow} G \to \{e\},
+	\]
+	ali $G \cong \quot{F_X}{K}$.
+\end{lema}
+
+\paragraph{Dokaz:}
+Vzamemo prosto grupo $F_X$ in
+\[
+	\left.
+	\begin{array}{rl}
+		f : F_X &\to G \\
+		x_i &\mapsto x_i
+	\end{array}\right\} \text{o\v citno surjektivna -- v $\im f$ so vsi generatorji $G$, in $\im f \leq G$, je to cel $G$.}
+\]
+Ta $f$ je homomorfizem, $K = \ker f$. Potem imamo po standardnih izrekih (izreki o izmomorfizmu) $G \cong \quot{F_X}{K}$ oz. to
+zaporedje je eksaktno.
+\qed
+\begin{posledica}
+	Naj bo $G$ poljubna grupa, $X$ mno\v zica in $f : X \to G$ preslikava.\vspace{6pt}
+	
+	\ni Potem $f$ dolo\v ca enoli\v cno homomorfizem iz $\hat{f}$ iz proste grupe z generatorji $X$ na $G$
+	\[
+		\left.
+			\begin{array}{rl}
+				\hat{f}: F_X &\to G \\
+				\hat{f}\big|_X &= f
+			\end{array}
+		\right. \qquad \text{in} \qquad
+		\begin{matrix}
+			X & \stackrel{f}{\longrightarrow} & G \\
+			\sehookarrow &  & \nedasharrow_{\hat{f}} \\
+			& \raisebox{2ex}{$F_X$} &
+		\end{matrix}
+	\]
+	$f$ dolo\v ca homomorfizem $\hat{f}$ tako, da diagram komutira.
+\end{posledica}
+
+\paragraph{Dokaz:}
+Definiramo $\hat{f} \big(x_{i_1}^{\epsilon_1}\ldots x_{i_k}^{\epsilon_k}\big) = f (x_{i_1})^{\epsilon_1}\ldots f
+(x_{i_k})^{\epsilon_k}$, kar velja po asociativnosti v $G$. $\blacksquare$
+
+\begin{trditev}
+	[{\em Brez dokaza}]Vsaka podgrupa proste grupe je prosta.
+	
+	\paragraph{Pozor:} pri abelovih je rang prodgrupe $\leq$ rangu grupe, pri prostih grupah pa ima lahko podgrupa
+	ve\v c generatorjev, kot grupa (prosta grua na dveh generatorjih vsebuje proste grupe na ve\v c generatorjih, kot
+	podgrupe).
+\end{trditev} 
+
+\begin{defin}
+	{\bf Prosti produkt grup}: $G$, $H$ grupi, njun {\em prosti produkt} je $G * H$, mno\v zica besed in abecede $G \cup H$,
+	kjer je operacija stikanja besed, edine relacije pa so tiste, ki veljajo v $G$ in v $H$. Vsak element lahko zapi\v semo
+	v obliki
+	\[
+		g_1 h_1 g_2 h_2 \ldots g_k h_k; \quad g_i \in G,\ h_i \in H,
+	\]
+	saj upo\v stevamo mno\v zenje v $G$ in $H$. \v Ce je kak\v sen $h_i$ ali $g_j$ identiteta, lahko sosednja elementa
+	zmno\v zimo v grupi. Kot pri prosti grupi preverimo, da je $G * H$ res grupa (tj. da je prosti produkt grup spet
+	grupa).
+\end{defin}
+
+\paragraph{Primer:} Prosta grupa na dveh generatorjih $F_{\lfancy x, y \rfancy}$ je izomorfna prostemu produktu dveh kopij $\Z$. V
+grupi $F_{\lfancy x, y \rfancy}$ so besede $x^{n_1}y^{n_2}x^{n_3}y^{n_4}\ldots$ kjer $n_i \in \Z$. V $\Z \times \Z$ z generatorjema
+$x$ za prvi faktor in $y$ za drugi faktor pa so besede $(n_1x)(n_2y)(n_3x)(n_4y)\ldots$ kjer so faktorji pisani aditivno.
+Multiplikativno bi zapisali tako kot prej, $x^{n_1}y^{n_2}x^{n_3}y^{n_4}\ldots$
+\begin{align*}
+	\then F_{\lfancy x,y \rfancy} &\cong \Z * \Z \\
+	F_{\lfancy x_1, \ldots , x_n\rfancy} &\cong \underbrace{\Z * \Z * \ldots * \Z}_\text{$n$ faktorjev}
+\end{align*}
+\ni Glavna uporaba je predstavitev grupe.
+
+\begin{defin}
+	\emph{Predstavitev} ali {\em prezentacija} grupe. \v Ce je $G$ poljubna grupa in $X = \{x_i, i \in I\}$ mno\v zica
+	njenih generatorjev, potem je $G \cong \quot{F_X}{K}$, kjer je $K$ edinka v $F_X$, dolo\v cena kot jedro naravnega
+	homomorfizma
+	\begin{align*}
+		f : F_X & \to G \\
+		x_i & \mapsto x_i
+	\end{align*}
+	(za $K$ vzamemo najmanj\v so tako edinko). \v Ce je $R$ mno\v zica generatorjev za edinko $K$, je predstavitev grupe $G$
+	z generatorji in relacijami dana z
+	\begin{equation}
+		G = \langle X\ |\ R \rangle.
+	\end{equation}
+\end{defin}
+
+\paragraph{Opomba:} elementi v $R$ so besede v $X$ in $G = \quot{F_X}{\text{edinka, gen. z besedami v $R$}}$.
+
+\begin{zgled}
+	Poi\v sci predstavietv za abelovo grupo $\Z = \Z \times \Z$ kot kvocient proste grupe $\Z * \Z$.
+	\begin{itemize}
+		\item{$G = \Z^2$ z generatorjema $x = (1, 0)$ in $y = (0, 1)$ (aditiven zapis)
+			\[
+				\Z^2 \cong \langle \tilde{x}, \tilde{y}\ |\ [\tilde{x}, \tilde{y}]\rangle =
+					\langle \tilde{x}, \tilde{y}\ |\ \tilde{x}\tilde{y} = \tilde{y}\tilde{x} \rangle,
+			\]
+			da smo dobili $\Z^2$ smo morali generatorjema $\tilde{x}$ in $\tilde{y}$ dodati relacijo komutativnosti.}
+		\item{Je to res abelova grupa? $F_{\lfancy \tilde{x}, \tilde{y} \rfancy}$ ima za komutatorsko grupo podgrupo,
+			generirano s komutatorjem $[\tilde{x}, \tilde{y}]$:
+			\begin{align*}
+				F_{\lfancy \tilde{x}, \tilde{y} \rfancy} &\stackrel{f}{\to} \Z \times \Z \\
+				\tilde{x}^n &\mapsto nx \\
+				\tilde{y}^n &\mapsto ny
+			\end{align*}
+			Ker je $\Z \times \Z$ abelova, jedro $f$ vsebuje komutatorsko podgrupo, ki je generirana s komutatorjem
+			$[\tilde{x}, \tilde{y}]$.
+		}
+	\end{itemize}
+\end{zgled}
+
+\begin{zgled}
+	Poi\v sci predstavitev $S_3$ (mno\v zica permutacij treh elementov).
+	\paragraph{Re\v sitev:}
+	Mo\v c grupe je $|S_3| = 3! = 6$ in sicer
+	\[
+		S_3 = \{e, (12), (13), (23), (123), (132)\}
+	\]
+	Cilj nam je poiskati \v cim manj\v so mno\v zico generatorjev in pripadajo\v ce relacije:
+	\[
+		\left.
+		\begin{array}{rl}
+			x &= (12), \quad \text{transpozicija} \\
+			y &= (123), \quad \text{tri-cikel}
+		\end{array}\right\} \text{generatorja (ugibamo)}
+	\]
+	\[
+		x^2 = e, y^3 = e
+	\]
+	Potrebujemo \v se eno zvezo, ker imamo $\infty$ elementov, $S_3$ pa jih ima samo 6. Uganemo $xyx = y^2$, tj.
+	\[
+		S_3 = \langle x, y\ |\ x^2, y^3, xyx = y^2 \rangle.
+	\]
+\end{zgled}\vspace{-6ex}
+
+\begin{zgled}
+	Izra\v cunaj predstavitev grupe simetrij pravilnega petkotnika $G$ (v tem primeru $G = D_5$ -- diederska grupa reda 5).
+	To so togi premiki ravnine, ki petkotnik preslikajo nase -- translacije in linearne preslikave. Velja $|D_n| = 2n$.
+	\[
+		\vec{x} \mapsto \vec{a} + A\vec{x},\quad \vec{a} = \text{konst. in } \det A \neq 0.
+	\]
+	\begin{itemize}
+		\item{$G \leq S_5$ ($|G| = 10$, $|S_5| = 120$).}
+		\item{Uganemo generatorje:
+			\begin{itemize}
+				\item{rotacija: $(12345)= x = \exp(2i\pi/5)$, $x^5 = e$.}
+				\item{zrcaljenje: $y =$ \v cez simetralo daljice $\overline{3,4}$; $y^2 = e$:
+					\[
+						y = (25)(34)
+					\]}
+			\end{itemize}
+		}
+		\item{$G = \{e, x, x^2, x^3, x^4, y, yx, yx^2, yx^3, yx^4\}$ -- res jih je 10.}
+		\item{So to res vsi (oz. \v ce obrnemo naokrog -- to so res vsi, ker moramo poiskati med njimi \v se eno relacijo).
+			To relacijo lahko najdemo z nekaj sre\v ce:
+			\[
+				xy = yx^4 = yx^{-1}.
+			\]
+			Dobili smo relacijo, ki obrne $x^{n_1}y^{n_2} \leftrightarrow y^{m_1}x^{m_2}$. Vse elemente lahko spravimo
+			v obliko $y^kx^\ell$.
+			\[
+				G = \langle x,y\ |\ x^5, y^2, xy = yx^{-1}\rangle
+			\]}
+	\end{itemize}
+\end{zgled}
+
+\paragraph{Opomba:} [{\em K zgledu}] $D_5$ ni komutativna ($xy \neq yx$), ima pa cikli\v cni podgrupi reda 2 in 5 -- $\langle x
+\rangle \cong \Z_5$ in $\langle y \rangle \cong \Z_2$, ampak \v se vedno tako, da $D_5 \ncong \Z_2 \times \Z_5$.
+
+\paragraph{Opomba:}
+V prej\v snjem zgledu smo spoznali \v se eno pomembno dru\v zino grup -- to so diederske grupe $D_n$, z $2n$ elementi in
+predstavitvijo
+\[
+	D_n = \langle x, y\ |\ x^n, y^2, xy = yx^{n-1} \rangle = \langle x, y\ |\ x^n, x^2, xy = yx^{-1} \rangle.
+\]
+Grupa $D_n$ je grupa \emph{izometrij} pravilnega $n$-kotnika (tj. bijekcij, ki $n$-kotnik slikajo samega nase).
+
+\section{Linearne upodobtive kon\v cnih grup}
+
+\begin{defin}
+	Naj bo $V$ vektorski prostor nad $\C$.
+	\begin{itemize}
+		\item{\v Ce je $G$ grupa, je {\em linearna upodobitev} $G$ na $V$ (nad $\C$) homomorfizem
+			\[
+				G \to GL_{\C}(V)
+			\]}
+		\item{$\dim_{\C} V = n \in \mathbb{N}$ imenujemo {\em stopnja upodobitve}.}
+	\end{itemize}
+\end{defin}
+
+\begin{zgled} Upodobitve stopnje 1 so homomorfizmi
+\[
+	G \to GL_1(\C) = \big\{[a]\ |\ \det[a] = a \neq 0\big\},\ \quad GL_1(\C) = \C\backslash\{0\} = \C^*.
+\]
+\ni \v Ce je $G$ kon\v cna, je slika upodobitve $G$ v $\C^*$ tudi kon\v cna podgrupa, vsebovana v kro\v znici $S^1$ (ker imajo
+elementi v $G$ kon\v cen red), vsak element je nek koren enote.
+\end{zgled}
+
+\begin{itemize}
+	\item{$G$ kon\v cna grupa -- potem so vse (kon\v cno dimenzionalne) linearne upodobitve $G \to GL_\C (V)$, $V$ kon\v cno
+		dimenzionalen vektorski prostor nad $\C$.}
+	\item{\emph{Regularna upodobitev}, kjer za $V$ vzamemo vektorski prostor z bazo $G$, delovanje $G$ pa permutira bazne vektorje
+		$(g\cdot v_h = v_{(gh)}$, kjer $g,h \in G$), na nek na\v cin vsebuje vse upodobitve.}
+\end{itemize}
+
