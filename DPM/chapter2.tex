@@ -305,3 +305,396 @@ V tem zapisu sta zgornji lastnosti
 	sledi iz asociativnosti v $G$ in $H$.
 \end{defin}
 
+\paragraph{Opombe:}
+\begin{itemize}
+	\item{V grupi $G\times H$ lahko gledamo $G$ in $H$ kot podgrupi, $G \equiv G\times\{e\}$ in $H \equiv \{e\}\times H$. Pri tej
+		identifikaciji elementi podgrup $G$ in $H$ med seboj komutirajo.}
+	\item{$(g,e) \cdot (e,h) = (ge, eh) = (g,h)$}
+	\item{$(e,h) \cdot (g,e) = (eg,he) = (g, h)$}
+	\item{Poleg tega sta $G$ in $H$ edinki v $G\times H$, njun presek je $G \cap H = \{e\} = (e,e)$.}
+\end{itemize}
+
+\ni Iz teh opa\v zanj dobimo
+\begin{trditev}
+	$G$, $H$, $K$ grupe, $H,K \lhd G$, $H \cap K = \{e\}$ in $HK = G$. Potem je $G = H \times K$.
+\end{trditev}
+
+\paragraph{Dokaz:} [\emph{Ideja}]
+Najprej vidimo, da elementi iz $H$ komutirajo z elementi iz $K$ (saj $H \cap K = \{e\}$). Upo\v stevamo {\bf lemo:} $G$, $H$ abelovi $\then G\times H$ abelova.
+
+\paragraph{Primer:}
+\begin{enumerate}
+	\item{$G = C_2 \times C_3 = ?$\vspace{0.5ex}
+		Najprej lahko kar zapi\v semo grupne elemente:
+		\begin{align*}
+			C_2 &= \{1, -1\}, \\
+			C_3 &= \{1, \exp(2i\pi/3), \exp(-2i\pi/3\}
+		\end{align*}
+		\[
+			G = \big\{(1,1), \big(1,e^{2i\pi/3}\big), \big(1,e^{-2i\pi/3}\big), 
+				(-1,1), \big(-1, e^{2i\pi/3}\big), \big(-1, e^{-2i\pi/3}\big)\big\}
+		\]
+		\ni Opazimo, da je $|G| = 6$. A je $G$ izomorfna kak\v sni znani grupi mo\v ci 6,
+		npr. $C_6$ (v tem primeru, moramo najti element reda 6). \v Ce je $G$ cikli\v cna ima generator reda $6$
+		in preslikava, ki preslika generator v $\exp(2i\pi/6)$ bo izomorfizem $G \to C_6$. Uganemo:
+		\begin{align*}
+			\big(-1, e^{2i\pi/3}\big)^1 &= \big(-1, e^{2i\pi/3}\big), \\
+			\big(-1, e^{2i\pi/3}\big)^2 &= \big((-1)\cdot(-1), e^{2i\pi/3} e^{2i\pi/3}\big) = \big(1, e^{-2i\pi/3}\big), \\
+			\big(-1, e^{2i\pi/3}\big)^3 &= (-1, 1), \\
+			\big(-1, e^{2i\pi/3}\big)^4 &= \big(1, e^{2i\pi/3}\big), \\
+			\big(-1, e^{2i\pi/3}\big)^5 &= \big(-1, e^{-2i\pi/3}\big), \\
+			\big(-1, e^{2i\pi/3}\big)^6 &= (1,1)
+		\end{align*}
+		Vidimo: element $\big(1, \exp(-2i\pi/3)\big)$ generira celotno grupo $G$, in je reda 6 -- tj. $G \cong C_6$, z
+		izomorfizmom:
+		\begin{align*}
+			f : G &\to C_6, \\
+			f\Big(\big(-1, e^{2i\pi/3}\big)\Big) &= e^{2i\pi/6},\ \text{homomorfizem, torej,} \\
+			f\Big(\big(-1, e^{2i\pi/3}\big)^k\Big) &= e^{2i\pi k/6}.
+		\end{align*}
+	}
+	\item{
+		$G = C_2 \times C_4$, ali je izomorfna kak\v sni znani grupi (npr. $C_8$, sode\v c po prej\v snjem primeru)?
+		\[
+			G = \{(1,1), (1, i), (1, -1), (1, -i), (-1, 1), (-1, i), (-1, -1), (-1, -i)\}
+		\]
+		Ne glede na to, s katerim elementom bomo posku\v sali, najve\v cji red elementa je $4$. Vendar pa ta grupa ni izomorfna $C_4$, saj
+		nimamo bijektivnega homomorfizma, ki bi $8$ elementov preslikal v $4$. Imamo pa\v c abelovo grupo, ki je bolj komplicirana.
+	}
+	\item{
+		$G = C_m \times C_n$, kjer sta $m$, $n$ tuji si \v stevili (njun najve\v cji skupni delitelj je 1).
+		\paragraph{Vaja:} Poka\v zi $G \cong C_{m \cdot n}$. Bolj splo\v cno: za poljubni cikli\v cni grupi redov $m$ in $n$
+		\[
+			G = \langle a \rangle \times \langle b \rangle
+		\]
+		\ni Trdimo, da ima par $(a, b) \in G$ red $m \cdot n$. Velja $(a,b)^k = \big(a^k, b^k\big)$.
+		\begin{itemize}
+			\item{$(a, b)^{mn} = (e, e)$ je o\v citno.}
+			\item{$mn$ je najmanj\v si tak eksponent v $\mathbb{N}$. Vemo $|G| = mn$. Red vsakega elementa deli $mn$. \v Ce je
+				$(a, b)$ manj\v sega reda, kot $mn$, $\exists\ k\ |\ mn \backepsilon: (a,b)^k = (a^k, b^k) = (e, e)$.
+				\[
+					\left .
+					\begin{array}{rl}
+						a^k = e &\then m\ |\ k \\
+						b^k = e &\then n\ |\ k
+					\end{array}\right\} = k = mn
+				\]}
+		\end{itemize}
+		\v Ce $m$ in $n$ nista tuja, je najve\v cji red enak najmanj\v semu skupnemu ve\v ckratniku, kar je manj od $|G| = mn \then$ ni cikli\v cna.
+		\qed
+	}
+\end{enumerate}
+
+\begin{defin}
+	\begin{itemize}
+		\item{$G$ grupa, $X$ je podmno\v zica v $G$, tj. $X \subseteq G$. $X$ \emph{generira} $G$, \v ce je $G = \langle X \rangle$ najmanj\v sa podgrupa
+			v $G$, ki vsebuje $\langle X \rangle$.}
+		\item{$G$ je \emph{kon\v cno generirana}, \v ce $\exists$ kon\v cna $X \subseteq G \backepsilon: G = \langle X \rangle$ (tj. \v stevilo generatorjev v $X$ je
+			kon\v cno).}
+		\item{$G$ je \emph{torzijska}, \v ce je $\forall$ element v $G$ kon\v cnega reda.}
+		\item{Za pra\v stevilo $p \in \mathbb{P}$ je $G$ \emph{$p$-grupa}, \v ce je red vsakega elemnta v $G$ neka potenca $p$-ja.}
+		\item{$G$ je \emph{prosta abelova grupa} \underline{ranga} $n \in \mathbb{N}$, \v ce je $G \cong \underbrace{\Z \times \Z \times \ldots \times \Z}_\text{$n$-krat} = \Z^n$.}
+	\end{itemize}
+\end{defin}
+
+\begin{trditev}
+	[\emph{Brez dokaza}.] Naj bo $A$ abelova grupa. Potem je mno\v zica vseh elementov kon\v cnega reda v $A$ torzijska podgrupa $T$. \v Ce je $A$ kon\v cno generirana, je
+	$\quot{A}{T}$ prosta abelova grupa kon\v cnega ranga in
+	\[
+		A \cong T \times \quot{A}{T}
+	\]
+\end{trditev}
+
+\begin{trditev}
+	[{\em Brez dokaza}.] Naj bo $T$ kon\v cna abelova grupa. Potem $\exists$ zaporedje naravnih \v stevil $n_1$, $n_2$, $\ldots$, $n_k$, kjer
+	\[
+		n_k\ |\ n_{k-1}\ |\ n_{k-2}\ |\ \ldots\ |\ n_2\ |\ n_1
+	\]
+	in velja
+	\[
+		T \cong C_{n_1} \times C_{n_2} \times \ldots \times C_{n_k}.
+	\]
+\end{trditev}
+
+\paragraph{Opomba:}
+V primeru $C_2 \times C_4$ smo imeli primer tak\v snega zapisa kon\v cne abelove grupe $n_1 = 4$, $n_2 = 2$.
+
+\begin{posledica}
+	\v Ce je $T$ kon\v cna abelova grupa in $n = |T|$ nima kvadratnih faktorjev, je $T$ cikli\v cna mo\v ci $n$.
+\end{posledica}
+
+\paragraph{Dokaz:}
+Po prej\v snjem je $T = C_{n_1} \times \ldots \times C_{n_k}$ \v Ce je $n_2 > 1$, potem je $n_2\ |\ n_1$ in $n_1 \cdot n_2\ |\ n$,
+potem $n_2^2\ |\ n$, kar je v nasprotju s predpostavko. $\blacksquare$
+
+\begin{posledica}
+	\v Ce je $A$ kon\v cno generirana prosta abelova grupa in $B \leq A$ (podgrupa), je tudi $B$ prosta.
+\end{posledica}
+
+Iz vsega tega dobimo metodo za predstavitev poljubne kon\v cno generirane abelove grupe $A$:
+\begin{itemize}
+	\item{Naj bo $X = \{x_1, x_2,\ldots ,x_n\}$ kon\v cna mno\v zica generatorjev in $\Z^n$ prosta abelova grupa ranga $n$.
+	\begin{align*}
+		\{e\} \to \underbrace{\ker f}_{\cong \Z^m} \longrightarrow \Z^n &\stackrel{f}{\longrightarrow} A \to \{e\} \\
+		\Z^m \in (k_1, k_2, \ldots, k_n) &\stackrel{f}{\mapsto}x_1^{k_1} x_2^{k_2} \ldots x_n^{k_n} \owns A,
+	\end{align*}
+	homomorfizem $f$ je surjektiven, ker so $x_i$ generatorji. Dobimo zgornje eksaktno zaporedje, ki pomeni $A \cong \quot{\Z^n}{\ker f}$. To
+	da opis $A$ z generatorji in relacijami:
+	\begin{equation}
+		A = \big[\underbrace{x_1, x_2, \ldots, x_n}_\text{generatorji $A$}\ |\ \underbrace{r_1, r_2, \ldots, r_m}_\text{generatorji $\ker f$}\big]
+	\end{equation}
+	}
+\end{itemize}
+
+\paragraph{Opomba:}
+Abelove grupe ve\v cinoma pi\v semo aditivno, v tem primeru direktni produkt zamenjamo z direktno vsoto, `$\oplus$'.
+
+\begin{zgled}
+	\begin{enumerate}
+		\item{Ostanki po modulu $n$:
+			\[
+				C_n \cong \Z_n = \{0, 1, \ldots, n-1\},
+			\]
+			$\Z_n$ je cikli\v cna z generatorjem 1.
+			\[
+				\left.
+				\begin{array}{rl}
+					\underbrace{\ker f}_{= n\Z} \to \Z &\stackrel{f}{\to} \Z_n \\
+					1 &\mapsto 1
+				\end{array}
+				\right\} \Z_n = \big[1\ |\ n\big],
+			\]
+			saj je `$1$' generator, in $n \cdot 1 = 0 \in \ker f$. \v Ce generator ozna\v cimo z $x$, potem je
+			$\Z_n = \langle x \rangle$, relacija pa je $nx =0$, $\then \Z_n = \big[x\ |\ nx\big]$.
+		}
+		\item{Naj bo $A = [x, y\ |\ 2x + y,\ x - 2y]$. Zapi\v si $A$ kot vsoto (produkt) proste grupe in cikli\v cnih kon\v cnih grup. To pomeni nekako tole
+			\[
+				A = \quot{\Z_x \oplus \Z_y}{\langle 2x + y,\ x - 2y\rangle}
+			\]
+			Ideja je ta, da generatorja (bazo) tako zamenjamo, da bo imenovalec lep\v si. Potem bosta relaciji preprostej\v si, $\then$ relaciji oblike $au$, $bv$.
+			Potem delamo linearno algebro nad $\Z$.
+			\[
+				\left.
+				\begin{array}{rl}
+					r_1 &= 2x + y \\
+					r_2 &= x - 2
+				\end{array}
+				\right. \quad \Bigg|\ \text{Ideja:}\quad
+				\begin{bmatrix}
+					u \\ v
+				\end{bmatrix} = A
+				\begin{bmatrix}
+					x \\ y
+				\end{bmatrix},\ \text{tj. $u$, $v$ lin. komb. $x$ in $y$.}
+			\]
+			Matrika $A \in SL(2, \Z)$, tj. mora biti obrnljiva, z `$\det A = 1$' (sicer so dobre tudi matrike, ki imajo `$\det A  = -1$',
+			vendar ugibamo, da zado\v s\v ca $\det A = 1$) in celimi koeficienti. Gotovo je ta matrika oblike
+			\[
+				\begin{bmatrix}
+					1 & * \\ 0 & 1
+				\end{bmatrix} \quad \text{ali} \quad \begin{bmatrix}
+					1 & 0 \\ * & 1 \end{bmatrix}.
+			\]	
+			\pagebreak
+
+			\ni To nam te ti dve mo\v znosti:
+			\[
+			\begin{bmatrix}
+				1 & n \\ 0 & 1
+			\end{bmatrix}
+			\begin{bmatrix}
+				x \\ y
+			\end{bmatrix} =
+			\begin{bmatrix}
+				x + ny \\
+				y
+			\end{bmatrix}; \quad
+			\begin{bmatrix}
+				1 & 0 \\
+				n & 1
+			\end{bmatrix}
+			\begin{bmatrix}
+				x \\ y
+			\end{bmatrix} =
+			\begin{bmatrix}
+				x \\ y + nx
+			\end{bmatrix}.
+			\]
+			\ni Dovoljeni operaciji sta:
+			\begin{align*}
+				(x, y) &\mapsto (x + ny, y), \\
+				(x, y) &\mapsto (x, y + nx).
+			\end{align*}
+			\ni Uporabimo lahko $(x, y) \to (x -2y, y) = (u_1, v_1)$. Relaciji tedaj izgledata
+			\begin{align*}
+				r_2 &= u_1, \\
+				r_1 &= 2(2y + u_1) + y = 5y + 2u_1 = 5v_1 + 2u_1.
+			\end{align*}
+			$(u_1, v_1)$ ne moremo pretvoriti na ni\v c lep\v sega.
+			\paragraph{Ampak:} $r_1$ in $r_2$ generirata podgrupo relacij, na teh operatorjih lahko uporabimo isti princip.
+			\[
+				(r_1, r_2) \to (r_1 - 2r_2, r_2),
+			\]
+			\[
+				\left.
+				\begin{array}{rl}
+					r_2 &= u_1 \\
+					r_1' &= 5v_1
+				\end{array} \right\} A = \quot{\Z_{u_1} \oplus \Z_{u_2}}{\langle u_1, 5v_1\rangle}
+			\]
+			Ostanejo le ostanki po modulu $5$: generator $u_1$ smo \v cisto "`ubili"', generator $v_1$ pa nam da le tiste, ki so deljivi s $5$. To pomeni
+			\[
+				A = [u_1 ,v_1\ |\ u_1, 5v_1] = \Z_1 \oplus \Z_5 \cong \Z_5
+			\]
+		}
+	\end{enumerate}
+\end{zgled}
+
+\section{Struktura kon\v cno generiranih abelovih grup}
+
+$A$ abelova grupa. Potem
+\[
+	A \cong \overbrace{\Z^n}^\text{prosti del} \oplus \overbrace{\Z_{c_1} \oplus \Z_{c_2} \oplus \ldots \oplus \Z_{c_k}}^\text{torzijska podgrupa $T$},
+\]
+
+\ni $n$ = rang grupe $A$, $c_i$ so torzijski koeficienti in
+\[
+	c_i \geq 1, \forall i \in I, \quad c_1\ |\ c_2\ |\ \ldots\ |\ c_k,
+\]
+
+kanoni\v cna dekompozicija.
+
+\v Ce je $A$ generirana z $x_1, \ldots, x_m$.
+
+\[
+	\{0\} \to \underbrace{K}_{\ker f} \to \stackrel[e_i]{}{\Z^m} \stackrel[\mapsto]{}{\to} \stackrel[x_i]{}{A} \to \{ 0\},
+\]
+\[
+	e_i = (0,\ldots,0,\overbrace{1}^{n},0,\ldots,0).
+\]
+
+\ni \v Ce generatorje v $\Z^m$ poimenujemo $y_i = e_i$, potem je $K$ kot podgrupa v $\Z^m$ generirana z nekimi $r_j$, ki so linearne kombinacije $y_i$
+\[
+	r_j = \sum_{i = 1}^m a_{ji} y_i
+\]
+
+\ni Relacije lahko zapi\v semo v matriko relacij $R$
+
+\[
+	R = \big[a_{ji}\big] =
+	\begin{bmatrix}
+		a_{11} & a_{12} & \ldots & a_{1m} \\
+		a_{21} & a_{22} & \ldots & a_{2m} \\
+		\vdots &  & \ddots & & 
+	\end{bmatrix}
+\]
+
+\ni Ideja za izra\v cuna kanoni\v cne dekompozicije $A$ je, da s spremembami nabora generatorjev matriko $R$ preoblikujemo tako,
+da iz nje lahko od\v citamo torzijske koeficiente.
+
+\begin{trditev}
+	Naj bo $A$ abelova in $X = \{x_1, x_2, \ldots x_m\}$ nabor generatorjev za $A$. Potem je mno\v zica $Y = \{y_1, \ldots, y_m\}$
+	tudi nabor generatorjev za $A$, \v ce $Y$ dobimo iz $X$ z zaporedjem operacij iz tegale nabora:
+	\begin{enumerate}
+		\item{Zamenjamo lahko dva generatorja:
+			\[
+				y_j = x_i,\ y_i = x_j, \quad y_k = x_k\ \forall k \neq i,j.
+			\]}
+		\item{En generator pomno\v zimo z $(-1)$:
+			\[
+				y_i = -x_i, \quad y_k = x_k \forall k \neq i.
+			\]}
+		\item{Poljubnemu generatorju pri\v stejemo linearno kombinacijo ostalih:
+			\[
+				y_i = x_i + \sum_{j \neq i} n_j x_j; \quad n_j \in \Z.
+			\]}
+	\end{enumerate}
+\end{trditev}
+
+\paragraph{Dokaz:}
+O\v citno ima vsaka od zgornjih operacij inverz iste vrste, torej res sistem generatorjev preslika v sistem generatorjev
+({\em opomba}: to je Gaussova eliminacija nad $\Z$). \qed
+
+\paragraph{Algoritem:}
+za izra\v cun KD (kanoni\v cne dekompozicije): Dani $R$ preoblikujemo v "`diagonalno"' matriko,
+
+\[
+	\underbrace{\begin{bmatrix}
+		c_1 &     &        &        &   &        &   \\
+		    & c_2 &        &        &   &        &   \\
+		    &     & \ddots &        &   &        &   \\
+		    &     &        & c_\ell &   &        &   \\
+		    &     &        &        & 0 &        &   \\
+		    &     &        &        &   & \ddots &   \\
+		    &     &        &        &   &        & 0
+	\end{bmatrix}}_{\text{Smithova normalna oblika}}, \quad c_1\ |\ c_2\ |\ \ldots\ |\ c_\ell,\quad c_i \geq 1,
+		\quad m - \ell = \rang A.
+\]
+
+\ni Matrika $R$ je dimenzije $m \times m$, vendar je njen rang manj\v si za rang matrike $A$. \v Ce je $c_1 = 1$: za generator $x_1$
+velja, da je tudi v podgrupi relacij $K$ -- v kvocuentu dobimo $\quot{\Z_{x_1}}{\Z_{x_1}}$ trivialno grupo.
+
+\paragraph{Postopek:}
+Na mesto $(1,1)$ postavimo najve\v cji skupni delitelj elementov matrike $R$. Ta postane na\v s $c_1$. Z njim potem najprej uni\v cimo
+preostale elemente v prvi vrstici (s pri\v stevanjem prvega stolpca), nato z novo prvo vrstico uni\v cimo preostale elemente v
+prvem stolpcu:
+\[
+	R \to
+	\begin{bmatrix}
+		c_1 & * & *  & * \\
+		\cline{2-4}
+		 * &\hspace{-3.2ex}\vline   &    &   \\
+		 * &\hspace{-3.2ex}\vline   & R' &  \\
+		 * &\hspace{-3.2ex}\vline   &    &
+	\end{bmatrix} \to
+	\begin{bmatrix}
+		c_1 & 0 & 0  & 0 \\
+		\cline{2-4}
+		 0 &\hspace{-3.2ex}\vline   &    &   \\
+		 0 &\hspace{-3.2ex}\vline   & R'' &  \\
+		 0 &\hspace{-3.2ex}\vline   &    &
+	\end{bmatrix}
+\]
+Nadaljujemo na matriki $R''$.
+\paragraph{Opomba:} Delovanje algoritma da dokaz obstoja kanoni\v cne dekompozicije.
+
+\paragraph{Primeri:}
+\begin{itemize}
+	\item{Izra\v cunaj KD grupe, ki je kvocient $\Z^3$ po podgrupi, generirani z generatorji $(3,6,-3)$, $(3,3,-6)$, $(3,3,3)$:
+		\[
+			R = \begin{bmatrix}
+				3 & 6 & -3 \\
+				3 & 3 & -6 \\
+				3 & 3 & 3
+			\end{bmatrix} \to \begin{bmatrix}
+				3 & 0  & 0  \\
+				3 & -3 & -3 \\
+				3 & -3 & 6
+			\end{bmatrix} \to \begin{bmatrix}
+				3 & 0 & 0 \\
+				\cline{2-3}
+				0 &\hspace{-1ex}\vline -3 & -3 \\
+				0 &\hspace{-1ex}\vline -3 & 6
+			\end{bmatrix} \to \begin{bmatrix}
+				3 & 0 & 0 \\
+				0 & 3 & -3\\
+				0 & 3 & 6
+			\end{bmatrix} \to \begin{bmatrix}
+				3 &   & \\
+				  & 3 & \\
+				  &   & 9
+			\end{bmatrix};
+		\]
+		\[
+			\then
+			\left.
+			\begin{array}{rl}
+				c_1 &= 3\\
+				c_2 &= 3\\
+				c_3 &= 9
+			\end{array}\right.,\quad \rang A = 0,
+		\]
+		$R$ je matrika relacij za grupo $\quot{\Z_x \oplus \Z_y \oplus \Z_z}{\langle3x, 3y, 9z \rangle} =
+		[x,y,z\ |\ 3x, 3y, 9z]$.
+	}
+\end{itemize}
