@@ -1,0 +1,1247 @@
+\chapter{Linearne upodobitve kon\v cnih grup}
+
+Omejili se bomo na $\F = \C$, \v ceprav lahko vse izreke in trditve zlahka posplo\v simo na splo\v sen $\F$.
+
+\begin{defin}
+	Naj bo $V$ vektorski prostor nad $\C$.
+	\begin{itemize}
+		\item{\v Ce je $G$ grupa, je {\em linearna upodobitev} $G$ na $V$ (nad $\C$) homomorfizem
+			\[
+				G \to GL_{\C}(V)
+			\]}
+		\item{$\dim_{\C} V = n \in \mathbb{N}$ imenujemo {\em stopnja upodobitve}.}
+	\end{itemize}
+\end{defin}
+
+\begin{zgled} Upodobitve stopnje 1 so homomorfizmi
+\[
+	G \to GL_1(\C) = \big\{[a]\ |\ \det[a] = a \neq 0\big\},\ \quad GL_1(\C) = \C\backslash\{0\} = \C^*.
+\]
+\ni \v Ce je $G$ kon\v cna, je slika upodobitve $G$ v $\C^*$ tudi kon\v cna podgrupa, vsebovana v kro\v znici $S^1$ (ker imajo
+elementi v $G$ kon\v cen red), vsak element je nek koren enote.
+\end{zgled}
+
+\begin{itemize}
+	\item{$G$ kon\v cna grupa -- potem so vse (kon\v cno dimenzionalne) linearne upodobitve $G \to GL_\C (V)$, $V$ kon\v cno
+		dimenzionalen vektorski prostor nad $\C$.}
+	\item{\emph{Regularna upodobitev}, kjer za $V$ vzamemo vektorski prostor z bazo $G$, delovanje $G$ pa permutira bazne vektorje
+		$(g\cdot v_h = v_{(gh)}$, kjer $g,h \in G$), na nek na\v cin vsebuje vse upodobitve.}
+	\item{Glavna ideja je ta, da vsaki upodobitvi priredimo \emph{karakter}, ki je funkcija $G \to \C$. Za za\v cetek zelimo
+		primerjati razli\v cne upodobitve.}
+	\item{Naj bosta $G \to GL_{\C}(V)$ in $G \to GL_{\C}(W)$ dve linearni upodobitvi grupe $G$. {\em Homomorfizem
+		upodobitev} (ekvivariantni homomorfizem) je linearna preslikava $T:V \to W$, ki komutira z delovanjem
+		\begin{align*}
+			v \in V,\ &\ g \in G \\
+			T(gv) &= gT(v)
+		\end{align*}}
+	\item{\v Ce je $T$ linearni izomorfizem, ki je ekvivarienten, sta upodobitvi {\em izomorfni}. Tak\v sne upodobitve
+		ena\v cimo.}
+	\item{\v Ce je $V$ kon\v cno dimenzionalen vektorski prostor nad $\C$, potem $\exists n \in \mathbb{N}$ in linearen
+		izomorfizem $T : \C^n \to V$. Ta $T$ lahko naredimo za izomorfizem upodobitev tako, da s pogojem ekvivariantnosti
+		definiramo delovanje $G$ na $\C^n$ na osnovi delovanja na $V$: za $x \in \C^n$ in $g \in G$ mora veljati
+		\[
+			T(gx) = g\cdot T(x),
+		\]
+		$T$ izomorfizem $\then gx = T^{-1}\big(g \cdot T(x)\big)$:
+		\[
+			\begin{array}{ccccc}
+				& \C^n & \stackrel[\cong]{T}{\longrightarrow} & V &\\
+				\text{(da diagram komutira)}& \downdasharrow & & \downarrow & \text{(delovanje $G$)} \\
+				& \C^n & \stackrel[\cong]{T}{\longrightarrow} & V &
+			\end{array}
+		\]
+		$g$ na $\C^n$ je kompozitum izomorfizmov $\then$ je izomorfizem.}
+\end{itemize}
+
+\begin{zgled}
+	Vsaka upodobitev ranga 1 ($\dim_{\C}V = 1$) dolo\v ca upodobitev abelacije grupe.
+
+	\paragraph{Re\v sitev:} to je homomorfizem $\varphi : G \to GL_1 (\C) = \C^*$. Grupa $\C^*$ je abelova.
+	Vsak homomorfizem iz $G$ v abelovo grupo vsebuje v jedru komutatorsko podgrupo $K = [G,G]$ in $\varphi$ inducira
+	homomorfizem $\bar{\varphi}$:
+	\[
+		\bar{\varphi} : \quot{G}{K} \to \C^*, \quad p : G \to \quot{G}{K},
+	\]
+	kjer je $\quot{G}{K} = \quot{G}{[G,G]} \stackrel{\text{def.}}{=}$ abelacija, in velja $\varphi = \bar{\varphi} \circ p$.
+	
+	Vsi homomorfizmi iz $G$ pridejo iz $\quot{G}{K} \to \C^*$.
+	\qed
+\end{zgled}
+\begin{zgled}
+	Poi\v sci vse upodobitve ranga 1 za diederske grupe $D_n$.
+
+	\paragraph{Re\v sitev:}
+	\begin{itemize}
+		\item{Najprej se spomnimo predstavitve $D_n$:
+			\[
+				D_n = \langle x, y\ |\ x^n, y^2, xy = yx^{-1} \rangle
+			\]}
+		\item{Iz tega ho\v cemo abelacijo, tj. bomo vsilili \v se relacijo $xy = yx$. Isto predstavitev potem lahko
+			zapi\v semo aditivno (namesto multiplikativno) -- tako je komutativnost \v ze vsebovana:
+			\[
+				\ab (D_n) = \langle x, y\ |\ x^n, y^2, xy = yx^{-1}, xy = yx \rangle =
+					[x, y\ |\ nx, 2y, x + y = y - x]
+			\]
+			\ni  Zadnja relacija pomeni $2x = 0$, kar v kombinaciji z $nx$ pomeni
+			\begin{align*}
+				n &=\text{sod} = 2m \then 2m x = 0 = m \overbrace{(2x)}^{= 0} \then 2x = 0, \\
+				n &=\text{lih} = 2m + 1 \then (2m + 1)x = 0 = m\underbrace{(2x)}_{= 0} + x = 0 \then x = 0.
+			\end{align*}}
+		\item{Vidimo za $n = 2m$ dobimo relacijo, ki pomeni, da sta $x$ in $y$ dvo\v stevni osi:
+			\[
+				\ab(D_{2m}) = [x, y\ |\ 2x, 2y] \cong \Z_2 \times \Z_2,
+			\]
+			v primeru, ko je $n = \text{lih}$ pa dobimo, da je $x$ eno\v stevna os, tj.
+			\[
+				\ab(D_{2m+1}) = [x, y\ |\ x, 2y] \cong \Z_1 \times \Z_2 \cong \Z_2.
+			\]}
+		\item{Po prej\v snjem zgledu dr\v zi, da so vse upodobitve ranga 1 dolo\v cene z abelacijo. Torej zado\v s\v ca,
+			da poi\v s\v cemo upodobitve abelacije. I\v scemo vse mo\v zne homomorfizme $\ab(D_n) \to \C^*$:
+			\begin{itemize}
+				\item{$n$ je lih: $\ab(D_n) \cong \Z_2 = \{\pm 1\}$. Imamo dva taka homomorfizma:
+					\begin{enumerate}
+						\item{$\varphi(a) = 1$, trivialna upodobitev -- vse slikamo v identiteto:
+							\begin{align*}
+								\varphi(1) &= 1, \\
+								\varphi(-1) &= 1.
+							\end{align*}}
+						\item{$\varphi(a) = a$, identi\v cna upodobitev -- ni\v c ne spremenimo:
+							\begin{align*}
+								\varphi(1) &= 1, \\
+								\varphi(-1) &= -1.
+							\end{align*}}
+					\end{enumerate}}
+				\item{$n$ je sod: $\ab(D_n) \cong \Z_2 \times \Z_2 = \big\{(1,1), (1,-1), (-1,1), (-1,-1)\big\}$.
+				Izberemo si dva generatorja: $x = (-1,1)$ in $y = (1,-1)$, potem $xy = (-1,-1)$. Dovolj je povedati,
+				kam se preslikata $x$ in $y$. Sklepamo: $x$ in $y$ sta reda 2 $\then \varphi(x) = \pm 1$ in
+				$\varphi(y) = \pm 1$ ter bo $\varphi(xy) = \pm 1$ $\then$ imamo 4 mo\v znosti (vedno gresta dva elementa
+				v `$-1$', dva pa v $1$. Identiteta mora vedno ostati identiteta.}
+			\end{itemize}}
+	\end{itemize}
+\end{zgled}
+
+\begin{defin}
+	Naj bo $G \to GL_{\C}(V)$ upodobitev in $W \subseteq V$ vektorski prostor. $W$ je \emph{$G$-invarianten}, \v ce je $g\cdot W = \{gw\ |\ w\in W\}$ vsebovan
+	v $W$ $\forall g \in G$. V tem primeru lahko zgornjo upodobitev zo\v zimo na $W$ in dobimo \emph{podupodobitev} $G \to GL_\C(W)$.
+\end{defin}
+
+\paragraph{Opomba:} Premisliti moramo, da delovanje z porodi izomorfizem (avtomorfizem?) $W \to W$ (zahtevali smo le $gW \subseteq W$). Ker je $g : V \to V$ linearni
+izomorfizem, je injektiven, zato je tudi zo\v zitev injektivna. Upo\v stevamo $\dim(\ker) + \dim(\im) = \dim(\text{prostora})$ in delovanje je injektivno
+\[
+	\dim(\ker) = 0 \then \dim(gW) = \dim W \then gW = W.
+\]
+\paragraph{Cilj:} Razcepiti upodobitev na podupodobitve, dokler je to mogo\v ce. Ker je $\dim_\C(V) < \infty$, se bo proces iskanja podupodobitev kon\v cal.
+\begin{defin}
+	Upodobitev $G \to GL_\C(V)$ je {\em nerazcepna} ({\em ireducibilna}), \v ce sta edini podupodobitvi $\{0\}$ in $V$.
+\end{defin}
+
+\begin{lema}
+	Naj bo $G \to GL_\C(V)$ upodobitev kon\v cne grupe $G$. Potem ima $V$ $G$-invarianten skalarni produkt, tj.
+	\begin{align*}
+		\langle \bullet, \bullet \rangle_G : V \times V &\to \C, \\
+		\langle gv, gw \rangle_G &= \langle v, w \rangle_G.
+	\end{align*}
+\end{lema}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item{Naj bo $\langle \bullet, \bullet \rangle : V \times V \to \C$ poljubni skalarni produkt. Za invarianten skalarni produkt zgornjega
+		povpre\v cimo po delovanju grupe:
+		\[
+			\langle v, w \rangle_G = \frac{1}{|G|}\sum_{g \in G} \langle gv, gw \rangle.
+		\]}
+	\item{Tole je res skalarni produkt ({\em potrditev zgornjega izraza}):
+		\[
+			\langle v, w \rangle_G = \frac{1}{|G|}\sum_{g \in G} \overbrace{\langle gv, gw \rangle}^{\geq 0},
+		\]
+		\begin{itemize}
+			\item{je res ve\v cje ali enako $0$,}
+			\item{je enako $0$ samo, kadar je $v = 0$.}
+			\item{linearnost in antisimetri\v cnost sta enostavni.}
+		\end{itemize}}
+	\item{Preveriti moramo \v se, \v ce je tak skalarni produkt ($G$-)invarianten: naj bo $h \in G$, $v,w \in V$.
+		\[
+			\langle hv, hw\rangle_G = \frac{1}{|G|}\sum_{g \in G} \langle ghv, ghw \rangle.
+		\]
+		Ko $g$ prete\v ce $G$, tudi $gh$ prete\v ce cel $G$ -- ozna\v cimo $g' = gh$:
+		\[
+			\langle hv, hw\rangle_G = \frac{1}{|G|}\sum_{g' \in G} \langle g'v, g'w\rangle = \langle v, w \rangle_G.\ \blacksquare
+		\]}
+	\item{Ta skalarni produkt res obstaja, sami smo ga definirali in na\v sli.}
+\end{itemize}
+\qed
+
+\begin{posledica}
+	Naj bo $G \to GL_\C(V)$ linearna upodobitev kon\v cne grupe. Izberimo nek $G$-invarianten skalarni produkt na $V$.
+	\v Ce elementu $g \in G$ pripadajo\v ci linearni izomorfizem (avtomorfizem?) $g:V \to V$ predstavimo z matriko $A$
+	glede na neko ortonormalno bazo (ONB) za $V$, potem je ta matrika {\em unitarna}, tj. $A^* A = I$ (oz. $A^* = A^{-1}$).
+	\paragraph{Opomba:} V fiziki bi unitarnost ozna\v cili kot $A^\dagger A = I$, vendar te notacije ne bomo uporabljali.
+\end{posledica}
+
+\paragraph{Dokaz:}
+Element $g \in G$ je predstavljen z matriko $A$ glede na neko ONB $(v_1, \ldots, v_n)$ za $V$. Pogoj invariantnosti skalarnega produkta
+da:
+\[
+	\langle A^* A v, w\rangle = \langle Av, Aw\rangle = \langle v, w\rangle, \quad \forall v,w \ \then \ A^* A = I.
+\]
+\qed
+
+\begin{trditev}
+	Vsak invarianten podprostor ($gW \subseteq W,\ \forall g$) ima invarianten komplement. Naj bo $G \to GL_\C(V)$ upodobitev
+	in $W \subseteq V$ invarianten podprostor. Potem $\exists$ komplementaren invarianten podprostor $W'$ za $W$, tj. $V = W \oplus W'$.
+	Za $W'$ lahko vzamemo kar ortognonalni komplement $W^{\perp}$ glede na nek invarianten skalarni produkt.
+\end{trditev}
+
+\paragraph{Dokaz:}
+Naj bo $\langle \bullet, \bullet \rangle$ nek $G$-invarianten skalarni produkt na $V$ in $W^\perp = \big\{v \in V\ |\ \langle v,w\rangle = 0,\ \forall w \in W\big\}$.
+Trdimo, da je $W^\perp$ tudi $G$-invarianten:
+\begin{itemize}
+	\item{Naj bo $v \in W^\perp$, $g \in G$, potem za $gv$ in $W \in W$ velja 
+	\[
+		\langle gv, w \rangle = \langle g^{-1}gv, g^{-1}w\rangle = \langle \overbrace{v}^{\in W^\perp}, \overbrace{g^{-1}w}^{\in W} \rangle = 0,
+	\] od koder sledi $gv \in W^\perp$.}
+	\item{Pokazati moramo \v se, da $W \oplus W^\perp = V$, kar smo pokazali \v ze pri drugih kurzih tekom na\v sega \v solanja (Matematika I, II).}
+\end{itemize}
+\qed
+
+\begin{posledica}
+	[{\em Komentar}] \v Ce to ponavljamo, bomo $V$ razcepili na nerazcepne podprostore.
+\end{posledica}
+
+\begin{trditev}
+	Naj bo $G \to GL_\C(V)$ upodobitev kon\v cne grupe $G$ na kon\v cno dimenzionalnem vektorskem prostoru $V$. Potem lahko $V$ zapi\v semo kot
+	direktno vsoto nerazcepnih upodobitev.
+\end{trditev}
+
+\section{Konstrukcije upodobitev}
+
+Gre za konstrukcije vektorskih prostorov, na katere lahko "`raz\v sirimo"' \v se upodobitve.
+\subsection{Direktna vsota}
+\emph{Direktna vsota}: $G \to GL_\C(V)$ in $G \to GL_\C(W)$ sta dve upodobitvi. Tedaj je
+$G \to GL_\C(V \oplus W)$, s predpisom $g (v, w) = (gv, gw)$,  spet upodobitev, dobljena iz
+direktne vsote. \v Ce izberemo bazi za $V$ in $W$ ter glede na ti bazi delovanje $g \in G$ predstavimo
+z matrikama $A$ na $V$ in $B$ na $W$, je delovanje $g$ na $V \oplus W$ dano z direktno vsoto:
+\[
+	A \oplus B = \begin{bmatrix}
+		A & 0 \\
+		0 & B
+	\end{bmatrix}.
+\]
+
+\subsection{Tenzorski produkt}
+$G \to GL_\C (V)$ in $G \to GL_\C (W)$ upodobitvi. Tenzorski produkt $V \otimes W$ je
+kvocient vektorskega prostora z bazo $V \times W$ po najmanj\v si ekvivalen\v cni relaciji, ki zado\v s\v ca:
+\begin{align*}
+	\left.
+	\begin{array}{rl}
+	(v_1 + v_2, w) &\sim (v_1, w) + (v_2, w) \\
+	(v, w_1 + w_2) &\sim (v, w_1) + (v, 2_2)
+	\end{array}\right\}\ &\text{aditivnost}, \\
+	(\lambda v, w) \sim \lambda (v,w) \sim (v, \lambda w)\ &\text{homogenost},
+\end{align*}
+$\forall v_i \in V$, $\forall w_i \in W$ in $\lambda \in \C$.
+\begin{itemize}
+	\item{To pomeni: vektorski prostor $V \times W$ je mno\v zica vseh kon\v cnih linearnih kombinacij
+		$\sum_{i = 1}^n \lambda_i(v_i, w_i)$, ekvivalen\v cna relacija pa dovoli, da operacije iz $V$ in $W$
+		prenesemo na $V \otimes W$.}
+	\item{Element v $V \otimes W$, ki pripada paru $(v, w)$ ozna\v cimo $v \otimes w$ in imenujemo
+		\emph{elementarni tenzor}.}
+	\item[$\bullet$]{Poljuben element v $V \otimes W$ je torej oblike
+		\[
+			\sum_{i = 1}^n \lambda_i v_i \otimes w_i
+		\]
+		in pri tem velja
+		\[
+			\lambda(v \otimes w) = (\lambda v \otimes w) = (v \otimes \lambda w) = \lambda v \otimes w.
+		\]}
+\end{itemize}
+
+\begin{trditev}
+	\v Ce je $v_1, \ldots, v_k$ baza za $V$ in $w_1, \ldots, w_\ell$ baza za $W$, je $\big\{v_i \otimes w_j |^{i = 1, \ldots, k}_{j
+		= 1, \ldots, \ell}\big\}$ baza za $V \otimes W$.
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item{Za poljuben element v $V \otimes W$ imamo
+		\[
+			\underbrace{\sum_m \lambda_m x_m \otimes y_m, \quad \begin{array}{rl}
+				x_m =& \sum_i a_{mi} v_i, \\
+				y_m =& \sum_j b_{mj} w_j
+			\end{array}}_{}
+		\]\vspace{-5ex}
+		\begin{align*}
+			&= \sum_m \lambda_m \Big(\sum_i a_{mi} v_i\Big) \otimes \Big(\sum_j b_{mj} w_j\Big) \\
+			&= \sum_{m,i,j} \lambda_m a_{mi} b_{mj} (v_i \otimes w_j).
+		\end{align*}}
+	\item{\v Se linearna neodvisnost: recimo 
+		\begin{align*}
+			\sum_{i,j} \lambda_{ij} v_i \otimes w_j &= 0 \\
+			\sum_j \Big(\sum_i \lambda_{ij} v_i\Big) \otimes w_j &= 0 \\
+			= \Big(\sum_i \lambda_{i1} v_i, w_1\Big) + \ldots + \Big(\sum_i \lambda_{i\ell} v_i, w_\ell\Big) &= (0, 0).
+		\end{align*}
+		(v prostoru z bazo $V \times W$) lahko se\v stevamo in mno\v zimo s skalarjem, osredoto\v cimo se na drugo komponento.
+		Ker so $w_j$ baza, se to ne da, razen \v ce so vsi koeficienti enaki 0. Ker so tudi $v_i$ baza, morajo biti 
+		$\lambda_{ij} = 0$.}
+\end{itemize}
+\qed
+
+\paragraph{Primer:}
+Poi\v sci izra\v zavo $\overbrace{\text{linearnih preslikav iz $V \cup W$}}^{L (V, W)}$ s tenzorskim produktom.
+
+\paragraph{Re\v sitev:}
+Poljuben $T \in L(V, W)$ vsakemu $v \in V$ priredi $T(v) \in W$, to lahko gledamo kot na takle elementi tenzorskega
+produkta:
+\[
+	T \in V^* \otimes W,
+\]
+kjer je $V* = \big\{L(V, \C)\big\}$ {\em dualni prostor} linearnih funkcionalov na $V$. Predpis pa deluje takole:
+\[
+	w \in W, \quad f \otimes w \in V^* \otimes W,
+\]
+na poljuben $v \in V$ deluje s predpisom
+\[
+	\big(f\otimes w\big) (v) \equiv f(v) w \in W.
+\]
+
+\ni Da poljubno linearno preslikavo $T$ zapi\v semo kot vsoto elementarnih tenzorjev, si pomagamo z bazami: $(v_1, \ldots, v_n)$ baza za
+$V$, tej priredimo dualno bazo $(f_1, \ldots, f_n)$ baza za $V^*$ s predpisom $f_i(v_j) = \delta_{ij}$. Baza $(w_1, \ldots, w_m)$ za
+$W$ da matriko $A = [a_{ij}]$ za $T$
+\[
+	T = \sum_{ij} a_{ji} f_i \otimes w_j.\ \blacksquare
+\]
+
+Tvorimo lahko ve\v ckratne tenzorske produkte. Posebej zanimivi so tenzorji oblike
+\[
+	\underbrace{V \otimes V \otimes \ldots \otimes V}_\text{$r$-krat ({\em kovariantni} del)} \otimes \underbrace{V^* \otimes V^* \otimes \ldots
+		\otimes V^*}_\text{$s$-krat ({\em kontravariantni} del)} = V^{r,s}.
+\]
+
+\begin{defin}
+	\emph{Tenzorska algebra}, prirejena prostoru $V$ nad $\C$ je
+	\[
+		T(V) = \bigoplus_{i = 0}^\infty \underbrace{V^{\otimes_i}}_{V^i} = \underbrace{(\C)}_{V^{\otimes_0}} \oplus
+			\underbrace{(V)}_{V^{\otimes_1}} \oplus \underbrace{(V \otimes V)}_{V^{\otimes_2}} \oplus
+			 \underbrace{(V \otimes V \otimes V)}_{V^{\otimes_3}} \oplus \ldots
+	\]
+	To je vektorski prostor, ki ga lahko opremimo \v se z mno\v zenjem vektorjev, analogno konstrukciji proste grupe oz.
+	prostega produkta:
+	\begin{align*}
+		V^i \times V^j &\to V^{i + j} \\
+		(v_1 \otimes \ldots \otimes v_i, w_1 \otimes \ldots \otimes w_j) &\mapsto v_1 \otimes \ldots \otimes v_i \otimes w_1
+		\otimes \ldots \otimes w_j
+	\end{align*}
+\end{defin}
+
+\subsection{Simetri\v cni in alternirajo\v ci produkt}
+
+\begin{defin}
+Simetri\v cni produkt dobimo iz tenzorskega tako, da zahtevamo komutatuvnost faktorjev:
+\[
+	v_1 \otimes v_2 \neq v_2 \otimes v_1,\ \text{v splo\v snem}.
+\]
+Na $V \otimes V$ vpeljemo najmanj\v so ekvivalen\v cno relacijo, pri kateri velja
+\[
+	v_1 \otimes v_2 = v_2 \otimes v_1, \quad \forall v_1, v_2 \in V.
+\]
+
+\ni Kvocientu re\v cemo {\em simetri\v cni produkt} in ozna\v cimo s $S^2 (V)$ (druga simetri\v cna potenca).
+
+\ni Elemente pi\v semo kar z mno\v zenjem:
+\[
+	v_1 \otimes v_2 \in V \otimes V \leadsto v_1 v_2 \in S^2(V).
+\]
+
+\ni Podobno v vi\v sjih potencah. $S^n(V)$ je kvocient $V^n$, kjer zahtevamo, da faktorji komutirajo. Vsota vseh simetri\v cnih
+potenc tvori {\em simetri\v cno algebro}:
+\[
+	S(V) = \bigoplus_{i = 0}^\infty S^i(V).
+\]
+\end{defin}
+To lahko ena\v cimo s polinomi v $k$ spremenljivkah, kjer je $k = \dim_\C V$. Vsak simetri\v cni tenzor reda $n$ lahko zapi\v semo
+kot vsoto baznih $v_{i_1}v_{i_2}\ldots v_{i_n}$, kjer so $v_{i_j}$ iz neke baze $V$. \v Ce bazni element $v_i$ ena\v cimo s
+spremenljivko $x_i$, so zgornje monomi.
+
+\begin{defin}
+	V {\em alternirajo\v ci potenci} vektorskega prostora $V$ zahtevamo, da je produkt tenzorjev antikomutativen, tj. dodamo
+	relacijo
+	\[
+		v_1 \otimes v_2 = - v_2 \otimes v_1.
+	\]
+	Kvocient $V \otimes V$ pri tem poimenujemo druga {\em vnanja} ({\em exterior}) ali {\em alternirajo\v ca} potenca $V$.
+	Oznaka je $\Lambda^2 (V)$, element pa je $v_1 \wedge v_2$.
+
+	Spet definiramo vi\v sje potence in algebro. {\em Vnanja algebra} nad $V$ je 
+	\[
+		\Lambda(V) = \bigoplus_{i = 0}^\infty \Lambda^i (V) = \bigoplus_{i = 0}^n \Lambda^i (V),
+	\]
+	kjer je $n = \dim_\C V$. \v Se ve\v c, $\dim_\C \Lambda(V) = 2^n$. To se zgodi, ker $v_1 \wedge v_1 = 0$, zato se
+	bazni vektorji ne morejo ponavljati $\then$
+	\[
+		\dim_\C \Lambda^i (V) = \binom{n}{i}.
+	\]
+\end{defin}
+
+$V$ vektorski prostor. Tenzorska algebra $T(V) = \bigoplus_i V^{\otimes_i} = \bigoplus_i V^i$. \v Ce je $\{v_1, \ldots, v_n\}$ baza
+za $V$, je $\{v_{j_1} \otimes \ldots \otimes v_{j_n}\};\ 1 \leq j_i \leq n$ baza za $V^{\otimes_k}$. Tenzorski produkt je lineren
+v vsakem faktorju. Dve kvocientni konstrukciji:
+\begin{itemize}
+	\item{Simetri\v cna algebra, kjer vsilimo komutativnost vektorskega prostora.}
+	\item{Vnanja algebra, kjer vsilimo antikomutativnost, baza za $\Lambda^k(V)$ je $\{v_{j_1} \wedge \ldots \wedge v_{j_k}\}$,
+		kjer je $1 \leq j_1 \leq j_2 \leq \ldots \leq j_k \leq n$.}
+\end{itemize}
+
+Simetri\v cno algebro in vnanjo algebro lahko gledamo tudi kot podmno\v zici v tenzorski algebri. Pomagamo si s projekcijama, ki
+vsakemu tenzorju priredita simetri\v cni oz. alternirajo\v ci tenzor.
+\begin{itemize}
+	\item{V $T^2(V) = V \otimes V$ imamo elementarne tenzorje $v \otimes w$ in takemu lahko priredimo simetrizirani tenzor
+		\[
+			v \cdot w = \frac{1}{2}(v \otimes w + w \otimes v),
+		\]
+		izraz na desni je simetri\v cen na zamenjavo $v$ in $w$. Podobno lahko dobimo anti-simetri\v ceni tenzor
+		\[
+			v \wedge w = \frac{1}{2}(v \otimes w - w \otimes v).
+		\]}
+	\item{V splo\v snem definiramo projekciji
+		\begin{itemize}
+			\item{Simetri\v cna projekcija, $S^k$:
+				\begin{align*}
+					S^k : T^k (V) &\to S^k (V), \\
+					v_1 \otimes v_2 \otimes \ldots \otimes v_k &\mapsto \frac{1}{k!}\sum_{\sigma \in S_k}
+						v_{\sigma(1)} \otimes \ldots \otimes v_{\sigma(k)},
+				\end{align*}}
+			\item{Alternirajo\v ca projekcija, $A^k$:
+				\begin{align*}
+					A^k : T^k (V) &\to \Lambda^k (V), \\
+					v_1 \otimes v_2 \otimes \ldots \otimes v_k &\mapsto \frac{1}{k!}\sum_{\sigma \in S_k}
+						\sign(\sigma) v_{\sigma(1)} \otimes \ldots \otimes v_{\sigma(k)}.
+				\end{align*}}
+		\end{itemize}}
+\end{itemize}
+
+\v Ce je $G \to GL_\C(V)$ linearna upodobitev grupe $G$, jo lahko raz\v sirimo do upodobitve po tenzorskih potencah z delovanjem
+po faktorjih
+\begin{align*}
+	G &\to GL_\C(V^{\otimes_k}) \\
+	g(v_1 \otimes \ldots \otimes v_k) &= gv_1 \otimes \ldots \otimes gv_k.
+\end{align*}
+
+\ni To inducira delovanje na simetri\v cne in anti-simetri\v cne potence.
+
+\begin{zgled}
+	Poka\v zi, da je $T^2(V)$ direktna vsota $S^2(V) \oplus \Lambda^2(V)$.
+	
+	\paragraph{Re\v sitev:}
+	\begin{itemize}
+		\item{Hitro vidimo $v \otimes w = v \cdot w + v \wedge w$, torej je res vsota.}
+		\item{Pokazati moramo \v se, da je $S^2(V) \cap \Lambda^2(V) = \{0\}$: \v ce je $x \in S^2(V) \cap \Lambda^2 (V)$,
+			mora biti $x = 0$. Pa naj bo $x \in V \otimes V$, $\{v_1, \ldots v_n\}$ baza za $V$, $\{v_i \otimes v_j\}$
+			baza za $V \otimes V$. Potem
+			\[
+				\left.
+				\begin{array}{rl}
+				x = \displaystyle{\sum_{i,j = 1}^n} \lambda_{ij} v_i \otimes v_j &\stackrel{\text{sim.}}{=} 
+					\displaystyle{\sum_{i,j = 1}^n} \lambda_{ij}v_j \otimes v_i \then \lambda_{ij} =
+					\lambda_{ji} \\
+				&\stackrel{\text{asim.}}{=} -\displaystyle{\sum_{i,j=1}^n} \lambda_{ij} v_j \otimes v_i \then
+					\lambda_{ij} = -\lambda_{ji}
+				\end{array}\right\} \then \lambda_{ij} = -\lambda_{ij} \then \lambda_{ij} \equiv 0\ \ \forall i,j.
+			\]}
+	\end{itemize}
+	\qed
+\end{zgled}
+
+\section{Karakterji upodobitev}
+
+\begin{defin}
+	Naj bo $\vfi : G \to GL_\C(V)$ linearna upodobitev grue $G$. Potem je {\em karakter} te upodobitve funkcija
+	\begin{align*}
+		\chi : G &\to \C \\
+		g &\mapsto \tr (g : V \to V) \\
+		\chi(g) &= \tr \big(\vfi(g)\big).
+	\end{align*}
+\end{defin}
+
+\paragraph{Primer:} \v Ce je $\vfi : G \to GL_n(\C^*)$ upodobitev stopnje 1, potem je njen karakter kar $\vfi$.
+
+\paragraph{Pomen:} Pomagajo pri razumevanju nekomutativnih grup, ki imajo upodobitve vi\v sjih stopenj.
+
+\begin{trditev}
+	Naj bo $G$ kon\v cna grupa in $\vfi : G \to GL_\C(V)$ upodobitev stopnje $n$ ($n = \dim_\C V$). Potem velja
+	\begin{itemize}
+		\item[{\bf(1)}]{$\chi(e) = n$,}
+		\item[{\bf(2)}]{$\chi(g^{-1}) = \overline{\chi(g)}\ \forall g \in G$.}
+		\item[{\bf(3)}]{$\chi(hgh^{-1}) = \chi (g)\ \forall g,h \in G$.}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item[{\bf(1)}]{$\vfi(e) = \tr(I_{n\times n}) = n$, $I$ je matrika identitete. $\blacksquare$}
+	\item[{\bf(3)}]{Uporabimo cikli\v cnost sledi:
+		\[
+			\chi(hg^{-1}h) = \tr(hgh^{-1} : V \to V) = \tr (gh^{-1}h) = \tr(g : V \to V) = \chi(g).\ \blacksquare
+		\]}
+	\item[{\bf(2)}]{Naj bo $D : \chi(g^{-1}) = \overline{\chi(g)}$. \v Ce $V$ opremimo z $G$-invariantnim skalarnim produktom,
+		vsakemu $g \in G$ pri upodobitvi glede na ONB pripada unitarna matrika $A$. To pomeni, da je $A^{-1} = A^* =
+		\bar{A}^T$. Potem $\tr(A^{-1}) = \overline{\tr(A)}$. $\blacksquare$}
+\end{itemize}
+
+\paragraph{Opomba:}
+\begin{itemize}
+	\item{Lastnost {\bf(3)} pomeni, da so karakterji kot funkcije $G \to \C$ konstantni na konjugiranostnih razredih elementov v
+		$G$.}
+	\item{Na $G$ imamo avtomorfizem konjugiranja: $\forall h \in G$ imamo avtomorfizem $G \to G$, $g \to hgh^{-1}$.}
+	\item{Mno\v zico $C_g = \{hgh^{-1}\ |\ h \in G\}$ imenujemo (\emph{konjugiranostni}) \emph{razred} elementa $g$, in
+		ti razredi sestavljajo kompozicijo $G$ ($G$ je disjunktna unija razli\v cnih $C_g$, dva razreda $C_{g_1}$ in
+		$C_{g_2}$ sta bodisi enaka, bodisi bodisi disjunktna).}
+\end{itemize}
+
+\begin{trditev}
+	Naj bosta $\vfi : G \to GL_\C(V)$ in $\psi : G \to GL_\C(W)$ upodobitvi, naj bosta $\chi_\vfi$ in $\chi_\psi$ njuna
+	karakterja. Potem velja:
+	\begin{enumerate}
+		\item{$\chi_{\vfi \oplus \psi} = \chi_\vfi + \chi_\psi$,}
+		\item{$\chi_{\vfi \otimes \psi} = \chi_\vfi \cdot \chi_\psi$.}
+	\end{enumerate}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{enumerate}
+	\item{\v Ce je $\vfi = A(g) : V \to V$ in $\psi(g) = B(g) : W \to W$, potem je $(\vfi \oplus \psi)(g) = A(g) \oplus B(g)
+		: V \oplus W \to V \oplus W$ in ima sled
+		\[
+			\tr (A \oplus B) = \tr\begin{bmatrix} A & 0 \\ 0 & B \end{bmatrix} = \tr(A) + \tr(B).\ \blacksquare
+		\]}
+	\item{Naj bo $\{v_1, \ldots, v_n\}$ baza za $V$, $\{w_1, \ldots, w_n\}$ baza za $W$. Potem je baza $V \otimes W$ seveda
+		\[
+			\{v_i \otimes w_j\ |\ i = 1, \ldots, n,\ j = 1, \ldots, m\}
+		\]kjer smo implicirali $\dim_\C V = n$ in $\dim_\C W = m$. \v Ce element $A(g) : V \to V$ predstavlja matri\v cno
+		obliko za delovanje $\vfi(g)$, potem je $\tr\big(A(g)\big) = \sum_{i = 1}^n A(g)_{ii}$ in podobno velja za
+		$B(g)$. Po definiciji delovanja $g \in G$ na $V \otimes W$ je
+		\begin{align*}
+			g(v_i \otimes w_j) &= \big(A(g) v_i\big) \otimes \big(B(g) w_j\big) =
+				\Big(\sum_{k} \big(A(g)\big)_{ki} v_k\Big) \otimes \Big(\sum_{\ell} \big(B(g)\big)_{\ell j}
+				w_\ell\Big) \\
+			&= \sum_{k,\ell} \big(A(g)\big)_{ki} \big(B(g)\big)_{\ell j} v_k \otimes w_{\ell}
+		\end{align*}
+		Kako $g : V \otimes W \to V \otimes W$ priredimo matriko? Izra\v cunamo $g$ na baznih vektorjih $v_i \otimes w_j$
+		in te slike razvijemo po isti bazi. Diagonalni elementi ustrezajo komponentam $v_i \otimes w_j$ pri razvoju
+		$g(v_i \otimes w_j)$ po bazi. Ta koeficient je $\big(A(g)\big)_{ii} \big(B(g)\big)_{jj}$,
+		\[
+			\tr \big(A(g) \otimes B(g)\big) = \sum_{i,j} A_{ii} B_{jj} = \Big(\sum_i \big(A(g)\big)_{ii}\Big)
+				\Big(\sum_j \big(B(g)\big)_{jj}\Big)
+				= \tr(A) \cdot \tr(B) = \chi_{\vfi}(g) \cdot \chi_{\psi}(g).\ \blacksquare
+		\]}
+\end{enumerate}
+
+\begin{zgled}
+	$G \to GL_\C(V)$ upodobitev s karakterjem $\chi$. Izrazi karakterja upodobitev $S^2(V)$ in $\Lambda^2(V)$ s tem $\chi$.
+	
+	\paragraph{Re\v sitev:} Vemo, da je $\chi_{T^2(V)} = \chi(g)^2$ in da je $T^2(V) = S^2(V) \oplus \Lambda^2(V)$. Potem
+	\[
+		\chi_{T^2(V)} = \chi_{S^2(V)} + \chi_{\Lambda^2(V)} = \chi^2.
+	\]
+	Za $S^2(V) \subseteq T^2(V)$ dobimo, da so baza $S^2(V)$ torej tenzorji oblike $(v_i \otimes v_j + v_j \otimes v_i)$. Za
+	vsak $g \in G$ ra\v cunamo sled matrike, s katero $g$ deluje na $S^2(V)$. Na $V$ deluje $g$ za matriko $A$:
+	\[
+		A v_i  =\sum_k a_{ki} v_k;\ 1 \leq i \leq j \leq n.
+	\]
+	\begin{align*}
+		g(v_i \otimes v_j + v_j \otimes v_i) &= Av_i \otimes Av_j + Av_j \otimes Av_i \\
+		&= \Big(\sum_k a_{ki}v_k\Big) \otimes \Big(\sum_\ell a_{\ell j} v_\ell\Big) + \Big(\sum_\ell a_{\ell j} v_j\Big)
+			\otimes \Big(\sum_k a_{ki} v_k\Big) \\
+		&= \sum_{k, \ell} a_{ki} a_{\ell j} (v_k \otimes v_{\ell} + v_{\ell} \otimes v_k) \\
+		&= \sum_{k \leq \ell} (v_k \otimes v_\ell + v_\ell \otimes v_k) \left\{
+			\begin{array}{rl}
+				a_{ki} a_{\ell j} + a_{\ell i} a_{kj}; & k \neq \ell \\
+				a_{ki}a_{kj}; & k = \ell
+			\end{array}\right.
+	\end{align*}
+	Prispevek k sledi je koeficient pri $v_i \otimes v_j + v_j \otimes v_i$ in je enak $(a_{ii} a_{jj} + a_{ji}a_{ij})$, \v ce
+	je $i \neq j$, \v ce sta enaka, je pa $(a_{ii} a_{ii})$.
+	\begin{align*}
+		\tr(A) &= \sum_{i = 1}^n a_{ii}^2 + \sum_{1 \leq i \leq j \leq n} (a_{ii}a_{jj} + a_{ij}a_{ji}) \\
+		&= \frac{1}{2}\sum_i a_{ii}^2 + \frac{1}{2}\sum_i a_{ii}^2 + \frac{1}{2}\sum_{i \neq j}(a_{ii}a_{jj} + a_{ji}a_{ij}) \\
+		&= \frac{1}{2}\sum_{i,j}(a_{ii}a_{jj} + a_{ij}a_{ji}) \\
+		&= \frac{1}{2}\big(\chi(g^2) + \chi(g)^2\big)
+	\end{align*}
+	Ugotovimo:
+	\begin{align*}
+		\chi_{S^2(V)} &= \frac{1}{2}\big(\chi(g)^2 + \chi(g^2)\big), \\
+		\chi_{\Lambda^2(V)} &= \frac{1}{2}\big(\chi(g)^2 - \chi(g^2)\big).
+	\end{align*}
+\end{zgled}
+
+\begin{trditev}
+	\paragraph{Schurova lema:} Naj bosta dani nerazcepni upodobitvi $\vfi : G \to GL_\C(V)$ in $\psi : G \to GL_\C(W)$ in naj
+	bo $T : V \to W$ linearna $G$-ekvivariantna preslikava ($T(gv) = g(T(v)) = gT(v)$). Potem velja:
+	\begin{enumerate}
+		\item{\v Ce $\vfi$ in $\psi$ nista izomorfni, je $T = 0$.}
+		\item{\v Ce je $\vfi = \psi$, potem je $T = \lambda I$, $\lambda \in \C$.}
+	\end{enumerate}
+\end{trditev}
+
+\paragraph{Dokaz:} Nerazcepna upodobitev ima le dva invariantna podprostora: $\{0\}$ in cel prostor. Za $G$-ekvivariantno $T$, sta
+$\ker(T)$ in $\im(T)$ invariantna podprostora
+\[
+	\left.\begin{array}{rl}
+	\text{za}\ v \in \ker(T) : T(v) &= 0 \\
+	\text{poljuben}\ g \in G : T(gv) &= gT(v) = 0
+	\end{array}\right\} gv \in \ker T,
+\]
+\begin{align*}
+	\text{\v ce je}\ w \in \im T : w &= T(v) \text{za nek}\ v \in V\ \text{za nek}\ v \in V\\
+	\text{za poljuben}\ g \in G : gw &= gT(v) = T(gv) \in \im T
+\end{align*}
+
+\begin{enumerate}
+	\item{\v Ce je $T = 0$ je v redu, sicer uporabimo zgornje: $\ker(T)$ je invarianten podprostor in $\ker(T)\neq0$, to ni
+		ves prostor $\then$ $\ker(T) = \{0\}$ $\then\ T$ injektivna. $T \neq 0 \then \im(T)\neq 0$, invarianten podprostor,
+		ni $\{0\} \then \im(T) = W$ $\then T$ surjektivna in nijenktivna, tj. izomorfizem. $T$ je linearen ekvivariantni izmorfizem
+		$\then$ je izomorfizem upodobitev.}
+	\item{$T : V \to V$ je linearna preslikava med $\C$ vektorskimi prostori. Potem ima neko lastno vrednost $\lambda \in \C$. Zato
+		$\ker(T - \lambda I) \neq 0$, iz ekvivariantnosti $T$ sledi tudi ekvivariantnost `$T - \lambda I$', zato je $\ker(T -
+		\lambda I) = V \then T - \lambda I = 0$.}
+\end{enumerate}
+\qed
+
+\paragraph{Opomba:}
+\v Ce je $T : V \to W$ poljubna preslikava, lahko $T$ "`povpre\v cimo"' tako, da dobimo $G$-ekvivariantno preslikavo $\hat{T} : V \to W$,
+\[
+	\hat{T} (v) \equiv \frac{1}{|G|}\sum_{g \in G} g^{-1} T(gv).
+\]
+\paragraph{Res:}
+\begin{align*}
+	\hat{T} (hv) &= \frac{1}{|G|}\sum_{g\in G}hh^{-1}g^{-1}T(ghv) \\
+	&= \frac{1}{|G|}\sum_{g \in G} h \big(gh^{-1}\big)T(ghv) = \frac{h}{|G|} \sum_{k \in G} k^{-1} T(kv) \\
+	&= h \cdot \hat{T}(v).\ \blacksquare
+\end{align*}
+
+\begin{itemize}
+	\item{Iz zgornje trditve sledi: \v ce sta $V$ in $W$ neizomorfni upodobitvi, $T$ poljuben, potem je $\hat{T} = 0$.}
+	\item{\v Ce je $T : V \to V$ poljuben, je $\hat{T} = \lambda I$ za nek $\lambda \in \C$.}
+\end{itemize}
+
+\ni Ali lahko iz tega dolo\v cimo vrednost $\lambda$?
+\[
+	\hat{T} = \frac{1}{|G|}\sum_{g \in G} g^{-1} T g.
+\]
+
+\ni Poskusimo sled:
+\begin{align*}
+	\tr (\hat{T}) &= \frac{1}{|G|}\sum_{g \in G} \tr\big(g^{-1}Tg\big) = \frac{1}{|G|}\sum_{g \in G} \tr(T) = \tr(T) \\
+	\tr (\hat{T}) &= \tr(\lambda I) = \lambda n;\ n = \dim_\C V
+\end{align*}
+\[
+	\lambda = \frac{1}{n}\tr(T),\ \text{oz.}\ \hat{T} = \frac{1}{n} \tr(T) I
+\]
+
+\begin{posledica}
+	\paragraph{Ortogonalnist matri\v cnih koeficientov:} Naj bosta $\vfi : G \to GL_\C (V)$ in $\psi : G \to GL_\C(W)$ nerazcepni
+	upodobitvi. Izberimo ONB $\{v_1, \ldots, v_n\}$ in $\{w_1, \ldots, w_m\}$ za vektorka prostora $V$ in $W$. Poljubnemu elementu
+	$g \in G$ glede na ti bazi pripadata matriki $A^g = A \in GL_n(\C)$ in $B^g = B \in GL_m(\C)$.
+	\begin{enumerate}
+		\item{\v Ce $V$ in $W$ nista izomorfni upodobitvi je
+			\[
+				\sum_{g \in G}A^g_{k\ell} \overline{B^g}_{ji} = 0,\ \forall i,j,k,\ell
+			\]}
+		\item{\v Ce $V = W$: (mislimo si lahko tudi $\vfi = \psi$)
+			\[
+				\frac{1}{|G|}\sum_{g \in G}A^g_{k\ell}\overline{A^g}_{ji} = \frac{1}{n}\delta_{i\ell}\delta_{jk}.
+			\]}
+	\end{enumerate}
+\end{posledica}
+
+\paragraph{Dokaz:}
+\begin{enumerate}
+	\item{Naj bo $T : V \to W$ linerna preslikava, da
+		\[
+			\left.\begin{array}{rl}
+				T : v_k &\mapsto w_j \\
+				T : v_i &\mapsto 0, \forall i\neq k
+			\end{array}\quad \right|\quad T = \begin{bmatrix}
+				0 &        &   &        &   &        & \\
+				  & \ddots &   &        &   &        & \\
+				  &        & 0 &        &   &        & \\
+				  &        &   & 1_{jk} &   &        & \\
+				  &        &   &        & 0 &        & \\
+				  &        &   &        &   & \ddots & \\
+				  &        &   &        &   &        & 0
+			\end{bmatrix} = E_{jk}
+		\]
+		Vemo: $\hat{T}= 0$ (po Schurovi lemi). \v Ce $\hat{T}$ napi\v semo v matriki $C$ glede na izbrani
+		bazi so vsi njeni elementi enaki $0$:
+		\begin{align*}
+			0 &= C_{i\ell} = \frac{1}{|G|}\sum_{g \in G} \Big(B^{-1}E_{jk}A\Big)_{i\ell} \\
+			&= \frac{1}{|G|}\sum_{g \in G} B^{-1}_{ij} A_{k\ell} = \frac{1}{|G|}\sum_{g \in G} \overline{B}_{ji} A_{k\ell} = 0.\
+			\blacksquare
+		\end{align*}}
+	\item{Tu bomo kar takoj pri\v celi z ena\v cno
+		\[
+		\left.\begin{array}{rl}
+			T : V &\to V \\
+			 v_k & \mapsto v_j
+		\end{array}\right\} \hat{T} = \frac{1}{n} \tr(T) \cdot I = \frac{1}{n}\delta_{kj}\cdot I.
+		\]
+		\[
+			C_{i\ell} = \frac{1}{n}\delta_{i\ell}\delta_{jk},\ \text{napi\v semo kot prej}
+		\]
+		\[
+			C_{i\ell} = \frac{1}{|G|}\sum_{g \in G}\Big(A^{-1}E_{jk}A\Big)_{i\ell} = \frac{1}{|G|}\sum_{g \in G}
+				\overline{A}_{ji} A_{k\ell}.\ \blacksquare
+		\]
+		}
+\end{enumerate}
+
+\paragraph{Opomba:} Zgornji matri\v cni koeficienti $A^g_{ij}$ sestavljajo funkcije $G \to \C$ in formule v posledici motivirajo definicijo
+skalarnih produktov na takih funkcijah.
+
+\begin{defin}
+	Naj bosta $\alpha, \beta : G \to \C$. Njun skalarni produkt je
+	\[
+		\langle \alpha, \beta \rangle = \frac{1}{|G|}\sum_{g \in G} \alpha(g)\overline{\beta(g)}.
+	\]
+\end{defin}
+\pagebreak
+\begin{trditev}
+	Naj bosta $\chi$ in $\chi'$ neizomorna karakterja nerazcepnih upodobitev. Potem
+	\begin{enumerate}
+		\item{$\|\chi\|^2 = \langle \chi, \chi \rangle = 1 = \|\chi'\|^2$,}
+		\item{$\langle \chi, \chi' \rangle = 0$.}
+	\end{enumerate}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{itemize}
+	\item[2.]{Naj bosta $\vfi : G \to GL_\C(V)$ in $\psi : G \to GL_\C(W)$ neizomorfni upodobitvi, s karakterjema $\chi_\vfi$ in
+		$\chi_\psi$. Izberimo dve ONB. Potem sta $\vfi(g)$ in $\psi(g)$ predstavljena z matrikama $A^g$ in $B^g$,
+		\begin{align*}
+			\chi_\vfi(g) &= \tr(A^g) = \sum_i A^g_{ii}, \\
+			\chi_\psi(g) &= \tr(B^g) = \sum_j B^g_{jj}.
+		\end{align*}
+		Njun skalarni produkt je
+		\begin{align*}
+			\langle \chi_\vfi, \chi_\psi \rangle &= \frac{1}{|G|}\sum_{g \in G} \chi_\vfi(g)\overline{\chi_\psi(g)} =
+				\frac{1}{|G|}\sum_{g \in G}\sum_i A^g_{ii} \sum_j \overline{B^g_{jj}} \\
+			&= \frac{1}{|G|}\sum_{i,j}\Big(\underbrace{\sum_{g\in G} A^g_{ii} \overline{B^g_{jj}}}_{= 0}\Big) = 0.\ \blacksquare
+		\end{align*}}
+	\item[1.]{Normo $\|\chi\|^2$ lahko zapi\v semo kot
+		\[
+			\langle \chi_\vfi, \chi_\psi \rangle = \sum_{i,j} \underbrace{\frac{1}{|G|}\sum_{g \in G}A^g_{ii}\overline{A^g_{jj}}}_{
+				= \frac{1}{n}\delta_{ij}\delta_{ij}} = \frac{1}{n}\sum_{i = 1}^n 1 = 1.\ \blacksquare
+		\]}
+\end{itemize}
+
+\paragraph{Povzetek:} Karakterji nerazcepnih upodobitev tvorijo ortonormiran sistem funkcij $G \to \C$.
+
+\paragraph{Opomba:} Te funkcije ne tvorijo baze vseh funkcij $G \to \C$ (je kon\v cno razse\v zen vektorski prostor za kon\v cno grupo
+$G$) za splo\v sno grupo $G$, saj so konstantne na konjugiranostnih razredih.
+
+\paragraph{Vemo:} $V$ poljubna upodobitev $\then$ $V$ zapi\v semo kot (direktno) vsoto nerazcepnih
+\[
+	V = W_1 \oplus W_2 \oplus \ldots \oplus W_k,
+\]
+kjer so $W_i$ nerazcepne upodobitve (ne nujno neizomorfne).
+
+\begin{posledica}
+	\v Ce je $V$ poljubna upodobitev in $W$ nerazcepna upodobitev, je
+	\[
+		\langle \chi_V, \chi_W \rangle = \text{\v stevilo $W_i$ v dekompoziciji $V$ na nerazcepne, ki so izomorfni $W$}
+	\]
+	(tj. kolikokrat se $W$ ponovi v $V$).
+\end{posledica}
+
+\paragraph{Dokaz:}
+\v Ce je $W_i \ncong W$, je $\langle \chi_{W_i}, \chi_W\rangle = 0$, \v ce $W_i \cong W$ je $\langle \chi_{W_i}, \chi_W\rangle = 1$.
+$V$ je razcepna upodobitev, tj. $V = W_1 \oplus \ldots \oplus W_k$, torej tudi $\chi_V = \chi_{W_1} + \ldots + \chi_{W_k}$. Od tu takoj
+vidimo
+\[
+	\langle\chi_V,\chi_W\rangle = \sum_{i = 1}^k \langle \chi_{W_i},\chi_W\rangle = \underbrace{\sum_{i \in I}\langle
+		\chi_{W_i},\chi_W\rangle}_{\neq 0} + \underbrace{\sum_{j \in J}\langle \chi_{W_j},\chi_W\rangle}_{= 0} = \sum_{i \in I} 1 +
+		0 = 1 \cdot |I|,
+\]
+kjer smo v indeksni mno\v zici vzeli tiste indekse, za katere je skalarni produkt neni\v celn. Po prvotni ugotovitvi, je teh ravno toliko,
+kolikor je $W_i \backepsilon: W_i \cong W$, tj. smo dokazali posledico.
+\qed
+
+\paragraph{Sklep:} Karakter dolo\v ca upodobitev do izomorfizma natan\v cno. Vemo, da je karakterjev nerazcepnih upodobitev le kon\v cno
+mnogo (ker so ortogonalni v kon\v cno dimenzionalnem vektorskem prostoru), zato je tudi nerazcepnih neizomorfnih upodobitev le kon\v cno
+mnogo. \v Ce so $W_1, \ldots, W_s$ vse neizomorfne nerazcepne upodobitve za $G$, je poljubna upodobitev $V$
+\[
+	V \cong \bigoplus_{i = 1}^s m_i W_i,
+\]
+kjer $W_i$ nastopa $m_i$-krat, zato $m_i \geq 0$ in
+\[
+	m_i = \langle \chi_V, \chi_{W_i} \rangle.
+\]
+To da kanoni\v cno dekompozicijo na sumande, posebej je
+\[
+	\chi_V = \sum_{i = 1}^s m_i \chi_{W_i}
+\]
+in
+\[
+	\langle \chi_V, \chi_V \rangle = \sum_{i = 1}^s m_i^2.
+\]
+
+\begin{trditev}
+	\paragraph{Dekompozicija regularne upodobitve:} Za kon\v cno $G$ naj bo $V_G$ vektorski prostor z bazo $G$, kjer bazne vektorje
+	pi\v semo $\{V_g\ |\ g\in G\}$. Na $V_G$ deluje $G$ s permutacijami baznih vektorjev: $gv_h = v_{gh}$. Potem velja:
+	\begin{enumerate}
+		\item{\v Ce je $\chi_G$ karakter te upodobitve, je $\chi_G(e) = |G|$ in $\chi_G(g) = 0$, $\forall g \neq e$.}
+		\item{\v Ce je $W_i$ poljubna nerazcepna upodobitev s karakterjem $\chi_i$, je $\langle \chi_G,\chi_i\rangle = n_i =
+			\dim_\C W_i$.}
+		\item{\v Ce so $W_1,\ldots,W_s$ vse nerazcepne upodobitve, je
+			\[
+				\sum_{i = 1}^s n_i^2 = |G|.
+			\]}
+		\item{$\displaystyle{\sum_{i = 1}^n n_i \chi_i = 0}$, $\forall g \neq e$.}
+	\end{enumerate}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{enumerate}
+	\item{$\chi_G(e) = \dim V_G = |G|$ (o\v citno -- $\blacksquare$). Ker je $gv_h = v_{gh} \neq v_h \forall h$, \v ce $g \neq e$,
+		ima matrika delovanja z $g$ na diagonali same ni\v cle (glede na bazo $\{v_g\}$) $\then \chi(g) = \tr = 0$. $\blacksquare$}
+	\item{Samo ra\v cun:
+		\[
+			\langle \chi_G, \chi_i\rangle = \frac{1}{|G|}\sum_{g \in G}\chi_G(g)\overline{\chi_i(g)},
+		\] kar je enako ni\v c $\forall g \neq e$, tj. vsota odpade in dobimo
+		\[
+			\langle \chi_G, \chi_i\rangle = \frac{1}{|G|} \cdot |G| \underbrace{\overline{\chi_i(e)}}_{\dim W_i} = n_i.
+		\]}
+	\item{Iz druge to\v cke vemo, da je
+		\[
+			V_G = \bigoplus_{i = 1}^s n_i W_i
+		\]
+		in zato je
+		\[
+			\chi_G = \sum_{i = 1}^s n_i \chi_i.
+		\] Za $g = e$ dobimo $\chi_G(e) = |G| = \sum_i n_i \chi_i(e) = \sum_i n_i^2$, saj $\chi_i(e) = n_i$.}
+	\item{$g \neq e$ naredimo analogno in dobimo $\chi_G(g) = 0 = \sum_i n_i \chi_i (g)$.}
+\end{enumerate}
+\qed
+
+\begin{zgled}
+	Poi\v sci vse nerazcepne upodobitve grupe $C_2 = \{1, -1\}$. 
+	
+	\paragraph{Re\v sitev:} Poznamo \v ze dve 1D upodobitvi $C_2 \to \C^*$:
+	\[
+		\left.\begin{array}{rl}
+			\vfi_1 : 1 &\mapsto 1 \\
+			\vfi_1 :-1 &\mapsto 1 \\
+			\text{(trivialna)}
+		\end{array}\right. \qquad
+		\left.\begin{array}{rl}
+			\vfi_2 : 1 &\mapsto 1 \\
+			\vfi_2 :-1 &\mapsto-1 \\
+			\text{(identi\v cna)}
+		\end{array}\right.
+	\]
+	Po tretji izjavi o dekompoziciji regularne upodobitve je $|C_2| = 2 = \sum_i n_i^2\ \then\ $ to sta edini nerazcepni
+	upodobitvi. Poljubna upodobitev v $GL_\C(V)$, $\dim_\C V = n$, obstaja dekompozicija $V$ na 1-D podprostore, na katere
+	$C_2$ deluje s $\vfi_1$ ali $\vfi_2$. Obstaja taka baza z $V$, v kateri je matrika, ki pripada $\vfi(-1)$ enaka (je direktna
+	vsota $\pm$ 1-D matrik)
+	\[
+		\begin{bmatrix}
+			\pm 1 &       &        &      \\
+			      & \pm 1 &        &      \\
+			      &       & \ddots &      \\
+			      &       &        & \pm 1
+		\end{bmatrix}
+	\]
+\end{zgled}
+
+\begin{zgled}
+	Poi\v sci vse nerazcepne upodobitve za $C_n$!
+	
+	\paragraph{Re\v sitev:} Mo\v zne 1-D: $\vfi : C_n \to \C^* = GL_1(\C)$. Dovolj je povedati, kam gre $\exp(2i\pi/n)$
+	(recimo, da ga izberemo za generator):
+	\[
+		\vfi_\ell : e^{2i\pi/n} \mapsto e^{pi\pi\ell/n}, \quad \ell = 0, 1, \ldots, n-1
+	\]
+	Ali so vse te upodobitve neizomorfne? Dve upodobitvi sta izomorfni, \v ce obstaja ekvivariantni izomorfizem vektorskih
+	prostorov, na katere delujeta. V tem primeru, bi bila to preslikava
+	\[
+		T : \stackrel[\vfi_\ell]{}{\C} \to \stackrel[\vfi_m]{}{\C},
+	\]
+	za katero bi veljalo $T \circ \vfi_\ell = \vfi_m \circ T$. Ampak v $\C^*$ je $T$ lahko le mno\v zenje s skalarjem, tj.
+	\[
+		\lambda \vfi_\ell = \vfi_m \lambda \then \vfi_\ell = \vfi_m,
+	\]
+	kar pomeni, da so izomorfne lahko le enake upodobitve. Kot prej lahko tudi sedaj pre\v stejemo in ugotovimo, da so to res
+	vse:
+	\[
+		|C_n| = n = \sum_{\ell = 0}^{n - 1} 1^2 = n.
+	\]
+\end{zgled}
+
+Nadalje \v zelimo iz strukture grupe $G$ dolo\v citi \v stevilo \emph{neizomorfnih nerazcepnih upodobitev} (NNU) grupe. Pomagamo si
+z lastnostmi karakterjev kot funkcije $G \to \C$. Vemo \v ze, da so elementi karakterji konstantni na konjugiranostnih razredih
+elementov grupe $G$, saj $\chi(hgh^{-1}) = \chi(g), \forall g,h \in G$.
+
+\begin{defin}
+	Naj bo $\mathcal{H}_G \equiv \big\{f : G \to \C\ |\ f\big(hgh^{-1}\big) = f(g)\ \forall g,h \in G\big\}$ prostor funkcij na
+	$G$, ki so konstantne na konjugiranostnih razredih. Elemente $\mathcal{H}_G$ imenujemo {\em razredne funkcije}.
+\end{defin}
+
+\paragraph{Vemo:} Karakterji nerazcepnih upodobitev grupe $G$ tvorijo ortonormiran sistem v $\mathcal{H}_G$.
+
+\begin{trditev}
+	Karakterji nerazcepnih upodobitev grupe $G$ tvorijo ortonormirano \emph{bazo} v $\mathcal{H}_G$. Posebej je \v stevilo
+	nerazcepnih upodobitev za $G$ enako \v stevilu konjugiranostnih razredov v $G$.
+\end{trditev}
+
+\paragraph{Dokaz:} Dovolj je pokazati, da je razredna funkcija, ki je ortogonalna na vse karakterje NNU ni\v celna.\\
+
+\emph{Ideja:} Uporabimo regularno upodobitev (ki vsebuje vse nerazcepne) in na tej konstruiramo linearno preslikavo, ki je
+ekvivariantna in dolo\v cena z izbrano razredno funkcijo. Za to preslikavo uporabimo Schurovo lemo (to je vse kar imamo).
+
+Naj bo $f$ razredna funkcija, $\langle f, \chi_i\rangle = 0$ za vsako NNU $W_i$, s karakterjem $\chi_i$. Naj bo $V_G$ regularna
+upodobitev, tj. baza za $V_G = \{v_g\ |\ g \in G\}$ in delovanje je $hv_g = v_{hg}$. Definirajmo
+\[
+	F : V_G \to V_G;\ F = \sum_{g \in G}\overline{f(g)}g,
+\]
+kjer smo povpre\v cili po $g$, da dobimo ekvivariantnost. Res:
+\begin{align*}
+	\forall h \in G : F \circ h &= h \circ F \\
+	F \circ h &= \sum_{g \in G}\overline{f(g)}gh = \sum_{g' \in G} \overline{f(g'h^{-1})}\big(hh^{-1}\big)g' \\
+	&= h \sum_{g' \in G}\overline{f\big(g'h^{-1}\big)}h^{-1}g' = h \sum_{g'' \in G} \overline{f\big(hg''h^{-1}\big)}g'' \\
+	&= h \sum_{g \in G} \overline{f(g)} g = h \circ F.
+\end{align*}
+
+$F : V_G \to V_G$ je invariantna linearna preslikava. Po Schurovi lemi je $F = \lambda I$, $\lambda \in \C$. Potem je
+\[
+	\tr(F) = \lambda|G|,
+\]
+kjer pa sedaj upo\v stevamo linearnost sledi
+\[
+	\lambda|G| = \sum_{g \in G}\overline{f(g)}\tr(g),
+\]
+sled pa lahko zapi\v semo kot $\chi_G(g) = \sum_{i = 1}^n n_i \chi_i(g)$, kar je karakter regularne upodobitve. Ta je skalar, kar
+pomeni
+\[
+	\tr(F) = \sum_{i = 1}^n n_i \overbrace{\sum_{g \in G} \overline{f(g)}\chi_i(g)}^{|G|\langle \chi \rangle = 0},
+\]
+to pa pomeni, da je $\lambda = 0$ in s tem tudi $F = 0$. Zato je za $v_e$, $e \in G$ identiteta:
+\[
+	0 = F(e) = \sum_{g \in G} \overline{f(g)}gv_e = \sum_{g \in G} \overline{f(g)}v_g,
+\]
+kjer $v_g$ po definiciji sestavljajo bazo $\then$ so linearno neodvisni, vsota pa je $0$ $\then$ $f(g) = 0\ \forall g$.
+\qed
+
+\begin{zgled}
+	Poi\v s\v ci vse nerazcepne upodobitve $S_3$.
+	\paragraph{Re\v sitev:}
+	Mo\v c grupe je $|S_3| = 3! = 6$, tj. ima najve\v c 6 NNU. Elementi so (izka\v ze se sicer $S_3 \cong D_3$, vendar samo za
+	diedersko grupo reda 3, za druge to ne velja)
+	\[
+		S_3 = \{e, (12), (13), (23), (123), (132)\} = \langle x,y\ |\ x^3, y^2, xy = yx^2\rangle = \{e, x, x^2, y, yx, yx^2\}.
+	\]
+	Imamo najve\v c 6 NNU, ki so 1-D. Dve \v ze poznamo, kot upodobitve abelacije:
+	\[
+		\ab (S_3) = \ab (D_3) = [x, y\ |\ x = 0, 2y = 0] = [y\ |\ 2y = 0] \cong C_2,
+	\]
+	torej sta to identi\v cna in trivialna upodobitev, kot pri $C_2$. Dimenzije preostalih
+	lahko napovemo:
+	\[
+		6 = 1 + 1 + \sum_{i = 3}^m n_i^2 \then \left\{
+		\begin{array}{rl}
+			4 \times \text{1-D upodobitve} \\
+			1 \times \text{2-D upodobitev}
+		\end{array}\right.
+	\]
+	Sicer smo v resnici z abelacjo zajeli vse 1-D upodobitve, vendar lahko to preverimo \v se na en na\v cin: iz \v stevila
+	konjugiranostnih razredov lahko preberemo \v stevilo NNU. Razredi so: $\{e\}$, $\{x, x^2\}$, $\{y, yx, yx^2\}$. Zaradi
+	posledice ortogonalnosti v Schurovi lemi, je \v stevilo konjugiranostnih razredov enako \v stevilu NNU. Torej imamo najve\v c
+	3 NNU. Preostane nam torej \v se ena 2-D,
+	\[
+		\vfi_3 : S_3 \mapsto GL_2 (\C), \quad \dim_\C \C^2 = n_3 = 2.
+	\]
+	Lahko izra\v cunamo njen karakter (glej tabelo karakterjev~\ref{karakterji}
+	\begin{table}[H]\centering
+		\caption{Tabela karakterjev grupe $S_3$. $\chi_3$ je neznan, zato manjka. \v Stevila v oklepaju so
+			mo\v ci elementov v posameznem razredu, saj dajo iste karakterje.}
+		\begin{tabular}{c | c c c | c}
+			& $e (1)$ & $x (2)$ & $y (3)$ & $n_i$ \\
+			\hline
+			$\chi_1$ & 1 & 1 & 1 & 1 \\
+			$\chi_2$ & 1 & 1 &-1 & 1 \\
+			$\chi_3$ & 2 & * & * & 2 \\
+			\hline
+			$\chi_{S_3}$ & 6 & 0 & 0 & 6
+		\end{tabular}
+		\label{karakterji}
+	\end{table}
+	Iz dimenzij NNU in po definiciji regularne upodobitve vemo
+	$V_{S_3} = V_1 \oplus V_2 \oplus 2V_3$, tj $\chi_{S_3} = \chi_1 + \chi_2 + 2\chi_3$, od koder lahko izra\v cunamo
+	\[
+		\chi_3 = \frac{1}{2}\big(\chi_{S_3} - \chi_1 - \chi_2\big),
+	\]
+	s \v cimer dopolnimo tabelo do
+	\begin{table}[H]\centering
+		\begin{tabular}{c | c c c | c}
+			& $e (1)$ & $x (2)$ & $y (3)$ & $n_i$ \\
+			\hline
+			$\chi_3$ & 2 &-1 & 0 & 2 \\
+		\end{tabular}
+		\label{karakterji}
+	\end{table}
+	Poskusimo uganiti upodobitev $\vfi_3$, $\vfi_3 : S_3 \to GL_\C(\C^2) \subseteq \C^{2 \times 2}$. Ker je $\vfi3$ homomorfizem
+	grup, ga je dovolj opisati na generatorjih, pri tem morajo biti za slike izpolnjene relacije v grupi
+	\[
+		x^3 = e,\quad y^2 =e,\quad yx = x^2y,
+	\]
+	iz karakterja poznamo \v se sledi teh matrik:
+	\begin{align*}
+		x : \chi_3 (x) &= -1 = \tr\big(\vfi_3(x)\big), \\
+		y : \chi_3 (y) &= 0 = \tr\big(\vfi_3(y)\big).
+	\end{align*}
+	\paragraph{Uganemo:}
+	\[
+		\vfi_3(x) = \begin{bmatrix}
+			e^{2i\pi/3} & 0 \\
+			0 & e^{-2i\pi/3}
+		\end{bmatrix}, \qquad \vfi_3(y) = \begin{bmatrix}
+		0 & 1 \\
+		1 & 0
+		\end{bmatrix}
+	\]
+	Kontrola: $\tr(\vfi(x)) = 2\cos(2i\pi/3) = -1$. Preveriti moramo \v se tretjo relacijo:
+	\begin{align*}
+		\vfi_3(yx) &= \vfi_3(y)\vfi_3(x) = \begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix} \begin{bmatrix}
+			e^{2i\pi/3} & 0 \\
+			0 & e^{-2i\pi/3}
+		\end{bmatrix} = \begin{bmatrix}
+			0 & e^{-2i\pi/3} \\
+			e^{2i\pi/3} & 0
+		\end{bmatrix} \\
+		\vfi_3(x^2y) &= \vfi(x^2)\vfi(y) = \begin{bmatrix}
+			e^{-2i\pi/3} & 0 \\
+			0 & e^{2i\pi/3}
+		\end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix}
+			0 & e^{-2i\pi/3} \\
+			e^{2i\pi/3} & 0
+		\end{bmatrix},
+	\end{align*}
+	torej je res $yx = x^2y$.
+\end{zgled}
+
+\begin{zgled}
+	Naj bo $V_G$ regularna upodobitev grupe $G$. Poi\v s\v ci bazo za trivialno podupodobitev. [{\em Trivialna upodobitev je tista,
+	kjer $g$ deluje kot identiteta: $\vfi_1 : G \to \C^*,\ g \mapsto 1$}.]
+
+	\paragraph{Re\v sitev:} Ker je ta dimenzije 1, je njena ve\v ckratnost 1. Baza za $V_G = \{v_g\ |\ g \in G\}$. Poiskati moramo
+	tak $0 \neq w = \sum_{g \in G}\lambda_g v_g$, da je $hw = w, \forall h \in G$. Vzamemo lahko
+	\[
+		w = \frac{1}{|G|}\sum_{g \in G} g,
+	\]
+	ta zado\v s\v ca in je do skalarnega ve\v ckratnika edina mo\v znost (ker je to 1-D podprostor).
+\end{zgled}
+
+\pagebreak
+\section{Lastnosti upodobitev}
+
+\begin{trditev}
+Grupa $G$ je abelova $\iff$ vse nerazcepne upodobitve so 1-D.
+\end{trditev}
+
+\paragraph{Dokaz:} Naj bo $m$ \v stevilo nerazcepnih upodobitev za $G$,
+\[
+	|G| = \sum_{i = 1}^{m} n_i^2;\ n_i = \dim W_i,
+\]
+kjer je $W_i$ $i$-ta NNU.
+\begin{itemize}
+	\item[$(\then)$]{\v Ce je $|G|$ abelova, je vsak element svoj konjugiranostni razred: $C_g = \{hgh^{-1}\} =
+		\{ghh^{-1}\} = \{g\}$ $\then$ \v stevilo nerazcepnih upodobitev = \v stevilo elementov (\v stevilo konj.
+		razredov) = $|G|$. Od tod sledi
+		\[
+			|G| = \sum_{i = 1}^{|G|}n^2_i \then n_1 = 1 \quad \forall i.
+		\]}
+	\item[$(\Leftarrow)$]{\v Ce je $n_i = 1$ $\forall i$, je $m = |G|$ in $m$ = \v st. konj. razr. elementov v $G$, torej j
+		$C_g = g$ $\forall g \in G$, kar pomeni, da je $hgh^{-1} = g$ $\forall g,h \in G$. Potem velja
+		$hg = gh$ $\forall g, h \in G$ $\then$ je abelova.}
+\end{itemize}
+\qed
+
+\begin{posledica}
+	Naj bo $A \leq G$ abelova podgrupa. Potem je dimenzija vsake nerazcepne upodobitve grupe
+	\[
+		G \leq [G : A] = \frac{|G|}{|A|}.
+	\]
+\end{posledica}
+
+\paragraph{Dokaz:}
+Naj bo $V$ nerazcepna upodobitev za $G$, torej je dan $\vfi : G \to GL_\C(V)$. \v Ce $\vfi$ zo\v zimo na $A$ dobimo upodobitev
+$\vfi_A : A \to GL_\C(V)$. Sedaj je $\vfi_A$ upodobitev abelove grupe, zato $V$ razpade na nerazcepne 1-D upodobitve grupe
+$A$.\\
+
+Naj bo $W \leq V$ nerazcepna podupodobitev za $A$, $\dim_\C W = 1$.
+\begin{itemize}
+	\item{Oglejmo si vektorski prostor $V' \leq V$, ki ga razpenjajo vektorji v, $GW = \{gw\ |\ g\in G, w \in W\}$.
+		$V'$ je torej mno\v zica vseh linearnih kombinacij
+		\[
+			\sum_{g \in G} \lambda_g gw_0,
+		\]
+		kjer je $w_0 \in W$ baza, $\lambda_g \in \C$. $V'$ je $G$-invarianten podprostor, saj $\forall h \in G$
+		velja:
+		\[
+			h \sum_{g \in G} \lambda_g gw_0 = \sum_{g \in G}\lambda_g hgw_0 = \ldots \sum_{g' \in G}\lambda_{h^{-1}g'}
+				g'w_0 \in V.
+		\]
+		Ker je $V$ nerazcepna za $G$, je $V' = V$, saj ne more biti manj\v si.}
+	\item{Pre\v stejmo linearno neodvisne vektorje v $V' = V$: ker je $A \leq G$ indeksa $k = [G : A]$, je
+		$G = g_1 A \cup g_2 A \cup \ldots \cup g_k A$ za neke $g_1, g_2, \ldots, g_k \in G$. Poljuben $g \in G$ je
+		oblike $g = g_i a$, za nek $i$ in nek $a \in A$. Ker je $W$ 1-D upodobitev za $A$, je $aw_0 = \mu_aw_0$
+		$\forall a \in A$. Zato je $gw_0 = g_i a w_0 = \mu_a g_i w_0$, torej iz vektorjev $gw_0$ dobimo kot razli\v cne
+		kve\v cjemu vektorje $g_1 w_0, g_2w_0, \ldots, g_kw_0$: \v stevilo linearnih neodvisnih vektorjev je torej
+		najve\v c $k = [G : A]$ $\then \dim V \leq k = [G : A]$.}
+\end{itemize}
+\qed
+
+\begin{zgled}
+	Dolo\v ci mo\v zne dimenzije upodobitev diederske grupe $D_n$.
+
+	\paragraph{Re\v sitev:} $|D_n| = 2n$, $D_n = \langle x, y\ |\ x^n, y^2, yx = x^{n-1}y\rangle$.
+	\begin{itemize}
+		\item{Ni abelova $\then$ vsaj ena nerazcepna upodobitev dimenzije $> 1$.}
+		\item{Po posledici je zgornja meja za dimenzijo NNU indeks abelove podgrupe v $D_n$. V $D_n$ imamo cikli\v cno
+			podgrupo $C_n$ mo\v ci $n$, njen indeks je o\v citno 2 ($[D_n : C_n] = 2n/n = 2$). Potem je
+			najve\v cja dimenzija nerazcepne upodobitve 2.}
+	\end{itemize}
+	
+	\paragraph{Vaja:} [\emph{Doma\v ca naloga}] Napi\v simo vse te upodobitve.
+\end{zgled}
+
+\begin{trditev}
+	Naj bosta $\vfi : G \to GL(V)$ in $\psi : H \to GL (W)$ upodobitvi za njun tenzorski produkt, definiran kot
+	\begin{align*}
+		\vfi \otimes \psi : G \times H &\to GL (V \otimes W), \\
+		(\vfi \otimes \psi) (g,h) (v \otimes w) &\mapsto \vfi(g)v \otimes \psi(h) w,
+	\end{align*}
+	velja:
+	\begin{enumerate}
+		\item{\v Ce sta $\vfi$ in $\psi$ nerazcepni, je tudi $\vfi \otimes \psi$ nerazcepna upodobitev $G \times H$.}
+		\item{Vsaka NNU za $G \times H$ je zgornje oblike.}
+	\end{enumerate}
+\end{trditev}
+
+\paragraph{Dokaz:}
+\begin{enumerate}
+	\item{Karakter upodobitve ima normo 1 $\iff$ upodobitev je nerazcepna (druga\v ce je $\chi = \sum_{i = 1}^n m_i \chi_i;\
+		\|\chi\|^2 = \sum_{i = 1}^n m_i^2 \geq 1$).
+		\begin{align*}
+			\chi_\vfi : G &\to \C, \\
+			g &\mapsto \tr(g: V \to V),
+		\end{align*}
+		za $\chi_\psi$ velja podobno. Za njun tenzorski produkt pa lahko zapi\v semo
+		\begin{align*}
+			\chi_{\vfi \otimes \psi} : G \times H &\to \C, \\
+			g, h &\mapsto \tr(g \otimes h : V\otimes W \to V \otimes W),
+		\end{align*}
+		\v Ce je $\{v_i\}$ baza za $V$ in $\{w_j\}$ baza za $W$, je $\{v_i \otimes w_j\}$ baza za $V \otimes W$. Zanima nas
+		koeficient pri $\{v_i \otimes w_j\}$ v $gv_i \otimes h w_j$, ta pa je produkt diagonalnih elementov $g_{ii}h_{jj}$,
+		\[
+			\chi(g,h) = \sum_{i,j} g_{ii}h_{jj} = \sum_i g_{ii} \sum_j h_{jj} = \chi_\vfi(g) \cdot \chi_\psi (h),
+		\]
+		\begin{align*}
+			\|\chi\|^2 &= \frac{1}{|G \times H|}\sum_{g,h}|\chi(g,h)|^2 \\
+			&= \frac{1}{|G||H|}\sum_{g, h}|\chi_\vfi(g)|^2 \cdot |\chi_\psi(h)|^2 \\
+			&= \bigg(\frac{1}{|G|}\sum_g |\chi_\vfi (g)|^2\bigg)
+				\bigg(\frac{1}{|H|}\sum_h |\chi_\psi(h)|^2\bigg) = \|\chi_\vfi\|^2 \cdot \|\chi_\psi\|^2 = 1.
+		\end{align*}
+		Norma karakterja te upodobitve je $1$, torej je ta upodobitev nerazcepna.}
+	\item{Vemo:
+		\begin{align*}
+			|G| &= \sum_{i = 1}^k n_i^2,\ n_i = \dim V_i,\ i = 1,\ldots,k, \{V_i\}\ \text{vse NNU za $G$}, \\
+			|H| &= \sum_{j = 1}^\ell m_j^2,\ \text{analogno temu zgoraj.}
+		\end{align*}
+		$V_i \otimes W_j$ so nerazcepne za $G \times H$ dimenzije $n_i \times m_j$,
+		\[
+			\sum_{i,j}(n_i m_j)^2 = \sum_i n_i^2 \sum_j m_j^2 = |G|\cdot|H| = |G \times H|.
+		\] $\then$ to so vse nerazcepne upodobitve.}
+\end{enumerate}
+\qed
+
+\begin{zgled}
+	Tenzorski produkt nerazcepnih upodobitev grupe $G$ ni nujno nerazcepna upodobitev grupe $G$ (nujno je nerazcepna za $G \times G$).
+	$G \equiv G \times \{e\}$.
+	
+	\paragraph{Re\v sitev:} $G = S_3$, $V_3 =$ 2-D nerazcepna upodobitev za $S_3$. $W = V_3 \otimes V_3$, ki je upodobitev za
+	diagonalno delovanje $g$, $g(v \otimes w) = gv \otimes gw$, $\dim W = 2\cdot2 = 4$, edine nerazcepne upodobitve za $S_3$ pa
+	so dimenzij 1 in 2. Glej tab.~\ref{chiW}.
+	\begin{table}[H]\centering
+		\caption{Tabela karakterjev s $\chi_W$ vred, kjer $\chi_W = V_3 \otimes V_3$,
+			tj. $\chi_W = \chi_3^2$. \v Stevila v oklepaju so mo\v ci posameznih konj. razr.}
+		\begin{tabular}{c | c c c}
+			& $e$ (1) &  $x$ (2) & $y$ (3) \\
+			\hline
+			$\chi_1$ & 1 & 1 & 1\\
+			$\chi_2$ & 1 & 1 &-1\\
+			$\chi_3$ & 2 &-1 & 0\\
+			\hline
+			$\chi_W$ & 4 & 1 & 0
+		\end{tabular}
+		\label{chiW}
+	\end{table}
+	Dekompozicijo $W$ na nerazcepne dobimo z $\langle \chi_W, \chi\rangle$ za $i = 1,2,3$.
+	\begin{align*}
+		\langle \chi_W, \chi_1 \rangle &= \frac{1}{6} (1 \cdot 4 + 2 \cdot 1 + 3 \cdot 0) = \frac{1}{6}
+			\begin{bmatrix} 4 & 1 & 0 \end{bmatrix} \begin{bmatrix}
+			1 &   &   \\
+			  & 2 &   \\
+			  &   & 3
+			\end{bmatrix} \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} = 1.
+	\end{align*}
+	To je navaden skalarni produkt, normiran s \v stevilom elementov grupe, matrika vmes je pa matrika ute\v zi, ki so enake
+	mo\v ci posameznih konj. razredov, saj se vsak karakter tolikokrat ponovi.
+	\begin{align*}
+		\langle \chi_W, \chi_2 \rangle &= \frac{1}{6}\begin{bmatrix} 4 & 1 & 0 \end{bmatrix} \begin{bmatrix}
+			1 &   &   \\
+			  & 2 &   \\
+			  &   & 3
+			\end{bmatrix} \begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix} = 1, \\
+		\langle \chi_W, \chi_3 \rangle &= \frac{1}{6}\begin{bmatrix} 4 & 1 & 0 \end{bmatrix} \begin{bmatrix}
+			1 &   &   \\
+			  & 2 &   \\
+			  &   & 3
+			\end{bmatrix} \begin{bmatrix} 2 \\ -1 \\ 0 \end{bmatrix} = 1. \\
+	\end{align*}
+	Vidimo $W = V_3 \otimes V_3 = V_1 \oplus V_2 \oplus V_3$.
+\end{zgled}
+
+\begin{zgled}
+	Naj bo $G$ abelova grupa in naj bo $\hat{G}$ mno\v zica karakterjev NNU za $G$. Poka\v zi, da je $\hat{G}$ grupa za
+	mno\v zenje funkcij po to\v ckah in dolo\v ci $|\hat{G}|$ (komentar: $\hat{G}$ je dualna grupa).
+
+	\paragraph{Re\v sitev:}
+	\begin{itemize}
+		\item{$G$ ima $|G|$ 1-D upodobitev,}
+		\item{produkt karakterjev je karakter tenzorskega produkta,}
+		\item{tenzorski produkt 1-D prostorov je spet 1-D prostor.}
+		\item{$\chi_1$, $\chi_2$ $\in \hat{G} \then \chi_1 \chi_2 \in \hat{G}$. Vemo: $\chi_1 \cdot \chi_2$ je karakter
+			tenzorskega produkta upodobitev $V_1$ in $V_2$. Ker sta $V_1$ in $V_2$ nerazcepni z dimenzijo 1, je tudi
+			$V_1 \otimes V_2$ 1-D vektorski prostor in zato je upodobitev nerazcepna.}
+		\item{Identiteta: $\chi = 1$ je karakter trivialne upodobitve.}
+		\item{Inverz: za dani $\chi \in \hat{G}$ ke inverz z operacijo mno\v zenja po to\v ckah funkcija
+			\begin{align*}
+				\psi : \chi(g) \psi (g) &= 1\quad \forall g \in G \\
+				\psi(g) &= \frac{1}{\chi(g)}\quad \forall g \in G.
+			\end{align*}
+			Ali je to dobro definirano? Da, $\chi(g) = \tr\big(\lambda \in GL(\C) = \C^*\big) \neq 0$. Je $\psi$ res
+			karakter upodobitve? Velja \v se ve\v c, slika $\vfi$ oz. $\chi$ le\v zi na enotski kro\v znici
+			\[
+				\frac{1}{\chi(g)}\ \text{spet na enotski kro\v znici},
+			\]
+			$1/\chi(g) = \overline{\chi(g)} = \psi(g)$. Za upodobitev vzamemo $\overline{\vfi}$ \v Ce je $\vfi : G \to \C^*$
+			homomorfizem, je tudi $\overline{\vfi} : G \to \C^*$, ker je 
+			\[
+				\overline{\vfi(gh)} = \overline{\vfi(g)\vfi(h)} = \overline{\vfi(g)} \cdot \overline{\vfi(h)}.
+			\]
+			Mo\v c $|\hat{G}| = |G|$, ker je ravno toliko 1-D NNU.}
+	\end{itemize}
+\end{zgled}
+
+\begin{zgled}
+	Poka\v zi $\hat{G} \cong G$ (to je res samo za kon\v cne grupe).
+\end{zgled}

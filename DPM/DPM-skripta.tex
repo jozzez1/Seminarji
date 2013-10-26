@@ -192,8 +192,20 @@
 	\mathrel{\rotatebox[origin=c]{45}{$\dashrightarrow$}}
 }
 
+\renewcommand{\downarrow}{
+	\mathrel{\rotatebox[origin=c]{270}{$\longrightarrow$}}
+}
+
+\newcommand{\downdasharrow}{
+	\mathrel{\rotatebox[origin=c]{270}{$\dashrightarrow$}}
+}
+
 \newcommand{\id}{
 	\operatorname{id}
+}
+
+\newcommand{\ab}{
+	\operatorname{ab}
 }
 
 \newcommand{\Z}{
@@ -214,6 +226,10 @@
 
 \newcommand{\C}{
 	\ensuremath{\mathbb{C}}
+}
+
+\newcommand{\vfi}{
+	\ensuremath{\varphi}
 }
 
 \begin{document}
@@ -243,5 +259,7 @@
 \input{chapter1.tex}
 
 \input{chapter2.tex}
+
+\input{chapter3.tex}
 
 \end{document}
