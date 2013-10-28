@@ -363,7 +363,7 @@ Najprej vidimo, da elementi iz $H$ komutirajo z elementi iz $K$ (saj $H \cap K =
 	}
 	\item{
 		$G = C_m \times C_n$, kjer sta $m$, $n$ tuji si \v stevili (njun najve\v cji skupni delitelj je 1).
-		\paragraph{Vaja:} Poka\v zi $G \cong C_{m \cdot n}$. Bolj splo\v cno: za poljubni cikli\v cni grupi redov $m$ in $n$
+		\paragraph{Vaja:} Poka\v zi $G \cong C_{m \cdot n}$. Bolj splo\v sno: za poljubni cikli\v cni grupi redov $m$ in $n$
 		\[
 			G = \langle a \rangle \times \langle b \rangle
 		\]
@@ -946,39 +946,4 @@ predstavitvijo
 \]
 Grupa $D_n$ je grupa \emph{izometrij} pravilnega $n$-kotnika (tj. bijekcij, ki $n$-kotnik slikajo samega nase).
 
-\section{Linearne upodobtive kon\v cnih grup}
-
-\begin{defin}
-	Naj bo $V$ vektorski prostor nad $\C$.
-	\begin{itemize}
-		\item{\v Ce je $G$ grupa, je {\em linearna upodobitev} $G$ na $V$ (nad $\C$) homomorfizem
-			\[
-				G \to GL_{\C}(V)
-			\]}
-		\item{$\dim_{\C} V = n \in \mathbb{N}$ imenujemo {\em stopnja upodobitve}.}
-	\end{itemize}
-\end{defin}
-
-\begin{zgled} Upodobitve stopnje 1 so homomorfizmi
-\[
-	G \to GL_1(\C) = \big\{[a]\ |\ \det[a] = a \neq 0\big\},\ \quad GL_1(\C) = \C\backslash\{0\} = \C^*.
-\]
-\ni \v Ce je $G$ kon\v cna, je slika upodobitve $G$ v $\C^*$ tudi kon\v cna podgrupa, vsebovana v kro\v znici $S^1$ (ker imajo
-elementi v $G$ kon\v cen red), vsak element je nek koren enote.
-\end{zgled}
-
-\begin{itemize}
-	\item{$G$ kon\v cna grupa -- potem so vse (kon\v cno dimenzionalne) linearne upodobitve $G \to GL_\C (V)$, $V$ kon\v cno
-		dimenzionalen vektorski prostor nad $\C$.}
-	\item{\emph{Regularna upodobitev}, kjer za $V$ vzamemo vektorski prostor z bazo $G$, delovanje $G$ pa permutira bazne vektorje
-		$(g\cdot v_h = v_{(gh)}$, kjer $g,h \in G$), na nek na\v cin vsebuje vse upodobitve.}
-	\item{Glavna ideja je ta, da vsaki upodobitvi priredimo \emph{karakter}, ki je funkcija $G \to \C$. Za za\v cetek zelimo
-		primerjati razli\v cne upodobitve.}
-	\item{Naj bosta $G \to GL_{\C}(V)$ in $G \to GL_{\C}(W)$ dve linearni upodobitvi grupe $G$. {\em Homomorfizem
-		upodobitev} (ekvivariantni homomorfizem) je linearna preslikava $T:V \to W$, ki komutira z delovanjem
-		\begin{align*}
-			v \in V,\ &\ g \in G \\
-			T(gv) &= gT(v)
-		\end{align*}}
-\end{itemize}
 

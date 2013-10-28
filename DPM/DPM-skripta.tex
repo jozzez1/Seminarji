@@ -228,8 +228,30 @@
 	\ensuremath{\mathbb{C}}
 }
 
+\newcommand{\R}{
+	\ensuremath{\mathbb{R}}
+}
+
 \newcommand{\vfi}{
 	\ensuremath{\varphi}
+}
+
+\newcommand{\pr}{
+	\operatorname{pr}
+}
+
+\newcommand{\odp}{
+	\ensuremath{\stackrel{\text{odp}}{\subseteq}}
+}
+
+\newcommand{\prt}[2][i]
+{
+	\ensuremath{\frac{\partial #2}{\partial x_{#1}}}
+}
+
+\newcommand{\party}[2]
+{
+	\ensuremath{\frac{\partial #1}{\partial #2}}
 }
 
 \begin{document}
@@ -256,10 +278,16 @@
 
 \input{uvod.tex}
 
+\part{Grupe}
+
 \input{chapter1.tex}
 
 \input{chapter2.tex}
 
 \input{chapter3.tex}
+
+\part{Gladke mnogoterosti}
+
+\input{chapter4.tex}
 
 \end{document}

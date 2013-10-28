@@ -1,0 +1,354 @@
+\chapter{Osnovni pojmi}
+
+\paragraph{Ideja:} Mnogoterost je metri\v cni prostor, ki lokalno (v okolici vsake to\v cke) izgleda kot nek evklidski prostor $\R^n$, $n$
+imenujemo dimenzija mnogoterosti Mnogoterost je metri\v cni prostor, ki lokalno (v okolici vsake to\v cke) izgleda kot nek evklidski prostor $\R^n$, $n$
+imenujemo dimenzija mnogoterosti..
+
+\paragraph{Primeri:}
+\begin{itemize}
+	\item{Mnogoterost (mnt) 1-D:
+		\begin{itemize}
+			\item{$S^1$ (odprt interval, kro\v znica),}
+			\item{poljubna enostavna sklenjena krivulja,}
+			\item{poljubna odprta krivulja (kraji\v s\v ci se ne stikata).}
+		\end{itemize}}
+	\item{2-D mnt:
+		\begin{itemize}
+			\item{2-sfera ($S^2$): okolica to\v cke je odprt disk, ki je v bistvu $\R^2$,}
+			\item{odprt, ali neskon\v cen valj,}
+			\item{torus, tudi taki z ve\v c luknjami.}
+		\end{itemize}}
+\end{itemize}
+
+\begin{defin}
+	\begin{itemize}
+		\item{$\R^n_+ = \big\{x = (x_1,\ldots,x_n) \in \R^n\ |\ x_n \geq 0\big\}$ je \emph{zgornji polprostor}.}
+		\item{\emph{Ekvivalenca} metri\v cnih prostorov in njihovih podmno\v zic je zvezna bijekcija, ki ima zvezen
+			inverz.}
+	\end{itemize}
+\end{defin}
+
+\begin{defin}
+	$X$, $Y$ metri\v cna prostora. $f : X \to Y$ je \emph{homeomorfizem}, \v ce je $f$ zvezna in bijektivna in je tudi njen
+	inverz, $f^{-1}$ zvezna.
+\end{defin}
+
+\paragraph{Primer:}
+$f : [0,2\pi) \to S^1$, $t \mapsto e^{it} = \cos t  i\sin t$ je zvezna in bijektivna, vendar pa $f^{-1}$ ni zvezna v to\v cki 1:
+to\v cki $e^{it}, t > 0$ se slikajo blizu $0$, ki je $f^{-1}(1)$, to\v cke $e^{it}, t < 0$ pa blizu $2\pi$, ki NI $f^{-1}(1)$.
+\pagebreak
+\begin{defin}
+	$n$-mnt ($n$-mnogoterost) je metri\v cni prostor $M$, v katerem\ $\forall x \in M$ obstaja odprta okolica $V$ za $x$ in
+	homeomorfizem $\vfi : V \to V'$, kjer je $V'$ odprta v $\R^n_+$.
+\end{defin}
+
+\paragraph{Terminologija:}
+\begin{itemize}
+	\item{V metri\v cnem prostoru $X$ je mno\v zica $V$ odprta, \v ce je unija odprtih krogel.}
+	\item{Metrika je $d : X \times X \to \R$ in je nenegativna.}
+	\item{Odprta krogla v metriki $d$ okoli to\v cke $x$ s polmerom $r$ je $K_d(x,r) = \{y \in X\ |\ d(x,y) < r\}$. Posebej v
+		evklidski metriki, je odprta krogla res odprta krogla (dejansko tako izgleda).}
+	\item{Odprte krogle v $\R^n_+$ z evklidsko metriko so odprte krogle v $\R^n$, presekane z $\R^n_+$ (tj. so odprte vsepovsod,
+		vendar imajo lahko zravnan spodnji rob, ker je $x_n = 0$ v $\R^n$, se pravi, \v ce so preblizu roba $\R^n_+$).}
+	\item{Odprta okolica za $x$ je odprta mno\v zica (unija odprtih krogel), ki vsebuje $x$.}	
+\end{itemize}
+
+\begin{defin}
+	$M$ mnogoterost, $x \in M$ to\v cka in $V$ odprta okolica to\v cke $x$.
+	\begin{itemize}
+		\item{Homeomorfizem $\vfi : V \to V'$, $V' \odp \R^n_+$ imenujemo \underline{\emph{karta}} na $M$ v $x$ (iz krivega prostora $M$
+			slikamo v evklidski (raven) prostor $\R^n_+$).}
+		\item{Ozna\v cimo s $\pr_i$ projekcijo na $i$-to koordinatno os. Karta porodi koordinatne funkcije na $M$ v okolici $x$:
+			\[
+				\pr_i \circ \vfi : V \to V' \subseteq \R^n \to \R.
+			\]
+			Ker je $\vfi$ homeomorfizem, je njegov inverz zvezen in tega imenujemo \underline{\emph{lokalna parametrizacija}}
+			$M$ v okolici $x$.}
+		\item{To\v cke, ki so slike to\v ck z roba $\R^n_+$, tj. $\R^{n-1} \times \{0\}$ imenujemo \underline{\emph{robne to\v cke}}
+			mnogoterosti $M$, ostale pa \underline{\emph{notranje}}.}
+	\end{itemize}
+\end{defin}
+
+\paragraph{Primer:}
+Zaprta krivulja brez prese\v ci\v s\v c, ki je slika nekega kompaktnega interala je 1-mnt, katere rob sta kon\v cni to\v cki, ostale so
+notranje.
+
+Na\v s cilj so gladke mnogoterosti, razreda $C^k, k \in \mathbb{N}$. Naj bo $V \odp \R^n$ in $f : V \to \R^m$.
+\[
+	f = (f_1, \ldots, f_m); \quad f_i : \R^n \to \R,
+\]
+\begin{center}
+se pravi
+\end{center}
+\[
+	(x_1,\ldots,x_n) \mapsto (f_1, \ldots, f_m).
+\]
+\begin{itemize}
+	\item{$f$ je razreda $C^k$, \v ce je $k$-krat zvezno odveljiva na $V$, tj. \v ce obstajajo vsi parcialni odvodi reda $\leq k$, vseh
+		komponent $f_i$ in so zvezni.
+		\[
+			\frac{\partial^\ell f_i}{\partial x_{i_1}\partial x_{i_2} \ldots \partial x_{i_\ell}}
+		\]
+		je parcialni odvod reda $\ell$, po spremenljivkah $x_{i_1} \ldots x_{i_\ell}$.}
+	\item{Pogoj zvezne parcialne odvedljivosti zagotavlja, da vrstni red odvajanja ni pomemben.}
+	\item{Na parcialne odvode gledamo kot na operatorje
+		\begin{align*}
+			\frac{\partial}{\partial x_j} : C^k &\to C^{k-1} \\
+			f &\mapsto \frac{\partial f}{\partial x_j},
+		\end{align*}
+		po zgornji opombi ti operatorji komutirajo.}
+\end{itemize}
+
+Pojem ekvivalence, kot ga glede na zveznost dolo\@ ca homeomorfizem, raz\v sirimo v gladko kategorijo. \v Se vedno zahtevamo bijektivno preslikavo,
+ki je razreda $C^k$ in tudi inverz je tak.
+
+\begin{defin}
+	Naj bosta $U$, $V \odp \R^n$. Potem je $f : U \to V$ \emph{difeomorfizem} razreda $C^k$, \v ce je bijektiven in $f, f^{-1} \in C^k$
+	($k \in \mathbb{N}$).
+\end{defin}
+
+\paragraph{Opomba:} Difeomorfizem razreda $C^k$ je torej homeomorfizem, ki je v obe smeri \v se $k$-krat odvedljiv.\\[6pt]
+
+Pogoj za $C^k$-difeomorfizem je te\v zko preveriti, saj obi\v cajno ne znamo izra\v cunati $f^{-1}$. Zato te\v zko direktno preverjamo $f^{-1} \in C^k$.
+Pri tem nam pomaga izrek o inverzni preslikavi.\\[6pt]
+
+Naj bo $f : U \to V$ razreda $C^k$, $U \odp \R^n$, $V \odp \R^m$. Odvod preslikave $f$ je dan z Jacobijevo matriko prvih parcialnih odvodov,
+\[
+	Jf(x) = \begin{bmatrix}
+		\prt[1]{f_1} & \prt[2]{f_1} & \ldots & \prt[n]{f_1} \\
+		\prt[1]{f_2} & \prt[2]{f_2} & \ldots & \prt[n]{f_2} \\
+		\vdots       & \vdots       &        & \vdots       \\
+		\prt[1]{f_m} & \prt[2]{f_m} & \ldots & \prt[n]{f_m}
+	\end{bmatrix}
+\] (slikamo iz $\R^n \to \R^m$, dimenzija matrike je $m \times n$, odvodi so izra\v cunani v to\v cki $x$). Matrika $Jf(x)$ predstavlja linearno
+preslikavo iz $\R^n \to \R^m$, ki jo imenujemo \underline{\emph{odvod}} preslikave $f$ in ozna\v cimo
+\[
+	Df(x) : \R^n \to \R^m
+\]
+(to je tenzorsko polje: za vsak $x$ imamo linearno preslikavo iz $\R^n \to \R^m$). Skupaj to predstavlja
+\begin{align*}
+	Df : U &\to L\big(\R^n, \R^m\big) \\
+	x &\mapsto Df(x)
+\end{align*}
+
+\begin{trditev}
+\paragraph{Izrek o inverzni preslikavi:}[{\em Brez dokaza.}] Naj bo $U \odp \R^n$ in $f : U \to \R^n$ razreda $C^k$, $a \in U$. \v Ce je $Df(a)$
+{\em linearni izomorfizem} (tj. $|Jf(a)| \neq 0$), potem je $f$ lokalni difemorfizem iz $C^k$ v okolici to\v cke $a$).\\[6pt]
+
+\ni Z drugimi besedami $\exists$ odprta okolica $V \subset U$ za $a$, da je
+\[
+	f\big|_V : V \to f(V)
+\]
+difeomorfizem razreda $C^k$.
+
+Posebej je odvod inverzne preslikave enak
+\[
+	D\big(f^{-1}\big) = \Big(Df\big(f^{-1}(y)\big)\Big)^{-1},
+\]
+kjer
+\begin{align*}
+	f(a) &= y \in f(U) \\
+	D\big(f^{-1})\big(f(a)\big) &= \Big(Df(a)\Big)^{-1}.
+\end{align*}
+\end{trditev}
+
+\paragraph{Opomba:} Iz formule za odvod sledi, da je $f^{-1} \in C^k$: Jakobijeva matria za $f$ vsebuje prve parcialne odvode $f$, ki so v $C^{k-1}$,
+zato je tudi $(Jf)^{-1}$ razreda $C^{k-1}$, \v ce je le definiran; gotovo pa je definiran v neki okolici to\v cke $a$ saj je zaradi zveznosti
+determinante in $Jf$, $\det\big(Jf(x)\big)$ zvezna in zato $\neq 0$ blizu $a$ $\then$ blizu $a$ ima inverz.
+
+\begin{posledica}
+	\v Ce je $f : U \to V$ homeomorfizem razreda $C^k$, potem je $f$ $C^k$ difeomorfizem $\iff$ odvod $Df(x)$ je linearen izomorfizem
+	$\forall x \in U$. (pogoj o linearnem izomorfizmu nam zagotovi obrnljivost matrike na celotnem definicijskem obmo\v cju).
+\end{posledica}
+
+\paragraph{Cilj:} Definirati pojem abstraktne gladke mnogoterosti (gld mnt) razreda $C^k$.
+
+\begin{defin}
+	$C^k$ \emph{podmnogoterost} (podmnt) dimenzije $n$ v $\R^n$ je podmno\v zica $M \subseteq \R^m$, za katero velja $\forall x \in M$
+	$\exists$ odp. okolica $W$ za $x \in \R^m$ in $C^k$-difeomorfizem $h : W \to W'$, $W' \odp \R^m$, da velja
+	\[
+		h (W \cap M) \subseteq R^n \times \{0^{m-n}\} \subseteq \R^m.
+	\]
+	(slike ni).
+\end{defin}
+\paragraph{Opomba:}
+\begin{itemize}
+	\item{$C^k$-podmnt dimenzije $n$ je o\v citno $n$-mnt,}
+	\item{je metri\v cni prostor z metriko v $\R^m$}
+	\item{karte so zo\v zitve $h\big|_{W \cap M} : W \cap M \to W' \cap \big(\R^n \times \big\{0^{m - n}\big\}\big) \subseteq \R^n$.}
+\end{itemize}
+
+\paragraph{Primeri:}
+$C^k$ podmnt dobima na dva standardna na\v cina:
+\begin{enumerate}
+	\item{\underline{Graf $C^k$ preslikave:}
+	$V \odp \R^n$ in $f : V \to \R^\ell$ razreda $C^k$.
+	\[
+		\Gamma f = \big\{\big(x, f(x)\big)\ |\ x \in V\big\} \subseteq V \times \R^\ell \subseteq \R^{n + \ell},
+	\]
+	(graf preslikave $f$) je  $C^k$-podmnt v $\R^{n + \ell}$ dimenzije $n$. Preslikava $f \in C^k$, zato je tudi
+	$h \in C^k$. Vzamemo $W = V \times \R^\ell = W'$
+	\[
+		\left.\begin{array}{rl}
+		h : W &\to W' \\
+		(x,y) &\mapsto (x, y - f(x))
+		\end{array} \right\}\ \ \text{graf preslika na $V \times \{0^\ell\}$.}
+	\]
+	Napisati znamo tudi inverz:
+	\begin{align*}
+		h^{-1} : W' &\to W, \\
+		(x,y) &\mapsto (x, y + f(x)),
+	\end{align*}
+	$h$ je torej $C^k$-difeo, ki $\Gamma f$ zravna na $W' \cap \R^n = V$ (ni\v cle pozabimo).
+	Projekcija $(x, y) \mapsto x$ je globalna karta za $n$-mnt, njen inverz pa je globalna parametrizacija $x \mapsto (x, f(x))$.}
+	\item{\underline{Nivojska mno\v zica gladke preslikave:} Naj bo $g : \R^m \to \R^\ell$ razreda $C^k$. Izberimo $a \in \R^\ell$; zanima nas,
+	pod kak\v snimi pogoji je $g^{-1} (a) = \{x \in \R^m\ |\ g(x) = a\}$ $C^k$-podmnt v $\R^m$ in kolik\v sna je dimenzija te podmnt. Odgovor
+	da izrek o implicitni preslikavi.}
+\end{enumerate}
+
+\begin{trditev}
+	\paragraph{Izrek o implicitni preslikavi:} [\emph{Brez dokaza.}] Naj bo
+	\[
+		g : \underbrace{\R^{n + \ell}}_{\R^n \times \R^\ell} \to \R^\ell
+	\]
+	razreda $C^k$, $k \in \mathbb{N}$, naj bo $a \in \R^\ell$ in in $(b, c) \in \R^n \times \R^\ell$, $g (b, c) = a$, tj. $(b, c) \in g^{-1} (a)$.
+	\v Ce ozna\v cimo koordinate v $\R^n \times \R^\ell$ kot $(x,y) = (x_1, \ldots, x_n, y_1, \ldots, y_\ell)$ in velja
+	\[
+		J_y g(b ,c) = \begin{bmatrix}
+			\party{g_1}{y_1}(b,c)    & \party{g_1}{y_2}(b,c)    & \ldots & \party{g_1}{y_\ell}(b,c)    \\
+			\party{g_2}{y_1}(b,c)    & \party{g_2}{y_2}(b,c)    & \ldots & \party{g_2}{y_\ell}(b,c)    \\
+			\vdots                   & \vdots                   &        & \vdots                      \\
+			\party{g_\ell}{y_1}(b,c) & \party{g_\ell}{y_2}(b,c) & \ldots & \party{g_\ell}{y_\ell}(b,c)
+		\end{bmatrix}
+	\]
+	ni singularna ($\det J_y g(b,c) \neq 0$), potem obstajata odprti okolici $V$ za $b$ v $\R^n$ in $W$ za $c$ v $\R^\ell$ ter
+	preslikava $h : V \to W$ razreda $C^k$, za katero velja:
+	\begin{itemize}
+		\item{$h(b) = c$,}
+		\item{za $(x,y) \in V \times W$ velja $g(x,y) = a \iff y = h(x)$.}
+	\end{itemize}
+\end{trditev}
+
+\paragraph{Opomba:} Zgornje pomeni, da je v okolici to\v cke $(b,c)$ nivojska mno\v zica $g^{-1}(a)$ enaka grafu preslikave $h$.
+
+\begin{posledica}
+	Naj bo $g : \R^m \to \R^\ell$ $C^k$ preslikava ($m = n + \ell > \ell$), $a \in \R^\ell$. \v Ce je v vsaki to\v cki $x \in g^{-1}(a)$ Jacobijeva
+	matrika $Jg(x)$ ranga $\ell$, potem je nivojska mno\v zica $g^{-1}(a)$ $C^k$-podmnt v $\R^m$ dimenzije $m - \ell$ (ker je v vaski to\v cki gra
+	neke $C^k$ preslikave; spremenimo koordinatni sistem).
+\end{posledica}
+
+\paragraph{Dokaz:} Izberimo to\v cko $d \in g^{-1} (a)$. Po predpostavki  je $Jg(a)$ matrika ranga $\ell$. Velikost matrike je
+\[
+	\dim Jg(a) = \dim
+	\begin{bmatrix}
+		\prt[1]{g_1}    & \ldots & \prt[m]{g_1}   \\
+		\vdots          &        & \vdots         \\
+		\prt[1]{g_\ell} & \ldots & \prt[m]{g_\ell}
+	\end{bmatrix} = \ell \times m.
+\]
+Rang $\ell$ pomeni, da matrika vsebuje $\ell$ linerno neodvisnih stolpcev, tiste stolpce lahko zberemo na koncu (na zadnjih $\ell$ mestih),
+tako da preimenujemo koordinate. Sedaj $\ell \times \ell$ podmatrika (iz zadnjih $\ell$ stoplcev) v $Jg(a)$ izpolnjuje pogoje izreka $\then$ v okolici
+to\v cke $d$ je $g^{-1}(a)$ graf neke preslikave $\R^{m - \ell} \to \R^\ell$, torej $C^k$-podmnt dimenzije $m - \ell$ v $\R^m$. $\blacksquare$
+
+
+\begin{defin}
+	\begin{itemize}
+		\item{$g : \R^m \to \R^\ell$ razreda $C^k$; to\v cka $x \in \R^m$ je \emph{regularna}, \v ce je $Dg(x)$
+			surjektivna preslikava ($m > \ell$, preslikava je surjektivna $\iff$ $\rang$ maskimalen) tj. $\rang Jg(x) = \ell$.}
+		\item{To\v cka $a \in \R^\ell$ je \emph{regularna vrednost} za $g$, \v ce je vsak $x \in g^{-1}(a)$ regularna
+			to\v cka.}
+	\end{itemize}
+\end{defin}
+
+\paragraph{Opomba:} praslika regularne vrednosti je $x$; $x \in g^{-1}(a)$. V tem jeziku prej\v snja posledica pravi, da je praslika (tj. vsi $x$)
+regularne vrednosti (to je $a$) $C^k$ preslikave $g : \R^m \to \R^\ell$ $C^k$-podmnt v $\R^m$ dimenzije $m - \ell$ (\v ce je neprazna).\\[6pt]
+
+Sedaj \v zelimo definirati abstraktno gladko mnogoterost, ki ni vlo\v zena v evklidski prostor. \v Ce je $M$ mnt dim. $n$, ima vsak $x \in M$ odprto
+okolico, ki je homeomorfna odprti mno\v zici $\R^n$.
+
+\paragraph{Ideja:}
+Radi bi, da bi bila karta $C^k$ preslikava. Ampak na $M$ nimamo koordinat, niti ne znamo odvajati. TO torej ne gre, lahko pa primerjamo
+razli\v cne karte: Imamo npr. to\v cko $x \in M$ z odprto okolico $V$ in to\v cko $y \in M$ ($x \neq y$) z okolico $W$, tako da $V \cap
+W \neq \{\}$. Ti okolici opremimo s kartama
+\begin{align*}
+	\vfi : V &\to V',\\
+	\psi : W &\to W',
+\end{align*}
+presek $V \cap W$ se vidi v $V'$ kot $\vfi(V \cap W)$ in v $W'$ kot $\psi(V \cap W)$. Med tema dvema imamo neko preslikavo. Pravimo, da karti $\vfi$ in
+$\psi$ dolo\v cata \underline{\emph{prehodno preslikavo}}
+\[
+	\psi \circ \vfi^{-1}\big|_{\vfi(V \cap W)} : \underbrace{\vfi(V \cap W)}_{\subseteq \R^n} \to \underbrace{\psi(V \cap W)}_{\subseteq \R^n}.
+\]
+Pogoj odvedljivosti na mnt "`zakodiramo"' v odvedljiost prehodne preslikave.
+
+\begin{defin}
+	\paragraph{Gladka struktura na mnogoterosti:}
+	\begin{itemize}
+		\item{Naj bo $M$ neka $n$-mnt, $k \in \mathbb{N}$, $\Lambda$ je mno\v zica indeskov. \emph{Atlas} razreda $C^k$ na $M$
+			je dru\v zina kart na $M$, $\{(v_\lambda, \vfi_\lambda)\ |\ \lambda \in \Lambda\}$, kjer so $V_\lambda \odp M$,
+			\[
+				\bigcup_{\lambda \in \Lambda} V_\lambda = M,
+			\]
+			in $\vfi_\lambda : \stackrel{\text{homeo}}{\longrightarrow} V'_\lambda \subseteq \R^n$ je karta na $M$, poleg tega pa za
+			poljubna $\lambda, \mu \in \Lambda$ velja: \v ce je $V_\lambda \cap V_\mu \neq \{\}$, potem je prehodna preslikava
+			\[
+				\vfi_\mu \circ \vfi^{-1}_\lambda : \vfi_\lambda(V_\lambda \cap V_\mu) \to \vfi_\mu (V_\lambda \cap V_\mu)
+			\]
+			$C^k$-difeo. To ozna\v cimo tudi kot
+			\[
+				\left.
+				\begin{array}{rl}
+					V_\lambda \cap V_\mu &= V_{\lambda\mu} \\
+					\vfi_\mu \circ \vfi^{-1}_\mu &=  \vfi_{\mu\lambda}
+				\end{array}
+				\right\} \vfi_{\mu\lambda} : \vfi_\lambda(V_{\lambda\mu}) \to \vfi_\mu (V_{\lambda\mu}).
+			\]}
+		\item{Dva $C^k$-atlasa sta (imate razli\v cne karte na mnogoterosti) \underline{\emph{kompatibilna}} ali \underline{\emph{ekvivalentna}},
+			\v ce je tudi njuna unija $C^k$-atlas.}
+		\item{\underline{\emph{$C^k$-strukura na $M$}} je ekvivalen\v cni razred $C^k$-atlasov na $M$ (je maksimalen $C^k$ atlas, torej
+			unija vseh kompatibilnih $C^k$ atlasov na $M$).}
+	\end{itemize}
+\end{defin}
+
+\paragraph{Opomba:} $C^k$-struktura (ali gladka struktura) je dolo\v cena s poljubnim atlasom iz ekvivalen\v cnega razreda in obi\v cajno navedemo
+atlas s \v cim manj kartami. Tega pa lahko vedno dopolnimi do maksimalnega.
+
+\begin{zgled}
+	$M = \R^n$ (je $n$-mnt). Najmanj\v si mo\v zen atlas ima eno karto, ki je $h : M \to \R^n$, $h$ homeomorfizem.
+	\begin{itemize}
+		\item{Mno\v zica $\{h : \R^n \to \R^n\}$ je $C^k$-atlas:
+			\begin{itemize}
+				\item{$\R^n$ pokriva $M = \R^n$,}
+				\item{kompatibilni pogo je izpolnjen, saj ni drugih kart.}
+			\end{itemize}}
+		\item{{\em standardna} $C^k$-struktura na $\R^n$ je dana s karto $\{\id : \R^n \to \R^n\}$.}
+		\item{Vzemimo $n = 1$: na \R obstajajo nekompatibilni (neekvivalentni) $C^k$-atlasi zgornje oblike:
+			\begin{itemize}
+				\item{standardni: $\{\id : \R \to \R\}$}
+				\item{$h_0 \R \to \R$,
+					\[
+						h_0 (x) =
+						\left\{\begin{array}{rl}
+							x,  & x < 0 \\
+							2x, & x \geq 0
+						\end{array}\right.
+					\]
+					ni kompatibilen z identiteto, ker $h_0$ ni odvedljiv v to\v cki $0$. Prehodna preslikava je
+					\[
+						h_0 \circ \id^{-1} = h_0 \notin C^k
+					\]}
+				\item{$h_p : \R \to \R$, $h(x) = x^{2p + 1}$, $p \in \mathbb{N}$. V tem primeru je $h_p$ odvedljiv, inverz pa ne:
+					$h_{p_1} \circ h_{p_2}$ ni razreda $C^k$. Tudi ti atlasi dajo same paroma nekompatibilne $C^k$ strukture (ker
+					je $h_p'(0) = 0\ \then\ h^{-1}_p$ ni odvedljiv) $\then$ ni kompatibilen s standardno strukturo. Podobno sklepamo
+					za ostale.}
+			\end{itemize}}
+	\end{itemize}
+\end{zgled}
+\begin{zgled}
+	Vsaka odprta podmno\v zica gldadke mnogoterosti je gladka mnogoterost (gladka mnogoterost v tem primeru pomeni, da zanjo obstaja atlas).
+	Karte lahko presekamo/zo\v zimo s to podmno\v zico, kar ne vpliva na gladkost prehodnih preslikav.\\[6pt]
+	
+	Npr. $GL_n(\R)$ -- obrnjljive matrike
+	dimenzije $n \times n$ so gladka mnogoterost dimenzije $n^2$. $GL_n(\R)$ je odprta podmno\v zica v $\R^{n \times n} = \R^{n^2}$, $GL_n(\R)$ je
+	tudi grupa in grupni operaciji (mno\v zenje in invertiranje) sta gladki preslikavi: to je primer \emph{Liejeve grupe}.
+\end{zgled}
