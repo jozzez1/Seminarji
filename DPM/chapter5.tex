@@ -1,0 +1,216 @@
+\chapter{Tangentni sve\v zenj mnogoterosti}
+
+\begin{defin}
+	\emph{Tangentni prostor} na $\R^n$: za vsako to\v cko $p \in \R^n$ je tangentni prostor na $\R^n$ v $p$
+	\[
+		T_p \R^n \equiv \R^n.
+	\]
+	$T_p\R^n$ je prostor vseh hitrosntnih (tangentnih) vektorjev poti v $p$.
+	\[
+		\gamma : J \to \R^n, \quad \gamma \in C^1,
+	\]
+	$J$ je interval, $0 \in J$, $\gamma$ pa je pot.
+	To\v cka v kateri gledamo je $\gamma (0) = p$, tangentni vektor pa je potem $\dot{\gamma}(0) = v$.
+\end{defin}
+
+Kak pomen \v se lahko damo tangentnemu vektorju? Naj bo $f : U \to \R$ funkcija na $\R^n$, definirana v okolici $U$
+to\v cke $p$.a Kompozitum $f \circ \gamma : J \to \R$ ima odvod
+\[
+	(f \circ \gamma)' (0) = \frac{\d}{\d t}\Big|_{t = 0} (f \circ \gamma) \in \R.
+\]
+Kaj je pomen tega \v stevila?
+\[
+	\frac{\d}{\d t}(f \circ \gamma)\Big|_{t = 0} = \nabla f\big(\gamma(t)\big) \cdot \dot{\gamma}(t)\big|_{t = 0}
+		= \nabla f(p) \cdot \dot{\gamma}(0) = \nabla f(p) \cdot v,
+\]
+kar pa je smerni odvod $f$ v $p$ v smeri tangentnega vektorja $v$. Posebej za $\gamma_i (t) = (0, \ldots, 0, 
+\stackrel{i}{t},
+0, \ldots, 0)$ dobimo $\dot{\gamma}_i(t) = e_i$ in
+\[
+	\frac{\d}{\d t}\Big|_{t = 0} (f \circ \gamma) (t) = \party{f}{x_i}(p) = \party{}{x_i}\Big|_{x = p} f.
+\]
+Tangentni vektor $e_i$ ena\v cimo z operatorjem odvajanje $\party{}{x_i}|_p = \partial_i |_p$. Baza za
+$T_p \R^n = \{\partial_1|_p, \ldots, \partial_n|_p\}$ in poljuben tangentni vektor
+\[
+	v = \sum_{i = 1}^n v_i \partial_i |_p \equiv (v_1, \ldots, v_n)
+\]
+predstavlja smerni odvod vzdol\v z $(v_1, \ldots, v_n)$. Pi\v semo
+\[
+	v (f) = \sum_{i = 1}^n v_i \partial_i f(p).
+\]
+Tako dobimo za $T_p \R^n$ mno\v zico diferencialnih operatorjev prvega reda, ki so linearni in zado\v s\v cajo
+Leibnizovemu pravilu za odvod produkta
+\[
+	v(f\cdot g) = v(f) \cdot g(p) + f(p) \cdot v(g).
+\]
+To je o\v citno res, saj je $v$ (linearni) operator odvajanja (po definiciji).
+
+\begin{defin}
+	Operator $A : C^1 (U) \to \R$, ki je linearen in zado\v s\v ca Leibnizovi formuli, imenujemo \emph{derivacija} pri $p \in U$,
+	$U \odp \R^n$.
+\end{defin}
+
+\begin{trditev}
+	Derivacije iz $C^\infty (U) \to \R$ pri $p \in U$ so v bijektivni korespondenci s tangentnimi vektorji pri $p$ na $\R^n$.
+\end{trditev}
+
+\paragraph{Dokaz:}
+[\emph{Ideja}:] Videli smo, da vsak tangentni vektor dolo\v ca derivacijo, to je smerni odvod. Pokazati moramo, da vsaka derivacija
+enoli\v cno dolo\v ca tangentni vektor in je enaka smernemu odvodu vzdol\v z tega vektorja.\\[6pt]
+
+Naj bo $A : C^\infty(U) \to \R$ derivacija pri $p$. Vzemimo $f_i(x) = x_i$ (projekcija na $i$-to koordinato) in ozna\v cimo
+$v_i = A(f_i)$. Trdimo, da $A$ ustreza smerni odvod vzdol\v z $v = \sum_i v_i \partial_i |_p$. Pokazati moramo, da za poljubno
+funkcijo $f$ velja $A(f) = v(f)\ \forall f$, $f \in C^\infty$.
+
+Pi\v semo $f(x) = f(p) + g(x)$, $g(p) = 0$. Funkcijo $g$ lahko zapi\v semo kot vsoto funkcij, kjer je vsaka pomno\v zena z $(x_i - p_i)$
+za nek $i$.
+\begin{align*}
+	g(x) &= g(x) - g(p) = g\big(p + t(x - p)\big)\Big|_{t = 0}^{t = 1} = \int_0^1 \frac{\d}{\d t}\Big(g\big(p + t(x - p)\big)\Big)\d t \\
+	&= \int_0^1 \sum_{i = 1}^n \party{g}{x_i}\big(p + t(p - x)\big) \cdot (x_i - p_i) \d t = \\
+	&= \sum_{i = 1}^n (x_i - p) \underbrace{\int_0^1 \party{g}{x_i} \big(p + t(x - p)\big)\d t}_{g_i (x) \in C^\infty(U)} =
+		\sum_{i = 1}^n (x_i - p_i)g_i (x) \\
+	&\then\ f(x) = f(p) + \sum_{i = 1}^n (x_i - p_i) g_i(x).
+\end{align*}
+\begin{itemize}
+	\item{Preverimo, da je $A(\text{konst}) = 0$, tj. da je derivacija konstantne funkcije enaka 0. $A$ je linearen $\then$ dovolj je gledati
+		preveriti trditev $A(1) = 0$:
+		\begin{align*}
+			A(1) &= A(1 \cdot 1) = A(1) \cdot 1 + 1 \cdot A(1) = 2 A(1)\quad \slash - A(1) \\
+			A(1) &= 0.
+		\end{align*}}
+	\item{$v_i$ smo definirali tako, da $A(x_i) = v_i$. Kaj je potem $A\big(f(x)\big)$ v splo\v snem?
+		\begin{align*}
+			A\big(f(x)\big) &= \overbrace{A\big(f(p)\big)}^{= 0} + \sum_{i = 1}^n A(x_i - p_i)g_i(p) +
+				\overbrace{(x_i - p_i)\Big|_{x = p}}^{= 0} \cdot A(g_i) \\
+			&= \sum_{i = 1}^n \underbrace{\Big(\overbrace{A(x_i)}^{= v_i} - \overbrace{A(p_i)}^{= 0}\Big)}_\text{linearnost} g_i(p) \\
+			&= \sum_{i = 1}^n v_i g_i (p).
+		\end{align*}
+		Po definiciji je $g_i (p)$ enak
+		\[
+			g_i (p) = \int_0^1 \party{g}{x_i} (p) \d t = \party{g}{x_i} (p),
+		\]
+		s \v cimer potem identificiramo izraz $A\big(f(x)\big)$ kot
+		\[
+			A \big(f(x)\big) = \sum_{i = 1}^n v_i \party{g}{x_i} (p) = v(g) = v(f).
+		\]}
+\end{itemize}
+\qed
+
+\paragraph{Opomba:} Izbrani tangentni vektor $V = (v_1, \ldots, v_n) \in \R^n$ je tangentni vektor za veliko poti $\gamma$, zato
+ozna\v cimo $v = [\gamma]$, s pogojem da $\gamma(0) = p$ in $\dot{\gamma}(0) = v$. Potem
+\[
+	v(f) = [\gamma]f = \frac{\d}{\d t}\Big|_{t = 0} \big(f \circ \gamma\big) (t)
+\]
+
+\begin{defin}
+	\paragraph{Tangentni prostor gladke mnogoterosti:}
+	$M$ naj bo mnogoterost in $p \in M$ to\v cka na njej. Naj bo $\vfi : V \to V'$ karta pri $p$. Karta $\vfi$ je idejno
+	difeomorfizem med $V$ in $V' \odp \R^n$, zato je $\vfi(p) \in \R^n$ in v tej to\v cki imamo tangentni prostor $T_{\vfi(p)}\R^n$.
+	Re\v ci \v zelimo, da $\vfi$ indentificira $T_pM$ s $T_{\vfi(p)}\R^n$. Ampak $\vfi$ ni zares odvedljiva kot $\vfi : V \to V'$
+	(na mnt ne znamo odvajati).
+
+	\paragraph{Re\v cemo:} Tangentni prostor $T_pM$ je glede na karto $\vfi$ predstavljen s $T_{\vfi(p)}\R^n$.\\[6pt]
+	
+	Kaj pa, \v ce izberemo drugo karto pri $p$? Kot smo vajeni, vzemimo \v se karto $\psi : W \to W'$, tako da $V \cap W \neq \{\}$.
+	Prehodna preslikava je difeomorfizem neke okolice to\v cke $\vfi(p)$ na neko okolico za $\psi(p)$. Posebej
+	$\vfi(p) \mapsto \psi(p)$, njen odvod $D_{\vfi(p)}(\psi \circ \vfi^{-1}) : T_{\vfi(p)}\R^n \to T_{\psi(p)} \R^n$ je
+	linearni izomorfizem. Na nek na\v cin lahko vse tangentne prostore izena\v cimo, da $v \in T_{\vfi(p)}\R^n$ ena\v cimo z
+	$w \in T_{\psi(p)}\R^n$ natanko tedaj, ko $w = D_{\vfi(p)}\big(\psi \circ \vfi^{-1}\big)(v)$.
+
+	\paragraph{Formalno:}
+	Za $T_pM$ proglasimo \emph{amalgamacijo} (disjunktno unijo) vseh tangentnih prostorov, dolo\v cenih s kartami
+	\[
+		T_pM \equiv \bquot{\coprod_{\vfi\ \text{karta}} T_{\vfi(p)}\R^n}{\sim}
+	\]
+	Ekvivalen\v cna relacija nana\v sa na difeomorfnost prehodnih preslikav. Ta rezultat je odvisen le od $M$ in ne od
+	izbire karte.
+\end{defin}
+
+\paragraph{Opomba:}
+\begin{itemize}
+	\item{Naj bo $f : U \to W$ difeomorfizem odprtih podmno\v zic v $\R^n$, $p \in U$, $f(p) \in W$. Tangentni vektorji
+		so podani s potmi $\gamma : J \to \R^n$, $\gamma (0) = p$, $\dot{\gamma}(0) = v$. \v Ce pot $\gamma$ preslikamo s $f$,
+		dobimo novo pot $f : J \to \R^n$. (sledi slika ki je nimam, predstavlja kako se interval $J$ preslika z $\gamma$ na neko novo pot
+		v $U \odp \R^n$, nato pa se ta pot s $f \circ \gamma$ preslika na neko novo pot v $W \odp \R^n$). Pot $f \circ \gamma$
+		predstavlja tangentni vektor pri $f(p)$
+		\[
+			\frac{\d}{\d t}\Big|_{t = 0} \big(f \circ \gamma\big) (t) = D_p f\big(\underbrace{\dot{\gamma}(0)}_v\big) = w
+		\]}
+	\item{Analogno lahko na $M$ dvignemo tudi druga dva opisa tangentnih prostorov (s potmi in z derivacijami): dve poti sta ekvivalentni,
+		\v ce imata enak tangentni vektor, ko ju preslikamo z neko karto -- re\v cemo, da se taki poti \underline{\emph{dotikata}}.}
+\end{itemize}
+
+\begin{trditev}
+	$T_pM$ lahko ena\v cimo s prostorom poti $\quot{P(M,p)}{\sim}$ \big(tu $P(M,p)$ pomeni vse poti na $M$ skozi $p$, `$\sim$' pa je ekvivalen\v cna
+	relacija dotikanja\big).
+\end{trditev}
+
+\paragraph{Dokaz:}
+Ena\v cimo jih s slikami teh poti glede na karto $\vfi : V \to V'$. Prednost tega opisa je, da so poti objekti na $M$, torej je ta opis
+intrinzi\v cen na $M$.
+\qed
+
+\section{Tangentni prostor in preslikave}
+
+Naj bo $f : M \to N$ gladka preslikav med gld mnt, $p \in M$, $f(p) \in N$. Velja (slike ni, zato opis):
+\begin{align*}
+	f : M &\to N \\
+	D_pf : T_pM &\to T_{f(p)}N,
+\end{align*}
+kjer $D_pf = T_pM$. Torej, \v ce $f$ slika med gld mnt, potem $T_pf = D_pf$ slika med tangentnimi prostori le-teh.
+
+\v Ce $v = [\gamma] \in T_pM$, je $D_pf(v) = D_pf([\gamma]) \equiv [f \circ \gamma]$, $f \circ \gamma$ je pot v $N$. Glede na karti $\vfi : V \to V'$ na $M$
+in $\psi : W \to W'$ je $D_pf$ dana s preslikavo
+\begin{align*}
+	D_{\vfi(p)}\big(\psi \circ f \circ \vfi^{-1}\big) : T_{\vfi(p)}\R^m &\to T_{\psi(f(p))}\R^n \\
+	[\gamma] &\mapsto \big[\big(\psi \circ f \circ \vfi^{-1}\big)(\gamma)\big]
+\end{align*}
+
+\section{Tangentni sve\v zenj}
+\begin{defin}
+	\begin{itemize}
+		\item{Na $U \odp \R^n$ $\forall x \in U$ imamo tangentni prostor $T_xU \equiv \R^n$. \emph{Tangentni sve\v zenj} je disjunktna unija vseh
+			tangentnih prostorov:
+			\[
+				\coprod_{x \in U} T_xU \equiv \coprod_{x \in U} \{x\} \times \R^n = U \times \R^n.
+			\]}
+		\item{Ker je $U \times \R^n \odp \R^n \times \R^n$, jo ($\id$) lahko vzamemo za karto. Definiramo gladko strukturo na $U \times \R^n$ za
+			\[
+				\id : U \times \R^n \to U \times \R^n \subseteq \R^n \times \R^n.
+			\]}
+		\item{Tako dobljeno gladko mnogoterost ozna\v zimo s $TU$ in imenujemo \eemph{tangentni sve\v zenj} mnt $U$. Mnogoterost $TU$ je
+			naravno opremljena z gladko preslikavo
+			\begin{align*}
+				\pi : TU &\to U \\
+				\pi (x, v) &= x
+			\end{align*}
+			Preslikava $\pi$ je \eemph{sve\v zenjska projekcija}. $TU$ je \eemph{totalni prostor} sve\v znja, $U$ je \eemph{baza}.}
+		\item{\eemph{Vlakno sve\v znja} nad to\v cko $x \in U$ je $\pi^{-1} = T_xU$. Ker je totalni prostor produkt, imenujemo $TU$ produktni
+			sve\v zenj.}
+		\item{Preslikavo $s : U \to TU$ imenujemo \eemph{prerez sve\v znja}, \v ce velja $\pi \circ s = \id$ (to je: $s(x) \in T_xU$).}
+	\end{itemize}
+\end{defin}
+
+V primeru produktnega prostora je $TU = U \times \R^n$, torej mora biti $s(x) = \big(x, v(x)\big)$, $v(x) \in \R^n$ poljuben ($v(x) = s_2(x)$). Tukaj
+$s_2(x)$ vsaki to\v cki priredi tangentni vektor $\then$ je vektorsko polje. TUdi prerez takega sve\v znj imenujemo vektorsko polje.
+
+Kot vsako vektorsko polje dolo\v ca diferencialno ena\v cbo, $\dot{x} = s(x)$, katere re\v sitvene krivulje so $\gamma : I \to U$, $\dot{\gamma}(t) =
+s\big(\gamma(t)\big)$. Na vektorsko polje lahko gledamo kot na derivacijo: \v ce je $s : U \to TU$ gladko vektorsko poljq in je $f : U \to \R$ gladka,
+je $s(f) = \d f(s)$ gladka funkcija na $U$, ki je smerni odvod $f$ vzdol\v z polja $s$.
+
+\paragraph{Opomba:} To smo storili za neko mnogoterost $U$, ki je vlo\v zena v $\R^n$. Isto bomo poskusili storiti za abstraktno mnogoterost, katere
+opis poznamo le prek kart.
+
+\begin{defin}
+	\paragraph{Tangentni sve\v zenj (abstraktne) gladke mnogoterosti:} Imejmo (abstraktno) gld mnt $M$. $\forall x \in M$ imamo $T_x M$, tangentni
+	sve\v zenj je disjunktna unija vseh teh $T_x M$:
+	\[
+		TM \equiv \coprod_{x \in M} T_xM.
+	\]
+	Ta je opremljen s projekcijo 
+	\begin{align*}
+		\pi : TM &\to M \\
+		T_xM \owns v &\mapsto x
+	\end{align*}
+	Te\v zava je v tem, ker $TM$ ne pride opremljen s strukturo gld mnt. $TM$ pa lahko opremimo z atlasom, ki ga dolo\v ca atlas na $M$.
+\end{defin}

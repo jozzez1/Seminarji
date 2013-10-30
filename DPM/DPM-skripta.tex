@@ -164,6 +164,11 @@
 		\raisebox{0.5ex}{$\displaystyle{#1}$\hspace{-0.5ex}}\big/\hspace{-0.5ex}\raisebox{-0.5ex}{$\displaystyle{#2}$}}
 }
 
+\newcommand{\bquot}[2]{
+	\ensuremath{
+		\raisebox{1.5ex}{$\displaystyle{#1}$\hspace{-0.5ex}}\bigg/\hspace{-0.5ex}\raisebox{-1.5ex}{$\displaystyle{#2}$}}
+}
+
 \newcommand{\Quot}[4]{
 	\ensuremath{
 		\raisebox{0.5ex}{$\displaystyle{\quot{#1}{#2}}$\hspace{-0.5ex}}\Big/\hspace{-0.5ex}\raisebox{-0.5ex}{$\displaystyle{\quot{#3}{#4}}$}
@@ -258,6 +263,14 @@
 	\ensuremath{\frac{\partial #1}{\partial #2}}
 }
 
+\renewcommand{\d}{
+	\ensuremath{\text{d}}
+}
+
+\newcommand{\eemph}[1]{
+	\underline{\emph{#1}}
+}
+
 \begin{document}
 
 \begin{titlepage}
@@ -293,5 +306,7 @@
 \part{Gladke mnogoterosti}
 
 \input{chapter4.tex}
+
+\input{chapter5.tex}
 
 \end{document}
