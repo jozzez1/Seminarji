@@ -352,3 +352,142 @@ atlas s \v cim manj kartami. Tega pa lahko vedno dopolnimi do maksimalnega.
 	dimenzije $n \times n$ so gladka mnogoterost dimenzije $n^2$. $GL_n(\R)$ je odprta podmno\v zica v $\R^{n \times n} = \R^{n^2}$, $GL_n(\R)$ je
 	tudi grupa in grupni operaciji (mno\v zenje in invertiranje) sta gladki preslikavi: to je primer \emph{Liejeve grupe}.
 \end{zgled}
+\pagebreak
+\begin{zgled}
+	Sfere $S^n = \{x \in \R^{n+1}\ |\ \|x\| = 1\}$ so gladke mnt, $\dim S^n = n$.
+	\begin{itemize}
+		\item{$S^n \subset \R^{n+1}$ je gladka podmnt, $f : \R^{n+1} \to \R$, $f(x) = \|x\|^2$, tedaj $S^n = f^{-1}(1)$. Preveriti moramo,
+			da je $Jf$ ranga 1 v vsaki to\v cki $Jf(x) = \nabla f(x) = 2x$ ima rang 1, ko $x \neq 0$. Amapak na sferi je to vedno res.
+			Dimenzija je $n + 1 - 1 = n$.}
+		\item{En atlas na $S^n$ dobimo tako, da projekcije zo\v zimo na hemisfere. Domene kart bodo odprte hemisfere $S^n_{i,\pm} =
+			\big\{x = (x_1,\ldots,x_{n+1}) \in S^n\ \big|\ x_i \gtrless 0\big\}$. Karta
+			\[
+				\vfi_{i,\pm} : S^n_{i,\pm} \to \B{}^n = \Big\{x = (x_1, \ldots, x_n),\ \sum_{j = 1}^n x^2_j < 1\Big\},
+			\]
+			slika v $\B{}^n$, ki je odprta krogla okrog izhodi\v s\v ca v $\R^n$. 
+			\[
+				\vfi_{i,\pm} (x_1, \ldots, x_{n+1}) = (x_1, \ldots, x_{i-1}, x_i, x_{i+1},\ldots,x_{n+1}).
+			\]
+			Ker je $\sum_j x_j^2 = 1$, je $\sum_{j \neq i} x_j^2 < 1$ $\then$ to je v $\B{}^n$. Da preverimo
+			gladko kompatibilnost tega atlasa, moramo izra\v cunati prehodne preslikave.
+			\begin{itemize}
+				\item{inverzi kart:
+					\begin{align*}
+						\vfi^{-1}_{i, \pm} : \B{}^n & \to S^n_{i,\pm} \\
+						(x_1,\ldots,x_n) &\mapsto \Big(x_1,\ldots,x_{i-1}, \pm\sqrt{1 - \textstyle{\sum_{j=1}^n x_j^2}}, x_i,
+							\ldots, x_n\Big)
+					\end{align*}}
+				\item{prehodne preslikave: $[\epsilon, \delta = \pm]$, $j < i$. Karta
+					\[
+						\vfi_{j,\delta} \circ \vfi^{-1}_{i,\epsilon} (x_1,\ldots,x_n) = \Big(x_1, \ldots, x_{i-1},
+							\epsilon\sqrt{1 - \textstyle{\sum_{k = 1}^n x_k^2}}, x_i, \ldots, x_{j-1}, x_{j+1}, \ldots, x_n\Big)
+					\] je gladka v $C^\infty$ (\v se ve\v c, realno analit\v cna je -- enaka Taylorjevi vrsti).}
+				\item{Za $\R$ funkcije (tj. funkcije realne spremenljivke) $C^\infty$ ne implicira analaiti\v cnosti. Kot primer vzemimo
+					\[
+						f(x) = \left\{
+						\begin{array}{rl}
+							0, & x \leq 0 \\
+							e^{-1/x}, & x > 0
+						\end{array}\right. {}\ \then\ \text{vsi odvodi v 0 so 0},
+					\]
+					torej je Taylorjeva vrsta v 0 ni\v celna (ker $f^{(n)} (0) = \forall n$), kljub temu, da $f$ ni povsod $0$.}
+			\end{itemize}}
+		\item{Zgornji atlas za $S^n$ ima $2(n+1)$ kart. \v Se lep\v se je, \v ce najdemo manj\v si atlas. \v Samo dve karti potrebujemo,
+			\v ce uporabimo stereografsko projekcijo. Za karto z domeno $S^n\backslash\{N\}$, $N = (0,0,\ldots,0,1)$ (severni
+			pol) je preslikava dana s pravilom, ki to\v cki $p \in S^n\backslash\{N\}$ priredi prese\v ci\v s\v ce premice skozi $p$ in
+			$N$ z ekvatorialno ravnino $\R^n \times \{0\} \subseteq \R^{n+1}$. To\v cko $x \in \R^{n+1}$ lahko pi\v semo $x = (y,t)$,
+			$y \in \R^n$, $t \in \R$. I\v s\v cemo formalno formulo za $\vfi(y,t) \in \R^n$. Smerni vektor premice je $p$-$N$, njena
+			ena\v cba je
+			\[
+				N + s(p - N),\ s \in \R,
+			\]\[
+				(0,1) + s \big((y,t) - (0,1)\big) = \big(sy, 1 + s(t+1)\big).
+			\]
+			Prese\v ci\v s\v ce z "`ravnino"' $\R^n \times \{0\}$ ustreza ni\v celni zadnji koordinati,
+			\[
+				1 + s(t-1) = 0, \qquad s = \frac{1}{1 - t},\qquad \then \vfi(y,t) = \frac{1}{1 - t} \cdot y.
+			\]
+			Podobno za ju\v zni pol, le da je tam `$1 + t$'.}
+		\item{Za prehodno preslikavo potrebujemo inverz ($\lambda z$ zaradi podobnih trikotnikov obdr\v zi smer v dimenziji $\R^n$):
+			\begin{align*}
+				\vfi^{-1} : \R^n &\to S^n \backslash \{\mathbb{N}\} \\
+				\vfi^{-1} (z) &= (\lambda z, t), \qquad \lambda \in \R
+			\end{align*}
+			\begin{itemize}
+				\item{Mora biti na sferi: $t^2 + \lambda^2\|z\|^2 = 1$.}
+				\item{Mora biti na premici:
+					\begin{align*}
+						(\lambda z, t) &= (0,1) + s\big((z,0) - (0,1)\big) \\
+						&= \underbrace{(sz, 1 - s) = (\lambda z, t)}_{\lambda = s,\ t = 1 - \lambda}
+					\end{align*}
+					\begin{align*}
+						1 - 2\lambda + \lambda^2 + \lambda^2\|z\|^2 &= 1\qquad \slash :\lambda \\
+						\lambda = \frac{2}{1 + \|z\|^2}; &\quad t = \frac{\|z\|^2 - 1}{\|z\|^2 + 1},
+					\end{align*}
+					kar pa nam na koncu vrne inverzno preslikavo
+					\[
+						\vfi^{-1}(z) = \bigg(\frac{2z}{1 + \|z\|^2}, \frac{\|z\|^2 - 1}{\|z\|^2 + 1}\bigg)
+					\]}
+			\end{itemize}}
+		\item{Dobljene karte in njihovi inverzi imajo za komponente realno-analiti\v cne funkcije, zato enako velja tudi za njihove
+			kompozitume $\then$ prehodne preslikave so realno-analiti\v cne in zato $\in C^\infty$. \v Se ve\v c, atlasa dolo\v cena s
+			projekcijami na hemisferah in s stereografskima projekcijama sta tudi realno-analiti\v cna, kompatibilna, torej dolo\v cata
+			isto gladko strukturo na sferi $S^n$, to je standardna gladka struktura na $S^n$.}
+	\end{itemize}
+\end{zgled}
+
+\begin{defin}
+	Naj bo $M$ $n$-mnt razreda $C^k$ in $f : M \to \R$. Re\v cemo, da je $f$ $C^k$-\emph{funkcija}, \v ce je za vsako karto iz nekega
+	atlasa $M$ preslikava $f \circ \vfi^{-1} : V' \to \R$ razreda $C^k$ (tj. ker smo na abstraktni mnogoterosti moramo za\v ceti s karto).
+\end{defin}
+
+\begin{defin}
+	Naj bosta $M$ in $N$ $C^k$-mnt dimenzije $m$ oz. $n$. Preslikava $f : M \to N$ je \emph{razreda} $C^k$, \v ce je $\forall$ karto
+	$(\psi : W \to W')$ iz maksimalnega atlasa za $N$ in $\forall$ $(\vfi : V \to V')$ iz maks. atlasa za $M$ za katero velja $f(V)
+	\subseteq W$ preslikava
+	\[
+		\psi \circ f \circ \vfi^{-1} : V' \to W'
+	\]
+	razreda $C^k$ med evklidskima prostoroma $\R^n$ in $\R^m$ (to mora veljati $\forall V \subseteq M$ in $\forall W \subseteq N$).
+\end{defin}
+
+\begin{defin}
+	Homeomorfizem $f : M \to N$ je $C^k$-\emph{difeomorfizem}, \v ce sta $f$ in $f^{-1}$ razreda $C^k$.
+\end{defin}
+
+\paragraph{Opomba:} Pogoj za gladkost funkcije smo napisali glede na nek atlas (ne nujno maksimalni), saj za poljubni $C^k$ kompatibilni karti
+$\vfi : V \to V'$ in $\psi : W \to W'$ na $M$ velja: 
+\begin{align*}
+	f \circ \psi^{-1} &= (f \circ \psi^{-1}) \circ (\vfi \circ \psi^{-1}) \\
+	f \circ \vfi^{-1} &= (f \circ \psi^{-1}) \circ (\psi \circ \vfi^{-1}) \\
+	\text{je $\in \C^k$} &\iff \text{je $\in C^k$}
+\end{align*}
+
+\paragraph{Opomba:}
+$C^k$-odvedljivost je dobro definirana na odprtih podmno\v zicah v $\R^n$. \v Ce gledamo orp. podmno\v zice v polprostoru $\R^n_+$ ali bolj
+splo\v sno mno\v zice, ki vsebujejo robne to\v cke, pa odedljivost v mejnih to\v ckah definiramo tako, da zahtevamo, da je preslikavo
+mogo\v ce raz\v siriti do $C^k$-preslikave na okolici tak\v sne to\v cke.
+
+\begin{zgled}
+	Poka\v zi, da so vse gladke strukture (tj. vsi razli\v cni $C^k$-kompatibilni atlasi) v $\R^n$ dolo\v cene z eno karto
+	$\{h : \R^n \to \R^n\}$, $h$ homeomorfizem, med sabo difeomorfne (med njimi obstajajo $C^k$-difeomorfizmi) $\iff$ $\exists$ difeomorfizem
+	med standardno strukturo na $\R^n$ in zgornjo.
+
+	\paragraph{Re\v sitev:}
+	Slike ni, zato bom opisal: imamo dve mnogoterosti: $M$, $N = \R^n$. $M$ ima karto $h$ na $\R^n$, $N$ pa $\id$. Katera preslikava slika
+	Med $M$ in $N$? Ker sta oba $\R^n$ lahko uporabimo spet kar $h$. Prehodna preslikava med slikami kart pa je potem $\id \circ h \circ
+	h^{-1} = \id$. $\id : \R^n \to \R^n$ je homeomorfizem (njegov inverz prav tako), to je tisto.
+	\qed
+
+	\paragraph{Opomba:}
+	\begin{itemize}
+		\item{Na $\R^n$ obstajata do difeomorfizma natan\v cno ena gladka struktura za $n \neq 4$ (lahko z ve\v c kartami
+			zgoraj z 1 karto)}
+		\item{Na $\R^4$ obstajata ne\v stevno nedifeomorfnih gladkih struktur. Dokaz se uporablja v Yang-Millsovi teoriji polja
+			(kvantna teorija polja -- masivna vektorska polja, kot npr QCD).}
+		\item{Na $S^n$ je najve\v c kon\v cno mnogo gladkih struktur, ki niso difeomorfne standardni. Na $S^4$ ni znano koliko jih
+			je (domneva se, da je 1). Prva sfera z znanimi ve\v cimi nedifeomorfnimi gladkimi strukturami je $S^7$, ki jih ima
+			28.}
+		\item{Za $n \geq 4$ na mnt dimenzije $n$ ne obstaja nujno gladka struktura!}
+	\end{itemize}
+\end{zgled}

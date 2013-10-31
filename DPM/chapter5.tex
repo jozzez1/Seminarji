@@ -213,4 +213,105 @@ opis poznamo le prek kart.
 		T_xM \owns v &\mapsto x
 	\end{align*}
 	Te\v zava je v tem, ker $TM$ ne pride opremljen s strukturo gld mnt. $TM$ pa lahko opremimo z atlasom, ki ga dolo\v ca atlas na $M$.
+	
+	Naj bo $\{\vfi_\lambda : U_\lambda \to U'_\lambda \subseteq \R^n\ |\ \lambda \in \Lambda\}$ nek atlas na $M$. $T_xM$ je definiran s
+	pomo\v cjo karte pri $x$. \v Ce je $x \in U_\lambda$, $T_xM$ ena\v cimo s $T_{\vfi_\lambda(x)}\R^n \equiv \R^n$. \v Ce je $x \in U_\mu$,
+	potem $T_xM$ ena\v cimo s $T_{\vfi_\mu(x)}\R^n \equiv \R^n$, saj sta ta povezana z linearnim izomorfizmom.
+
+	To konstrukcijo lahko uporabimo na celotni karti, $\vfi : U_\lambda \to U'_\lambda$ dolo\v ca bijekcijo med $\coprod_{x \in U_\lambda}
+	T_xM$ in $\coprod_{y \in U'_\lambda} T_yU'_\lambda$, tako da $T_xM$ identificira s $T_{\vfi_\lambda(x)}U'_\lambda$. To bijekcijo
+	ozna\v cimo $\hat{\vfi}_\lambda$ in jo proglasimo za \emph{karto} na $TM$. Preveriti moramo le gladkost prehodnih preslikav. To so
+	$TU'_\lambda \to TU'_\mu$, $\hat{\vfi}_\mu \circ \hat{\vfi}_\lambda$, definirana na preseku.
+	\begin{align*}
+		\hat{\vfi}_\mu \circ \hat{\vfi}^{-1}_\lambda : \vfi_\lambda (U_\lambda \cap U_\mu) \times \R^n &\to \vfi_\mu (U_\lambda \cap U_\mu)
+			\times \R^n \\
+		(y, v) &\to \Big(\big(\vfi_\mu \circ \vfi^{-1}_\lambda\big)(y), D_y\big(\vfi_\mu \circ \vfi^{-1}_\lambda\big)(v)\Big)
+	\end{align*}
 \end{defin}
+
+\v Ce je atlas na $M$ razreda $C^k$, je dobljeni atlas na $TM$ razreda $C^{k -1}$ (ker noter nastopa odvod), zato je najbolj ugodna situacija, ko
+je $M$ $C^\infty$-mnt.
+
+\section{Tangentni sve\v zenj gladke podmnogoterosti $M$ v $\R^m$}
+
+Definirajmo njen geometri\v cen tangentni sve\v zenj tako, da zlo\v zimo tangentne prostore na $M$ kot podprostore v $\R^m$. Velja
+$\forall x \im M$ je $T_xM$ vektorski prostor vseh hitrostnih vektorjev poti na $M$ skozi $x$. $T_xM$ je vektorski podprostor v $\R^m$ dimenzije
+$n = \dim M$. Ta $T_xM$ je o\v citno isti tangentni prostor, kot prej.
+\[
+	TM = \{(x,v)\ |\ x \in M, v \in T_xM\} \subseteq M \times \R^n.
+\]
+Lahko je videti, da je ta re\v c podmnt $\R^m \times \R^n$, difeomorfna abstraktnemu tangentnemu sve\v znju za $M$.
+
+\begin{lema}
+	\v Ce je $M = f^{-1}(a)$, $a$ je regularna vrednost, tj. vse to\v cke $x \in M = f^{-1}(a)$ so regularne (in $M$ je nivojska mno\v zica),
+	potem je $T_xM = \ker D_xf$ in $TM = \ker Df$, kjer
+	\begin{align*}
+		Df : \R^m \times \R^m &\to \R^\ell \\
+		(x,v) &\to D_x f(v)
+	\end{align*}
+	in
+	\[
+		\frac{\d}{\d t} (f \circ g) = \underbrace{\frac{\d}{\d g} \big(f\big) (g(t))}_\text{matrika} \cdot \underbrace{\frac{\d}{\d t}
+			g(t)}_{\dot{\gamma}(0)}.
+	\]
+\end{lema}
+
+\paragraph{Dokaz:}
+Izberimo $x \in M$ in $v \in T_xM$, predstavljen s potjo $\gamma : (-\varepsilon, \varepsilon) \to M$, $\gamma(0) = x$, $\dot{\gamma}(0) = v$.
+Ker je $\gamma (-\varepsilon, \varepsilon) \subseteq M$, je $f \circ \gamma$ konstantna preslikava z vrednostjo $a$, njen odvod je 0:
+\[
+	\frac{\d}{\d t}\bigg|_{t = 0} \big(f \circ \gamma\big)(t) = D_{\gamma(0)} f\big(\dot{\gamma}(0)\big) = D_x f(v) = 0\quad
+		\forall \gamma \qquad \then T_xM \subseteq \ker D_xf.
+\]
+Ker je $a$ regularna vrednost, je odvod $D_xf$ surjektiven in
+\[
+	\underbrace{\dim \ker D_xf}_{m - \ell = \dim T_xM} + \underbrace{\dim \im D_xf}_{\ell\ \text{(surj.)}} = m.
+\]
+Potem $\ker D_xf$ vsebuje $T_xM$, enake dimenzije, kar pa pomeni $T_xM = \ker D_xf$.
+\qed
+
+\begin{zgled}
+	Liejeva grupa je grupa $G$, ki je hkrati gladka mnogoterost in v kateri sta grupni operaciji mno\v zenja in invertiranja gladki
+	preslikavi.
+	\[
+		[(\R,+),\ (\C^*,\cdot),\ (S^1,\cdot),\ (GL_n(\R), \cdot),\ (GL_n(\C), \cdot),\ \ldots].
+	\]
+\end{zgled}
+
+\begin{trditev}
+	\v Ce je $G$ Liejeva grupa, je $TG$ izomorfen produktu $G \times T_e G$, tj. $\exists$ difeomorfizem med $G \times T_e G$ in $TG$,
+	ki je na vsakemu vlaknu linearen izomorfizem.
+\end{trditev}
+
+\paragraph{Dokaz:}
+Iskani izomorfizem je
+\begin{align*}
+	G \times T_eG &\to TG \\
+	(g,v) &\mapsto D_eg(v)\quad \text{(delovanje)}
+\end{align*}
+Element $g$ dolo\v ca gladko preslikavo $G \to G$, ki je levo mno\v zenje z $G$, $h \mapsto gh$. Posebej $e \mapsto g$. $\forall$ gladko
+preslikavo med gld mnt $f : M \to N$ dolo\v ca gladko preslikavo $Df : TM \to TN$, $v \in T_xM \then Df(v) \in T_{f(x)}N$ dolo\v cen
+takole: \v ce pot $\gamma : (-\varepsilon, \varepsilon) \to M$ predstavlja $v$, potem pot $f \circ \gamma$ predstavlja $D_x f(v)$.
+
+Na ta na\v cin odvod translacije $g$ dolo\v ca linearno preslikavo $D_e g : T_e G \to T_g G$, ki je izomorfizem (njen inverz je $D_g g^{-1}$.
+\qed
+
+\section{Tenzorski sve\v znji in tenzorska polja}
+\paragraph{Ideja:} Konstrukcije linearne algebre, ki jih lahko naredimo na vlaknih sve\v znja, globaliziramo na celoten sve\v zenj.
+
+\paragraph{Primeri konstrukcij:}
+\begin{enumerate}
+	\item{\underline{Dualni vektorski prostor:}
+		\[
+			V^* = L(V, \R) = \text{lin. preslikave iz $V \to \R$.}
+		\]
+		Tangentni prostor $T_xM \to T_x^*M = (T_xM)^*$ in iz teh sestavimo nov sve\v zenj $T^*M$.}
+	\item{\underline{Tenzorski produkt:}
+		$V$ vektorski prostor, $V^*$ dualni prostor. Tenzorji tipa $(r,s)$ so elementi tenzorskega produkta
+		\[
+			\overbrace{V \otimes V \otimes \ldots \otimes V}^{r\text{-krat}}\otimes\overbrace{V^* \otimes 
+				V^* \otimes \ldots \otimes V^*}^{s\text{-krat}} = V^{r,s}.
+		\]
+		\v Ce to uporabimo na vlaknih $T_xM$, dobimo sve\v zenj tenzorjev $T^{r,s}M$ z vlakni $T_x^{r,s}M$.
+		Prerezi tega sve\v znja so $(r,s)$-tenzorska polja.}
+\end{enumerate}
