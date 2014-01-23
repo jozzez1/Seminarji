@@ -1,0 +1,144 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[small, width=0.7\textwidth]{caption}
+\usepackage{amssymb, amsmath, fullpage, float, graphicx}
+
+\renewcommand{\d}{
+	\ensuremath{\mathrm{d}}
+}
+
+\newenvironment{teorem}
+{
+	\vspace{6pt}
+	\noindent [\emph{Trditev}]
+}
+{
+	
+}
+
+\newenvironment{dokaz}
+{
+	\vspace{6pt}
+	\noindent [\emph{Dokaz}]
+}
+{
+	\begin{flushright}
+		$\blacksquare$
+	\end{flushright}
+}
+
+\begin{document}
+
+\section{Naloga}
+
+Razi\v s\v ci dvo-frekven\v cni brcani rotator s \v casovno odvisno (brezdimenzijsko) hamiltonko
+\begin{equation}
+	H(t) = \frac{p^2}{2} + \sum_{m = -\infty}^\infty \big\{k\delta(t - m) + k'\delta(t - m\tau - \theta)\big\}\cos\phi.
+	\label{hamiltonian}
+\end{equation}
+\begin{itemize}
+	\item{Zanimiva je predvsem dinamika za \emph{inkomenzurabilno} razmerje brcanih frekvenc (t.j. $\tau$ iracionalen,
+		npr. $\tau = (\sqrt{5} - 1)/2)$).}
+	\item{Oglej si pojemanje korelacij, difuzijsko konstanto $\langle(p_t - p_0)^2\rangle/(2t)$, $t \to \infty$, ter
+		Ljapunov eksponent v odvisnosti od konstant $k$, $k'$ in nekaj tipi\v cnih vrednosti razmerja frekvenc
+		$\tau$.}
+	\item{Ali ima fazni zamik $\theta$ kak vpliv?}
+	\item{Ali obstaja kaka zanimiva predstavitev dinamike v faznem prostoru (pozor: koncept obi\v cajne stroboskopske
+		preslikave tu odpove)?}
+\end{itemize}
+
+\section{Razmislek}
+
+Vse trditve se nana\v sajo na hamiltonian~\eqref{hamiltonian} in za $t > 0$.
+
+\begin{teorem}
+	Fazni zamik $\theta$ lahko brez izgube splo\v snosti omejimo na $\theta \in [0,\tau)$.
+\end{teorem}
+
+\begin{dokaz}
+	Najprej poka\v zimo za pozitivne $\theta$, tj. $\theta > \tau$
+	\begin{equation*}
+		\sum_{m = -\infty}^\infty \delta (t - m\tau - \theta),
+	\end{equation*}
+	pomeni, da bo do prvega sunka pri\v slo za nek $m = n$. Na\v sa vsota je potem neni\v celna za
+	$n \leq m < \infty$. V tem primeru lahko $\theta$ oklestimo za celi ve\v ckratnik
+	$\tau$ (ki je kar $n\tau$), tj. $\theta = \theta' + n\tau$
+	\[
+		\sum_{m = n}^{\infty} \delta (t - m\tau - \theta) = \sum_{m = n}^\infty \delta (t - m\tau - n\tau - \theta')
+	\]
+	To nam da
+	\[
+		\sum_{m + n = 0}^\infty \delta \big(t - (m + n)\tau - \theta'\big) = \sum_{m = 0}^\infty
+		\delta (t - m\tau - \theta'),
+	\]
+	kjer je $\theta' = (\theta \mod \tau)$, ki pa je o\v citno znotraj intervala $[0,\tau)$. Za negativne $\theta$ imamo
+	analogen primer, vendar tam dobimo $-n$, kjer je $n$ pozitivno \v stevilo.
+\end{dokaz}
+
+\begin{teorem}
+	V primeru, da je za\v cetni \v cas $t_0 = 0$ (torej bo $t \geq 0$), lahko brez izgube splo\v snosti vzamemo
+	$\tau \geq 0$.
+\end{teorem}
+
+\begin{dokaz}
+	Naj bosta $\tau > 0$ in $t > 0$. Po prej\v snjem izreku vedmo, da je na\v sa vsota neni\v celna ko $m \leq 0$.
+	\begin{equation}
+		\sum_{m = -\infty}^\infty \delta (t - m\tau - \theta) = \sum_{m = 0}^\infty \delta (t - m\tau - \theta),
+		\label{dokaz1}
+	\end{equation}
+	V primeru $\tau < 0$, se taista vsota zapi\v se kot
+	\begin{equation*}
+		\sum_{m = -\infty}^\infty \delta (t - m\tau - \theta) = \sum_{m = 0}^{-\infty} \delta (t - m\tau - \theta),
+	\end{equation*}
+	torej je vsota razli\v cna od ni\v c samo, kadar je $m < 0$. V tem primeru lahko definiramo $n = -m$ in dobimo
+	\begin{equation*}
+		\sum_{n = 0}^{\infty} \delta (t + n\tau - \theta).
+	\end{equation*}
+	Kar nam preostane je \v se to, da definiramo $\tau = -\tau'$, $\tau' > 0$ in dobimo
+	\begin{equation}
+		\sum_{n = 0}^\infty \delta (t - n\tau' - \theta),
+	\end{equation}
+	kar pa je isti izraz, kot ena\v cba~\eqref{dokaz1}, poleg tega, da je $\tau' \geq 0$, tako kot $\tau$ iz
+	ena\v cbe~\eqref{dokaz1} Torej zado\v s\v ca, da se omejimo na $\tau \geq 0$.
+\end{dokaz}
+
+S tem smo si nekoliko poenostavili \v zivljenje, saj lahko hamiltonian~\eqref{hamiltonian} prepi\v semo v
+\begin{equation}
+	H (x, p, t) = \frac{p^2}{2} + k\cos(x)\sum_{m = 0}^{\infty} \Big[\delta (t - m) + \frac{k'}{k}
+		\delta(t - m\tau - \theta)\Big],
+\end{equation}
+kjer veljajo omejitve $x \in [0, 2\pi)$, $\tau \geq 0$ in $\theta \in [0,\tau)$.
+
+\subsection{Preslikava}
+
+O\v citno bomo morali delati z diskretnimi \v casi. Radi bi nekaj takega, kot je bila prej\v snja stroboskopska preslikava.
+Opremimo z indeksi $j$ zaporedne sunke, tj. tik ob nekem sunku $j$ imamo vektor $(x_j, p_j)^T$. \v Cas bomo disktretizirali
+tako, da bomo vedno gledali dogodke tik pred sunki in $\Delta_j = t_{j+1} - t_j$. Potem se je gibalna koli\v cina do tik pred
+sunkom $j+1$ spremenila za
+\[
+	\int_{t_j}^{t_{j_+1}} \dot{p}(t)\ \d t  = \Delta_j K_j \sin x_j,
+\]
+saj nas nosi sunek, ki se je zgodil tik za \v casom $t_j$. Tu je $\dot{p}(t)$ na tem \v casovnem intervalu konstanta. Nova
+gibalna koli\v cina je potem
+\begin{equation*}
+	p_{j+1} = p_j + \Delta_j K_j \sin x_j,
+\end{equation*}
+kjer smo s $K_j$ ozna\v cili bodisi $k$, bodisi $k'$, kateri izmed njiju je bil pa\v c odgovoren. Do kraja tik pred novim
+sunkom pa smo pripotovali \v ze z "`novo"' gibalno koli\v cino, tj. gibalno koli\v cino trka, ki se je zgodil tik za \v casom
+$t_j$, ki pa je $p_{j+1}$:
+\begin{equation*}
+	x_{j+1} = (x_j + \Delta_j p_{j+1}) \mod 2\pi.
+\end{equation*}
+Na\v sa nova "`stroboskopska preslikava"' je potem
+\begin{align}
+	p_{j+1} &= p_j + \Delta_j K_j \sin x_j, \notag \\
+	x_{j+1} &= x_j + \Delta_j p_{j+1}.
+	\label{stroboskopska}
+\end{align}
+ki tudi dejansko izgleda kot posplo\v sen izvedenka stroboskopske preslikave iz sktripte.
+Vse kar nam preostane je to, da poi\v s\v cemo $\Delta_j$ (\v case med sunki) in $K_j$, torej s katero "`nogo"' brcnemo na\v s
+rotator, kar pa lahko izra\v cunamo vnaprej. Ena\v cba~\eqref{stroboskopska} bo na\v sa osnovna ena\v cba za modeliranje.
+
+\end{document}
