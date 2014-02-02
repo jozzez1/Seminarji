@@ -2,8 +2,8 @@
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[small, width=0.7\textwidth]{caption}
-\usepackage{amssymb, amsmath, fullpage, float, graphicx}
+\usepackage[small, width=0.8\textwidth]{caption}
+\usepackage{amssymb, amsmath, fullpage, float, graphicx, pdflscape, hyperref}
 
 \renewcommand{\d}{
 	\ensuremath{\mathrm{d}}
@@ -29,7 +29,20 @@
 	\end{flushright}
 }
 
+\newcommand{\e}{
+	\ensuremath{\varepsilon}
+}
+
 \begin{document}
+
+\begin{center}
+\textsc{Dinami\v cna analiza}\\
+\textsc{2013/14}\\[0.5cm]
+\textbf{Zaklju\v cna naloga}
+\end{center}
+\begin{flushright}
+\textbf{Jo\v ze Zobec}
+\end{flushright}
 
 \section{Naloga}
 
@@ -39,7 +52,7 @@ Razi\v s\v ci dvo-frekven\v cni brcani rotator s \v casovno odvisno (brezdimenzi
 	\label{hamiltonian}
 \end{equation}
 \begin{itemize}
-	\item{Zanimiva je predvsem dinamika za \emph{inkomenzurabilno} razmerje brcanih frekvenc (t.j. $\tau$ iracionalen,
+	\item{Zanimiva je predvsem dinamika za inkomenzurabilno razmerje brcanih frekvenc (t.j. $\tau$ iracionalen,
 		npr. $\tau = (\sqrt{5} - 1)/2)$).}
 	\item{Oglej si pojemanje korelacij, difuzijsko konstanto $\langle(p_t - p_0)^2\rangle/(2t)$, $t \to \infty$, ter
 		Ljapunov eksponent v odvisnosti od konstant $k$, $k'$ in nekaj tipi\v cnih vrednosti razmerja frekvenc
@@ -51,94 +64,294 @@ Razi\v s\v ci dvo-frekven\v cni brcani rotator s \v casovno odvisno (brezdimenzi
 
 \section{Razmislek}
 
-Vse trditve se nana\v sajo na hamiltonian~\eqref{hamiltonian} in za $t > 0$.
+\subsection{Tipi\v cna izbira parametrov}
 
-\begin{teorem}
-	Fazni zamik $\theta$ lahko brez izgube splo\v snosti omejimo na $\theta \in [0,\tau)$.
-\end{teorem}
+Hamiltonian~\eqref{hamiltonian} ima \v casovno periodi\v cen potencial. To s sabo prinese nekatere lepe lastnosti pri
+dolo\v canju parametrov. Velja, da lahko brez zgube splo\v snosti delamo zgolj s $\tau \geq 0$ in $\theta \in [0, \tau)$.
+Prav tako lahko za\v cetni \v cas (\v cas merjenja) postavimo na $t_0 = 0$ pri \v cemer lahko hamiltonian~\eqref{hamiltonian}
+prepi\v semo v
 
-\begin{dokaz}
-	Najprej poka\v zimo za pozitivne $\theta$, tj. $\theta > \tau$
-	\begin{equation*}
-		\sum_{m = -\infty}^\infty \delta (t - m\tau - \theta),
-	\end{equation*}
-	pomeni, da bo do prvega sunka pri\v slo za nek $m = n$. Na\v sa vsota je potem neni\v celna za
-	$n \leq m < \infty$. V tem primeru lahko $\theta$ oklestimo za celi ve\v ckratnik
-	$\tau$ (ki je kar $n\tau$), tj. $\theta = \theta' + n\tau$
-	\[
-		\sum_{m = n}^{\infty} \delta (t - m\tau - \theta) = \sum_{m = n}^\infty \delta (t - m\tau - n\tau - \theta')
-	\]
-	To nam da
-	\[
-		\sum_{m + n = 0}^\infty \delta \big(t - (m + n)\tau - \theta'\big) = \sum_{m = 0}^\infty
-		\delta (t - m\tau - \theta'),
-	\]
-	kjer je $\theta' = (\theta \mod \tau)$, ki pa je o\v citno znotraj intervala $[0,\tau)$. Za negativne $\theta$ imamo
-	analogen primer, vendar tam dobimo $-n$, kjer je $n$ pozitivno \v stevilo.
-\end{dokaz}
-
-\begin{teorem}
-	V primeru, da je za\v cetni \v cas $t_0 = 0$ (torej bo $t \geq 0$), lahko brez izgube splo\v snosti vzamemo
-	$\tau \geq 0$.
-\end{teorem}
-
-\begin{dokaz}
-	Naj bosta $\tau > 0$ in $t > 0$. Po prej\v snjem izreku vedmo, da je na\v sa vsota neni\v celna ko $m \leq 0$.
-	\begin{equation}
-		\sum_{m = -\infty}^\infty \delta (t - m\tau - \theta) = \sum_{m = 0}^\infty \delta (t - m\tau - \theta),
-		\label{dokaz1}
-	\end{equation}
-	V primeru $\tau < 0$, se taista vsota zapi\v se kot
-	\begin{equation*}
-		\sum_{m = -\infty}^\infty \delta (t - m\tau - \theta) = \sum_{m = 0}^{-\infty} \delta (t - m\tau - \theta),
-	\end{equation*}
-	torej je vsota razli\v cna od ni\v c samo, kadar je $m < 0$. V tem primeru lahko definiramo $n = -m$ in dobimo
-	\begin{equation*}
-		\sum_{n = 0}^{\infty} \delta (t + n\tau - \theta).
-	\end{equation*}
-	Kar nam preostane je \v se to, da definiramo $\tau = -\tau'$, $\tau' > 0$ in dobimo
-	\begin{equation}
-		\sum_{n = 0}^\infty \delta (t - n\tau' - \theta),
-	\end{equation}
-	kar pa je isti izraz, kot ena\v cba~\eqref{dokaz1}, poleg tega, da je $\tau' \geq 0$, tako kot $\tau$ iz
-	ena\v cbe~\eqref{dokaz1} Torej zado\v s\v ca, da se omejimo na $\tau \geq 0$.
-\end{dokaz}
-
-S tem smo si nekoliko poenostavili \v zivljenje, saj lahko hamiltonian~\eqref{hamiltonian} prepi\v semo v
 \begin{equation}
-	H (x, p, t) = \frac{p^2}{2} + k\cos(x)\sum_{m = 0}^{\infty} \Big[\delta (t - m) + \frac{k'}{k}
-		\delta(t - m\tau - \theta)\Big],
+	H(x,p,t) = \frac{p^2}{2} + \cos(x)\sum_{m = 0}^{\infty}\Big[k\delta(t - m) + k'\delta(t - m\tau - \theta)\Big].
 \end{equation}
-kjer veljajo omejitve $x \in [0, 2\pi)$, $\tau \geq 0$ in $\theta \in [0,\tau)$.
+V primeru $\tau = 1$ in $\theta = 0$ imamo eno-frekve\v cni brcan rotator z jakostjo $K = k + k'$. Z njim lahko preverimo,
+\v ce se rezultati ujemajo s pri\v cakovanimi. Zanimivo bi bilo tudi preveriti kaj se zgodi, ko $\tau = 2$. Mogo\v ce
+imamo efektivni $K_\text{ef} = (k + k')/2$ (tj. mogo\v ce to ustreza eno-frekve\v cnemu brcanemu rotatorju s
+$K = K_\text{ef}$). Na koncu pa tudi preveriti kako je za $\tau = \sqrt{2}-1$ in pa $\tau = (\sqrt{5} - 1)/2$.
 
-\subsection{Preslikava}
+Ob tem je smiselno preveriti vse rezultate za razli\v cne $\theta$, npr. za \v stiri razli\v cne ekvidistan\v cne izbire
+$\theta$ znotraj $[0,\tau)$ (ob tem pa preveriti predvsem, ali to vpliva na korelacije).
+
+\subsection{Izra\v cun dinamike}
 
 O\v citno bomo morali delati z diskretnimi \v casi. Radi bi nekaj takega, kot je bila prej\v snja stroboskopska preslikava.
 Opremimo z indeksi $j$ zaporedne sunke, tj. tik ob nekem sunku $j$ imamo vektor $(x_j, p_j)^T$. \v Cas bomo disktretizirali
-tako, da bomo vedno gledali dogodke tik pred sunki in $\Delta_j = t_{j+1} - t_j$. Potem se je gibalna koli\v cina do tik pred
-sunkom $j+1$ spremenila za
-\[
-	\int_{t_j}^{t_{j_+1}} \dot{p}(t)\ \d t  = \Delta_j K_j \sin x_j,
-\]
-saj nas nosi sunek, ki se je zgodil tik za \v casom $t_j$. Tu je $\dot{p}(t)$ na tem \v casovnem intervalu konstanta. Nova
-gibalna koli\v cina je potem
+tako, da bomo vedno gledali dogodke tik pred sunki in $\Delta_j \equiv t_{j+1} - t_j$. S $K_j$ bomo ozna\v cili jakost
+$j$-tega sunka, tj. $K_j \in \{k, k', k + k'\}$, odvisno od situacije. Potem se je gibalna koli\v cina do tik pred
+sunkom $j+1$ (ob \v casu $t_{j+1}$) spremenila za
+\begin{align*}
+	\int_{t_j}^{t_{j+1}} \dot{p}(t)\ \d t  &= \lim_{\e \searrow 0} \int_{t_j}^{t_{j+1}} \d t\ K_j \sin x_j
+		\delta (t - (t_j + \e)) \\
+		&= K_j \sin x_j \underbrace{\int_{t_j}^{t_{j+1}} \d t\ \lim_{\e \searrow 0} \delta(t - (t_j+\e))}_{ = 1},
+\end{align*}
+saj nas nosi sunek, ki se je zgodil tik za \v casom $t_j$ (zaradi tega smo v Diracovo $\delta$-funkcijo dodali \v se majhen
+popravek $\e > 0$ k \v casu sunka). Nova gibalna koli\v cina je potem
 \begin{equation*}
-	p_{j+1} = p_j + \Delta_j K_j \sin x_j,
+	p_{j+1} = p_j + K_j \sin x_j,
 \end{equation*}
-kjer smo s $K_j$ ozna\v cili bodisi $k$, bodisi $k'$, kateri izmed njiju je bil pa\v c odgovoren. Do kraja tik pred novim
-sunkom pa smo pripotovali \v ze z "`novo"' gibalno koli\v cino, tj. gibalno koli\v cino trka, ki se je zgodil tik za \v casom
-$t_j$, ki pa je $p_{j+1}$:
+Do kraja tik pred novim sunkom pa smo pripotovali \v ze z "`novo"' gibalno koli\v cino, tj. gibalno
+koli\v cino po trku, ki se je zgodil tik za \v casom $t_j$, to je $p_{j+1}$:
 \begin{equation*}
-	x_{j+1} = (x_j + \Delta_j p_{j+1}) \mod 2\pi.
+	x_{j+1} = x_j + \Delta_j p_{j+1}\quad (\mathrm{mod}\ 2\pi).
 \end{equation*}
 Na\v sa nova "`stroboskopska preslikava"' je potem
 \begin{align}
-	p_{j+1} &= p_j + \Delta_j K_j \sin x_j, \notag \\
-	x_{j+1} &= x_j + \Delta_j p_{j+1}.
+	p_{j+1} &= p_j + K_j \sin x_j, \notag \\
+	x_{j+1} &= x_j + \Delta_j p_{j+1} \quad (\mathrm{mod}\ 2\pi).
 	\label{stroboskopska}
 \end{align}
-ki tudi dejansko izgleda kot posplo\v sen izvedenka stroboskopske preslikave iz sktripte.
-Vse kar nam preostane je to, da poi\v s\v cemo $\Delta_j$ (\v case med sunki) in $K_j$, torej s katero "`nogo"' brcnemo na\v s
-rotator, kar pa lahko izra\v cunamo vnaprej. Ena\v cba~\eqref{stroboskopska} bo na\v sa osnovna ena\v cba za modeliranje.
+ki tudi mo\v cno spominja na stroboskopsko preslikavo iz sktripte. Ta je dobra ne le za dvo-frekven\v cni
+brcan rotator, ampak za poljubno \v stevilo frekvenc. Vse kar nam preostane je to, da poi\v s\v cemo $\Delta_j$ (\v casovne
+intervale med zaporednimi sunki) in njim pripadajo\v ce $K_j$, torej s katero "`nogo"' brcnemo na\v s rotator, oboje pa lahko
+izra\v cunamo vnaprej. Ena\v cba~\eqref{stroboskopska} bo na\v sa osnovna ena\v cba za modeliranje.
+
+\section{Rezultati}
+
+\subsection{Fazni portreti}
+
+Dobro je, da si najprej ogledamo obna\v sanje v faznih portretov in mogo\v ce \v ze iz slik lahko razberemo kak\v sen
+empiri\v cni zakon. To bomo naredili s postopkom:
+\begin{itemize}
+	\item{Dolo\v cimo $\tau$, $\theta$ in $t_\text{max}$.}
+	\item{Med $0$ in $t_\text{max}$ poi\v s\v cemo vse $\Delta_j$ in $K_j$.}
+	\item{Po ena\v cbi~\eqref{stroboskopska} izra\v cunamo vse $x_j$ in $p_j$.}
+\end{itemize}
+Vse grafe sem ra\v cunal s $t_\text{max} = 1000$ in z izbiro $G = 1000$ razli\v cnih za\v cetnih pogojih.
+Za $\tau = 1$ in $k = 0.3$ ter $k' = 0.6$ dobimo res eno-frekven\v cni oscilator z jakostjo branja $K = k + k'$, kot vidimo
+na sliki~\eqref{dokaz}.
+\begin{figure}[H]\centering
+	\includegraphics[width=10cm, keepaspectratio=1]{t100-q000-k030-K060-res}
+	\caption{Res, ta fazni portret ustreza eno-frekven\v cnemu brcanemu rotatorju z jakostjo branja $K = 0.9$. Izbira
+		parametrov je v naslovu slike.}
+	\label{dokaz}
+\end{figure}
+Zanimivo bi bilo izmeriti vpliv $\theta$ na fazni portret: pustimo vse parametre nespremenjene, spremenimo pa $\theta = 0.25$,
+kot ka\v ze slika~\ref{theta025}. Vidimo, da graf postane superpozicija dveh enakih fazno zamaknjenih grafov. Vsak izmed
+teh grafov ustreza eno-frekven\v cnemu brcanemu rotatorju, vendar bi bil ustrezni $K < k + k'$. Podobne reuzultate dobimo
+za $\tau = 2$ in $\theta = 0$, le da dobimo $K > k + k'$ (slika~\ref{graf2}), saj je stopnja nereda posameznega grafa v tem
+primeru vi\v sja (vsaj sode\v c glede na sliko~\ref{dokaz}).
+\begin{landscape}
+\begin{figure}[H]\centering
+	\includegraphics[width=22cm, keepaspectratio=1]{t100-q025-k030-K060-res}
+	\caption{Kombiniran graf, je na skrajni levi, desno od njega pa sta grafa lo\v cena -- zeleni ustreza
+		sunkom $K_i = k$, magenta pa sunkom $K_i \in \{k', k + k'\}$. Kombiniran graf je
+		nekoliko kaoti\v cen, vendar pa imata lo\v cena grafa manj\v so stopnjo nereda.}
+	\label{theta025}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=22cm, keepaspectratio=1]{t200-q000-k030-K060-res}
+	\caption{Spet nam je uspelo graf razcepiti na dva enaka, a fazno zamaknjega.}
+	\label{graf2}
+\end{figure}
+\end{landscape}
+Ta razcep nam pove, da zgolj posplo\v sitev stroboskopske preslikave ne zado\v s\v ca. Te fazne portrete sem razlo\v cil
+od predpostavki, da graf vedno razpade na dva grafa: eden ustreza sunku prve noge z jakostjo $k$, drugi pa sunku druge
+noge z jakostjo $k'$ (ali pa $k + k'$). Za razmerja vrekvenc, kjer obstaja tak $n \in \mathbb{Z}$, da
+$n \tau \in \mathbb{N}$ dobimo torej skupni graf, ki je superpozicija  ve\v c grafov. Naivno bi pri\v cakovali, da za
+$\tau = 1.5$ dobimo superpozicijo treh grafov, tisti, ki ustrezajo $k$, $k'$ in $k + k'$. Vendar temu ni tako. Dobimo
+superpozicijo \v stirih grafov (slika~\ref{graf3}). Intuitivno je to zato, ker je treba opazovati "`periodo"' brc, ki
+je na tabeli~\ref{tab1}.
+\begin{table}[H]\centering
+	\caption{Primer tabele periode brc za primer $\tau = 1.5$, $\theta = 0$.}
+	\begin{tabular}{c | c}
+		$t_i$ & $K_i$ \\ \hline\hline
+		$0$ & $k + k'$ \\
+		$1$ & $k$ \\
+		$1.5$ & $k'$ \\
+		$2$ & $k$ \\ \hline
+		$3$ & $k + k'$\\
+		$\vdots$ & $\vdots$
+	\end{tabular}
+	\label{tab1}
+\end{table}
+Znotraj ene periode (tj. od $t = 0$ do tik pred $t = 3$) brcnemo \v stirikrat, zaradi \v cesar vidimo na sliki~\ref{graf3},
+da nam razcep na $K_i = k$ in $K_i \in \{k', k + k'\}$ ni zadosten, saj je vsak izmed razcepljenih grafov sestavljen iz dveh,
+tj. je razlika tudi po tem, kdaj udarimo in ne le s kak\v snim sunkom.
+
+Za grafe z inkomenzurabilnim razmerjem frekvenc (tj. tak $n \in \mathbb{Z} \backepsilon: n\tau \in \mathbb{N}$ \emph{ne}
+obstaja) nimamo cele periode, pa\v c pa imamo nekak\v sno kvazi-periodi\v cno obna\v sanje. Naredil sem primer
+$\tau = \sqrt{2} - 1$ za razli\v cne $k$, $k'$ in pri\v sel do sklepa, da je kljub temu, da je obna\v sanje v ozadju videti
+urejeno, \v se vedno preve\v c kaoti\v cno za vse mo\v zne izbire $k$, $k'$ (primer je na sliki~\ref{graf4}, kjer sem
+izbral zelo pohlevne parametre, vendar zelo hitro zapolnimo cel prostor z izjemo orbit na sredini grafa).
+\begin{landscape}
+\begin{figure}[H]\centering
+	\includegraphics[width=22cm, keepaspectratio=1]{t150-q000-k030-K060-res}
+	\caption{Zeleni graf vsebuje vse sunke tipa $k$, magenta pa spet $K_i \in \{k', k' + k\}$. Po tabeli~\ref{tab1}
+		vidimo, zakaj ta razcep ni zadosten -- niso vsi sunki z istim $k$ enakovredni -- pomembno je predvsem
+		\emph{kdaj} se zgodijo.}
+	\label{graf3}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\includegraphics[width=22cm, keepaspectratio=1]{t041-q000-k015-K010-res}
+	\caption{Tukaj je $\tau = \sqrt{2}-1$. Vidimo, da so \v ze brce majnih jakosti premo\v cne. \v Ceprav vidimo nek
+		red v ozadju, ga \v zal ne moremo izlu\v s\v citi.}
+	\label{graf4}
+\end{figure}
+\end{landscape}
+
+\subsection{Korelacije}
+
+Pod korelacije sem razumel predvsem difuzijsko konstanto, tj.
+\begin{equation}
+	D \equiv \lim_{t \to \infty} D_t, \quad D_t \equiv \frac{1}{2t}\bigg[ \frac{1}{G}\sum_{k = 1}^G \big(p_0^{(k)} -
+		p_t^{(k)}\big)^2\bigg],
+\end{equation}
+in pa korelacije
+\begin{equation}
+	C_t^{(p)} \equiv \langle p_0 p_t \rangle - \langle p_0 \rangle\langle p_t\rangle,
+	\qquad C_t^{(x)} \equiv \langle x_0 x_t \rangle - \langle x_0 \rangle\langle x_t \rangle,
+\end{equation}
+torej bomo `$\langle \bullet \rangle$' razumeli kot povpre\v cenje po razli\v cnih tirnicah, ozna\v cenih s $k$, ki se
+lo\v cijo po za\v cetnih pogojih. Korelacije je treba verjetno \v se normirati na za\v cetno vrednost, tj $C_0 = 1$.
+Rezultate vidimo na grafih spodaj. \v Stevila v legendi so $\tau$, $\theta$, $k$ in $k'$ v istem vrstnem redu.
+
+\begin{figure}[H]\centering
+	\input{corr.tex}
+	\caption{Tu primerjamo korelacijske funkcije na grafih s slik~\ref{dokaz} in ~\ref{theta025}. Vidimo, da sprememba
+		$\theta$ na $C^{(x)}_t$ ne vpliva, spremeni pa se $C^{(p)}_t$ in to za aditivno konstanto.}
+	\label{korelacije}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\input{corr2.tex}
+	\caption{Za primer si poglejmo \v se bolj kaoti\v cen re\v zim in vpliv $\theta$ v tem primeru na korelacije.
+		Glede sliko~\ref{korelacije} korelacije $C^{(x)}_t$ manj opletajo okoli ni\v cle. Spremembe v
+		$C^{(p)}_t$ ne znam pojasniti, videti je, da definicija ni dobra za velike $k$, $k'$.}
+	\label{korelacije2}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\input{corr3.tex}
+	\caption{Tako v $C^{(x)}_t$, kot tudi v $C^{(p)}_t$ je videti, da smo naleteli na vmesni re\v zim med
+		sliko~\ref{korelacije} in~\ref{korelacije2}. Videti je, da ima $\theta$ pravi vpliv na $C^{(p)}_t$.
+		Vidimo, da $\theta$ razpr\v si korelacijo $C^{(x)}_t$ in opletanje okrog ni\v cle se pove\v ca.}
+	\label{korelacije3}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\input{corr4.tex}
+	\caption{V tem primeru je $\tau = \sqrt{2}-1$ vendar graf ni bistveno druga\v cen od tistega s slike~\ref{korelacije}.
+		Vidimo le, da je vpliv $\theta$ v grafu $C^{(p)}$ v tem primeru zadu\v sen.}
+	\label{korelacije4}
+\end{figure}
+
+\subsubsection{Difuzijska konstanta}
+
+Rezultati numeri\v cnega poskusa so na sliki~\ref{difuzija}. Grafi so vsi prikazani s $k = 0.3$ in $k' = 0.6$, razen \v ce
+pi\v se v legendi druga\v ce. Vidimo, da je $D = 0$ za $k = 0.3$, $k' = 0.6$ dokler ne
+prese\v zemo neke kriti\v cne meje.
+
+S posku\v sanjem sem ugotovil, da se to zgodi ko $\tau = \tau_\text{crit.} \sim 6$. Tudi \v ce pove\v cujemo $\tau \to \infty$
+se rezultati (tj. $D$) ne spremenijo bistveno. Edini na\v cin, da $D$ mo\v cno pove\v camo, je prek $k$ in $k'$, kot se tudi
+vidi na sliki~\ref{difuzija}.
+
+Prav tako sem s posku\v sanjem ugotovil, da so grafi najbolj zamaknjeni, ko $\theta \sim 0.25$, zaradi \v cesar
+sta grafa na sliki~\ref{difuzija} prikazana pri $\theta = 0$ in $\theta = 0.25$.
+
+\begin{figure}[H]\centering
+	\input{diff.tex}
+	\caption{Vidimo, da fazni zamik $\theta$ malo vpliva tudi na difuzijsko konstanto. Ta je prakti\v cno ves \v cas
+	$D = 0$, razen v primeru ko imamo kaoti\v cen sistem (tj. primer $k' = 5$). Vidimo, da je dovolj tudi, \v ce je
+	$\tau > \tau_\text{crit.}$. V tem primeru se to nana\v sa na $\tau = 8$, tu je $D \neq 0$.}
+	\label{difuzija}
+\end{figure}
+
+\subsection{Ljapunov eksponent}
+
+Ljapunov eksponent dolo\v cimo prek
+\begin{equation}
+	\lambda = \lim_{t \to \infty} \frac{1}{t} \sum_{i = 1}^\infty t_i \lambda_i,
+\end{equation}
+kjer je $t_i$ \v cas ob katerem reskaliramo razdaljo med tirnicama, ki sta bili tik pred reskalacijo oddaljeni za
+$\delta_0 \e^{\lambda_i}$. Vendar pa nimamo na voljo nesko\v cno dosti \v casa, zaradi tega bomo $\lambda$ izra\v cunali
+s pomo\v cjo prilagajanja premice na to\v cke na\v sega numeri\v cnega poskusa s pomo\v cjo linearne regresije:
+\begin{equation}
+	t\lambda + C = \sum_{i = 1}^{t_i \leq t} t_i \lambda_i = \sum_{i = 1}^n y_i
+\end{equation}
+od koder je o\v citno, da je $\lambda$ smerni koeficient premice. Kot pravi literatura, je izra\v cun $\lambda$ mo\v cno
+odvisen od \v casa pri katerem reskaliramo. Lahko reskaliramo vsaki\v c, ko $\delta_0 \mathrm{e}^{\lambda_i} = \delta_{t_i}
+> \pi$, ali pa ob enakih \v casovnih intervalih. Spet, kot pravi literatura, to je mra\v cna umetnost.
+
+Linearna regresija nam da slede\v ce rezultate:
+\begin{align}
+	\lambda &= \frac{nb - ga}{nh - g^2}, \\
+	C &= \frac{ha - gb}{nh - g^2},
+\end{align}
+kjer so $g$, $h$, $a$ in $b$ definirani kot
+\begin{equation}
+	g = \sum_{i = 1}^n t_i,\quad h = \sum_{i = 1}^n t_i^2,\quad a = \sum_{i = 1}^n y_i,
+	\quad b = \sum_{i = 1}^n t_i y_i.
+\end{equation}
+Ugotovil sem, da je orbito dobro reskalirati vsaki\v c, ko prete\v ce $t_\mathrm{r}$, ki je nekje med $3$ in $6$, odvisno
+od $k$ in $k'$. Ker je rezultat zelo ob\v cutljiv tudi na izbiro za\v cetnih pogojev, sem delal z aritmeti\v cno sredino
+ve\v cih tirnic ($10^4$ je dovolj).
+
+Delovanje preverimo tako, da uporabimo znan rezultat za eno-frekven\v cen brcan rotator -- ta je marginalno kaoti\v cen za
+$K \approx 0.971635$, (tj. Ljapunov eksponent mora biti v tem primeru $\lambda = 1$). Slika~\ref{deluje} potrdi na\v so
+izbiro postopka za izra\v cun Ljapunovega eksponenta.
+\begin{figure}[H]\centering
+	\input{ljp-determ.tex}
+	\caption{Marginalno kaoti\v cen eno-frekven\v cni brcan rotator ($\tau = 1$, $\theta = 0$, $k = 0.3$,
+		$k' = 0.671635$). Napaka Ljapunovega eksponenta v tem primeru je znotraj $5\%$, kar zado\v s\v ca za
+		smiseln izra\v cun na \v sir\v sem obmo\v cju.}
+	\label{deluje}
+\end{figure}
+Iz tabele~\ref{tab2} razberemo, da so Ljapunovi eksponenti mo\v cno odvisni od $t_\mathrm{r}$, vendar imamo to sre\v co,
+da je za inkomenzurabilne vrednosti $\tau < 1$ vedno dober $t_\mathrm{r} = 1$, in da je vpliv $\theta$ v tem primeru
+ni\v cen (je zadu\v sen znotraj $5\%$ napake).
+\begin{table}[H]\centering
+	\caption{Ljapunovi eksponenti za nekatere fazne portrete v poro\v cilu. Navajal bom samo $\tau$ in $\theta$, ostali
+		parametri ($k$ in $k'$) razvidni iz komentarja pod posameznimi faznimi portreti (slike~\ref{graf2},
+		\ref{graf3} in~\ref{graf4}). Vidimo, da so grafi, pre\v sli kriti\v cno mejo. Separabilni grafi so kljub
+		temu mo\v cno v kaoti\v cnem re\v zimu, sploh pa graf na sliki~\ref{graf4} za $\tau = \sqrt{2}-1$, kljub
+		temu, da je bil v ozadju videti dosti pohleven. Ostale vrednosti so bile izra\v cunane (tj. vrstice pod
+	$\tau = \sqrt{2} - 1$) so bile izra\v cunane za $k = 0.3$ in $k' = 0.6$.}
+	\begin{tabular}{r | c | c | l}
+		$\tau$ & $\theta$ & $t_\mathrm{r}$ & $\lambda$ \\
+		\hline \hline
+		2 & 0 & 4 & 1.26 \\
+		1.5 & 0 & 3 & 1.44 \\
+		\hline
+		$\sqrt{2}-1$ & 0 & 1 & 1.77 \\
+		$\sqrt{2}-1$ & 0.25 & 1 & 1.79 \\
+		\hline
+		1 & 0.25 & 1 & 3.67 \\
+		1 & 0.25 & 1.25 & 0.64 \\
+		\hline
+		6 & 0 & 3 & 0.61 \\
+		6 & 0 & 6 & 1.14
+	\end{tabular}
+	\label{tab2}
+\end{table}
+Funkcija $\lambda (k, k'; \tau = \sqrt{2}-1, t_\mathrm{r} = 1)$ je na sliki~\ref{ljapun}. Vidimo, da je sistem v bistvu cel
+\v cas mo\v cno kaoti\v cen.
+\begin{figure}[H]\centering
+	\input{ljp-scan.tex}
+	\caption{Vrednost ljapunovega eksponenta je ves \v cas $\lambda > 1.5$, kar pomeni, da z izbiro parametrov ne
+		dose\v zemo niti marginalne stabilnosti orbit. Ker je ra\v cunalnik to ra\v cunal dlje \v casa, sem
+		$G$ zmanj\v sal iz $10^4$ na $2000$.}
+	\label{ljapun}
+\end{figure}
+
+\section{Zaklju\v cek:}
+
+Ena\v cba~\eqref{stroboskopska} in slike~\ref{dokaz},~\ref{theta025},~\ref{graf2},~\ref{graf3},~\ref{graf4} prikazujejo
+fazne portrete, tj. se da dinamiko posplo\v siti in predstaviti. Slika~\ref{theta025} dodatno prikazuje, da $\theta \neq 0$
+lahko privede do novih, (ne)pri\v cakovanih situacij -- $\theta$ ima vpliv, kar potrujejo korelacijski grafi na
+slikah~\ref{korelacije}, \ref{korelacije2}, \ref{korelacije3} in \ref{korelacije4} ter opazovanje $D_t$ na
+sliki~\ref{difuzija}. \v Ce je $D_t \propto t^{-\alpha}$, potem s $\tau$ spreminjamo $\alpha$. Na ljapunov eksponent
+$\theta$ nima opazljivega vpliva. Za inkomenzurabilne vrednosti $\tau$ je sistem vedno kaoti\v cen, kar lahko vidimo
+na sliki~\ref{ljapun}.
 
 \end{document}

@@ -4,8 +4,8 @@ function [x, p] = phaseD (x1, p1, D, K)
 
 	N = length (D);
 	for i = 1:N-1
-		p(i+1) = p(i) + D(i)*K(i)*sin(x(i));
-		x(i+1) = mod(x(i) + D(i)*p(i+1), 2*pi);
+		p(i+1) = p(i) + K(i)*sin(x(i));
+		x(i+1) = x(i) + D(i) * p(i+1);
 	end
 
 	return;
