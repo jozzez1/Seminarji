@@ -198,7 +198,49 @@ izbral zelo pohlevne parametre, vendar zelo hitro zapolnimo cel prostor z izjemo
 		red v ozadju, ga \v zal ne moremo izlu\v s\v citi.}
 	\label{graf4}
 \end{figure}
+
+Za zelo majhne $k'$ bi moral zeleni graf biti manj za\v sumljen. To predpostavko potrdijo grafi slike~\ref{graf5}.
+Grafa lahko separiramo, odfiltriramo \v sum in dobimo natanko sliko~\ref{dokaz}.
+\begin{figure}[H]\centering
+	\includegraphics[width=22cm, keepaspectratio=1]{new-t041-q000-k090-K000-res}
+	\caption{$\tau = \sqrt{2}-1$, $k' = 10^{-6}$, $k = 0.9$. Vidimo, da v tem primeru magenta graf predstavlja nekak\v sen
+		\v sum. Skupni graf je \v se vedno mo\v cno za\v sumljen. Zeleni graf je enak grafu slike~\ref{dokaz}.}
+	\label{graf5}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=22cm, keepaspectratio=1]{new-t041-q000-k000-K090-res}
+	\caption{$\tau = \sqrt{2}-1$, $k = 10^{-6}$, $k' = 0.9$, tj. neke vrste dualni graf sliki~\ref{graf5}. Zamenjamo
+		$k$ in $k'$, in red se prestavi iz zelenega v magenta graf. Vendar pa grafa, ki predstavljata red nista
+		enaka, zaradi tega, ker bi morali ustrezno popraviti tudi $\tau$.}
+	\label{graf5a}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=22cm, keepaspectratio=1]{new-t041-q000-k050-K030-res}
+	\caption{$\tau = \sqrt{2}-1$. Vidimo, da se vpliv $k'$ ka\v ze kot \v sum na zeleni graf, ki ga v tem primeru spet
+		nismo mogli odfiltrirati (magenta graf).}
+	\label{graf5b}
+\end{figure}
 \end{landscape}
+Grafi z iracionalnim $\tau$ imajo v sredini oto\v cek stabilnosti -- tako je vsaj videti iz slik~\ref{graf4} in~\ref{graf5}.
+Poglejmo si jih od blizu na slikah~\ref{graf6} in~\ref{graf7}.
+\begin{figure}[H]\centering
+	\includegraphics[width=10cm, keepaspectratio=1]{zoom-t041-q000-k010-K015-res.png}
+	\caption{Center slike~\ref{graf4}, za $\tau = \sqrt{2} - 1$ in $G = 20$, tj. 20 razli\v cnih za\v cetnih pogojev.}
+	\label{graf6}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=10cm, keepaspectratio=1]{zoom-t041-q000-k090-K000-res.png}
+	\caption{Center slike~\ref{graf5}. Graf je podoben tistemu na sliki~\ref{graf6}.}
+	\label{graf7}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=10cm, keepaspectratio=1]{zoom-t041-q000-k050-K030-res}
+	\caption{Center slike~\ref{graf5b}. $G = 10$. Graf je na mo\v c podoben tistemu, ki je na sliki~\ref{graf6}.}
+	\label{graf8}
+\end{figure}
+Videti je, kot da se orbite "`vrtijo"' v neki dodatni dimenziji in da vzbujanje s $k'$ in frekvenco $\tau$ poskrbi za to,
+da je relaksacijski \v cas izjemno dolg. Pobli\v zan center slike~\ref{graf5a} manjka, ker je podoben tistemu iz
+slike~\ref{graf7}.
 
 \subsection{Korelacije}
 
@@ -214,37 +256,71 @@ in pa korelacije
 \end{equation}
 torej bomo `$\langle \bullet \rangle$' razumeli kot povpre\v cenje po razli\v cnih tirnicah, ozna\v cenih s $k$, ki se
 lo\v cijo po za\v cetnih pogojih. Korelacije je treba verjetno \v se normirati na za\v cetno vrednost, tj $C_0 = 1$.
-Rezultate vidimo na grafih spodaj. \v Stevila v legendi so $\tau$, $\theta$, $k$ in $k'$ v istem vrstnem redu.
+Rezultate vidimo na grafih spodaj. Da bi odpravil vplive statisti\v cnega \v suma, sem vzel zelo velik $G$. Ugotovil sem,
+da se rezultati ne spremenijo \v ce je $G = 0.5 \cdot 10^6$ ali pa $G = 10^6$, zato sem delal kar z $G = 5 \cdot 10^6$. To
+sem preveril za vse izmed spodnjih grafov.
 
 \begin{figure}[H]\centering
 	\input{corr.tex}
 	\caption{Tu primerjamo korelacijske funkcije na grafih s slik~\ref{dokaz} in ~\ref{theta025}. Vidimo, da sprememba
-		$\theta$ na $C^{(x)}_t$ ne vpliva, spremeni pa se $C^{(p)}_t$ in to za aditivno konstanto.}
+		$\theta$ na $C^{(x)}_t$ prakti\v cno ne vpliva, spremeni pa se $C^{(p)}_t$.}
 	\label{korelacije}
 \end{figure}
 
 \begin{figure}[H]\centering
 	\input{corr2.tex}
 	\caption{Za primer si poglejmo \v se bolj kaoti\v cen re\v zim in vpliv $\theta$ v tem primeru na korelacije.
-		Glede sliko~\ref{korelacije} korelacije $C^{(x)}_t$ manj opletajo okoli ni\v cle. Spremembe v
-		$C^{(p)}_t$ ne znam pojasniti, videti je, da definicija ni dobra za velike $k$, $k'$.}
+		Glede sliko~\ref{korelacije} korelacije $C^{(x)}_t$ manj opletajo okoli ni\v cle. Vidimo, da zaradi
+		kaoti\v cnosti sistema korelacije $C^{(p)}_t$ hitro padajo, $\theta \neq 0$ to upadanje pospe\v si.}
 	\label{korelacije2}
 \end{figure}
 
 \begin{figure}[H]\centering
 	\input{corr3.tex}
-	\caption{Tako v $C^{(x)}_t$, kot tudi v $C^{(p)}_t$ je videti, da smo naleteli na vmesni re\v zim med
-		sliko~\ref{korelacije} in~\ref{korelacije2}. Videti je, da ima $\theta$ pravi vpliv na $C^{(p)}_t$.
-		Vidimo, da $\theta$ razpr\v si korelacijo $C^{(x)}_t$ in opletanje okrog ni\v cle se pove\v ca.}
+	\caption{Ta graf tudi ob velikem $G$ ostaja skrivnost. Morda je $G \sim 10^6$ \v se vedno premalo, saj
+		takega nara\v s\v cujo\v cega trenda ne znam pojasniti.}
 	\label{korelacije3}
 \end{figure}
 
 \begin{figure}[H]\centering
 	\input{corr4.tex}
 	\caption{V tem primeru je $\tau = \sqrt{2}-1$ vendar graf ni bistveno druga\v cen od tistega s slike~\ref{korelacije}.
-		Vidimo le, da je vpliv $\theta$ v grafu $C^{(p)}$ v tem primeru zadu\v sen.}
+		Vidimo le, da je vpliv $\theta$ v grafu $C^{(p)}$ v tem primeru zadu\v sen, vendar vseeno prinese fazno
+		razliko, ki pa je prakti\v cno ne vidimo. Verjetno $\theta$ nima vpliva kadar je $\tau$ iracionalen.}
 	\label{korelacije4}
 \end{figure}
+
+\begin{figure}[H]\centering
+	\input{new-corr-1.tex}
+	\caption{Na sliki so korelacije ki se nana\v sajo na fazni portret~\ref{graf4}. Zaradi majhnih $k$ in $k'$ se gibalna
+		koli\v cina ne izniha tako hitro. Vpliv $\theta \neq 0$ je zanemarljiv. Zanimiv se mi zdi minimum
+		v pri $t \sim 5$ za $C^{(x)}_t$, ki je sicer prisoten v vseh grafih, vendar tu bolj \v cist.}
+	\label{n-kor-1}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\input{new-corr-2.tex}
+	\caption{Na sliki so korelacije ki se nana\v sajo na fazni portret~\ref{graf5b}.
+		V tem primeru sta $k$ in $k'$ ve\v cja, zato se tudi $C^{(p)}_t$ prej izniha.}
+	\label{n-kor-2}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\input{new-corr-3.tex}
+	\caption{Na sliki so korelacije ki se nana\v sajo na fazni portret~\ref{graf5}. Ta graf se izniha \v se prej.}
+	\label{n-kor-3}
+\end{figure}
+
+\begin{figure}[H]\centering
+	\input{new-corr-4.tex}
+	\caption{Na sliki so korelacije ki se nana\v sajo na fazni portret~\ref{graf5a}.
+		Ta graf je zelo lep za $C^{(p)}_t$, vendar $C^{(x)}_t$ vzbuja skrb zaradi nara\v scanja amplitude z
+		ve\v canjem $t$.}
+	\label{n-kor-4}
+\end{figure}
+
+Grafi na slikah~\ref{n-kor-1}, \ref{n-kor-2}, \ref{n-kor-3} in \ref{n-kor-4} potrjujejo domnevo, ki smo jo dobili
+na sliki~\ref{korelacije4}, da $\theta$ nima vpliva na korelacije, v primeru ko je $\tau$ iracionalno \v stevilo.
 
 \subsubsection{Difuzijska konstanta}
 
@@ -349,8 +425,10 @@ Funkcija $\lambda (k, k'; \tau = \sqrt{2}-1, t_\mathrm{r} = 1)$ je na sliki~\ref
 Ena\v cba~\eqref{stroboskopska} in slike~\ref{dokaz},~\ref{theta025},~\ref{graf2},~\ref{graf3},~\ref{graf4} prikazujejo
 fazne portrete, tj. se da dinamiko posplo\v siti in predstaviti. Slika~\ref{theta025} dodatno prikazuje, da $\theta \neq 0$
 lahko privede do novih, (ne)pri\v cakovanih situacij -- $\theta$ ima vpliv, kar potrujejo korelacijski grafi na
-slikah~\ref{korelacije}, \ref{korelacije2}, \ref{korelacije3} in \ref{korelacije4} ter opazovanje $D_t$ na
-sliki~\ref{difuzija}. \v Ce je $D_t \propto t^{-\alpha}$, potem s $\tau$ spreminjamo $\alpha$. Na ljapunov eksponent
+slikah~\ref{korelacije}, \ref{korelacije2}, \ref{korelacije3} in opazovanje $D_t$ na
+sliki~\ref{difuzija}, vendar pa ne vpliva v primeru, ko je so razmerja frekvenc $\tau$ inkomenzurabilna, tj. $\tau$
+iracionalen, kar se vidi na grafih~\ref{korelacije4}, \ref{n-kor-1}, \ref{n-kor-2}, \ref{n-kor-3} in~\ref{n-kor-4}.
+\v Ce je $D_t \propto t^{-\alpha}$, potem s $\tau$ spreminjamo $\alpha$. Na ljapunov eksponent
 $\theta$ nima opazljivega vpliva. Za inkomenzurabilne vrednosti $\tau$ je sistem vedno kaoti\v cen, kar lahko vidimo
 na sliki~\ref{ljapun}.
 

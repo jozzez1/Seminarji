@@ -36,7 +36,9 @@ double mod (double a, double b)
 
 typedef struct
 {
-	int G;		// number of random trajectories
+	int G,		// number of random trajectories
+	    zoom;	// the zoom flag
+
 	size_t T,	// length of the array 't'
 	       J;	// length of the Lyapunov exponent array
 
@@ -173,7 +175,8 @@ void initPh (ph * u,
 		double tau,
 		double theta,
 		double k1,
-		double k2)
+		double k2,
+		int zoom)
 {
 	// first we initialize u
 	if (!u) u = (ph *) malloc (sizeof (ph));
@@ -185,6 +188,7 @@ void initPh (ph * u,
 	u->theta= theta;
 	u->k1	= k1;
 	u->k2	= k2;
+	u->zoom = zoom;
 
 	// we initialize the "Deltas"
 	Deltas (u);
@@ -250,20 +254,33 @@ void phases (ph * u)
 	for (k = 0; k <= u->G-1; k++)
 	{
 		// first we set the initial conditions
-		u->x[k][0] = 2*M_PI * ((double) random())/RAND_MAX;
-		u->p[k][0] = 12 * ((double) random())/RAND_MAX - 6;
+		if (!u->zoom)
+		{
+			u->x[k][0] = 2*M_PI * ((double) random())/RAND_MAX;
+			u->p[k][0] = 12 * ((double) random())/RAND_MAX - 6;
+		}
+		else if (u->zoom)
+		{
+			// later we will zoom with the plot command
+			u->x[k][0] = 0.4*M_PI * ((double) random())/RAND_MAX + 0.8*M_PI;
+			u->p[k][0] = 0.4 * ((double) random ())/RAND_MAX - 0.2;
+		}
 
 		// now we propagate
 		phaseD (u, k);
 	}
 }
 
-// trajectories
+// dump trajectories in a file
 void trajectories (ph * u)
 {
 	char dat [40];
-	sprintf (dat, "t%.2lf-q%.2lf-k%.2lf-K%.2lf.txt",
-			u->tau, u->theta, u->k1, u->k2);
+	if (!u->zoom)
+		sprintf (dat, "new-t%.2lf-q%.2lf-k%.2lf-K%.2lf.txt",
+				u->tau, u->theta, u->k1, u->k2);
+	else if (u->zoom)
+		sprintf (dat, "zoom-t%.2lf-q%.2lf-k%.2lf-K%.2lf.txt",
+				u->tau, u->theta, u->k1, u->k2);
 	
 	FILE * fout = fopen (dat, "w");
 
@@ -271,8 +288,17 @@ void trajectories (ph * u)
 	for (k = 0; k <= u->G - 1; k++)
 	{
 		for (i = 0; i <= u->T - 1; i++)
+		{
+			if (!u->zoom)
 			fprintf (fout, "% .12e\t% .12e\t 0.01\n",
 					u->x[k][i], u->p[k][i]);
+			else if (u->zoom)
+			{
+				if (fabs(u->x[k][i] - M_PI) < 0.1*M_PI && fabs(u->p[k][i]) < 0.2)
+					fprintf (fout, "% .12e\t% .12e\t 0.01\n",
+							u->x[k][i], u->p[k][i]);
+			}
+		}
 	}
 
 	fclose (fout);
@@ -284,9 +310,9 @@ void sep_trajectories (ph * u)
 	char dat1 [40],
 	     dat2 [40];
 
-	sprintf (dat1, "t%.2lf-q%.2lf-k%.2lf-K%.2lf-1.txt",
+	sprintf (dat1, "new-t%.2lf-q%.2lf-k%.2lf-K%.2lf-1.txt",
 			u->tau, u->theta, u->k1, u->k2);
-	sprintf (dat2, "t%.2lf-q%.2lf-k%.2lf-K%.2lf-2.txt",
+	sprintf (dat2, "new-t%.2lf-q%.2lf-k%.2lf-K%.2lf-2.txt",
 			u->tau, u->theta, u->k1, u->k2);
 
 	FILE * fout1 = fopen (dat1, "w"),
@@ -313,12 +339,18 @@ void sep_trajectories (ph * u)
 void plot (ph * u)
 {
 	char call [50];
-	if (u->theta != 0 || u->tau != 1)
+	if ((u->theta != 0 || u->tau != 1) && !u->zoom) // for decomposed plots
 		sprintf(call, "./plot2.sh %.2lf %.2lf %.2lf %.2lf",
 				u->tau, u->theta, u->k1, u->k2);
-	else
-		sprintf(call, "./plot.sh %.2lf %.2lf %.2lf %.2lf",
-				u->tau, u->theta, u->k1, u->k2);
+	else	// zoom overrides, even if we want separate plots
+	{
+		if (!u->zoom)
+			sprintf(call, "./plot.sh %.2lf %.2lf %.2lf %.2lf",
+					u->tau, u->theta, u->k1, u->k2);
+		else if (u->zoom)
+			sprintf(call, "./plot1.sh %.2lf %.2lf %.2lf %.2lf",
+					u->tau, u->theta, u->k1, u->k2);
+	}
 	system (call);
 }
 
@@ -391,6 +423,10 @@ void corr (ph * u)
 	}
 
 	fclose (fout);
+//	char command [50];
+//	sprintf (command, "./plot-cor.sh %.2lf %.2lf %.2lf %.2lf",
+//				u->tau, u->theta, u->k1, u->k2);
+//	system (command);
 }
 
 // lyapunov exponents
@@ -476,14 +512,14 @@ double ljapunov (ph * u)
 	C   = (h*a - g*b)/(n*h - g*g);		// the constant shift
 
 	// now that we have the average Lyapunov stuff, let's print them out in full glory
-	FILE * fout = fopen ("ljapun.txt", "w");
+/*	FILE * fout = fopen ("ljapun.txt", "w");
 	for (j = 0; j <= u->J-1; j++)
 		fprintf (fout, "% .12e\t % .12e\n",
 				cas[j], u->L[j]);
 
 	fclose (fout);
 	free (cas);
-
+*/	// <-- didn't really need that anymore
 	printf ("lam = % .12e\tC = % .12e\n",
 			lam, C);
 

@@ -5,7 +5,7 @@ theta=$2
 k1=$3
 k2=$4
 
-filename="t$1-q$2-k$3-K$4"
+filename="new-t$1-q$2-k$3-K$4"
 output=$filename.png
 input=$filename.txt
 
@@ -24,9 +24,9 @@ echo "reset;
 		'3{/Symbol p}/2' 3*pi/2, '2{/Symbol p}' 2*pi);
 	set ylabel \"p(t)\";
 	set multiplot layout 1,3;
-	plot \"$filename.txt\" u 1:2:(0.1*\$3) w circles lt rgb \"\#6599E5\" title '';
-	plot \"$filename-1.txt\" u 1:2:(0.3*\$3) w circles lt rgb \"\#00B389\" title '';
-	plot \"$filename-2.txt\" u 1:2:(0.3*\$3) w circles lt rgb \"\#FC2BD4\" title '';
+	plot \"$filename.txt\" u 1:2 w p pt 7 ps 0.1 lt rgb \"\#6599E5\" title '';
+	plot \"$filename-1.txt\" u 1:2 w p pt 7 ps 0.1 lt rgb \"\#00B389\" title '';
+	plot \"$filename-2.txt\" u 1:2 w p pt 7 ps 0.1 lt rgb \"\#FC2BD4\" title '';
 	unset multiplot;
 	unset output" | gnuplot
 
