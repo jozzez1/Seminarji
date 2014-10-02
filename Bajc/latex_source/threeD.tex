@@ -1,0 +1,120 @@
+\chapter{Tri generacije}
+
+Ker smo dobili rešitev v približku dveh generacij, bomo poskusili ta model uporabiti na vseh treh.
+Spet se bomo ognili diagonalizaciji in naš model prilagajali na invariante. Za vsako matriko
+$M \in \mathbb{R}^{3\times 3}$ imamo tri invariante, ki jih tako kot prej preberemo iz
+karakterističnega polinoma, $p_M(\lambda)$
+\begin{equation}
+	p_M(\lambda) = -\lambda^3 + \lambda^2\tr M - \lambda \frac{1}{2}\big[(\tr M)^2
+	- \tr M^2\big] + \lambda^0\det M,
+	\label{char3}
+\end{equation}
+od koder vidimo, da je nabor invariant
+\begin{align}
+	I_1 (M) &= \tr M, \notag \\
+	I_2 (M) &= \frac{1}{2}\big[(\tr M)^2 - \tr M^2\big] \notag \\
+	I_3 (M) &= \det M.
+\end{align}
+Iz identitete $p_M(M) = 0$ lahko določimo nekaj identitet za poenostavitev računanja, npr.
+kako se determinanta zapiše s sledmi,
+\begin{equation}
+	\det M = \frac{1}{6}\big[(\tr M)^3 - 3\tr M\tr M^2 + 2\tr M^3\big],
+\end{equation}
+inverz matrike $M$,
+\begin{equation}
+	M^{-1} = \frac{1}{\det M}\big[M^2 - M\tr M + \one I_2(M)\big].
+\end{equation}
+in pa sled inverza,
+\begin{equation}
+	\tr M^{-1} = \frac{I_2(M)}{I_3(M)}.
+\end{equation}
+
+\noindent Preden dokončno zapišemo invariante za prilagajanje bomo še definirali dve matriki,
+ki se bosta pogosto pojavljali,
+\begin{equation}
+	U \equiv M_U^T M_U, \quad D \equiv M_D^T M_D.
+\end{equation}
+Invariante, ki jih bomo uporabili za parametrizacijo nabitih leptonov so
+\begin{align}
+	\mathcal{I}_1 &= \tr U, \notag \\
+	\mathcal{I}_2 &= I_2\ U, \notag \\
+	\mathcal{I}_3 &= \det U, \notag \\
+	\mathcal{I}_4 &= \tr D, \notag \\
+	\mathcal{I}_5 &= I_2\ D, \notag \\
+	\mathcal{I}_6 &= \det D, \notag \\
+	\mathcal{I}_7 &= \tr U\tr D - \tr UD, \notag \\
+	\mathcal{I}_8 &= I_2(U)I_2(D) - I_2 (UD), \notag \\
+	\mathcal{I}_9 &= \tr (UD^{-1}), \notag \\
+	\mathcal{I}_{10} &= \tr M_E^T M_E, \notag \\
+	\mathcal{I}_{11} &= I_2\ M_E^T M_E, \notag \\
+	\mathcal{I}_{12} &= \det M_E^T M_E.
+\end{align}
+Da bomo določili mešalne kote iz matrike CKM smo izbrali tri invariante $\mathcal{I}_{7,8,9}$, ki v
+vodilnih členih zadoščajo za popoln opis matrike CKM, ki parametrizirana s tremi koti kot v
+kompleksnem, le da kompleksno fazo postavimo na nič~\cite{pdg:ckm},~\cite{pdg:neutrinos},\cite{miha},
+\begin{equation}
+	V_\text{CKM} = \begin{pmatrix}
+		c_{12} c_{13} & s_{12} c_{13} & s_{13} \\
+		-s_{12}c_{23} - c_{12}s_{23}s_{13} & c_{12}c_{23} - s_{12}s_{23}s_{13} & s_{23}c_{13} \\
+		s_{12}s_{23} - c_{12}c_{23}s_{13} & -c_{12}s_{23} - s_{12}c_{23}s_{13} & c_{23}c_{13}
+	\end{pmatrix}.
+\end{equation}
+Potem dobimo aproksimacije za naše invariante v prvem redu, kjer upoštevamo $c_{13}^2 \approx 1$,
+saj $s_{13}^2 \sim 10^{-6}$,
+\begin{align}
+	\mathcal{I}_7 &\sim m_t^2m_b^2(1 - c_{12}^2c_{13}^2)\ \propto\ s_{12}^2, \notag \\
+	\mathcal{I}_8 &\sim (m_c^2m_t^2)(m_s^2m_b^2)(1 - c_{23}^2c_{13}^2)\ \propto\ s_{23}^2, \notag \\
+	\mathcal{I}_9 &\sim \frac{m_t^2}{m_d^2} s_{13}^2\ \propto\ s_{13}^2
+\end{align}
+S temi invariantami imamo največjo občutljivost za vse tri neodvisne parametre in pričakujemo dobro
+ujemanje.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+\chapter{Napovedi v približku dveh generacij}
+
+Preden bomo poskusili prilegati proste parametre na naše znane vrednosti poskusimo rešiti problem
+v približku dveh generacij. Če model ne bo deloval z dvema, nimamo veliko možnosti, da bo deloval
+s tremi, kar bi pomenilo, da ga je treba spremeniti.
+
+Diagonalizacija nesimetrične matrike nad realnim obsegom~\eqref{diagSVD} je ekvivalentna razcepu
+na singularne vrednosti (SVD). Ta proces pa je računsko zahteven, poleg tega pa nam da preveč
+informacij, saj po en.~\eqref{defMIX} za mešalne kote zadoščajo že desni lastni vektorji. K sreči
+se lahko diagonlaziciji ognemo s tem, da proste parametre prilagajamo matričnim invariantam, kot
+sta npr. sled in determinanta, ki sta računsko nezahtevni operaciji.
+
+V približku dveh generacij se bomo osredotočili na drugo in tretjo generacijo, tj. $\mu$ in $\tau$.
+Naš model ima v tem primeru sledeče proste parametre,
+\begin{align}
+	z = \begin{pmatrix}
+		z_1 \\ z_2
+	\end{pmatrix}, \quad w = \begin{pmatrix}
+		w_1 \\ w_2
+	\end{pmatrix}, \quad y = \begin{pmatrix}
+		y_1 \\ y_2
+	\end{pmatrix}, \quad u_{1,2}, \quad v_{u,d},
+	\quad v_{L,R},
+\end{align}
+ki jih je skupno 12. Preštejmo še koliko znanih količin moramo povzeti z modelom:
+\begin{itemize}
+	\item{6 dobro znanih mas električno nabitih leptonov,}
+	\item{1 kot iz matrike CKM: $V_{cb} = \sin\theta_{cb}$,}
+	\item{1 kot iz matrike PMNS: $\sin\theta_{23}$,}
+	\item{1 do predznaka natančna razlika kvadratov nevtrinskih mas: $|\Delta m_{23}^2|$,}
+\end{itemize}
+kar je skupno 9 količin. V splošnem imamo tako neskončno mnogo kompleksnih rešitev, vendar pa
+realne rešitve kljub temu mogoče sploh ne obstajajo, kot npr.
+\[
+	a^2 + b^2 + 2 = 0,
+\]
+nima realnih rešitev za $a$ in $b$. V vsakem primeru nam bosta dve družini fermionov služili bolj
+kot potrdilo koncepta in se z njimi ne bomo preveč ubadali, zato bomo pogledali le, če nam uspe
+najti eno realno rešitev.
+
+Sedaj moramo poiskati nabor invariant za matrike $M \in \R^{2\times 2}$. Matrične invariante so
+definirane kot koeficienti v karakterističnem polinomu, $p_M(\lambda)$, in so zato intimno povezane
+z lastnimi vrednostmi. Za splošno matriko $M \in \R^{2\times 2}$ se karakteristični polinom glasi
+\begin{equation}
+	p_M(\lambda) = \lambda^2 - \lambda \tr M + \lambda^0 \det M.
+\end{equation}
+Iz identitete $p_M(M) = 0$ sledi
+\begin{equation}
+	\det M = \frac{1}{2}\big[(\tr M)^2 - \tr M^2\big],
+\end{equation}
+pa tudi podobna identiteta za inverz matrike
+\begin{equation}
+	M^{-1} = \frac{1}{\det M}(\tr M \one - M).
+\end{equation}
+Slednja nam da lahko tudi sled inverza
+\begin{equation}
+	\tr M^{-1} = \frac{\tr M}{\det M}.
+\end{equation}
+V dveh dimenzijah imamo torej le sled, $\tr M$, in pa determinanto, $\det M$. Da se bomo znebili
+levih lastnih vektorjev bomo računali invariante matrik $M^T M = L (M^d)^2 L^T$. V sektorju nabitih
+leptonov imamo 7 invariant,
+\begin{align}
+	\mathcal{I}_1 &= \tr M_U^T M_U = m_c^2 + m_t^2, \notag \\
+	\mathcal{I}_2 &= \tr M_D^T M_D = m_s^2 + m_b^2, \notag \\
+	\mathcal{I}_3 &= \tr M_U^T M_U M_D^T M_D = m_c^2m_s^2 + m_b^2m_t^2 -
+		(m_b^2 - m_s^2)(m_t^2 - m_c^2)V_{cb}^2, \notag \\
+	\mathcal{I}_4 &= \det M_U^T M_U = (\det M_U)^2 = (m_c m_t)^2, \notag \\
+	\mathcal{I}_5 &= \det M_D^T M_D = (\det M_D)^2 = (m_s m_b)^2, \notag \\
+	\mathcal{I}_6 &= \tr M_E^T M_E = m_\mu^2 + m_\tau^2, \notag \\
+	\mathcal{I}_7 &= \det M_E^T M_E = (\det M_E)^2 = (m_\mu m_\tau)^2.
+\end{align}
+
+\noindent O nevtrinih nimamo vseh informacij -- poznamo mešalne kote, nimamo pa cele masne matrike,
+zaradi česar moramo biti bolj prebrisani. Invariante, ki jih bomo poskusili so
+\begin{align}
+	\mathcal{I}_8 &= \sqrt{(\tr M_\nu^T M_\nu)^2 - 4\det M_N^T M_N} = |\Delta m_{23}^2|, \\
+	\mathcal{I}_9 &= \big|\tr V_\text{PMNS} M_\nu^T M_\nu V_\text{PMNS}^T M_E^T M_E
+		- \tr M_\nu^T M_\nu M_E^T M_E\big| = (m_\tau^2 - m_\mu^2)|\Delta m_{32}^2| V_{23}^2,
+\end{align}
+katere numerično poznamo. S temi invariantami se lahko v celoti izognemo diagonalizaciji tudi
+v leptonskem sektorju.
+
+Naše parametre bomo prirejali prek minimizacije funkcije $\chi^2$, ki jo bomo definirali kot
+\begin{equation}
+	\chi^2 = \frac{1}{N}\sum_{i = 1}^N \frac{(\mathcal{I}_i - \hat{\mathcal{I}}_i)^2}{\sigma_i^2},
+\end{equation}
+kjer so $\hat{\mathcal{I}}_i$ eksperimentalno določene količine. Za napako, $\sigma_i$, bomo vzeli
+$1\%$ znanih količin, tj. $\sigma_i = 0.01 \hat{\mathcal{I}}_i$.
+
+Minimizacija $\chi^2$ s programom \textsc{Mathematica} nam da eno rešitev s $\chi^2 \sim 10^{-30}$,
+ki jo prikazuje tabela~\ref{2Dresult}.
+\begin{table}[H]\centering
+	\caption{Tukaj vidimo rezultate prilagajanja na dveh generacijah. Kot bi pričakovali imamo
+		režim $|v_R| \gg |v_{u,d}| \gg |v_L|$, ki nam da $M_{\nu_R} \gg M_{\nu_D} \gg M_{\nu_L}$.}
+	\begin{tabular}{r | l}
+		$y_1$ & $-351.76440162488884396$ \\
+		\hline
+		$y_2$ & $24.609542260619788699$ \\
+		\hline
+		$z_1$ & $-7.0128976341891129161$ \\
+		\hline
+		$z_2$ & $35.1647973835213481115$ \\
+		\hline
+		$w_1$ & $-7.14466700381244495585$ \\
+		\hline
+		$w_2$ & $8.01849799029873724461$ \\
+		\hline
+		$u_1$ & $0.80594376330104548132$ \\
+		\hline
+		$u_2$ & $-0.40877045348482908438$ \\
+		\hline
+		$v_u$ & $-219.384274822014235144$ \\
+		\hline
+		$v_d$ & $37.9448374748762164140$ \\
+		\hline
+		$v_L$ & $1.67773399615309770\cdot 10^{-9}$ \\
+		\hline
+		$v_R$ & $-3.0056348344321065531\cdot 10^{13}$ \\
+	\end{tabular}
+	\label{2Dresult}
+\end{table}
+\noindent Ta rešitev pravilno povzame vse eksperimentalne količine in napove masi nevtrinov v primeru brez
+supersimetrije
+\begin{align}
+	m_{\nu_\mu} &\approx 0.049\ \text{eV}, \notag \\
+	m_{\nu_\tau} &\approx 0.0038\ \text{eV}.
+\end{align}
+Kot vidimo gre za primer, ko $m_{\nu_\tau} < m_{\nu_\mu}$, torej nimamo standardne hierarhije, kot
+jo imamo v ostalih generacijah.

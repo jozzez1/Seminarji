@@ -1,0 +1,297 @@
+\documentclass[12pt,a4paper,final,openright,twoside]{report}
+\usepackage[slovene]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage,hyperref,xcolor,float,caption,subcaption,booktabs}
+\usepackage{amsmath,amssymb,bbm,youngtab,mathabx,slashed}
+\usepackage[inner=3.5cm,outer=2.5cm,top=3cm,bottom=3cm]{geometry}
+
+\numberwithin{equation}{chapter}
+\numberwithin{table}{chapter}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black!60!red,
+	citecolor=black!60!green,
+	urlcolor=black!60!cyan
+}
+
+\captionsetup{
+	font=small,
+	margin=10pt,
+	labelfont=it,
+	labelsep=endash,
+	width=0.8\textwidth
+}
+
+\newcommand{\diag}{
+	\operatorname{diag}
+}
+
+\newcommand{\tr}{
+	\operatorname{tr}
+}
+
+\newcommand{\rank}{
+	\operatorname{rang}
+}
+
+\newcommand{\dpr}[2]{
+	\ensuremath{\langle #1, #2 \rangle}
+}
+
+\newcommand{\Gf}{
+	\ensuremath{\Gamma_{\text{PET}}}
+}
+
+\newcommand{\one}{
+	\ensuremath{\mathbbm{1}}
+}
+
+\newcommand{\R}{
+	\ensuremath{\mathbb{R}}
+}
+
+\newcommand{\e}{
+	\ensuremath{\mathrm{e}}
+}
+
+\newcommand{\tdv}{
+	\ensuremath{\theta_{E_2}}
+}
+
+\newcommand{\ttr}{
+	\ensuremath{\theta_{E_3}}
+}
+
+\newcommand{\der}[2]{
+	\ensuremath{\frac{\partial #1}{\partial #2}}
+}
+
+\newcommand{\rep}[1]{
+	\ensuremath{\mathbf{#1}}
+}
+
+\newcommand{\repb}[1]{
+	\ensuremath{\overline{\mathbf{#1}}}
+}
+
+\newcommand{\irrep}[3]{
+	\ensuremath{(\rep{#1}, \rep{#2}, \rep{#3})}
+}
+
+\newcommand{\irrepb}[3]{
+	\ensuremath{(\rep{#1}, \rep{#2}, \repb{#3})}
+}
+
+\newcommand{\irep}[3]{
+	\ensuremath{(\rep{#1}, \rep{#2})_{(#3)}}
+}
+
+\newcommand{\irepb}[3]{
+	\ensuremath{(\rep{#1}, \overline{\rep{#2}})_{(#3)}}
+}
+
+\title{Magistrsko delo}
+\author{Jože Zobec}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+{\Large\sc Univerza v Ljubljani \\
+\medskip
+Fakulteta za matematiko in fiziko\\
+\medskip
+Oddelek za fiziko\\
+\medskip
+Fizika II. stopnja, Matematična fizika}
+
+\vspace{6cm}
+
+{\Large Jože {\sc Zobec}}\\
+\bigskip\bigskip\bigskip
+
+{\LARGE \sc{\bf Mase fermionov standardnega modela znotraj minimalne teorije poenotenja $SO(10)$
+z dodatnimi težkimi generacijami fermionov}}
+
+\vspace{0.5cm}
+\Large{Magistrsko delo}
+
+\vspace{5cm}
+
+{\Large {\sc MENTOR}: prof. dr. Borut Bajc}
+
+\vfill
+
+{\Large Ljubljana, 2014}
+\end{center}
+
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+
+\input{povzetek}
+
+\tableofcontents
+
+\input{uvod.tex}
+
+\input{SM.tex}
+
+%\input{GUT.tex}
+
+\input{SO10.tex}
+
+\input{nevtrini.tex}
+
+\input{model.tex}
+
+\input{twoD.tex}
+
+\input{threeD.tex}
+
+\begin{thebibliography}{9}
+	\bibitem{mohapatra}
+		R.N. Mohapatra, \emph{Unification and Supersymmetry: The Frontiers of Quark-Lepton
+		Physics}, (Springer-Verlag, New York, 2003).
+		
+	\bibitem{quang}
+		Q. Ho-Kim in Xuan-Yem Pham, \emph{Elementary Particles and Their Interactions: Concepts and Phenomena},
+		(Springer-Verlag, Berlin, Heidelberg, 1998).
+		
+	\bibitem{ryder}
+		L.H. Ryder, \emph{Quantum Field Theory}, (Cambridge University Press, 1996, Cambridge).
+		
+	\bibitem{nugut}
+		B. Bajc, "`$\nu$ PHYSICS AND GUTs"', datum ogleda je 1.~7.~2014,
+		\href{http://www-f1.ijs.si/~bajc/nugut.pdf}{\texttt{http://www-f1.ijs.si/~bajc/nugut.pdf}}.
+		
+	\bibitem{gutproton}
+		B. Bajc, "`Grand Unification and Proton Decay"', datum ogleda je 1.~7.~2014,
+		\href{http://www-f1.ijs.si/~bajc/gutproton.pdf}{\texttt{http://www-f1.ijs.si/~bajc/gutproton.pdf}}
+		
+	\bibitem{oezer}
+		A.D. Özer, \emph{$SO(10)$ - Grand Unification and Fermion Masses}, doktorsko delo, Fakultät für Physik,
+		der Ludwig-Maximilians-Universität München, München, (2005).
+		
+	 \bibitem{compact}
+	 	M.R. Sepanski, \emph{Compact Lie Groups}, (Springer Science+Business Media, LLC, 2007).
+		
+	\bibitem{SU9}
+		P. Byakti, D. Emmanuel-Costa, A. Mazumdar in P.B. Pal,
+		\emph{Number of fermion generations from a novel Grand Unified model}
+		\texttt{arXiv:1308.4305v1 [hep-ph]}, (2013).
+		
+	\bibitem{palash}
+		P.B. Pal, \emph{Dirac, Majorana and Weyl fermions},
+		\texttt{arXiv:1006.1718v2 [hep-ph]}, (2010).
+			
+	\bibitem{miha}
+		Miha Nemevšek, \emph{Napovedi minimalne teorija poenotenja $SO(10)$ za mase lahkih fermionov},
+		diplomsko delo, Fakulteta za matematiko in fiziko, Ljubljana, (2004).
+
+	\bibitem{slansky}
+		R. Slansky,
+		\emph{Group Theory for Unified Model Building},
+		(North-Holland Publishing Company, Amsterdam, 1981).
+		
+	\bibitem{bajc}
+		B. Bajc,
+		"'Minimal SUSY SU(5) with extra vectorlike matter"',
+		AIP Conf.Proc.,
+		{\bf 1534}, 223 (2012),
+		doi: 10.1063/1.4807360	
+		
+	\bibitem{strumia}
+		A. Strumia in F. Vissani,
+		\emph{Neutrino masses and mixings and \ldots},
+		\texttt{arXiv:hep-ph/0606054v3}, (2010).
+		
+	\bibitem{babu}
+		K.S. Babu in S.M. Barr,
+		\emph{Realistic Quark and Lepton Masses through $SO(10)$ Symmetry},
+		\texttt{arXiv:hep-ph/9512389v1} (1995).
+		
+	\bibitem{pdg:neutrinos}
+		K.A. Olive {\it et al.} (Particle Data Group),
+		\emph{Neutrino mass, mixing and oscillations},
+		Chin. Phys. C, {\bf 38}, 090001 (2014).
+		
+	\bibitem{pdg:ckm}
+		K.A. Olive {\it et al.} (Particle Data Group),
+		\emph{The Cabobbo-Kobayashi-Maskawa quark-mixing matrix},
+		Chin. Phys. C, {\bf 38}, 090001 (2014).
+		
+	\bibitem{mass:eksp}
+		K. Bora,
+		\emph{Updated values of running quark and lepton masses at GUT scale in SM, 2HDM
+		and MSSM},
+		\texttt{arXiv:1206.5909v1 [hep-ph]} (2012).
+		
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

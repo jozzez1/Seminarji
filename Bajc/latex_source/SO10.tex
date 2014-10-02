@@ -1,0 +1,504 @@
+\chapter{Umeritvena grupa $SO(10)$}
+
+Grupa $SO(10)$ je posebna ortogonalna Lieva grupa, ki spada v isto kategorijo kot grupe
+$SO(2N)$~\cite{mohapatra},~\cite{compact},~\cite{oezer}. Ker imajo take grupe veliko skupnih lastnosti
+si poglejmo najprej splošneje kako je z Lievimi grupami in $SO(2N)$.
+
+\section{Grupe $SO(2N)$}
+
+Elementi posebne ortogonalne grupe so matrike z dvema osnovnima lastnostima~\cite{compact},
+\begin{equation}
+	O^TO = \one, \quad \det O = 1, \quad \forall O \in SO(2N).
+\end{equation}
+Te lastnosti imajo tudi operatorji vrtenja, zato jim pravimo tudi rotacijske matrike~\cite{compact}.
+Število v oklepaju, $2N$, je celo in nam pove da matrike delujejo na $2N$ dimenzionalnem vektorskem
+prostoru. Včasih zapišemo še bolj specifično $SO(2N, \mathbb{R})$ ali pa $SO(2N, \mathbb{C})$, da povdarimo
+nad katerim obsegom je vektorski prostor, ki ga imamo v mislih.
+
+Lastnost Lievih grup je ta, da vsak element dobimo z eksponenciacijo elementov, ki ležijo na
+zvezni mnogoterosti~\cite{compact}. Kot posledica sledi, da imajo Lieve grupe neštevno neskončno
+elementov. Mnogoterost imenujemo algebra grupe. Na mnogoterosti lahko izberemo glavne smeri in tako
+določimo njeno dimenzijo. To dimenzijo imenujemo tudi dimenzija grupe, ki je za splošne grupe
+$SO(N)$ enaka~\cite{mohapatra},~\cite{compact},
+\begin{equation}
+	\dim SO(N) = \frac{N(N - 1)}{2}.
+\end{equation}
+To pomeni, da lahko izberemo $N(N-1)/2$ grupnih elementov za matrično bazo algebre in z njimi
+popišemo tako celo mnogoterost, kot tudi celotno grupo. Bazne matrike imenujemo \emph{generatorji}.
+Diagonalne operatorje\footnote{Stroga definicija pravi, da niso nujno diagonalni, zadošča da med
+seboj komutirajo, kar se lahko zgodi v nespretno izbranih bazah.} tvorijo ti.
+\emph{Cartanovo podalgebro}, ki ima to lepo lastnost, da je njena dimenzija enaka dobrim
+"`kvantnim"' številom, tj. količinam, ki so konstantne glede na delovanje grupe. Dimenzijo
+Cartanove podalgebre imenujemo \emph{rang} grupe. V primeru $SO(2N)$ velja~\cite{compact}
+\begin{equation}
+	\rank SO(2N) = N.
+\end{equation}
+
+\subsection{Splošne lastnosti Lievih grup}
+
+Tukaj so navedena dejstva, ki veljajo za vse Lieve grupe, kljub temu, da je za bolj specifične
+primere bila vzeta grupa, ki je relevantna za to nalogo, tj. $SO(2N)$.
+
+Eksponenciacija iz algebre v grupo je izomorfizem, torej je vsaka grupa enolično določena z
+mnogoterostjo, ki ji pripada. Matematična konvencija je, da algebro grupe označimo z malimi
+gotskimi črkami, tj. algebro grupe $SO(2N)$ označimo z $\mathfrak{so}_{2N}$. Da lahko razločimo med
+različnimi mnogoterostmi, izračunamo \emph{strukturne konstante} grupe, ki jih dobimo s komutatorji
+med generatorji grupe~\cite{compact},
+\begin{equation}
+	[T_i, T_j] = -if_{ijk} T_k,
+	\label{structureConst}
+\end{equation}
+kjer so $T_i$, $T_j$ in $T_k$ generatorji grupe, $f_{ijk}$ strukturne konstante, $[\bullet, \bullet]$
+pa je komutator\footnote{Komutator je le, kadar imamo znotraj oklepaja elemente algebre. Med
+elementi grupe je to Liev oklepaj, $[A,B] = ABA^{-1}B^{-1},\ A,B \in SO(2N)$.},
+\begin{equation}
+	[A, B] = AB - BA, \quad A,B \in \mathfrak{so}_{2N}.
+\end{equation}
+Strukturne konstante, definirane v enačbi~\eqref{structureConst} nam poda zahtevo, da so generatorji
+vedno hermitski, tj. $T_j = T_j^\dagger$. Če bi pozabili $-i$ bi imali pogoj, da so generatorji
+anti-hermitski. Strukturne konstante različnih grup se razlikujejo.
+
+Kot smo povedali prej, lahko vse grupne elemente dobimo z eksponenciacijo elementov iz algebre.
+Če imamo $A \in SO(2N, \mathbb{F})$, kjer je $\mathbb{F}$ obseg števil, se potem lahko zapiše kot
+\begin{equation}
+	A = \exp i\alpha_k T_k, \quad \alpha_k \in \mathbb{F}\ \forall\ k.
+\end{equation}
+Ker smo imeli `$-i$' v enačbi~\eqref{structureConst} imamo tukaj v eksponentu `$i$', sicer ga ne bi
+potrebovali.
+
+Če najdemo $N(N-1)/2$ matrik, ki nam dajo iste strukturne konstante, kot jih zahteva grupa
+$SO(N)$, potem tvorijo algebro $\mathfrak{so}_N$. Vendar pa ni nujno da so te matrike dimenzije
+$N\times N$ -- lahko so manjše ali večje. Še vedno tvorijo isto grupo, vendar pa pravimo,
+da pripadajo drugi \emph{upodobitvi}. Dimenzija upodobitve je enaka rangu matrik.
+
+Lahko se zgodi, da vse matrike vsebujejo blok na istem mestu, ki se jih lahko obravnava kot
+neodvisne matrike in skupaj spet tvorijo isto algebro. Potem pravimo, da je originalna upodobitev
+\emph{razcepna} (\emph{reducibilna}). Bloke prepišemo ven kot matrike in spet skušamo upodobitev
+razcepiti na manjše \emph{podupodobitve}. Postopek lahko ponavljamo, dokler se ne da več poiskati
+blokov, ki bi tudi tvorili algebro, ampak moramo za to vzeti cele matrike. Takim upodobitvam pravimo
+\emph{nerazcepne} (\emph{ireducibilne}).
+
+Vse grupe imajo ti. \emph{trivialno} upodobitev dimenzije 1, ki je nerazcepna. Prva netrivialna
+nerazcepna upodobitev je fundamentalna, ki ima isto dimenzijo, kot številka v oklepaju, tj.
+$SU(N)$ in $SO(N)$ imata fundamentalni upodobitvi dimenzije $N$, vendar pa imata različno število
+generatorjev in različne strukturne konstante, čeprav nekateri generatorji lahko nastopajo tako v
+prvi, kot v drugi grupi.
+
+Ponavadi imamo v vsaki dimenziji kvečjemu eno nerazcepno upodobitev, zato se v fiziki polja
+upodobitev označi kar z dimenzijo~\cite{slansky}. Da ne bomo mešali z navadnimi števili jih bomo tekom te
+naloge označevali v mastnem tisku, tj.
+\begin{itemize}
+	\item{trivialna upodobitev -- $\rep{1}$,}
+	\item{fundamentalna upodobitev -- $\rep{N}$,}
+	\item{neka druga upodobitev -- $\rep{V}$,}
+	\item{upodobitev, ki ima prav tako dimenzijo $V$, vendar ni $\rep{V}$, se označi s črtico: $\rep{V}'$.}
+\end{itemize}
+Pogosto zamenjujemo med elementi vektorskega prostora upodobitve in med vektorskim prostorom, ki mu
+upodobitev pripada. Tako je lahko $\rep{V}$ vektorski prostor upodobitve, ali pa njegov element.
+Vseeno je razvidno iz konteksta o čem govorimo in ne pride do zmešnjav.
+
+Vektorski prostor $\rep{V}$ ima lahko dualni vektorski prostor $\repb{V}$, katerega elementi so
+iz \emph{dualne} upodobitve. Nekatere upodobitve so lahko sebi-dualne, tako da $\rep{V} = \repb{V}$.
+En tak primer je trivialna upodobitev.
+
+Vsako razcepno upodobitev lahko dobimo iz nerazcepnih. Na voljo imamo dva načina~\cite{compact}:
+\begin{itemize}
+	\item{Direktna vsota vektorskih prostorv:} $\rep{V} \oplus \rep{W}$,
+	\item{Direkten produkt vektorskih prostorov:} $\rep{V} \otimes \rep{W}$.
+\end{itemize}
+Vendar pa je zapis s prouktom odveč, saj kot posledica Schurove leme sledi, da ob naboru
+neraczepnih upodobitev $\rep{R}_i$ lahko zapišemo vsako razcepno upodobitev kot~\cite{compact}
+\begin{equation}
+	\rep{V} \otimes \rep{W} = \bigoplus_{i = 1}^\infty n_i \rep{R}_i,
+\end{equation}
+kjer $n_i$ pove pogostost upodobitve $\rep{R}_i$, tj. kolikokrat nastopa v direktni vsoti. Ker
+imamo opravka z Lievimi grupami, imamo na voljo števno neskončno nerazcepnih
+upodobitev\footnote{Število nerazcepnih upodobitev je sorazmerno s številom elementov grupe.}. Vendar
+pa za matrike končne dimenzije potrebujemo le končno mnogo členov v direktni vsoti, saj mora veljati
+da se dimenziji izraza na desni in na levi ujemata.
+
+Imejmo matriko $\rep{V}$, ki je v upodobitvi neke Lieve grupe. Potem ji lahko priredimo
+(anti-)fundamentalni ikdeks, s katerim označimo njene elemente. V primeru fundamentalne
+in dualne fundamentalne updobitve
+\begin{equation}
+	\rep{N}_i,\ \repb{N}^j, \quad i,j \in \{1,2,\ldots, N\},
+\end{equation}
+kot vidimo, smo v anti-fundamentalnem primeru uporabili zgornji indeks. Indeksov je lahko tudi več,
+npr.
+\begin{equation}
+	\rep{V}_{i_1,i_2,\ldots,i_k}^{j_1,j_2,\ldots,j_\ell}, \quad i_1,i_2,\ldots,i_k,j_1,j_2,
+		\ldots,j_\ell
+	\in \{1,2,\ldots,N\},
+\end{equation}
+tako, da ima neka upodobitev hkrati fundamentalne in anti-fundamentalne indekse. Seveda so med
+določenimi elementi dodatna pravila, npr. matrika mora biti v dani upodobitve popolnoma
+anti-simetrična, (anti-)sebi-dualna itd. tako da dimenzija upodobitev ni zgolj $N^{k+\ell}$.
+
+V tem smislu so tudi multipleti SM v enačbah (\ref{multipletiZ}-\ref{multipletiK}) zapisani v taisti
+notaciji, tj. h katerim nerazcepnim upodobitvam grupe $\mathcal{G}_\text{SM}$ pripadajo.
+Tam je le ta razlika, da gre za produktno grupo, zato je prva številka upodobitev nad $SU(2)_L$,
+druga upodobitev nad $SU(3)_C$, tretja pa nerazcepna upodobitev $U(1)_Y$. Lieva grupa $U(1)$
+ima to lastnost, da ima le en generator, elementi ležijo na enotski krožnici in vsak element
+je v svoji upodobitvi. Vse nerazcepne upodobitve so eno-dimenzionalne. Elementi se ločijo le po
+"`naboju"', ki ga v produktnih upodobitvah pišemo v podpisanem oklepaju brez mastnega tiska.
+
+\subsection{Upodobitve grup $SO(2N)$}
+
+Grupe $SO(2N)$ imajo dva tipa upodobitev:
+\begin{itemize}
+	\item{spinorske,}
+	\item{tenzorske.}
+\end{itemize}
+Tenzorske opremljamo samo s fundamentalnimi indeksi\footnote{V $SO(N)$ ni razlike med spodnjimi in
+zgornjimi indeksi. Notacija izvira iz teorije funktorjev, ne iz dualnosti upodobitev.}, spinorske
+pa so čista analogija nam znane Lorentzove grupe $SO(3,1) \sim SU(2)\times SU(2)$ iz posebne
+relativnosti. To pomeni, da lahko poiščemo $SO(2N)$ analogijo matrik $\gamma_\mu$, ki zadoščajo
+Cliffordovi algebri, definiramo oprator ročnosti, analogijo operatorja konjugacije naboja itd.
+Spinorske upodobitve $SO(2N)$ so zapisane v bazi $SU(N)$~\cite{mohapatra}.
+
+Da bi sestavili spinorsko upodobitev $SO(2N)$ potrebujemo množicio $N$ operatorjev, $\chi_i$
+in njihove hermitsko konjugirane različice, $\chi_i^\dagger$, ki zadostijo fermionski
+algebri~\cite{mohapatra}
+\begin{align}
+	\{\chi_i,\chi_j^\dagger\} &= \delta_{ij}, \notag \\
+	\{\chi_i,\chi_j\} &= 0.
+\end{align}
+Tu smo z $\{\bullet,\bullet\}$ označili anti-komutator. Z oklepajem $[\bullet,\bullet]$ bomo
+označili komutator. S temi $2N$ operatorji lahko sestavimo generatorje grupe $U(N)$
+\begin{equation}
+	T_j^i = \chi_i^\dagger \chi_j.
+\end{equation}
+Ki zadostijo komutacijskim lastnostim algebre:
+\begin{equation}
+	[T_j^i, T^k_\ell] = \delta^k_j T_\ell^i - \delta_\ell^i T_j^k.
+\end{equation}
+Z operatorji $\chi_j$ in $\chi_j^\dagger$ lahko zgradimo tudi analogijo matrik $\gamma_\mu$
+nad $SO(2N)$, če nam le uspe najti matrike ki zadostijo Cliffordovi algebri~\cite{palash}:
+\begin{align}
+	\{\gamma_\mu,\gamma_\nu\} &= 2g_{\mu\nu}, \notag \\
+	\gamma_0 \gamma_\mu \gamma_0 &= \gamma^\dagger
+\end{align}
+Nad $SO(2N)$ so to matrike~\cite{mohapatra}
+\begin{equation}
+	\Gamma_{2j} = \chi_j + \chi_j^\dagger, \quad \Gamma_{2j-1} = -i(\chi_j - \chi_j^\dagger), \quad
+		j \in \{1,2,\ldots,N\},
+\end{equation}
+relacija ki je pogoj za Cliffordovo algebro pa je~\cite{mohapatra}
+\begin{equation}
+	\{\Gamma_i,\Gamma_j\} = 2\delta_{ij}.
+\end{equation}
+S pomočjo matrik $\Gamma_j$ lahko dobimo generatorje $SO(2N)$, kjer je ista definicija, kot v spinorski
+upodobitvi Lorentzove grupe~\cite{mohapatra},~\cite{palash},~\cite{quang},
+\begin{equation}
+	\Sigma_{\mu\nu} = \frac{1}{2i}[\gamma_\mu,\gamma_\nu] \longrightarrow
+		\Sigma_{jk} = \frac{1}{2i}[\Gamma_j,\Gamma_k].
+	\label{genratorji}
+\end{equation}
+Spinorska upodobitev grupe $SO(2N)$ je $2^N$-dimenzionalna. Iz matrik $\Gamma_i$ bi radi po vzoru
+Lorentzove grupe dobili še Kazimirjev operator, $\gamma_5$,
+\begin{equation}
+	\gamma_5 = i\gamma_0\gamma_1\gamma_2\gamma_3.
+\end{equation}
+V $SO(2N)$ je ta defiran kot~\cite{mohapatra}
+\begin{equation}
+	\Gf = i^N \Gamma_1 \Gamma_2 \ldots \Gamma_{2N}.
+	\label{g5def}
+\end{equation}
+Če je to res dobra definicija (tj. operator je res Kazimirjev) moramo preveriti, če komutira z
+vsemi generatorji grupe. Potem moramo izraz~\eqref{g5def} prepiati s pomočjo izvornih operatorjev
+$\chi_i$ kot
+\begin{equation}
+	\Gf = [\chi_1,\chi^\dagger_1][\chi_2,\chi_2^\dagger]\ldots[\chi_N,\chi_N^\dagger],
+\end{equation}
+od koder lahko upoštevamo, da $\chi_j$ in $\chi_j^\dagger$, tvorijo fermionsko algebro in definiramo
+operator štetja
+\begin{equation}
+	n_j = \chi_j^\dagger \chi_j, \quad [\chi^\dagger_j,\chi_j] = 1 - 2n_j,
+\end{equation}
+kar nam vrne
+\begin{equation}
+	\Gf = \prod_{j - 1}^N(1 - 2n_j).
+\end{equation}
+Fermionski operator štetja ima lastnost
+\[
+	1 - 2n_j = (-1)^{n_j},
+\]
+s čimer si lahko pomagamo do končne identitete~\cite{mohapatra}
+\begin{equation}
+	\Gf = (-1)^n, \quad n = \sum_{j = 1}^N n_j.
+\end{equation}
+Sedaj je postalo očitno, da $\Gf$ komutira z generatorji, $\Sigma_{ij}$, torej je ta analogija
+ustrezna. S pomočjo Kazimirjevega operatorja $\Gf$ lahko definiramo operator abstraktne
+ročnosti nad $SO(2N)$
+\begin{equation}
+	P_{\pm} = \frac{1}{2}(1 \pm \gamma_5)\quad\Longrightarrow\quad P_{\pm} = \frac{1}{2}(1 \pm \Gf).
+\end{equation}
+
+\section{Upodobitve $SO(10)$}
+
+Grupa $SO(10)$ ima dimenzijo $45$ in je ranga 5. Spinorksa upodobitev ima dimenzijo $2^5$, tj.
+$\rep{32}$. Slednja je razcepna, kar lahko pokažemo s pomočjo operatorja "`ročnosti"',
+\begin{equation}
+	\frac{1}{2}(1 + \Gf)\rep{32} = \rep{16}, \quad \frac{1}{2}(1 - \Gf)\rep{32} = \repb{16}.
+\end{equation}
+Izkaže se, da sta upodobitvi $\rep{16}$ in $\repb{16}$ nerazcepni, tj.
+\begin{equation}
+	\rep{32} = \rep{16}\oplus\repb{16}.
+\end{equation}
+Ker ju dobimo kot projekciji z operatorjem "`ročnosti"', ju imenujemo kiralni upodobitvi. Če je $\rep{32}$
+analogija Diracovih spinorjev, potem sta $\rep{16}$ in $\repb{16}$ analogiji Weylovih polj.
+
+Prvih nekaj nerazcepnih upodobitev $SO(10)$ je navedenih v tabeli~\ref{irreps}. Prikazan je tudi
+razcep posamezne upodobitve nad Pati-Salamovo podgrupo, $\mathcal{G}_\text{PS}$, katerega pomen
+bo bolj jasen v nadaljevanju.
+\begin{table}[H]\centering
+	\caption{Prvih nekaj nerazcepnih upodobitev $SO(10)$ in njihove dekompozicije znotraj
+	Pati-Salamove (PS) grupe~\cite{slansky}. Kot v multipletih iz SM prva številka pomeni upodobitev glede
+	na prvo grupo, druga gelede na druo itd.}
+	\begin{tabular}{r|l}
+		upodobitev & razcep nad $SU(2)_L\times SU(2)_R \times SU(4)_C$ \\
+		\hline
+		$\rep{1}$ & $\irrep{1}{1}{1}$ \\
+		$\rep{10}$ & $\irrep{2}{2}{1} \oplus \irrep{1}{1}{6}$ \\
+		$\rep{16}$ & $\irrep{2}{1}{4} \oplus \irrepb{1}{2}{4}$ \\
+		$\rep{45}$ & $\irrep{3}{1}{1} \oplus \irrep{1}{3}{1} \oplus \irrep{2}{2}{6}
+				\oplus \irrep{1}{1}{15}$ \\
+		$\rep{54}$ & $\irrep{1}{1}{1} \oplus \irrep{3}{3}{1} \oplus \irrep{2}{2}{6} \oplus
+				\irrep{1}{1}{20'}$ \\
+		$\rep{120}$ & $\irrep{2}{2}{1} \oplus \irrep{3}{1}{6} \oplus \irrep{1}{3}{6} 
+			\oplus \irrep{1}{1}{10} \oplus \irrepb{1}{1}{10} \oplus \irrep{2}{2}{15}$ \\
+		$\rep{126}$ & $\irrep{1}{1}{6} \oplus \irrepb{3}{1}{10} \oplus \irrep{1}{3}{10}
+				\oplus \irrep{2}{2}{15}$ \\
+		$\rep{144}$ & $\irrep{2}{1}{4} \oplus \irrepb{1}{2}{4} \oplus \irrep{2}{3}{4}
+				\oplus \irrepb{3}{2}{4} \oplus \irrep{2}{1}{20} \oplus \irrepb{1}{2}{20}$
+	\end{tabular}
+	\label{irreps}
+\end{table}
+
+Kiralna upodobitev $\rep{16}$ je zelo pomembna v poenotenju prek $SO(10)$, saj je edina možna
+upodobitev, ki lahko s svojimi kvantnimi števili vključuje fermione SM~\cite{mohapatra},~\cite{oezer}.
+Hkrati je tudi dimenzija ravno pravšnja, tako da lahko 5 upodobitev $\mathcal{G}_\text{SM}$ na generacijo
+nadomestimo s $\rep{16}$ iz $SO(10)$, s čimer smo poenotili fermionska polja\footnote{Ker nastopajo v isti
+upodobitvi grupe.} znotraj generacije,
+\begin{equation}
+	\rep{16} = (Q, u^c, d^c, L, \nu^c, e^c).
+	\label{opis16}
+\end{equation}
+Kot vidimo ima ta upodobitev tudi $\nu^c$, ki je singlet nad $\mathcal{G}_\text{SM}$. To pomeni,
+da nam ni treba desnoročnega nevtrina dodajati posebej, ampak je že sam po sebi vključen teorijo
+$SO(10)$, zaradi česar je $SO(10)$ lahko teorija masivnih nevtrinov~\cite{mohapatra}~\cite{gutproton}.
+
+\section{Invariante umeritvene grupe $SO(10)$}
+
+Ko Lagrangianu priredimo umeritveno simetrijo $SO(10)$, pomeni, da je le-ta invarianten na
+rotacije iz $SO(10)$, poleg seveda tega, da je invarianten na Lorentzove transformacije.
+Fermionske mase v Lagrangianu bodo izvirali iz Yukawovih členov tipa~\cite{mohapatra}
+\begin{equation}
+	\mathcal{L}_Y \sim y \psi^c \psi \phi =  y\psi^T C^{-1} \psi \phi,
+	\label{primer1}
+\end{equation}
+kjer je $\psi$ v kiralni upodobitvi (tj. $\rep{16}$ ali pa $\repb{16}$), $\phi$ pa je v eni izmed
+tenzorskih upodobitev in ga lahko opremimo s fundamentalnimi indeksi. Operator $C^{-1} = C$ je
+operator konjugacije naboja, v Yukawovem členu je zato, da ohranimo Lorentzovo invarianco.
+
+Invarianto iz take tenzorske upodobitve dobimo zelo enostavno -- vse tenzorje med seboj zmnožimo 
+in seštejemo po vseh indeksih~\cite{gutproton},~\cite{miha},~\cite{mohapatra}, kot npr.
+\begin{equation}
+	\phi_{i_1i_2\dots i_k} M_{i_1i_2\dots i_kj_1j_2\dots j_\ell} N_{j_1j_2\dots j_\ell}.
+	\label{tenzorji}
+\end{equation}
+Iz zapisa je očitno, da niso nujno enakih dimenzij, je pa pomembno, da na koncu ne ostane več prostih
+indeksov.
+
+Poglejmo še kako je z invariantami spinorske upodobitve. Matrika $C$ je skalar nad grupo $SO(10)$,
+zato jo bomo na kratko pozabili iz en.~\eqref{primer1}. Ker je $SO(10)$ grupa ortogonalnih
+transformacij, bomo ugibali, da je invarianta nad $SO(10)$ kar $\psi^T \psi$. To bomo preverili s
+pomočjo transformacij grupe $\exp(i\alpha_{jk}\Sigma_{jk}) \in SO(10)$:
+\begin{align}
+	\psi &\to \psi' = \e^{i\alpha_{jk}\Sigma_{jk}} \psi \approx \psi
+		+ i\alpha_{jk}\Sigma_{jk}\psi, \notag \\
+	\psi^\dagger &\to (\psi^\dagger)' \approx \psi - i\alpha_{jk}(\Sigma_{jk}\psi)^\dagger
+		= \psi - i\alpha_{jk}\ \psi^\dagger\Sigma_{jk},
+		\notag \\
+	\psi^T &\to (\psi^T)' \approx \psi + i\alpha_{jk}\ \psi^T\Sigma_{jk}^T,
+\end{align}
+kar v prvem redu pomeni
+\begin{equation}
+	\psi^T\psi \to \psi^T\psi + \underbrace{i\alpha_{jk}\psi^T\Sigma_{jk}^T\psi +
+		i\alpha_{jk}\psi^T\Sigma_{jk}\psi}_{\neq 0} + \mathcal{O}(\alpha_{jk}^2) \neq \psi^T\psi,
+	\label{zagata}
+\end{equation}
+se pravi $\psi^T\psi$ ni invarianta nad $SO(10)$, saj $\Sigma^T_{jk} \neq -\Sigma_{jk}$.
+
+\subsection{Operator konjugacije naboja nad $SO(10)$}
+
+Da se rešimo iz zagate v en.~\eqref{zagata} bomo v člen $\psi^T\psi$ dodali matriko $B$, tako bomo
+imeli invarianto nad $SO(10)$
+\begin{equation}
+	\psi^T B\psi \to \psi^TB\psi.
+\end{equation}
+Transformacija $SO(10)$ se potem v prvem redu glasi
+\begin{equation}
+	\psi^TB\psi \to (\psi^TB)'\psi' = \psi^TB\psi + \underbrace{i\alpha_{jk}\psi^TB\Sigma_{jk}\psi +
+		\delta(\psi^T B)\psi}_{= 0} + \mathcal{O}(\alpha_{jk}^2) = \psi^TB\psi,
+\end{equation}
+od koder dobimo pogoj
+\begin{equation}
+	\delta(\psi^TB) = -i\alpha_{jk}\psi^T B\Sigma_{jk},
+	\label{pogoj1}
+\end{equation}
+hkrati pa vemo, da se $\psi^TB$ transformira kot
+\begin{equation}
+	\psi^TB \to (\psi^TB)' = (\psi^T)'B \approx \psi^TB +
+		\underbrace{i\alpha_{jk}\psi^T\Sigma_{jk}^T B}_{\delta(\psi^TB)}.
+	\label{pogoj2}
+\end{equation}
+Če združimo enačbi~\eqref{pogoj1} in~\eqref{pogoj2} dobimo
+\begin{equation}
+	i\alpha_{jk}\psi^T\Sigma_{jk}^TB = -i\alpha_{jk}\psi^TB\Sigma_{jk},
+\end{equation}
+kar se poenostavi v
+\begin{equation}
+	B^{-1}\Sigma_{jk}^TB = -\Sigma_{jk}.
+	\label{konjugacija}
+\end{equation}
+Isti pogoj pa mora veljati za operator konugacije naboja iz Lorentzove grupe~\cite{palash},
+\begin{equation}
+	C^{-1}\Sigma_{\mu\nu}^TC = -\Sigma_{\mu\nu},
+\end{equation}
+ki je definiran kot
+\begin{equation}
+	C = i\gamma_0\gamma_2,\quad C^{-1} = C^\dagger = C, \quad C^T = -C
+\end{equation}
+Opazimo, da je $B$ analogija operatorja konjugacije naboja Lorentzove grupe~\cite{mohapatra}.
+Od tod kar uganemo rešitev enačbe~\eqref{konjugacija}~\cite{mohapatra},
+\begin{equation}
+	B = i\Gamma_1\Gamma_3\ldots\Gamma_9 = i\prod_{j\ \text{lih}}\Gamma_j.
+\end{equation}
+
+\subsection{Bilinearne kombinacije v $SO(10)$}
+
+S pomočjo matrike $B$ lahko napravimo, po zgledu Lorentzove grupe za Diracove spinorje, bilinearne forme
+umeritvene grupe $SO(10)$ za spinorje $\psi$. Te so prikazane v tabeli~\ref{bilinearne}.
+\begin{table}[H]\centering
+	\caption{Tu so prikazane možne bilinearne forme, ki jih dobimo s spinorske upodobitve $SO(10)$.
+		Tu smo izpustili $\Gf$, ki bi služil zgolj kot projektor, s katerim bi $\rep{32}$ razbili
+		na $\rep{16}$ in $\repb{16}$, vendar bomo tako ali tako uporabljali zgolj ti dve upodobitvi.}
+	\begin{tabular}{c c}
+		transformacijsko pravilo & forma nad $SO(10)$ \\
+		\hline
+		skalar	& $\psi^T BC^{-1}\psi$ \\
+		vektor & $\psi^TBC^{-1}\Gamma_j\psi$ \\
+		tenzor & $\psi^TBC^{-1}\Gamma_{j_1}\Gamma_{j_2}\dots\Gamma_{j_k}\psi$
+	\end{tabular}
+	\label{bilinearne}
+\end{table}
+Če hočemo s polja $\phi_{j_1j_2\dots j_k}$ napraviti invarianto ga moramo pomnožiti s tenzorjem, ki
+ima prav toliko indeksov. Seveda bomo izbrali tenzorsko upodobitev, ki jo dobimo iz bilinearnih
+form. Potem je dobra invarianta nad $SO(10)$ npr. Yukawow člen, ki bi se zapisal kot
+\begin{equation}
+	\mathcal{L}_Y \sim y\ \psi^TBC^{-1}\Gamma_{j_1}\Gamma_{j_2}\dots\Gamma_{j_k}\psi\ 
+		\phi_{j_1j_2\dots j_k},
+\end{equation}
+saj je produkt dveh tenzorjev, pri čemer se vsi indeksi seštejejo. Iz pogoja, da je $\psi$
+v spinorski upodobitvi ugotovimo, da je $\psi = \rep{16}$ ali pa $\psi = \repb{16}$. Potem
+so tile tenzorji v sledečih upodobitvah:
+\begin{align}
+	\rep{16}^TBC^{-1}\Gamma_{j_1}\Gamma_{j_2}\dots\Gamma_{j_k}\rep{16} &\in \rep{16}\otimes\rep{16},
+		\notag \\
+	\rep{16}^TBC^{-1}\Gamma_{j_1}\Gamma_{j_2}\dots\Gamma_{j_k}\repb{16} &\in \rep{16}\otimes\repb{16},
+		\notag \\
+	\repb{16}^TBC^{-1}\Gamma_{j_1}\Gamma_{j_2}\dots\Gamma_{j_k}\repb{16} &\in \repb{16}\otimes\repb{16},
+		\notag \\
+\end{align}
+Od tod lahko ugotovimo, katere tenzorje lahko sestavimo, saj lahko te produktne upodobitve razcepimo
+in dobimo
+\begin{align}
+	\rep{16} \otimes \rep{16} &= \rep{10} \oplus \rep{120} \oplus \repb{126}, \notag \\
+	\rep{16} \otimes \repb{16} &= \rep{1} \oplus \rep{45} \oplus \rep{210}, \notag \\
+	\repb{16} \otimes \repb{16} &= \rep{10} \oplus \rep{120} \oplus \rep{126}.
+	\label{produktne:spinorske}
+\end{align}
+Fundamentalna upodobitev $\rep{10}$ ima en indkes, $\rep{120}$ ima tri in $\rep{126}$ oz. $\repb{126}$
+imata 5. Singlet $\rep{1}$ je brez indeksov, $\rep{45}$ ima dva in $\rep{210}$ jih ima štiri. Vse
+te upodobitve so popolnoma anti-simetrične. Iz spinorjev lahko sestavimo tenzorje, ki pripadajo
+sledečim nerazcepnim upodobitvam,
+\begin{align}
+	\rep{16}^TBC^{-1}\Gamma_i\rep{16} &\in \rep{10}, \notag \\
+	\repb{16}^TBC^{-1}\Gamma_i\Gamma_j\rep{16} &\in \rep{45}, \notag \\
+	\rep{16}^TBC^{-1}\Gamma_i\Gamma_j\Gamma_k\rep{16} &\in \rep{120}, \notag \\
+	\repb{16}^TBC^{-1}\Gamma_i\Gamma_j\Gamma_k\Gamma_\ell\rep{16} &\in \rep{210}, \notag \\
+	\rep{16}^TBC^{-1}\Gamma_i\Gamma_j\Gamma_k\Gamma_\ell\Gamma_m\rep{16} &\in \repb{126}.
+	\label{tenzor:spinor}
+\end{align}
+kjer se $\repb{16}^TBC^{-1}\rep{16}$ lahko dodatno sklopi s singletom $SO(10)$, kar lahko preberemo
+iz~\eqref{produktne:spinorske}.
+Skalarno polje $\phi$, s katerim bomo sklopili fermionska polja morajo imeti isto število
+indeksov\footnote{V splošnem morajo biti v upodobitvi, katere podupodobitev je vsaj ena izmed
+navedenih v direktni vsoti enačb~\eqref{produktne:spinorske}.}, tj. morajo biti v isti
+upodobitvi -- dober člen v Lagrangianu\footnote{Dober, ker je invarianten na Lorentzovo grupo in
+umeritveno grupo $SO(10)$.} bi se torej glasil npr.
+\begin{equation}
+	\mathcal{L}_Y \sim \rep{16}^TBC^{-1}(Y_{120}\Gamma_i\Gamma_j\Gamma_k\rep{16}\ \rep{120}_{ijk}
+		+ Y_{\overline{126}}\Gamma_i\Gamma_j\Gamma_k\Gamma_\ell\Gamma_m\rep{16}\ 
+		\repb{126}_{ijk\ell m}),
+	\label{komplikaicija}
+\end{equation}
+kar pa je mučno brati.
+
+\section{Okrajšan zapis v teorijah poenotenja}
+
+Ker vemo koliko indeksov morajo imeti posamezne tenzorske upodobitve in se prav tako zavademo, da
+je člen $BC^{-1}$ vedno prisoten, se v teoriji poenotenja vse to ponavadi kar spušča zavoljo čistejše
+notacije. Kar preostane, so le polja in njihove upodobitve, tj.
+\begin{equation}
+	y \psi^TBC^{-1}\Gamma_{j_1}\Gamma_{j_2}\dots\Gamma_{j_k}\psi\ \phi_{j_1j_2\dots j_k}
+		\to y\psi^c\phi\psi.
+\end{equation}
+Tak zapis bi izraz~\eqref{komplikaicija} poenostavil v
+\begin{equation}
+	\mathcal{L}_Y \sim \rep{16}^c (Y_{120}\rep{120} + Y_{\overline{126}}\repb{126})\rep{16},
+\end{equation}
+to pa je veliko preglednejše. 
+
+Ob uporabi seveda ne smemo pozabiti na vse matrike $\Gamma_i$ in indekse v ozadju, saj nam ravno ti
+povedo, katere kombinacije polj so možne, niso pa bistvene za nadaljno obravnavo mas v Yukawovih
+členih. Zaradi preglednosti se bomo v nadaljevanju držali takšnega zapisa.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

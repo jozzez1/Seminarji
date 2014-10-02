@@ -1,0 +1,251 @@
+\chapter{Standardni model}
+
+Standardni model (SM) z zelo dobro preciznostjo opiše naše razumevanje sveta osnovnih delcev od nekaj
+$10$ eV (pri nizkih energijah postane barvna interakcija neperturbativna), pa do nekaj $100$ GeV, do
+koder smo zaenkrat eksperimentalno raziskali energijsko področje. To je model, ki uspe celotno znano
+snov opisati prek interakcij fermionskih in bozonskih polj.
+
+\section{Fermionska polja}
+Fermionska polja, tj. polja s pol-celim spinom, delimo na kvarke in leptone, prikazana pa so v
+tabeli~\ref{SMdelci}.
+\begin{table}[H]\centering
+	\caption{Fermionska polja standardnega modela. Vidimo, kako so razvrščena v družine (generacije),
+		zaradi česar so stolpci oštevilčeni, `$Q$' pa predstavlja električni naboj, ki ga to polje nosi.}
+	\begin{subtable}[H]{0.45\linewidth}\centering
+		\begin{tabular}{c c c | l}
+			1. & 2. & 3. & $Q$ \\
+			\hline
+			$u$ & $c$ & $t$ & $+2/3$ \\
+			$d$ & $s$ & $b$ & $-1/3$
+		\end{tabular}
+		\caption{kvarki}
+	\end{subtable}
+	\begin{subtable}[H]{0.45\linewidth}\centering
+		\begin{tabular}{c c c | l}
+			1. & 2. & 3. & $Q$ \\
+			\hline
+			$\nu_e$ & $\nu_\mu$ & $\nu_\tau$ & $0$ \\
+			$e$ & $\mu$ & $\tau$ & $-1$
+		\end{tabular}
+		\caption{leptoni}
+	\end{subtable}
+	\label{SMdelci}
+\end{table}
+Leptone lahko dodatno delimo na električno nabite leptone (kot je na primer elektron) in na
+električno nevtralne leptone, katere imenujemo \emph{nevtrini}, ki imajo v SM poseben status, saj
+so znotraj SM edino fermionsko polje, ki nima mase.
+
+Kot posledica Lorentzovih transformacij imamo poleg teh polj tudi njim pripadajoče anti-delce, oz.
+polja s konjugiranim nabojem. Npr. fermionsko polje $\psi$ bi s konjugacijo naboja postalo $\psi^c$,
+\begin{equation}
+	\psi^c = \psi^T i\gamma_0\gamma_2 = \psi^T C^{-1},
+\end{equation}
+kjer je $C$ operator konjugacije naboja. To pomeni, da imamo poleg fermionov tudi anti-fermione,
+ki se od njih razlikujejo le po predznaku električnega naboja. Prikazani so v tabeli~\ref{SManti}.
+\begin{table}[H]\centering
+	\caption{Anti-fermionska polja SM, tj. fermioni s konjugiranim nabojem.}
+	\begin{subtable}[H]{0.45\linewidth}\centering
+		\begin{tabular}{c c c | l}
+			1. & 2. & 3. & $Q$ \\
+			\hline
+			$u^c$ & $c^c$ & $t^c$ & $-2/3$ \\
+			$d^c$ & $s^c$ & $b^c$ & $+1/3$
+		\end{tabular}
+		\caption{anti-kvarki}
+	\end{subtable}
+	\begin{subtable}[H]{0.45\linewidth}\centering
+		\begin{tabular}{c c c | l}
+			1. & 2. & 3. & $Q$ \\
+			\hline
+			$\nu_e^c$ & $\nu_\mu^c$ & $\nu_\tau^c$ & $0$ \\
+			$e^c$ & $\mu^c$ & $\tau^c$ & $+1$
+		\end{tabular}
+		\caption{anti-leptoni}
+	\end{subtable}
+	\label{SManti}
+\end{table}
+Nevtrini imajo tu spet poseben status, saj so električno nevtralni -- lahko so sami sebi anti-delci,
+tj. $\nu = \nu^c$. To so ti. nevtrini Majorane. Kadar velja $\psi^c \neq \psi$ pa govorimo o Diracovih
+fermionih. Lahko zgradimo teorijo, kjer so fizikalni nevtrini sestavljeni iz obeh prispevkov, več
+o tem v nadaljevanju.
+
+Kvarkovska (in anti-kvarkovska) polja nosijo poleg električnega naboje tudi ti. \emph{barvni naboj},
+ker interagirajo prek barvne interakcije. Nosijo lahko katerokoli izmed treh barv, rdečo -- $r$,
+zeleno -- $g$, ali pa modro -- $b$. Anti-kvarki nosijo anti-barve, $\bar{r}$, $\bar{g}$ in $\bar{b}$.
+To pomeni da lahko kvarkovska polja dobimo v treh različnih variantah. Take barve so izbrane, ker so
+vsi fizikalni sestavljeni delci navzven brezbarvni, tj. \emph{bele} barve.
+
+Še ena stvar nas v SM spravlja v zagato. Delce lahko namreč razločimo po "`ročnsti"'. Dočim so
+nabiti fermioni lahko levo- in desnoročni, eksperimenti niso odkrili desnoročnega nevtrina, zaradi
+česar so nevtrini v SM izključno levoročni. Za anti-delce velja
+\begin{equation}
+	\psi_L \stackrel{C}{\longrightarrow} \psi^c_R, \quad \psi_R \stackrel{C}{\longrightarrow} \psi^c_L,
+\end{equation}
+torej levoročen fermion po konjugaciji naboja postane desnoročen anti-fermion in obratno. Taka kiralna stanja
+dobimo z operatorjem ročnosti,:
+\begin{equation}
+	P_L = \frac{1}{2}(1 - \gamma_5), \quad P_R = \frac{1}{2}(1 + \gamma_5).
+\end{equation}
+To sta projekcijska operatorja z lastnostmi $P_{L,R}^2 = 1$ in $P_L P_R = 0$, saj $\gamma_5^2 = 1$ in
+$\gamma_5^\dagger = \gamma_5$. Matrika $\gamma_5$ je ena izmed matrik $\gamma$ iz Lorentzove grupe. Od
+tod dobimo identiteto
+\begin{equation}
+	\bar{\psi} = \psi^\dagger \gamma_0, \Rightarrow \bar{\psi}_L = (\psi_L)^\dagger \gamma_0 =
+		\psi^\dagger P_L \gamma_0 = \bar{\psi} P_R,
+\end{equation}
+torej je $\bar{\psi}_L$ v resnici desnoročen. To pomeni, da
+\begin{equation}
+	\bar{\psi}_L\psi_L = \bar{\psi}_R\psi_R = 0,
+\end{equation}
+zaradi česar ne moremo eksplicitno zapisati masnih členov takih polj, ampak so lahko le brezmasna~\cite{quang}.
+Taka polja imenujemo Weylova. Fermioni v SM so tipično sestavljeni iz obeh komponent, tj.
+\begin{equation}
+	\psi = \psi_L + \psi_R,
+\end{equation}
+Tu je $\psi$ Diracovo polje, zapisano z Weylovimi. Lagrangian za prosto Diracovo polje z maso $m$ lahko v tem
+primeru z Weylovimi polji zapišemo kot
+\begin{equation}
+	\mathcal{L} = i\bar{\psi}_R\slashed{\partial}\psi_R + i\bar{\psi}_L\slashed{\partial}\psi_L -
+		m(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R).
+	\label{weylovaMasa}
+\end{equation}
+Nevtrini so v SM le levoročni $\nu = \nu_L$ in nimajo desnoročnega prispevka -- zaradi tega morajo biti
+brezmasni. Ker imajo dobro definirano ročnost so to Weylova polja.
+
+Ob upoštevanju barve imamo v SM skupaj 24 različnih fermionskih polj, ki jih moramo nekako urediti
+in klasificirati, pri čemer lahko $\nu_R$ v princupu obstaja, vendar ne interagira z ostalimi polji
+(kar pojasni zakaj ni bil eksperimentalno potrjen).
+
+\section{Bozoni in umeritvene interakcije}
+
+Bozonska polja nosijo celoštevilski spin. SM ima dva tipa bozonov -- umertivene in Higgsove. Umeritveni
+bozoni so nosilci osnovnih interakcij. V nizkih energijah je dovolj če vzamemo le elektromagnetno in
+pa barvno, za celosten opis pa moramo namesto elektromagnetne vzeti \emph{elektro-šibko}. Interakcije
+lahko opišemo s pomočjo ti. umeritvene grupe. To je Lieva grupa, ki je veljavna globalno. Primer
+invariance na tako grupo je v sliki~\ref{Umeritvena}.
+\begin{figure}[H]\centering
+	\begin{subfigure}{0.45\textwidth}\centering
+	\[
+		\psi \to \exp (\alpha_i T_i) \psi = \psi
+	\]
+	\caption{lokalna simetrija}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}\centering
+	\[
+		\psi \to \exp \big(\alpha_i(x) T_i\big) \psi = \psi
+	\]
+	\caption{globalna simetrija}
+	\end{subfigure}
+	\caption{Razlika med globalno in lokalno simetrijo. Koeficienti $\alpha_i$ so v globalni
+		simetriji lahko zvezne funkcije koordinat prostora Minkowskega (tj. prostor-časa).}
+	\label{Umeritvena}
+\end{figure}
+\noindent Umeritvena grupa standardnega modela je produktna grupa posameznih interakcij:
+\begin{itemize}
+	\item{barvna interakcija -- imamo tri osnovne barve, vzamemo $SU(3)_C$,}
+	\item{elektromagnetna -- en nosilec naboja, vzamemo $U(1)_Q$,}
+	\item{levoročna šibka interakcija -- $SU(2)_L$.}
+\end{itemize}
+Kot je bilo že omenjeno, $U(1)_Q$ ni zadostna pri visokih energijah, ampak moramo vzeti
+elektrošibko, to je $SU(2)_L\times U(1)_Y$, kjer $Y$ imenujemo \emph{hipernaboj}. Šibka interakcija ima
+dodaten indeks `$L$', s čimer smo želeli povdariti, da se sklaplja le z levoročnimi delci! Zaradi tega
+je masne člene napisati zelo težko na nivoju SM. Umeritvena
+grupa SM, označena z $\mathcal{G}_\text{SM}$ je tako
+\begin{equation}
+	\mathcal{G}_\text{SM} = SU(2)_L \times SU(3)_C \times U(1)_Y.
+\end{equation}
+
+Nosilci takih umeritvenih interakcij so umeritveni bozoni. Njihovo število je enako dimenziji grupe.
+V $SU(3)_C$ jih imamo 8 in jih imenujemo \emph{gluoni}. To so $G_{\mu,j}$, $j \in \{1,2,\dots,8\}$.
+V $SU(2)_L\times U(1)_Y$ vzamemo njihove linearne kombinacije, da dobimo foton iz $U(1)_Q$, $A_\mu$
+in pa ti. šibke bozone $W_\mu$, $W^\dagger_\mu$ in $Z_\mu$. Ker imajo ta polja po en Lorentzov indeks,
+$\mu$, jih pravimo vektorska polja in nosijo spin 1. Z izjemo šibkih bozonov so umeritveni bozoni
+brezmasni.
+
+Množico fermionskih polj lahko razvrstimo v multiplete $\mathcal{G}_\text{SM}$. Ti so multipleti so
+kvarkovski multiplet, $Q$, ki se obnaša kot dublet nad $SU(2)_L$, triplet nad $SU(3)_C$ in ima
+hipernaboj
+$Y = 1/3$, kar označimo
+\begin{equation}
+	Q = \irep{2}{3}{1/3} = \begin{pmatrix}
+		u_r & u_g & u_b \\
+		d_r & d_g & d_b
+	\end{pmatrix},
+	\label{multipletiZ}
+\end{equation}
+leptonski multiplet, $L$,
+\begin{equation}
+	L = \irep{2}{1}{-1} = \begin{pmatrix}
+		\nu_e \\ e
+	\end{pmatrix},
+\end{equation}
+anti-kvarkovska tripleta $u^c$ in $d^c$,
+\begin{equation}
+	u^c = \irepb{1}{3}{-4/3} = \begin{pmatrix}
+		u^c_{\bar{r}} & u^c_{\bar{g}} & u^c_{\bar{b}}
+	\end{pmatrix}, \quad
+	d^c = \irepb{1}{3}{2/3} = \begin{pmatrix}
+		d^c_{\bar{r}} & d^c_{\bar{g}} & d^c_{\bar{b}}
+	\end{pmatrix},
+\end{equation}
+pozitron
+\begin{equation}
+	e^c = \irep{1}{1}{2}
+\end{equation}
+in pa anti-nevtrino, ki je singlet nad $\mathcal{G}_\text{SM}$,
+\begin{equation}
+	\nu^c_e = \irep{1}{1}{0}
+\end{equation}
+in ga ponavadi ne pišemo, saj to da je singlet nad $\mathcal{G}_\text{SM}$ pomeni, da ne interagira
+prek umeritvenih interakcij. Ker je $\nu = \nu_L$, pomeni $\nu^c = \nu_R$ po prispevku Majorane.
+Taka razvrstitev fermionov je torej ustrezna, saj pravilno uvrstimo tudi morebitni desnoročni nevtrino.
+
+Tri generacije fermionskih polj pomeni v vsaki generaciji 5 (z desnoročnim nevtrinom 6)
+različnih multipletov. 
+
+Tako žal ne moremo eksplicitno zapisati masnih členov naših nabitih fermionskih polj, saj
+$m\bar{\psi}_L\psi_R = 0$, tj. $m = 0$. Prav tako masivni šibki bozoni napravijo $SU(2)_L$
+nerenormalizabilno. Iz zagate nas rešijo Higgsovi bozoni. To je kompleksen dublet nad $SU(2)_L$,
+\begin{equation}
+	\phi = \irep{2}{1}{1} = \begin{pmatrix}
+		\phi^+ \\
+		\phi^0
+	\end{pmatrix},
+	\label{multipletiK}
+\end{equation}
+ki zaradi neničelne vakuumske pričakovane vrednosti\footnote{Ang. \emph{vacuum expectation value} -- od
+tod okrajšava \emph{vev}.} (vev) spontano zlomi elektrošibko umeritveno simetrijo in dá maso vsem
+prisotnim poljim prek interakcij Yukawe, ki so členi v Lagrangianu, ki predstavljajo interakcijo
+med fermioni in skalarnim poljem (tj. skalarno polje ima spin 0),
+\begin{equation}
+	\mathcal{L}_Y \sim y\bar{\psi}\psi\phi,
+\end{equation}
+kjer $y$ imenujemo \emph{sklopitvena konstanta Yukawe}.
+
+\paragraph{Pozvetek polj SM.}
+Umeritvene bozone SM lahko potem na kratko povzamemo z umeritveno grupo $SU(3)_C\times SU(2)_L\times
+U(1)_Y$, preostale delce pa z multipleti $Q_g$, $L_g$, $u^c_g$, $d^c_g$, $e^c_g$ in $\nu^c_g$ in $\phi$,
+kjer $g$ pomeni generacijo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

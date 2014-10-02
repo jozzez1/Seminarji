@@ -1,0 +1,773 @@
+\chapter{Opis modela}
+
+V tem modelu bomo predpostavili, da so vsi parametri, kot tudi eksperimentalni rezultati
+(npr. koti CKM) realni, saj neničelni imaginarni del (iz CKM) nima bistvenega prispevka k masam.
+
+Iz enačb~\eqref{opis16} se spomnimo, da za celoten opis fermionskih polj v eni generaciji zadošča
+upodobitev $\rep{16}$. V našem primeru bomo raziskali model, kjer celotnem fermionskem multipletu
+dodamo še dve novi generaciji -- $\rep{16}_4$ in $\repb{16}$. Celoten fermionski multiplet se potem
+lahko zapiše kot
+\begin{align}
+	\Psi = \rep{16}_1 \oplus \rep{16}_2 \oplus \rep{16}_3 \oplus \rep{16}_4 \oplus \repb{16}{}^c,
+	\label{fermioni}
+\end{align}
+Masni člen v Lagraniganu bo oblike $\Psi^c M \Psi$, torej potrebujemo masno matriko. Kot je bilo
+navedeno v prejšnjem poglavju, bomo slednjo sestavili z vev skalarnih polj, ki so v eni izmed
+tenzorskih upodobitev $SO(10)$, tj.
+\begin{equation}
+	\mathcal{L}_Y \sim \Psi^c\begin{pmatrix}
+		\phi_1 & \phi_2 \\
+		\phi_2 & \phi_3
+	\end{pmatrix} \Psi + \text{h.k.}
+\end{equation}
+Ker hočemo minimalen model se bomo omejili na nerazcepne upodobitve, kar nam da možna na voljo polja
+navedena v en.~\eqref{tenzor:spinor}. Za minimalno teorijo zadoščajo polja $\repb{126}$, $\rep{126}$,
+$\rep{1}$ in $\rep{45}$. Člene Yukawe lahko sedaj zapišemo v matrični obliki kot
+\begin{align}
+	\mathcal{L}_Y = \Psi^c \Phi \Psi + \text{h.k.} = \begin{pmatrix}
+		\rep{16}_a{}^c & \repb{16}
+	\end{pmatrix}
+	\begin{pmatrix}
+		\mathcal{Y}_{ab} \repb{126} & m_a\rep{1} + \eta_a\rep{45} \\
+		m_b\rep{1} + \eta_b\rep{45} & y\rep{126}
+	\end{pmatrix}
+	\begin{pmatrix}
+		\rep{16}_b \\ \repb{16}{}^c
+	\end{pmatrix} + \text{h.k.}
+	\label{great:mass}
+\end{align}
+Indeksa $a,b \in \{1,2,3,4\}$ tečeta po generacijah. Polje $\repb{16}^c$ nima indeksa, saj je
+se ne ponavlja v različnih generacijah.
+
+Na kratko pojasnimo izbiro naših polj:
+\begin{itemize}
+	\item{Minimalnemu modelu takega tipa zadošča že eno polje, ki pripada $\rep{16}\otimes\rep{16}$.
+		Izberemo lahko npr. $\rep{10}$, kot je demonstrirano v~\cite{babu}. Tak model bi bil res
+		minimalen, vendar nevtrinom ne more dati mase, saj ne more dobiti vev v pravi smeri. Zaradi
+		tega smo izbrali $\repb{126}$, ki je najmanjša upodobitev, ki to lahko stori.}
+	\item{V delu $\repb{16}\otimes\repb{16}$ moramo izbrati $\rep{126}$, ker je lahko takemu
+		skalarnemu polju damo vev v smeri, ki da mase vsem fermionom iz $\repb{16}$, tudi nevtrinom.}
+	\item{Mešalni del mora imeti vsaj dve različni polji, da lahko damo prave mase. Izberemo
+		najmanjši dve, tj. $\rep{1}$ in $\rep{45}$. To je analogno modelu, uporabljenem v~\cite{miha},
+		kjer imamo le $\rep{16}_{1,2,3}$, brez $\repb{16}$ in $\rep{16}_4$. Tam sta bili uporabljeni
+		skalarni polji $\rep{10}$ in $\repb{126}$.}
+\end{itemize}
+Člene matrike~\eqref{great:mass} lahko skupaj zmnožimo, kar nam da člene Yukawe
+\begin{equation}
+	\mathcal{L}_Y = \rep{16}_a{}^c\ \mathcal{Y}_{ab} \repb{126}\ \rep{16}_b \notag
+		+ \repb{16} (m_a \rep{1} + \eta_a \rep{45})\rep{16}_a
+		+ \repb{16}\ y\rep{126}\ \repb{16}{}^c + \text{h.k.}
+\end{equation}
+
+Kar nam preostane je to, da tem poljem dodelimo vev-e v smereh, ki dajo mase vsem znanim poljem
+iz SM.
+
+\section{Skalarna polja po spontanem zlomu simetrije}
+
+Kot opombo si zapomnimo, da skalarna polja iz členov Yukawe niso nujno vsa polja, ki jih
+potrebujemo, da spontano zlomimo $SO(10)$ do $\mathcal{G}_\text{SM}$. Ta zlom lahko dosežemo
+na različne načine in v več različnih fazah. V tej nalogi se ne bomo obremenjevali s tem vprašanjem,
+ampak se bomo osredotočili le na to, kako s temi polji lahko damo maso fermionskim poljem.
+
+Upodobitve, ki so bile nerazcepne znotraj grupe z veliko simetrijami, so tipično razcepne znotraj
+podgrupe, ki ima manj simetrije. Zelo koristna podgrupa, prek katere si bomo zamislili da naš zlom
+poteka, je Pati-Salamova podgrupa, $\mathcal{G}_\text{PS} = SU(2)_L \times SU(2)_R
+\times SU(4)_C$. Razcep upodobitev $SO(10)$ na upodobitve iz $\mathcal{G}_\text{PS}$ so dobro
+znane, prav tako pa lahko od tam na hitro izračunamo razcep le-teh na upodobitve
+$\mathcal{G}_\text{SM}$. Zlom bi potekal kot $SO(10) \to \mathcal{G}_\text{PS} \to
+\mathcal{G}_\text{LR} \to \mathcal{G}_\text{SM}$, oziroma bolj specifično
+\begin{equation}
+	\begin{array}{c}
+		SO(10) \\
+		\downarrow \\
+		SU(2)_L \times SU(2)_R \times SU(4)_C \\
+		\downarrow \\
+		SU(2)_L \times SU(2)_R \times SU(3)_C \times U(1)_{B - L} \\
+		\downarrow \\
+		SU(2)_L \times SU(3)_C \times U(1)_Y.	
+	\end{array}
+	\label{phases}
+\end{equation}
+Če želimo vedeti, kako se ena izmed upodobitev $\mathcal{G}_\text{PS}$ razcepi znotraj
+$\mathcal{G}_\text{SM}$ je dovolj, da pogledamo kako se multipleti iz $SU(4)_C$ razcepijo
+nad $SU(3)_C \times U(1)_{B-L} < SU(4)_C$ (pogledamo npr. v~\cite[pg.~93]{slansky}), od tam 
+naprej pa lahko hitro izračunamo $Y$ prek
+\begin{equation}
+	\frac{Y}{2} = T_R^3 + \frac{B - L}{2}.
+\end{equation}
+Tu $B - L$ pomeni "`barionsko število minus leptonsko število"'. V teoriji poenotenja $B$ in $L$
+nista več nujno ohranjeni količini. Njuna (približna) ohranitev sledi iz upoštevanja drugih simetrij
+v limiti nizkih energij -- pravimo da sta naključni simetriji in obstajajo modeli, ki kršijo to
+simetrijo. Dobra simetrija v nizkih energijah je $B - L$. Vredno jo je omeniti, ker lahko zaradi
+slednje opremimo teorijo z renormalizabilnimi interakcijskimi členi protonskega razpada in pojasnimo
+bariogenezo.
+
+Skalarnemu polju $\rep{1}$ dati vev je isto, kot če $\rep{1}$ ne pišemo več, vev pa postane
+sklopitvena konstanta Yukawe. To je trivialno.
+
+Ostalih polj ne bomo mogli tako enostavno opremiti z vev-i: vedeti moramo, kako se naša polja
+razcepijo znotraj $\mathcal{G}_\text{PS}$. To pomeni, da si za kratek čas predstavljamo, da
+npr. $\rep{45}$ ni več iz $SO(10)$ ampak iz $\mathcal{G}_\text{PS}$ in jo zapišemo s
+pomočjo nerazcepnih upodobitev iz $\mathcal{G}_\text{PS} < SO(10)$.
+
+Pričnimo s fermionskimi polji prve generecije (ostale so popolnoma analogne)
+\begin{align}
+	\rep{16}_1 = \irrep{2}{1}{4} \oplus \irrepb{1}{2}{4} =
+	\begin{pmatrix}
+		u_r & u_g & u_b & \nu_e \\
+		d_r & d_g & d_b & e
+	\end{pmatrix}_L \oplus \begin{pmatrix}
+		u^c_{\bar{r}} & u^c_{\bar{g}} & u^c_{\bar{b}} & \nu^c_e \\
+		d^c_{\bar{r}} & d^c_{\bar{g}} & d^c_{\bar{b}} & e^c
+	\end{pmatrix}_R,
+	\label{spinorial}
+\end{align}
+kjer podpisana $L$ in $R$ pomenita dubleta nad $SU(2)_L$ in dubleta nad $SU(2)_R$. To pomeni, da
+po zlomu $SO(10) \to \mathcal{G}_\text{PS}$ upodobitev $\rep{16}$ postane (navadna) vsota dveh
+polj, tj. $\rep{16} \to \irrep{2}{1}{4} + \irrepb{1}{2}{4}$.
+
+Multiplet $\irrep{2}{1}{4}$ je dublet nad $SU(2)_L$, zato ima prva vrsta levi šibki izospin "`gor"', in
+druga vrsta šibki izospin "`dol"'. Ta multiplet ne nosi desnega šibkega izospina. Hkrati je to
+kvadruplet nad $SU(4)_C$ in vidimo da prve tri barve ustrezajo barvam iz $SU(3)_C$, kot četrta
+barva pa nastopajo leptoni.
+
+V primeru $\irrepb{1}{2}{4}$ je podobno, le da imamo dublet nad $SU(2)_R$ in anti-kvadruplet nad
+$SU(4)_C$, zaradi česar smo polja podpisali z anti-barvo.
+
+Spinorska anti-upodobitev, $\repb{16}$, se nad $\mathcal{G}_\text{PS}$ razcepi zelo podobno,
+\begin{equation}
+	\repb{16} = \irrepb{2}{1}{4} \oplus \irrep{1}{2}{4} = \begin{pmatrix}
+		\bar{u}_{\bar{r}} & \bar{u}_{\bar{g}} & \bar{u}_{\bar{b}} & \bar{\nu} \\
+		\bar{d}_{\bar{r}} & \bar{d}_{\bar{g}} & \bar{d}_{\bar{b}} & \bar{e}
+	\end{pmatrix}_L \oplus \begin{pmatrix}
+		\bar{u}_{r}^c & \bar{u}_{g}^c & \bar{u}_{b}^c & \bar{\nu}^c \\
+		\bar{d}_{r}^c & \bar{d}_{g}^c & \bar{d}_{b}^c & \bar{e}^c
+	\end{pmatrix}_R.
+\end{equation}
+
+\subsection{Razcep polja $\rep{45}$}
+
+Nad $SO(10)$ je upodobitev $\rep{45}$ nerazcepna. Nad $\mathcal{G}_\text{PS} < SO(10)$ temu ni več
+tako in $\rep{45}$ lahko razcepimo na direktno vsoto matrik
+\begin{equation}
+	\rep{45} = \irrep{3}{1}{1} \oplus \irrep{1}{3}{1} \oplus \irrep{2}{2}{6}
+		\oplus \irrep{1}{1}{15}.
+\end{equation}
+Te matrike imenujemo "`smeri"' v katerih polje dobi neničelno vev. To se lahko zgodi v katerikoli
+izmed teh smeri. Te vev-e bomo označili kot
+\begin{alignat}{3}
+	\langle \irrep{3}{1}{1} \rangle &= v, &\quad \langle \irrep{1}{3}{1} \rangle &= v_1, \notag \\
+	\langle	\irrep{2}{2}{6} \rangle &= v', &\quad \langle \irrep{1}{1}{15} \rangle &= v_2.
+\end{alignat}
+
+\noindent Polje $\rep{45}$ predstavlja mešanje med $\rep{16}_a$ in $\repb{16}$, ki pa je zelo težko
+polje. Zaradi tega pričakujemo, da se mešanje zgodi na skali poenotenja, kar pa je pred zlomom
+elektrošibke umeritvene grupe, torej vev-i ne smejo zlomiti $\mathcal{G}_\text{SM}$. Zaradi tega
+lahko izberemo le smeri, ki vsebujejo singlete $\mathcal{G}_\text{SM}$.
+
+\begin{itemize}
+	\item{$\irrep{3}{1}{1}$ je triplet nad $SU(2)_L$ -- ne more biti singlet nad
+		$\mathcal{G}_\text{SM}$ in očitno $\Longrightarrow v = 0$}
+	\item{$\irrep{1}{3}{1}$ je singlet nad $SU(2)_L$ in $SU(4)_C$ -- to je singlet tudi nad	
+		$\mathcal{G}_\text{SM}$ in seveda $\Longrightarrow  v_1 \neq 0$,}
+	\item{$\irrep{2}{2}{6}$ in $\irrep{1}{1}{15}$ nista očitni in ju moramo razcepiti do umeritvene
+		grupe SM.}
+\end{itemize}
+
+\noindent Upodobitev $\irrep{2}{2}{6}$ razcepimo v dveh fazah iz en.~\eqref{phases} kot
+\begin{align}
+	\begin{array}{c}
+		\irrep{2}{2}{6} \\
+		\downarrow \\
+		\irrep{2}{2}{3}_{(2/3)} + \irrepb{2}{2}{3}_{(-2/3)} \\
+		\downarrow \\
+		\irep{2}{3}{5/3}+\irep{2}{3}{-1/3}+\irepb{2}{3}{1/3}+\irepb{2}{3}{-5/3}
+	\end{array}
+	\label{six:nosinglet}
+\end{align}
+in kot vidimo, nima singletov nad umeritveno grupo SM, torej $v' = 0$. Upodobitev $\irrep{1}{1}{15}$
+razcepimo na enak način po en.~\eqref{phases} in dobimo
+\begin{align}
+	\begin{array}{c}
+		\irrep{1}{1}{15} \\
+		\downarrow \\
+		\irrep{1}{1}{1}_{(0)} + \irrep{1}{1}{3}_{(-4/3)} + \irrepb{1}{1}{3}_{(4/3)} +
+			\irrep{1}{1}{8}_{(0)} \\
+		\downarrow \\
+		\irep{1}{1}{0} + \irep{1}{3}{-4/3} + \irepb{1}{3}{4/3} + \irep{1}{8}{0}
+	\end{array}
+\end{align}
+in takoj opazimo singlet $\mathcal{G}_\text{SM}$. To pomeni $v_2 \neq 0$. Neničelne vev polja $\rep{45}$ so
+torej le $v_1$ in $v_2$. Sedaj moramo poznati Clebsch-Gordanove koeficiente, da vemo kako utežiti posamezno
+polje po spontanem zlomu simetrije. Da se izognemo vsemu računanju lahko s trikom pogledamo, kako ti matriki
+$\irrep{1}{1}{15}$ in $\irrep{1}{3}{1}$ pravzaprav izgledata in kaj predstavljata:
+\begin{equation}
+	\irrep{1}{3}{1} = T^3_R = \begin{pmatrix}
+		1 & \\ & -1
+	\end{pmatrix}, \quad \irrep{1}{1}{15} = T_C^{15} = \begin{pmatrix}
+		1 & & & \\
+		& 1 & & \\
+		& & 1 & \\
+		& & &-3
+	\end{pmatrix},
+\end{equation}
+Matrika $T^3_R$ je tretja komponenta desnega šibkega izospina ("`gor"'/"`dol"') in $T^{15}_C$ je
+petnajsti generator $SU(4)_C$, ki meri $B-L$. To pomeni da $\irrep{1}{3}{1}$ ne deluje na singlete
+$SU(2)_R$, torej na polja anti-delcev , $\irrepb{1}{2}{4}$, iz en.~\eqref{spinorial}:
+\begin{itemize}
+	\item{zgornja vrsta ima izospin "`gor"', zato je pomnožena z $+v_1$,}
+	\item{spodnja vrsta ima izospin "`dol"', zato je pomnožena z $-v_1$,}
+	\item{polja v $\irrep{2}{1}{4}$ so singleti nad $SU(2)_R$, zato ne dobijo prispevka $v_1$.}
+\end{itemize}
+Vsa polja iz en.~\eqref{spinorial} čutijo $SU(4)_C$, zato bodo vsa imela prispevek $v_2$:
+\begin{itemize}
+	\item{prve tri barve iz $\irrep{2}{1}{4}$ so pomnožene $+v_2$,}
+	\item{zadnjo barvo (leptone) $\irrep{2}{1}{4}$ pomnožimo z $-3 v_2$,}
+	\item{prvi trije stolpci v $\irrepb{1}{2}{4}$ z označeni z anti-barvami -- pomnožijo se z $-v_2$,}
+	\item{zadnja anti-barva v $\irrepb{1}{2}{4}$ so anti-leptoni, katere obtežimo s $+3 v_2$,}
+\end{itemize}
+Členi v Lagrangianu, ki se sklapljajo s $\rep{45}$ so po spontanem zlomu simetrije
+\begin{align}
+	\mathcal{L}_Y\big|_{\rep{45}} &= \repb{16}\ \eta_a\rep{45}\ \rep{16}_a + \text{h.k.}\notag \\
+	&= \bar{Q}\ \eta_a (-v_2) Q_a + \bar{u}^c \eta_a (v_1 + v_2) u^c_a + \bar{d}^c \eta_a (-v_1 + v_2)
+		d^c_a \notag \\
+	&\ + \bar{L}\ \eta_a (3 v_2)L_a + \bar{\nu}^c \eta_a (v_1 - 3v_2) \nu^c_a + \bar{e}^c \eta_a
+		(-v_1 - 3v_2) e^c_a \notag \\
+	&\ + \text{h.k.}
+	\label{mixed45}
+\end{align}
+
+\subsection{Razcep polj $\repb{126}$ in $\rep{126}$}
+
+Kot prej, moramo tudi sedaj pogledati katere smeri imamo na razpolago, potem pa izbrati izmed njimi
+take, ki ne zlomijo preveč simetrije. V~\cite{slansky} lahko preberemo
+\begin{align}
+	\rep{126} &= \irrep{1}{1}{6} \oplus \irrepb{3}{1}{10} \oplus \irrep{1}{3}{10}
+		\oplus \irrep{2}{2}{15}, \notag \\
+	\repb{126} &= \irrep{1}{1}{6} \oplus \irrep{3}{1}{10} \oplus \irrepb{1}{3}{10}
+		\oplus \irrep{2}{2}{15}
+\end{align}
+
+Kot vemo iz SM fermionska polja dobijo maso s spontanim zlomom elektrošibke simetrije. Zaradi tega
+lahko v tem primeru izberemo neničelne vev-e v smereh, ki zlomijo $SU(2)_L\times U(1)_Y$, ne pa
+tudi $SU(3)_C$.
+
+Nevtrinom bomo dali mase prek gugalničnega mehanizma, opisanega v prejšnjem poglavju. Diracove mase
+nevtrinov bomo dobili iz Higgsovega polja $\irep{1}{2}{1}$, levoročni nevtrini $\nu_a$ in $\bar{\nu}^c$
+se lahko sklopijo s poljem $\irep{1}{3}{2}$, desnoročni $\nu^c_a$ in $\bar{\nu}$ pa s singletom. Za
+polji $\rep{126}$ in $\repb{126}$ so torej dovoljene vev v takih smereh, ki se po zlomu $SO(10)$ na
+$\mathcal{G}_\text{SM}$ razcepijo na te upodobitve.
+
+Najprej raziščimo kako z vev v smeri $\irrep{1}{1}{6}$. Ta se razcepi v vsoto polj, ki na moč spominja
+na razcep~\eqref{six:nosinglet}
+\begin{equation}
+	\irrep{1}{1}{6} \to \irep{1}{3}{2/3} + \irepb{1}{3}{-2/3},
+\end{equation}
+zaradi česar je ne moremo uporabiti niti za Diracove, niti za Majoranove mase. Vev v tej smeri torej
+ostane enaka nič.
+
+Sedaj si poglejmo, kako je s smermi $\irrep{3}{1}{10}_{\repb{126}}$ in $\irrepb{3}{1}{10}_{\rep{126}}$.
+Za to potrebujemo razcep $\rep{10}$ in $\repb{10}$, ko $SU(4)_C \to SU(3)_C \times U(1)_{B-L}$:
+\begin{align}
+	\rep{10} &\to \rep{1}_{(2)} + \rep{3}_{(2/3)} + \rep{6}_{(-2/3)}, \notag \\
+	\repb{10} &\to \rep{1}_{(2)} + \repb{3}_{(-2/3)} + \repb{6}_{(2/3)}.
+\end{align}
+To pomeni, da s spontanim zlomom $SO(10)$ v $\mathcal{G}_\text{SM}$ po stopnjah~\eqref{phases} dobimo
+\begin{align}
+	\begin{array}{c}
+		\irrepb{3}{1}{10} \\
+		\downarrow \\
+		\irrep{3}{1}{1}_{(2)} + \irrepb{3}{1}{3}_{(-2/3)} + \irrepb{3}{1}{6}_{(2/3)} \\
+		\downarrow \\
+		\irep{3}{1}{2} + \irepb{3}{3}{-2/3} + \irepb{3}{6}{2/3}
+	\end{array}
+	\begin{array}{c}
+		\irrep{3}{1}{10} \\
+		\downarrow \\
+		\irrep{3}{1}{1}_{(2)} + \irrep{3}{1}{3}_{(2/3)} + \irrep{3}{1}{6}_{(-2/3)} \\
+		\downarrow \\
+		\irep{3}{1}{2} + \irep{3}{3}{2/3} + \irep{3}{6}{-2/3}
+	\end{array}
+	\label{1310bar}
+\end{align}
+od katerih imata obe polji skalarni prenašalec gugalničnega mehanizma tipa II, ki se sklaplja z
+levoročnim nevtrinom Majorane. Rekli bomo $\langle \irrep{3}{1}{10}_{\repb{126}} \rangle = v_L$ in
+$\langle \irrepb{3}{1}{10}_{\rep{126}} \rangle = \bar{v}_L$.
+
+Raziščimo še, kako je s smermi tripleta $SU(2)_R$:
+\begin{align}
+	\begin{array}{c}
+		\irrep{1}{3}{10} \\
+		\downarrow \\
+		\irrep{1}{3}{1}_{(2)} + \irrep{1}{3}{3}_{(2/3)} + \irrep{1}{3}{6}_{(-2/3)} \\
+		\downarrow \\
+		\irep{1}{1}{0} + \irep{1}{1}{2} + \irep{1}{1}{4} \\ + \irep{1}{3}{-4/3} + \irep{1}{3}{2/3} +
+			\irep{1}{3}{8/3} \\ + \irep{1}{6}{-8/3} + \irep{1}{6}{-2/3} + \irep{1}{6}{4/3}
+	\end{array}
+\end{align}
+Tu smo našli singlet nad $\mathcal{G}_\text{SM}$, ki je skalarno polje, s katerim se sklaplja
+desnoročni nevtrino Majorane, $\nu^c_a$. Če polje $\repb{126}$ dobi vev v tej smeri, bomo s tem dali
+prispevek gugalničnega mehanizma tipa I. Razcep upodobitve $\irrepb{1}{3}{10}$ je podoben, s to
+razliko, da moramo zamenjati znak hipernaboja in nekatere upodobitve $SU(3)_C$ postanejo dualne,
+analogno kot v~\eqref{1310bar}. Tako dobimo prispevke za desnoročne nevtrine $\nu^c_a$ in $\bar{\nu}$.
+Te vev bomo imenovali $\langle \irrepb{1}{3}{10}_{\repb{126}} \rangle = v_R$ in
+$\langle \irrep{1}{3}{10}_{\rep{126}} \rangle = \bar{v}_R$.
+
+Končno se lotimo smeri $\irrep{2}{2}{15}$, v kateri lahko dobita vev tako $\repb{126}$ kot $\rep{126}$,
+\begin{align}
+	\begin{array}{c}
+		\irrep{2}{2}{15} \\
+		\downarrow \\
+		\irrep{2}{2}{1}_{(0)} + \irrep{2}{2}{3}_{(-4/3)} + \irrepb{2}{2}{3}_{(4/3)}
+			+ \irrep{2}{2}{8}_{(0)} \\
+		\downarrow \\
+		\irep{2}{1}{1} + \irep{2}{1}{-1} + \irep{2}{3}{-1/3} + \irep{2}{3}{-7/3} \\
+		+ \irepb{2}{3}{1/3} + \irepb{2}{3}{7/3} + \irep{2}{8}{-1} + \irep{2}{8}{1}
+	\end{array}
+\end{align}
+V polju $\irep{2}{1}{1}$ prepoznamo Higgsov doublet iz SM, za katerega že vemo, da je ključnega pomena
+v SM in da vsa polja opremi z Diracovimi masami -- v tej smeri dobimo neničeno vev. Vendar pa se
+$\repb{16}$ ne sklaplja s Higgsovim poljem iz SM -- $\rep{126}$ ima v tej smeri drugo vev.
+\begin{alignat}{7}
+	\rep{126}:&\quad \langle\irrep{1}{3}{10}\rangle &= \bar{v}_R, &\quad \langle\irrepb{3}{1}{10}\rangle
+		&=\bar{v}_L, &\quad \langle\irrep{2}{2}{15}_u\rangle &= \bar{v}_u, &\quad
+		\langle\irrep{2}{2}{15}_d\rangle &= \bar{v}_d, \notag \\
+	\repb{126}:&\quad \langle\irrepb{1}{3}{10}\rangle &= v_R, &\quad \langle\irrep{3}{1}{10}\rangle &=
+	v_L, &\quad \langle\irrep{2}{2}{15}_u\rangle &= v_u, &\quad \langle\irrep{2}{2}{15}_d\rangle &=
+	v_d.
+\end{alignat}
+Opazimo, da bi-dublet\footnote{Ker je dublet nad $SU(2)_L$ in nad $SU(2)_R$}$\irrep{2}{2}{15}$ dobi
+dve vev -- to je zato, ker je dublet nad $SU(2)_L$, zaradi česar mu lahko dodelimo eno vev za gornje
+fermione in drugo vev za spodnje fermione.
+
+Členi Yukawe, skopljeni s $\repb{126}$ se zato zapišejo kot
+\begin{align}
+	\mathcal{L}_Y\big|_{\repb{126}} &= \rep{16}_a{}^c\ \mathcal{Y}_{ab} \repb{126}\ \rep{16}_b \notag \\
+	&= \begin{pmatrix}
+		u_a^c & d_a^c
+	\end{pmatrix} \begin{pmatrix}
+		v_u \mathcal{Y}_{ab} & \\ & v_d \mathcal{Y}_{ab}
+	\end{pmatrix} \begin{pmatrix}
+		u_b \\ d_b
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		\nu_a^c & e_a^c
+	\end{pmatrix} \begin{pmatrix}
+		-3 v_u\mathcal{Y}_{ab} & \\ & -3 v_d \mathcal{Y}_{ab}
+	\end{pmatrix} \begin{pmatrix}
+		\nu_b \\ e_b
+	\end{pmatrix} \notag \\
+	&+ \nu_a^c\frac{v_R \mathcal{Y}_{ab}}{2}\nu_b^c + \nu_a \frac{v_L \mathcal{Y}_{ab}}{2} \nu_b +
+	\text{h.k.},
+	\label{126bar}
+\end{align}
+poslednja člena prispevka Majorane. Faktor $1/2$ je tam iz definicije~\eqref{gugalnice}. Zaradi tega
+ni le Diracovo polje, amapak tudi Majoranino polje. Nevtrinska masna matrika bo morala upoštevati
+oba prispevka. Členi, sklopljeni z $\rep{126}$ so podobni.
+
+\section{Končni zapis masnih matrik}
+
+Če člene iz en.~\eqref{mixed45} in en.~\eqref{126bar} malo premešamo in jih razvrstimo v nekoliko
+drugačno obliko, dobimo masno matriko za vsako družino polj -- za gornje kvarke, spodnje kvarke, za
+spodnje leptone (to so nabiti leptoni) in za gornje leptone (nevtrini)
+\begin{align}
+	\mathcal{L}_Y &= \begin{pmatrix}
+		u^c_a & \bar{u}
+	\end{pmatrix} \begin{pmatrix}
+		v_u \mathcal{Y}_{ab} & m_a + \eta_a(v_1 + v_2) \\
+		m_b - \eta_b v_2 & \bar{v}_u y
+	\end{pmatrix} \begin{pmatrix}
+		u_b \\ \bar{u}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		d^c_a & \bar{d}
+	\end{pmatrix} \begin{pmatrix}
+		v_d \mathcal{Y}_{ab} & m_a + \eta_a(v_2 - v_1) \\
+		m_b - \eta_b v_2 & \bar{v}_d y
+	\end{pmatrix} \begin{pmatrix}
+		d_b \\ \bar{d}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		e_a^c & \bar{e}
+	\end{pmatrix} \begin{pmatrix}
+		-3v_d \mathcal{Y}_{ab} & m_a - \eta_a(-v_1 - 3v_2) \\
+		m_b + 3 \eta_b v_2 & -3\bar{v}_d y
+	\end{pmatrix} \begin{pmatrix}
+		e_b \\ \bar{e}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		\nu^c_a & \bar{\nu}
+	\end{pmatrix} \begin{pmatrix}
+		-3 v_u \mathcal{Y}_{ab} & m_a + \eta_a(v_1 - 3v_2) \\
+		m_b + 3 \eta_b v_2 & -3\bar{v}_u y
+	\end{pmatrix} \begin{pmatrix}
+		\nu_b \\ \bar{\nu}^c
+	\end{pmatrix} \notag \\
+	&+ \frac{1}{2} \begin{pmatrix}
+		\nu^c_a &\bar{\nu}
+	\end{pmatrix} \begin{pmatrix}
+		v_R \mathcal{Y}_{ab} & \\
+		& y \bar{v}_L
+	\end{pmatrix} \begin{pmatrix}
+		\nu^c_b \\ \bar{\nu}
+	\end{pmatrix} \notag \\
+	&+ \frac{1}{2}\begin{pmatrix}
+		\nu_a & \bar{\nu}^c
+	\end{pmatrix} \begin{pmatrix}
+		v_L \mathcal{Y}_{ab} & \\
+		& y \bar{v}_R
+	\end{pmatrix} \begin{pmatrix}
+		\nu_b \\ \bar{\nu}^c
+	\end{pmatrix} \notag \\
+	&+ \text{h.k.}
+\end{align}
+Zadnje tri matrike so za nevtrine -- prva je Diracov prispevek, drugi dve pa sta masni matriki
+Majorane -- ena za levoročne nevtrine in ena za desnoročne.
+
+Hočemo, da bi naše matrike že same po sebi prepovedano mešanje zadnjih dveh težkih družin z lahkimi
+in da bi se lahke mešale le med saboj. Mešanje lahko zatremo z induciranimi rotacijami
+fermionskih polj~\cite{bajc},
+\begin{equation}
+	\psi \to \psi' = \mathcal{U}^{-1} \psi,
+\end{equation}
+tako spremenimo tudi masno matriko
+\begin{align}
+	\psi_1^T M \psi_2 \to \psi_1'^T \underbrace{(\mathcal{U}_1^T M \mathcal{U}_2)}_{M'} \psi_2',
+\end{align}
+pri čemer nismo spremenili obnašanja fermionskih polj. Rotacijske matrike $\mathcal{U}$ bomo izbrali
+ortogonalne\footnote{Delamo v približku, ko so vsi parametri realni.} s takimi bloki, da bodo
+zatrle mešanje lahkih s težkimi družinami. Shematsko bomo dosegli
+\begin{align}
+M = \begin{array}{c}
+				\young(\circ \circ \circ \diamond \blackdiamond,\circ \circ \circ \diamond \blackdiamond,\circ \circ \circ \diamond \blackdiamond,\diamond \diamond \diamond \bullet \bullet,\blackdiamond \blackdiamond \blackdiamond \bullet \bullet)
+			\end{array} &\to 
+			\begin{array}{c}
+				\young(\circ \circ \circ \cdot \ ,\circ \circ \circ \cdot \ ,\circ \circ \circ \cdot \ ,\cdot \cdot \cdot \bullet \bullet,\ \ \ \bullet \bullet)\end{array} = M'.
+\end{align}
+Masna matrika je tako v skoraj bločno-diagonalni obliki, ostne mešanje lahkih družin s $\rep{16}_4$, ki
+pa je sorazmerno z $\Lambda_\text{GUT}^{-1}$ in je zanemarljivo. Masne člene lahko sedaj prepišemo v
+\begin{align}
+	\mathcal{L}_Y &= \begin{pmatrix}
+		u^c_a & \bar{u}
+	\end{pmatrix} \mathcal{U}^T_{u^c} \begin{pmatrix}
+		v_u \mathcal{Y}_{ab} & m_a + \eta_a(v_1 + v_2) \\
+		m_b - \eta_b v_2 & \bar{v}_u y
+	\end{pmatrix} \mathcal{U}_Q \begin{pmatrix}
+		u_b \\ \bar{u}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		d^c_a & \bar{d}
+	\end{pmatrix} \mathcal{U}^T_{d^c} \begin{pmatrix}
+		v_d \mathcal{Y}_{ab} & m_a + \eta_a(v_2 - v_1) \\
+		m_b - \eta_b v_2 & \bar{v}_d y
+	\end{pmatrix} \mathcal{U}_Q \begin{pmatrix}
+		d_b \\ \bar{d}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		e_a^c & \bar{e}
+	\end{pmatrix} \mathcal{U}^T_{e^c} \begin{pmatrix}
+		-3v_d \mathcal{Y}_{ab} & m_a + \eta_a(-v_1 - 3v_2) \\
+		m_b + 3 \eta_b v_2 & -3\bar{v}_d y
+	\end{pmatrix} \mathcal{U}_{L} \begin{pmatrix}
+		e_b \\ \bar{e}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		\nu^c_a & \bar{\nu}
+	\end{pmatrix} \mathcal{U}^T_{\nu^c} \begin{pmatrix}
+		-3 v_u \mathcal{Y}_{ab} & m_a + \eta_a(v_1 - 3v_2) \\
+		m_b + 3 \eta_b v_2 & -3\bar{v}_u y
+	\end{pmatrix} \mathcal{U}_{L} \begin{pmatrix}
+		\nu_b \\ \bar{\nu}^c
+	\end{pmatrix} \notag \\
+	&+ \frac{1}{2} \begin{pmatrix}
+		\nu^c_a &\bar{\nu}
+	\end{pmatrix} \mathcal{U}^T_{\nu^c} \begin{pmatrix}
+		v_R \mathcal{Y}_{ab} & \\
+		& y \bar{v}_L
+	\end{pmatrix} \mathcal{U}_{\nu^c} \begin{pmatrix}
+		\nu^c_b \\ \bar{\nu}
+	\end{pmatrix} \notag \\
+	&+ \frac{1}{2}\begin{pmatrix}
+		\nu_a & \bar{\nu}^c
+	\end{pmatrix} \mathcal{U}^T_{L} \begin{pmatrix}
+		v_L \mathcal{Y}_{ab} & \\
+		& y \bar{v}_R
+	\end{pmatrix} \mathcal{U}_L \begin{pmatrix}
+		\nu_b \\ \bar{\nu}^c
+	\end{pmatrix} \notag \\
+	&+ \text{h.k.}
+\end{align}
+
+Matrike $\mathcal{U}$ se bločno zapišejo kot,
+\begin{equation}
+	\mathcal{U} = \begin{pmatrix}
+		U & a \\ b^T & c
+	\end{pmatrix},
+\end{equation}
+kjer sta $a$ in $b$ 4-vektorja, $c$ pa je skalar. Izbrani so tako, da se $\repb{16}$ meša le s 
+$\rep{16}_4$. Matrike $U$ ostanejo ortogonalne, z njimi zadušimo mešanje lahkih družin s $\rep{16}_4$.
+
+Ne zanima nas parametrizacija težkih generacij prek $a$, $b$ in $c$, zato bomo le redefinirali
+matrične elemente po delovanju posameznih blokov
+\begin{align}
+	\mathcal{L}_Y &= \begin{pmatrix}
+		u^c_a & \bar{u}
+	\end{pmatrix} \begin{pmatrix}
+		v_u (U^T_{u^c})_{ae} \mathcal{Y}_{ef} (U_Q)_{fb} & M_{u^c}\delta_{a4} \\
+		M_Q\delta_{b4} & \bar{v}_u y
+	\end{pmatrix} \begin{pmatrix}
+		u_b \\ \bar{u}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		d^c_a & \bar{d}
+	\end{pmatrix} \begin{pmatrix}
+		v_d (U^T_{d^c})_{ae} \mathcal{Y}_{ef} (U_Q)_{fb} & M_{d^c}\delta_{a4} \\
+		M_Q\delta_{b4} & \bar{v}_d y
+	\end{pmatrix} \begin{pmatrix}
+		d_b \\ \bar{d}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		e_a^c & \bar{e}
+	\end{pmatrix} \begin{pmatrix}
+		-3v_d (U^T_{e^c})_{ae} \mathcal{Y}_{ef} (U_L)_{fb} & M_{e^c} \delta_{a4} \\
+		M_L\delta_{b4} & -3\bar{v}_d y
+	\end{pmatrix} \begin{pmatrix}
+		e_b \\ \bar{e}^c
+	\end{pmatrix} \notag \\
+	&+ \begin{pmatrix}
+		\nu^c_a & \bar{\nu}
+	\end{pmatrix} \begin{pmatrix}
+		-3 v_u (U^T_{\nu^c})_{ae} \mathcal{Y}_{ef} (U_L)_{fb} & M_{\nu^c}\delta_{a4} \\
+		M_L\delta_{b4} & -3\bar{v}_u y
+	\end{pmatrix} \begin{pmatrix}
+		\nu_b \\ \bar{\nu}^c
+	\end{pmatrix} \notag \\
+	&+ \frac{1}{2} \begin{pmatrix}
+		\nu^c_a &\bar{\nu}
+	\end{pmatrix} \begin{pmatrix}
+		v_R (U^T_{\nu^c})_{ae} \mathcal{Y}_{ef} (U_{\nu^c})_{fb} & \\
+		& y \bar{v}_L
+	\end{pmatrix} \begin{pmatrix}
+		\nu^c_b \\ \bar{\nu}
+	\end{pmatrix} \notag \\
+	&+ \frac{1}{2}\begin{pmatrix}
+		\nu_a & \bar{\nu}^c
+	\end{pmatrix} \begin{pmatrix}
+		v_L (U^T_L)_{ae} \mathcal{Y}_{ef} (U_L)_{fb} & \\
+		& y \bar{v}_R
+	\end{pmatrix} \begin{pmatrix}
+		\nu_b \\ \bar{\nu}^c
+	\end{pmatrix} \notag \\
+	&+ \text{h.k.}
+\end{align}
+Matrike $U$ imajo v tem primeru posebno obliko~\cite{bajc}:
+\begin{align}
+	U &= \begin{pmatrix}
+		\Lambda & \lambda x \\
+		-x^T \Lambda & \lambda,
+	\end{pmatrix}, \notag \\
+	\Lambda &= \one - \frac{x x^T}{\lambda^{-1}(1 + \lambda^{-1})}, \notag \\
+	\lambda &= \frac{1}{\sqrt{1 + x^Tx}}
+\end{align}
+kjer je $x$ tri-vektor, dobljen iz mešalnega bloka $\repb{16}\otimes\rep{16}$ -- prve tri komponente
+prepišemo in vse skupaj delimo s četrto,
+\begin{equation}
+	x = \frac{1}{d_4}\begin{pmatrix}
+		d_1, d_2, d_3
+	\end{pmatrix}^T,
+\end{equation}
+torej se s tem ne izgubi informacija o $m_a$ in $\eta_a$:
+\begin{alignat}{3}
+	(x_Q)_i &= \frac{m_i - v_2\eta_i}{m_4 - v_2\eta_4}, &\quad (x_L)_i &= \frac{m_i + 3v_2 \eta_i}{m_4
+		+ 3v_2 \eta_4}, \notag \\
+	(x_{u^c})_i &= \frac{m_i + \eta_i(v_1 + v_2)}{m_4 + \eta_4(v_1 + v_2)}, &\quad (x_{\nu^c})_i &=
+		\frac{m_i + \eta_i(v_1 - 3v_2)}{m_4 + \eta_4(v_1 - 3v_2)}, \notag \\
+	(x_{d^c})_i &= \frac{m_i + \eta_i(v_2 - v_1)}{m_4 + \eta_4(v_2 - v_1)}, &\quad (x_{e^c})_i &=
+		\frac{m_i + \eta_i(-v_1 - 3v_2)}{m_4 + \eta_4(-v_1 - 3v_2)},
+	\label{ixi}
+\end{alignat}
+indeks $i$ teče od 1 do 3. Matrike $\Lambda$ so očitno simetrične, zato lahko izpustimo transponiranje.
+Za vsako masno matriko se blok prvih štirih družin lahko zapiše kot $U^T_g \mathcal{Y} U_h$, kjer sta
+$g, h \in \mathcal{I} = \{Q, L, u^c, d^c, e^c, \nu^c\}$.
+
+Matrika $\mathcal{Y}$ je v splošnem hermitska, v našem realnem primeru pa simetrična matrika.
+Vendar še nismo izbrali baze v kateri bomo delali in izberemo si lahko ravno tako, kjer je
+diagonalna $\mathcal{Y} = \diag (Y, y_4)$. Blok $Y$ predstavlja lahke generacije in je
+$Y = \diag (y_1, y_2, y_3)$. Potem lahko blok prvih štirih generacij zapišemo z
+\begin{align}
+	U_g^T \mathcal{Y} U_h &= \begin{pmatrix}
+		\Lambda_g & - \Lambda_g x_g \\ \lambda_g x_g^T & \lambda_g
+	\end{pmatrix} \begin{pmatrix}
+		Y & \\ & y_4
+	\end{pmatrix} \begin{pmatrix}
+		\Lambda_h & \lambda_h x_h \\ -x_h^T \Lambda_h & \lambda_h
+	\end{pmatrix} \notag \\
+	&= \begin{pmatrix}
+		\Lambda_g (Y + y_4 x_g x_h^T) \Lambda_h & \lambda_h\Lambda_g(Y x_h - y_4 x_g) \\
+		(x_g^T Y - y_4 x_h^T) \lambda_g\Lambda_h & \lambda_g \lambda_h(x_g^T Y x_h + y_4)
+	\end{pmatrix}.
+\end{align}
+Ker so $\lambda_{g,h}$ majhe (zadušita jih veliki Yukawovi sklopitvi $1/\eta_4$ and $1/m_4$, ki sta
+na skali poenotenja) lahko blok lahkih generacij obravnavamo kot da je neodvisen od težkih. Končno
+nam tako preostanejo masne matriki znanih delcev. Masne matrike nabitih fermionov
+\begin{align}
+	M_U &= v_u \Lambda_{u^c} (Y + x_{u^c} x_Q^T) \Lambda_Q, \notag \\
+	M_D &= v_d \Lambda_{d^c} (Y + x_{d^c} x_Q^T) \Lambda_Q, \notag \\
+	M_E &= -3v_d \Lambda_{e^c} (Y + x_{e^c} x_L^T) \Lambda_L,
+\end{align}
+Diracova masna matrika nevtrinov,
+\begin{equation}
+	M_{\nu_D} = -3v_u \Lambda_{\nu^c} (Y + x_{\nu^c} x_L^T) \Lambda_L
+\end{equation}
+in pa dve masni mansni matriki Majorane za nevtrine
+\begin{align}
+	M_{\nu_R} &= v_R \Lambda_{\nu^c} (Y + x_{\nu^c} x_{\nu^c}) \Lambda_{\nu^c}, \notag \\
+	M_{\nu_L} &= v_L \Lambda_L (Y + x_L x_L^T) \Lambda_L,
+\end{align}
+ki supaj ob predpostavki $M_{\nu_L} \ll M_{\nu_D} \ll M_{\nu_R}$ dajo aproksimacijo za mase levoročnih
+nevtrinov
+\begin{equation}
+	M_\nu = M_{\nu_L} - M^T_{\nu_D} M_{\nu_R}^{-1} M_{\nu_D}.
+\end{equation}
+Vsaka izmed masnih matrik se lahko diagonalizira prek dveh ortogonalnih matrik -- $R$ in $L$, ki
+vsebujeta leve in desne lastne vektorje
+\begin{equation}
+	M = R (M^d) L^T.
+	\label{diagSVD}
+\end{equation}
+Mešalni matriki v kvarkovskem, $V_\text{CKM}$ in leptonskem sektorju, $V_\text{PMNS}$, sta definirani
+kot
+\begin{equation}
+	V_\text{CKM} = L_U^T L_D, \quad V_\text{PMNS} = L_\nu^T L_E.
+	\label{defMIX}
+\end{equation}
+Prav tako lahko sedaj enačbe~\eqref{ixi} poenostavimo ob uporabi zamenjave
+\begin{equation}
+	z_i = \eta_i/\eta_4, \quad w_i = m_i/m_4 - \eta_i/\eta_4, \quad u_{1,2} = v_{1,2}\frac{\eta_4}{m_4}.
+\end{equation}
+Sedaj lahko vsak vektor $x_g$ zapišemo kot
+\[
+	x_g = z + \alpha_g w,
+\]
+kjer sta $z$ in $w$ konstantna brezdimenzijska vektorja, spreminjajo pa se le skalarji $\alpha_g$, kjer
+$g \in \mathcal{I}$. Ti skalarji so
+\begin{alignat}{3}
+	\alpha_L^{-1} &= 1 + 3u_2, &\quad \alpha_Q^{-1} &= 1 - u_2, \notag \\
+	\alpha^{-1}_{e^c} &= 1 - 3u_2 - u_1, &\quad \alpha_{\nu^c}^{-1} &= 1 - 3u_2 + u_1, \\
+	\alpha^{-1}_{d^c} &= 1 + u_2 - u_1, &\quad \alpha^{-1}_{u^c} &= 1 + u_2 + u_1. \notag
+\end{alignat}
+Po premisleku ugotovimo, da pravzaprav $y_4$ ne potrebujemo, saj lahko redefiniramo
+$Y \to y_4^{-1}Y$ in $y_4v_{u,d,R,L} \to v_{u,d,R,L}$.
+
+Naš model ima sedaj 15 prostih parametrov:
+\begin{equation}
+	z = \begin{pmatrix}
+		z_1 \\ z_2 \\ z_3
+	\end{pmatrix}, \quad
+	w = \begin{pmatrix}
+		w_1 \\ w_2 \\ w_3
+	\end{pmatrix}, \quad
+	y = \begin{pmatrix}
+		y_1 \\ y_2 \\ y_3
+	\end{pmatrix}, \quad u_{1,2},\quad v_{u,d},\quad v_{L,R}.
+\end{equation}
+Po drugi strani poznamo 3 mase gornjih kvarkov, 3 se spodnjih kvarkov, 3 mase nabitih leptonov,
+polno matriko CKM, razlike kvadratov mas v nevtrinskem sektorju in realni del matrike PMNS.
+Opomba k nevtrinskim masam -- razliko kvadratov mas v zadnjih dveh nevtrinskih generacijah poznamo
+le do predznaka natančno
+\begin{align}
+	\Delta m^2_{21} = m_2^2 - m_1^2, \quad |\Delta m_{23}^2| = |m_2^2 - m_3^2|,
+\end{align}
+kjer so $m_{1,2,3} = m_{\nu_e,\nu_\mu,\nu_\tau}$ lastne vrednosti masne matrike nevtrinov.
+Prav tako vemo, da so mase nevtrinov navzgor omejene
+$m_{\nu_e} + m_{\nu_\mu} + m_{\nu_\tau} < 0.23$ eV pri 95\% stopnji gotovosti~\cite{pdg:neutrinos}.
+
+\section{Eksperimentalne vrednosti}
+Kot eksperimentalne vrednosti bomo vzeli teoretične napovedi mas za SM in MSSM na skali poenotenja,
+ki so prikazane v tabeli~\ref{eksp}, povzeti iz~\cite{mass:eksp}
+\begin{table}[H]\centering
+	\caption{Tabela teoretičnih napovedi mas kot posledica drsečih sklopitvenih konstant po
+		renormalizaciji. Teoretične napovedi so izračunane na skali
+		$\Lambda_\text{GUT} = 2\times 10^{16}$ GeV.}
+	\begin{tabular}{l|c|c}
+		masa & napoved SM [MeV] & napoved MSSM [MeV] \\
+		\hline\hline
+		$m_u$ & 0.4565 & 0.3961 \\
+		$m_c$ & $0.2225 \cdot 10^3$ & $0.1930 \cdot 10^3$ \\
+		$m_t$ & $70.5188 \cdot 10^3$ & $71.0883 \cdot 10^3$ \\
+		\hline
+		$m_d$ & 1.0773 & 0.9316 \\
+		$m_s$ & 20.4323 & 17.6702 \\
+		$m_b$ & $0.9321 \cdot 10^3$ & $0.9898 \cdot 10^3$ \\
+		\hline
+		$m_e$ & 0.4413 & 0.3585 \\
+		$m_\mu$ & 93.116 & 75.639 \\
+		$m_\tau$ & $1.1609 \cdot 10^3$ & $1.3146 \cdot 10^3$
+	\end{tabular}
+	\label{eksp}
+\end{table}
+\noindent Matrika CKM je v našem primeru realna, z vrednostmi
+\begin{equation}
+	V_\text{CKM} = \begin{pmatrix}
+		0.974274 & 0.225341 & 0.00351001 \\
+		-0.225292 & 0.97342 & 0.0411997 \\
+		0.00586726 & -0.0409306 & 0.999145
+	\end{pmatrix}
+\end{equation}
+Povzeta je po absolutnih vrednostih matričnih elementov iz~\cite{pdg:ckm}, nato pa je bila
+ortogonalizirana z Gram-Schmidtovim postopkom, tako da je res $V_\text{CKM} \in SO(3)$.
+
+Spreminjanje mase nevtrinov z višanjem energije lahko zanemarimo, tako kot spreminjanje (vseh) 
+mešalnih kotov. Prav tako imajo to posebnost, da niso nujno razvrščenu hierarhično po generacijah,
+saj imamo dve opciji:
+\begin{equation}
+	m_1 < m_2 < m_3\quad \text{in} \quad m_3 < m_1 < m_2.
+\end{equation}
+Zaradi tega se vpelje količino $\Delta m^2$, katere predznak pove, kateri režim imamo. Definirana
+je kot
+\begin{equation}
+	\Delta m^2 \equiv m_3^2 - \frac{m_2^2 + m_1^2}{2} = \left\{\begin{array}{c c c c}
+		\Delta m^2_{31} - \Delta m^2_{21}/2, & \Delta m^2 > 0 & \text{oz.} & m_1 < m_2 < m_3  \\
+		\Delta m^2_{32} + \Delta m^2_{21}/2, & \Delta m^2 < 0 & \text{oz.} & m_3 < m_1 < m_2
+	\end{array}\right.
+\end{equation}
+
+Nevtrinske parametre vzamemo iz~\cite[str. 49, tabela 14.7]{pdg:neutrinos}, ki so povzeti v
+tabeli~\ref{tab:neutrino}
+\begin{table}[H]\centering
+	\caption{Tabela eksperimentalno znanih nevtrinskih parametrov  iz~\cite{pdg:neutrinos}
+		-- mase in mešalni koti. Parametri so izbrani tako, da so koti $\theta_{12}$, 
+		$\theta_{13}$ in $\theta_{23}$ vsi v prvem kvadrantu.}
+	\begin{tabular}{c|c}
+		parameter & vrednost znotraj $\pm 1\sigma$ \\
+		\hline \hline
+		$\Delta m^2_{21}$ [(eV)$^2$] & $7.54 \cdot 10^{-5}$ \\
+		$|\Delta m^2|$ [(eV)$^2$] & $2.43 \cdot 10^{-3}$ \\
+		\hline
+		$\sin^2 \theta_{12}$ & 0.308 \\
+		$\sin^2 \theta_{23}$, $\Delta m^2 > 0$ & 0.437 \\
+		$\sin^2 \theta_{23}$, $\Delta m^2 < 0$ & 0.455 \\
+		$\sin^2 \theta_{13}$, $\Delta m^2 > 0$ & 0.0234 \\
+		$\sin^2 \theta_{13}$, $\Delta m^2 < 0$ & 0.0240
+	\end{tabular}
+	\label{tab:neutrino}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

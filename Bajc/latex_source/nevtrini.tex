@@ -1,0 +1,214 @@
+\chapter{Nevtrinske mase in gugalnični mehanizem}
+
+Sedaj, ko smo malo bolj seznanjeni s formalizmom teorije grup in raznih form, se bomo lotili mas nevtrinov.
+Kot smo že omenili, so električno nabiti fermioni rešitve Diracove
+enačbe~\cite{ryder},~\cite{palash},~\cite{quang},
+\begin{equation}
+	i\slashed{\partial} \psi - m\psi = 0.
+\end{equation}
+kar lahko zapišemo z Lagrangianom~\cite{palash},~\cite{quang},~\cite{ryder}
+\begin{equation}
+	\mathcal{L}_F = \bar{\psi}(i\slashed{\partial} - m)\psi
+\end{equation}
+njihov masni člen v Lagrangianu
+je oblike $m\psi^\dagger\gamma_0\psi = m\bar{\psi}\psi$. Vendar pa imamo lahko še en tip delcev. Matrike
+$\gamma_\mu$ lahko nastavimo tako, da še vedno zadostijo Cliffordovi algebri in ostalim lastnostim
+Lorentzove grupe, vendar pa nam dajo vedno le kompleksne rešitve $\psi$. Tako dobimo enačbo Majorane
+\begin{equation}
+	i\slashed{\partial}\psi - m\psi^c = 0, \quad \psi^c \equiv i\gamma_0\gamma_2\psi^* = C\psi^*.
+\end{equation}
+Pogosto dodamo zahtevo $\psi^c = \psi$. Takemu delcu pravimo polje Majorane in je sam sebi anti-delec.
+Masni člen takega spinorja je oblike
+\begin{equation}
+	m\psi^\dagger \psi = m\psi^T C\psi,
+\end{equation}
+torej na levi in na desni nastopa isto polje. V primeru, da nevtrini niso Weylova polja, ampak Majoranova,
+dobimo poleg levoročnega nevtrina tudi desnoročni nevtrino, saj
+\begin{equation}
+	\nu = \nu_L, \quad \nu^c = (\nu_L)^c = \nu_R,
+\end{equation}
+prvi pripada leptonskemu dubletu, $\irep{1}{2}{-1}$, drugi pa je singlet nad $\mathcal{G}_\text{SM}$.
+Da taki objekti res niso več Weylova polja, je očitno, saj je tak nevtrino kombinacija $\nu_L$ in $\nu_R$.
+Ob tej predpostavki so nevtrini tako Diracova kot Majoranova polja hkrati in imajo lahko oba masna prispevka.
+Kadar smo Diracovim poljim s pomočjo Weylovih dali maso, nismo imeli ločenega zapisa za mase levoročnih
+in desnoročnih polj, pač pa je bila masa posledica mešanja le-teh, kot v enačbi~\eqref{weylovaMasa}.
+Vendar pa za polja Majorane ni tako -- levoročni delci imajo lahko različno maso od desnoročnih.
+Vse masne člene nevtrinov bi lahko (shematsko) zapisali kot~\cite{strumia},~\cite{miha},~\cite{nugut}
+\begin{equation}
+	\mathcal{L}_N \sim m_{\nu_D} \nu^c \nu + m_{\nu_R} \nu^c\nu^c + m_{\nu_L} \nu\nu,
+\end{equation}
+torej bi levoročni in desnoročni nevtrini lahko imeli različne mase. Tu je $m_{\nu_D}$ Diracov masni
+člen, $m_{\nu_R}$ pripada desnoročnemu nevtrinu Majorane, $m_{\nu_L}$ pa se sklaplja z levoročnim
+nevtrinom Majorane. Mase dobimo prek skalarnih bozonov, tako kot prej.
+
+Z dodatkom desnoročnega nevtrina rešimo poleg nevtrinskih mas še problem kvantizacije električnega naboja,
+ki se ga teoretično ne da pojasniti drugače~\cite{mohapatra} (v principu bi to lahko storili le še s
+z dodajanjem magnetnih monopolov, kot je to storil Dirac).
+
+\section{Gugalnični mehanizem tipa I}
+
+Sam SM ima nevtrine le v leptonskem dubletu, $L$, $\nu^c$ pa nima, saj je singlet, ki ne interagira
+prek $\mathcal{G}_\text{SM}$. Najpreprosteje je, da ga dodamo in zapišemo člene Yukawe za $\nu^c$,
+s čimer bomo po spontanem zlomu simetrije dali mase. Ti se glasijo~\cite{strumia},~\cite{miha},~\cite{nugut}
+\begin{equation}
+	\mathcal{L}_N = (Y_{\nu_D})_{ij} \nu^c_i L_j \Phi_1 +
+		\frac{1}{2}(Y_{\nu_R})_{ij}\nu^c_i\nu^c_j\Phi_2 + \text{h.k.}
+	\label{tipI}
+\end{equation}
+Polji $\Phi_1$ in $\Phi_2$ dobita ob zlomu $SU(2)_L\times U(1)_Y$ neničelno vakuumsko pričakovano
+vrednost, ki nam da masne matrike. Ugotoviti moramo, katerim upodobitvam $\mathcal{G}_\text{SM}$
+pripadata, da bodo interakcijski členi neničelni in invariantni na $\mathcal{G}_\text{SM}$,
+\begin{align}
+	\Phi_1 &\in \nu^c \otimes L = \irep{1}{1}{0} \otimes \irep{1}{2}{-1} = \irep{1}{2}{1}, \notag \\
+	\Phi_2 &\in \nu^c \otimes \nu^c = \irep{1}{1}{0} \otimes \irep{1}{1}{0} = \irep{1}{1}{0}.
+\end{align}
+Vidimo, da je $\Phi_1 = \phi$, tj. Higgsov dublet, ki da mase vsem ostalim fermionom in dobi
+vev $\langle \phi \rangle = v$, polje $\Phi_2$ pa je singlet, torej lahko eksplicitno zapišemo masno
+matriko $Y_{\nu_R} = M_{\nu_R}$ (dati singletu vev je ekvivalentno eksplicitno zapisati
+masni člen). Enačbo~\eqref{tipI} lahko potem prepišemo v
+\begin{equation}
+	\mathcal{L}_N = \underbrace{v(Y_{\nu_D})_{ij}}_{(M_{\nu_D})_{ij}} \nu^c_i L_j + (M_{\nu_R})_{ij}
+		\nu^c_i\nu^c_j + \text{h.k} = \begin{pmatrix}
+			\nu & \nu^c
+		\end{pmatrix}_i \underbrace{\begin{pmatrix}
+			0 & (M_{\nu_D}^T)_{ij} \\
+			(M_{\nu_D})_{ij} & (M_{\nu_R})_{ij}
+		\end{pmatrix}}_{M_N} \begin{pmatrix}
+			\nu \\ \nu^c
+		\end{pmatrix}_j + \text{h.k.}
+\end{equation}
+Interakcijske člene $e_j$ in $\nu^c_i$ smo izpustili. Kombinirana nevtrinska masna matrika bi se torej
+zapisala kot~\cite{strumia}
+\begin{equation}
+	M_N = \begin{pmatrix}
+		0_{3\times 3} & M^T_{\nu_D} \\ M_{\nu_D} & M_{\nu_R},
+	\end{pmatrix}
+\end{equation}
+ima pa dimenzijo $6\times 6$, saj prispevek Majorane doseže to, da so mase desnoročnih nevtrinov
+različne od mas levoročnih. Celotna nevtrinska masna matrika mora za tri generacije imeti 6 različnih
+nevtrinskih mas. Matrika, ki se lahko bločno zapiše takole ima lastnosti ti. \emph{gugalnične matrike},
+kot gugalnice za dva. Za nas sta zanimiva sta predvsem dva režima~\cite{strumia}:
+\begin{itemize}
+	\item{$M_{\nu_R} \gg M_{\nu_D}$ -- prevlada člen Majorane,}
+	\item{$M_{\nu_R} \ll M_{\nu_D}$ -- prevlada Diracovih mas.}
+\end{itemize}
+Tu matriki primerjamo po neskončni normi, tj. največji lastni vrednosti.
+
+\paragraph{Režim $M_{\nu_R} \gg M_{\nu_D}$.}
+
+Mase desnoročnih nevtrinov so ogromne $m_{\nu^c}\ \approx\ M_{\nu_R}$, mase levoročnih nevtrinov pa so
+izjemno majhne. Diracovi členi predstavljajo mešanje, ki je prav tako zelo majhno. Mase levoročnih
+nevtrinov v tem primeru dobimo tako, da si predstavljamo, da je $M_N$ le matrika $2\times 2$ nato pa bi
+z diagonalizacijo dobili lastne vrednosti~\cite{miha}
+\begin{equation}
+	M_N \sim M_{\nu_R}\bigg[1 \pm \sqrt{1 - M_{\nu_D}^TM_{\nu_R}^{-2}M_{\nu_D}}\bigg] = M_{\nu^c} +
+		M_\nu,
+\end{equation}
+kjer so $M_{\nu^c}$ mase desnoročnih nevtrinov in $M_\nu$ mase levoročnih nevtrinov. Ob upoštevanju
+limite lahko zgornji izraz razvijemo in ugotovimo~\cite{strumia}
+\begin{align}
+	M_{\nu^c} &\approx M_{\nu_R}, \notag \\
+	M_\nu &\approx -M_{\nu_D}^T M_{\nu_R}^{-1}M_{\nu_D}.
+\end{align}
+Če je $M_{\nu^c}\ \propto\ M_{\nu_R}$, potem je $M_\nu\ \propto\ M_{\nu_R}^{-1}$, zaradi česar tak
+mehanizem imenujemo gugalnični, saj težke mase desnoročnih nevtrinov prevagajo levoročne, tako da
+"`obvsisijo v zraku"'. Tak režim v teorijah poenotenja ni težko doseči~\cite{strumia}.
+
+\paragraph{Režim $M_{\nu_D} \gg M_{\nu_R}$.} Levoročni nevtrini imajo tu predvsem Diracovo maso, tj.
+$M_\nu \approx M_{\nu_D}$, za katero vemo eksperimentalno, da je izjemno majhna. Masa desnoročnih
+nevtrinov je kar $M_{\nu^c}\ \approx\ M_{\nu_R}$, ki pa mora biti še manjša. To lahko dosežemo le z
+zahtevo, da je leptonsko število ohranjeno. Taka zahteva se ne porodi sama po sebi iz modela poenotenja,
+prav tako pa tudi eksperimentalno vemo, da je mešanje v leptonskem sektorju vse prej kot
+dušeno~\cite{pdg:neutrinos} (ohranitev leptonskega števila ni dobra simetrija) zaradi česar se zdi ta
+režim v neskladju z naravo~\cite{strumia}.
+
+\section{Gugalnični mehanizem s tipom I in tipom II}
+
+Gugalnični mehanizem tipa I je minimalen, vendar pa v bistvu ni razloga, zakaj tudi levoročni
+nevtrino ne bi smel imeti prispevka Majoranove mase. Prispevek mase levoročnega nevtrina se imenuje
+gugalnični mehanizem tipa II. Oba tipa lahko med seboj kombiniramo in v enačbo~\eqref{tipI} s skalarnim
+singletom $\Phi_2$, ki da desnoročnim nevtrinom maso, dodamo novo skalarno polje $\Delta$, ki se sklaplja
+z leptonskim dubletom,~\cite{nugut},~\cite{strumia}
+\begin{equation}
+	\mathcal{L}_\nu = (Y_{\nu_D})_{ij} \nu^c_i L_j \phi +
+		\frac{1}{2}(Y_{\nu_R})_{ij}\nu^c_i\nu^c_j\Phi_2 + \frac{1}{2}(Y_{\nu_L})_{ij}L_iL_j\Delta +
+		\text{h.k.}
+	\label{gugalnice}
+\end{equation}
+Skalarno polje $\Delta$ mora biti singlet nad $SU(3)$, saj je $L_i$ singlet nad $SU(3)$, nad
+ $SU(2)_L$ pa
+je lahko bodisi singlet, bodisi triplet, saj sta $L_{i,j}$ dubleta nad $SU(2)_L$ in tako
+\begin{equation}
+	\rep{2} \otimes \rep{2} = \rep{1}\oplus\rep{3}.
+\end{equation}
+Singlet ne prinese nobene novosti, pač pa se splača vzeti triplet $\irep{1}{3}{2}$, katerega vev
+dá neničelno maso $M_{\nu_L}$. Nevtrinska masna matrika, ki bi jo dobili po zlomu
+$SU(2)_L\times U(1)_Y \to U(1)_Q$, bi se tako zapisala kot~\cite{strumia},~\cite{miha}
+\begin{equation}
+	M_N = \begin{pmatrix}
+		M_{\nu_L} & M_{\nu_D}^T \\
+		M_{\nu_D} & M_{\nu_R}
+	\end{pmatrix}
+\end{equation}
+Taka matrika ima prispevke gugalničnega mehanizama tipa I in tipa II. Po vzoru tipa I imamo na
+voljo različne režime, vendar vemo, da bo fizikalno najbolj sprejemljiv tak, ki bo
+$M_{\nu_L} \ll M_{\nu_D} \ll M_{\nu_R}$, saj bo imel izjemno lahke levoročne nevtrine,
+izjemno težke desnoročne nevtrine, med katerimi pa bo zelo malo mešanja. Masni matriki
+levoročnih in desnoročnih nevtrinov, sta v tem režimu v prvem redu razvoja~\cite{miha}
+\begin{align}
+	M_{\nu^c} &\approx M_{\nu_R}, \notag \\
+	M_\nu &\approx M_{\nu_L} - M_{\nu_D}^T M_{\nu_R}^{-1} M_{\nu_D}.
+\end{align}
+Mase desnoročnih nevtrinov nas ne zanimajo, saj so singleti nad $\mathcal{G}_\text{SM}$ in mase dobijo
+na skali reda $\Lambda_\text{GUT} \sim 10^{16}$ GeV, mnogo pred zlomom $\mathcal{G}_\text{SM}$. Mase
+levoročnih nevtrinov pa so mase nevtrinov, ki jih poznamo in jih lahko tudi izmerimo. Tak model je možen
+znotraj teorij poenotenja, med drugim tudi $SO(10)$.
+
+Naj omenimo, da poleg teh dveh tipov obstaja še gugalnični mehanizem tipa III~\cite{nugut},~\cite{strumia},
+pri čemer namesto skalarnega tripleta $\irep{1}{3}{2}$ uporabimo fermionski triplet $\irep{1}{3}{0}$. Taki
+modeli so redki~\cite{strumia} in niso relevantni za naš problem.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
