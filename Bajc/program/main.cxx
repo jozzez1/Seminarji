@@ -5,9 +5,16 @@
 #include <Eigen/Dense>
 #include <Eigen/Eigenvalues>
 
+#include "../dlib-18.10/dlib/optimization.h"
+
 typedef Eigen::Matrix<long double, 3, 1> Vector3Ld;
 typedef Eigen::Matrix<long double, 3, 3> Matrix3Ld;
 typedef Eigen::Matrix<long double, 12, 1> ChiVecLd;
+typedef Eigen::Matrix<long double, 13, 1> parameterVectorLd;
+
+////////////////////////////////////////////
+/* This segment creates the mass matrices */
+////////////////////////////////////////////
 
 long double
 alpha (long double a11, long double a12, long double u1, long double u2)
@@ -109,6 +116,10 @@ electron_mass_matrix_squared (long double y1, long double y2, long double y3,
     return ME.transpose() * ME;
 }
 
+////////////////////////////////////////////////
+/* This part is for the minimization function */
+////////////////////////////////////////////////
+
 ChiVecLd
 vector_B (long double y1, long double y2, long double y3,
         long double z1, long double z2, long double z3,
@@ -192,6 +203,47 @@ chi2 (long double y1, long double y2, long double y3,
     long double X2 = B.transpose() * B;
     return X2/(12.0L);
 }
+
+//////////////////////////////////////////////////////////////////
+/* Possible minimization algorith should come here, but it's ok */
+//////////////////////////////////////////////////////////////////
+
+parameterVectorLd
+gradient_of_chi2 (long double y1, long double dy1,
+        long double y2, long double dy2,
+        long double y3, long double dy3,
+        long double z1, long double dz1,
+        long double z2, long double dz2,
+        long double z3, long double dz3,
+        long double w1, long double dw1,
+        long double w2, long double dw2,
+        long double w3, long double dw3,
+        long double u1, long double du1,
+        long double u2, long double du2,
+        long double vu, long double dvu,
+        long double vd, long double dvd)
+{
+    parameterVectorLd grad;
+
+    long double X2 = chi2 (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd);
+    grad(0)  = (chi2(y1 + dy1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dy1;
+    grad(1)  = (chi2(y1, y2 + dy2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dy2;
+    grad(2)  = (chi2(y1, y2, y3 + dy3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dy3;
+    grad(3)  = (chi2(y1, y2, y3, z1 + dz1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dz1; 
+    grad(4)  = (chi2(y1, y2, y3, z1, z2 + dz2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dz2; 
+    grad(5)  = (chi2(y1, y2, y3, z1, z2, z3 + dz3, w1, w2, w3, u1, u2, vu, vd) - X2)/dz3; 
+    grad(6)  = (chi2(y1, y2, y3, z1, z2, z3, w1 + dw1, w2, w3, u1, u2, vu, vd) - X2)/dw1; 
+    grad(7)  = (chi2(y1, y2, y3, z1, z2, z3, w1, w2 + dw2, w3, u1, u2, vu, vd) - X2)/dw2; 
+    grad(8)  = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3 + dw3, u1, u2, vu, vd) - X2)/dw3; 
+    grad(9)  = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1 + du1, u2, vu, vd) - X2)/du1; 
+    grad(10) = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2 + du2, vu, vd) - X2)/du2; 
+    grad(11) = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu + dvu, vd) - X2)/dvu; 
+    grad(12) = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd + dvd) - X2)/dvd; 
+
+    return grad;
+}
+
+
 
 int main (void)
 {
