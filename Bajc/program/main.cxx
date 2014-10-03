@@ -150,7 +150,6 @@ vector_B (parameterVectorLd a)
     es.compute (MU2, Eigen::ComputeEigenvectors);
     eig  = es.eigenvalues();
     LU   = es.eigenvectors();
-    assert (fabsl(LU.determinant() - 1.0L) < 1e-6L);
     B(0) = eig(0);
     B(1) = eig(1);
     B(2) = eig(2);
@@ -158,15 +157,16 @@ vector_B (parameterVectorLd a)
     es.compute (MD2, Eigen::ComputeEigenvectors);
     eig  = es.eigenvalues();
     LD   = es.eigenvectors();
-    assert (fabsl(LD.determinant() - 1.0L) < 1e-6L);
     B(3) = eig(0);
     B(4) = eig(1);
     B(5) = eig(2);
 
-    VCKM = LU.transpose() * LD;
-    B(6) = VCKM(1,2);
-    B(7) = VCKM(1,3);
-    B(8) = VCKM(2,3);
+    long double dU = LU.determinant(),
+                dD = LD.determinant();
+    VCKM = LU.transpose() * LD/(dU * dD);
+    B(6) = VCKM(0,1);
+    B(7) = VCKM(0,2);
+    B(8) = VCKM(1,2);
 
     es.compute (ME2, Eigen::ComputeEigenvectors);
     eig  = es.eigenvalues();
@@ -226,12 +226,12 @@ chi2 (parameterVectorLd a)
 //////////////////////////////////////////
 
 parameterGradientLd
-gradient_of_B (parameterVectorLd a, parameterVectorLd da, long double lambda)
+gradient_of_B (parameterVectorLd a, parameterVectorLd da)
 {
     ChiVecLd B, B0;
     parameterVectorLd ei;
     parameterGradientLd gradient_tensor;
-    long double h = 0.05L * lambda,
+    long double h = 0.01L,
                 H;
 
     B0 = vector_B (a);
@@ -248,20 +248,20 @@ gradient_of_B (parameterVectorLd a, parameterVectorLd da, long double lambda)
 }
 
 parameterVectorLd
-gradient_of_chi2 (parameterVectorLd a, parameterVectorLd da, long double lambda)
+gradient_of_chi2 (parameterVectorLd a, parameterVectorLd da)
 {
     ChiVecLd A, B, tmp1, tmp2;
     parameterVectorLd grad;
     parameterGradientLd gradient_tensor;
 
-    gradient_tensor = gradient_of_B (a, da, lambda);
+    gradient_tensor = gradient_of_B (a, da);
     A    = vector_A ();
     tmp1 = vector_B (a);
     tmp2 = 0.0001L * A.array() * A.array();
     for (int i = 0; i <= 11; i++)
         B(i) = (A(i) - tmp1(i))/tmp2(i);
 
-    grad = (-0.5L) * gradient_tensor.transpose() * B;
+    grad = (+0.5L) * gradient_tensor.transpose() * B;
 
     return grad;
 }
@@ -271,7 +271,7 @@ modified_Hessian_of_chi2 (parameterVectorLd a, parameterVectorLd da, long double
 {
     parameterGradientLd gradient_tensor;
     HessianMatrixLd H;
-    gradient_tensor = gradient_of_B (a, da, lambda);
+    gradient_tensor = gradient_of_B (a, da);
     H = (0.5L) * gradient_tensor.transpose() * gradient_tensor;
 
     for (int i = 0; i <= 12; i++)
@@ -285,19 +285,20 @@ levenberg_marquardt_step (parameterVectorLd a, parameterVectorLd da,
         long double * lambda, long double * X2)
 {
     HessianMatrixLd H = modified_Hessian_of_chi2 (a, da, *lambda);
-    parameterVectorLd grad_of_chi2 = gradient_of_chi2 (a, da, *lambda),
+    parameterVectorLd grad_of_chi2 = gradient_of_chi2 (a, da),
                       da_new = H.fullPivLu().solve (grad_of_chi2);
     long double X2n = chi2 (a + da_new);
 
     while (X2n >= *X2)
     {
         *lambda *= 10.0L;
+        grad_of_chi2 = gradient_of_chi2 (a, da);
         H = modified_Hessian_of_chi2 (a, da, *lambda);
-        grad_of_chi2 = gradient_of_chi2 (a, da, *lambda);
         da_new = H.fullPivLu().solve(grad_of_chi2);
         X2n = chi2 (a + da_new);
     }
 
+    *lambda /= 100.0L;
     *X2 = X2n;
 
     return da_new;
@@ -313,11 +314,15 @@ levenberg_marquardt (parameterVectorLd a, parameterVectorLd da,
 
     do
     {
+        std::cout << "X2 = " << *X2 << std::endl;
         da_new = levenberg_marquardt_step (a, da, lambda, X2);
         a += da_new;
         da = da_new;
         iter++;
     } while (*X2 > 1 && iter < maxIter);
+
+    if (iter >= maxIter)
+        std::cerr << "Maximum number of iterations exceeded" << std::endl;
 
     return a;
 }
@@ -337,14 +342,28 @@ covariance_matrix (HessianMatrixLd H, long double lambda)
 
 int main (void)
 {
-    Vector3Ld v;
-    v << 1.0L,2.0L,3.0L;
+    long double lambda = 0.000001,
+                X2     = 0;
+    int maxIter        = 2000000;
 
-    std::cout << "v*v =\n" << v.transpose() * v << std::endl;
+    parameterVectorLd a, da, a_final;
+/*    a << 10.0L, 150.0L, 350.0L, // y1, y2, y3,
+         1.5L, 2.0L, 30.0L,      // z1, z2, z3,
+         1.0L, 2.0L, 10.0L,    // w1, w2, w3,
+         1.6L, -0.3L,           // u1, u2,
+         90.0L, 60.0L;          // vu, vd
+*/
+    a << -500, -351, 24,
+           1,   -7, 35,
+           1,   -7,  8,
+         0.8, -0.4,
+         -219, 37;
+    da = a;
 
-    ChiVecLd ei;
-    for (int i = 0; i <= 5; i++)
-        std::cout << "Some unit vector:" << ei.Unit(i).transpose() << std::endl;
+    a_final = levenberg_marquardt (a, da, &lambda, &X2, maxIter);
+
+    std::cout << "Solution was found!\nX2 = " << X2 << std::endl;
+    std::cout << "parameters are:\n" << a_final << std::endl;
 
     exit (EXIT_SUCCESS);
 }
