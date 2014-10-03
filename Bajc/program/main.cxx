@@ -5,12 +5,12 @@
 #include <Eigen/Dense>
 #include <Eigen/Eigenvalues>
 
-#include "../dlib-18.10/dlib/optimization.h"
-
 typedef Eigen::Matrix<long double, 3, 1> Vector3Ld;
 typedef Eigen::Matrix<long double, 3, 3> Matrix3Ld;
 typedef Eigen::Matrix<long double, 12, 1> ChiVecLd;
 typedef Eigen::Matrix<long double, 13, 1> parameterVectorLd;
+typedef Eigen::Matrix<long double, 12, 13> parameterGradientLd;
+typedef Eigen::Matrix<long double, 13, 13> HessianMatrixLd;
 
 ////////////////////////////////////////////
 /* This segment creates the mass matrices */
@@ -121,15 +121,25 @@ electron_mass_matrix_squared (long double y1, long double y2, long double y3,
 ////////////////////////////////////////////////
 
 ChiVecLd
-vector_B (long double y1, long double y2, long double y3,
-        long double z1, long double z2, long double z3,
-        long double w1, long double w2, long double w3,
-        long double u1, long double u2,
-        long double vu, long double vd)
+vector_B (parameterVectorLd a)
 {
-    ChiVecLd B, A, tmp;
+    ChiVecLd B;
     Matrix3Ld MU2, MD2, ME2, LU, LD, VCKM;
     Vector3Ld eig;
+
+    long double y1 = a(0),
+                y2 = a(1),
+                y3 = a(2),
+                z1 = a(3),
+                z2 = a(4),
+                z3 = a(5),
+                w1 = a(6),
+                w2 = a(7),
+                w3 = a(8),
+                u1 = a(9),
+                u2 = a(10),
+                vu = a(11),
+                vd = a(12);
 
     MU2 = up_mass_matrix_squared (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu);
     MD2 = down_mass_matrix_squared (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vd);
@@ -141,29 +151,37 @@ vector_B (long double y1, long double y2, long double y3,
     eig  = es.eigenvalues();
     LU   = es.eigenvectors();
     assert (fabsl(LU.determinant() - 1.0L) < 1e-6L);
-    tmp(0) = eig(0);
-    tmp(1) = eig(1);
-    tmp(2) = eig(2);
+    B(0) = eig(0);
+    B(1) = eig(1);
+    B(2) = eig(2);
 
     es.compute (MD2, Eigen::ComputeEigenvectors);
     eig  = es.eigenvalues();
     LD   = es.eigenvectors();
     assert (fabsl(LD.determinant() - 1.0L) < 1e-6L);
-    tmp(3) = eig(0);
-    tmp(4) = eig(1);
-    tmp(5) = eig(2);
+    B(3) = eig(0);
+    B(4) = eig(1);
+    B(5) = eig(2);
 
     VCKM = LU.transpose() * LD;
-    tmp(6) = VCKM(1,2);
-    tmp(7) = VCKM(1,3);
-    tmp(8) = VCKM(2,3);
+    B(6) = VCKM(1,2);
+    B(7) = VCKM(1,3);
+    B(8) = VCKM(2,3);
 
     es.compute (ME2, Eigen::ComputeEigenvectors);
     eig  = es.eigenvalues();
 
-    tmp(9) = eig(0);
-    tmp(10)= eig(1);
-    tmp(11)= eig(2);
+    B(9) = eig(0);
+    B(10)= eig(1);
+    B(11)= eig(2);
+   
+    return B;
+}
+
+ChiVecLd
+vector_A (void)
+{
+    ChiVecLd A;
 
     // A are the experimental values, masses are in MeV
     const long double mu   = 0.4565L,
@@ -184,66 +202,138 @@ vector_B (long double y1, long double y2, long double y3,
          Vus,   Vub,     Vcb,
          me*me, mmu*mmu, mtau*mtau;
 
-    // B returns relative error in units of 1%
-    for (int i = 0; i <= 11; i++)
-        B(i) = (A(i) - tmp(i))/(0.01L * A(i));
-    
-    return B;
+    return A;
 }
 
 long double
-chi2 (long double y1, long double y2, long double y3,
-        long double z1, long double z2, long double z3,
-        long double w1, long double w2, long double w3,
-        long double u1, long double u2,
-        long double vu, long double vd)
+chi2 (parameterVectorLd a)
 {
-    ChiVecLd B = vector_B (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd);
+    ChiVecLd B, A, tmp;
+    tmp = vector_B (a);
+    A = vector_A ();
+
+    // B now returns relative error in units of 1%
+    for (int i = 0; i <= 11; i++)
+        B(i) = (A(i) - tmp(i))/(0.01L * A(i));
+ 
 
     long double X2 = B.transpose() * B;
     return X2/(12.0L);
 }
 
-//////////////////////////////////////////////////////////////////
-/* Possible minimization algorith should come here, but it's ok */
-//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////
+/* Minimization via Levenberg-Marquardt */
+//////////////////////////////////////////
+
+parameterGradientLd
+gradient_of_B (parameterVectorLd a, parameterVectorLd da, long double lambda)
+{
+    ChiVecLd B, B0;
+    parameterVectorLd ei;
+    parameterGradientLd gradient_tensor;
+    long double h = 0.05L * lambda,
+                H;
+
+    B0 = vector_B (a);
+
+    for (int i = 0; i <= 12; i++)
+    {
+        H = h*da(i);
+        B = (1.0L/H) * (vector_B (a + H*ei.Unit(i)) - B0);
+        for (int j = 0; j <= 11; j++)
+            gradient_tensor(j,i) = B(j);
+    }
+
+    return gradient_tensor;
+}
 
 parameterVectorLd
-gradient_of_chi2 (long double y1, long double dy1,
-        long double y2, long double dy2,
-        long double y3, long double dy3,
-        long double z1, long double dz1,
-        long double z2, long double dz2,
-        long double z3, long double dz3,
-        long double w1, long double dw1,
-        long double w2, long double dw2,
-        long double w3, long double dw3,
-        long double u1, long double du1,
-        long double u2, long double du2,
-        long double vu, long double dvu,
-        long double vd, long double dvd)
+gradient_of_chi2 (parameterVectorLd a, parameterVectorLd da, long double lambda)
 {
+    ChiVecLd A, B, tmp1, tmp2;
     parameterVectorLd grad;
+    parameterGradientLd gradient_tensor;
 
-    long double X2 = chi2 (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd);
-    grad(0)  = (chi2(y1 + dy1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dy1;
-    grad(1)  = (chi2(y1, y2 + dy2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dy2;
-    grad(2)  = (chi2(y1, y2, y3 + dy3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dy3;
-    grad(3)  = (chi2(y1, y2, y3, z1 + dz1, z2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dz1; 
-    grad(4)  = (chi2(y1, y2, y3, z1, z2 + dz2, z3, w1, w2, w3, u1, u2, vu, vd) - X2)/dz2; 
-    grad(5)  = (chi2(y1, y2, y3, z1, z2, z3 + dz3, w1, w2, w3, u1, u2, vu, vd) - X2)/dz3; 
-    grad(6)  = (chi2(y1, y2, y3, z1, z2, z3, w1 + dw1, w2, w3, u1, u2, vu, vd) - X2)/dw1; 
-    grad(7)  = (chi2(y1, y2, y3, z1, z2, z3, w1, w2 + dw2, w3, u1, u2, vu, vd) - X2)/dw2; 
-    grad(8)  = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3 + dw3, u1, u2, vu, vd) - X2)/dw3; 
-    grad(9)  = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1 + du1, u2, vu, vd) - X2)/du1; 
-    grad(10) = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2 + du2, vu, vd) - X2)/du2; 
-    grad(11) = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu + dvu, vd) - X2)/dvu; 
-    grad(12) = (chi2(y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vu, vd + dvd) - X2)/dvd; 
+    gradient_tensor = gradient_of_B (a, da, lambda);
+    A    = vector_A ();
+    tmp1 = vector_B (a);
+    tmp2 = 0.0001L * A.array() * A.array();
+    for (int i = 0; i <= 11; i++)
+        B(i) = (A(i) - tmp1(i))/tmp2(i);
+
+    grad = (-0.5L) * gradient_tensor.transpose() * B;
 
     return grad;
 }
 
+HessianMatrixLd
+modified_Hessian_of_chi2 (parameterVectorLd a, parameterVectorLd da, long double lambda)
+{
+    parameterGradientLd gradient_tensor;
+    HessianMatrixLd H;
+    gradient_tensor = gradient_of_B (a, da, lambda);
+    H = (0.5L) * gradient_tensor.transpose() * gradient_tensor;
 
+    for (int i = 0; i <= 12; i++)
+        H(i,i) += lambda;
+
+    return H;
+}
+
+parameterVectorLd
+levenberg_marquardt_step (parameterVectorLd a, parameterVectorLd da,
+        long double * lambda, long double * X2)
+{
+    HessianMatrixLd H = modified_Hessian_of_chi2 (a, da, *lambda);
+    parameterVectorLd grad_of_chi2 = gradient_of_chi2 (a, da, *lambda),
+                      da_new = H.fullPivLu().solve (grad_of_chi2);
+    long double X2n = chi2 (a + da_new);
+
+    while (X2n >= *X2)
+    {
+        *lambda *= 10.0L;
+        H = modified_Hessian_of_chi2 (a, da, *lambda);
+        grad_of_chi2 = gradient_of_chi2 (a, da, *lambda);
+        da_new = H.fullPivLu().solve(grad_of_chi2);
+        X2n = chi2 (a + da_new);
+    }
+
+    *X2 = X2n;
+
+    return da_new;
+}
+
+parameterVectorLd
+levenberg_marquardt (parameterVectorLd a, parameterVectorLd da,
+        long double * lambda, long double * X2, int maxIter)
+{
+    int iter = 0;
+    *X2 = chi2 (a);
+    parameterVectorLd da_new;
+
+    do
+    {
+        da_new = levenberg_marquardt_step (a, da, lambda, X2);
+        a += da_new;
+        da = da_new;
+        iter++;
+    } while (*X2 > 1 && iter < maxIter);
+
+    return a;
+}
+
+HessianMatrixLd
+covariance_matrix (HessianMatrixLd H, long double lambda)
+{
+    for (int i = 0; i <= 12; i++)
+        H(i,i) -= lambda;
+
+    return H.inverse();
+}
+
+///////////////////
+/* Main function */
+///////////////////
 
 int main (void)
 {
@@ -252,5 +342,9 @@ int main (void)
 
     std::cout << "v*v =\n" << v.transpose() * v << std::endl;
 
-    exit(EXIT_SUCCESS);
+    ChiVecLd ei;
+    for (int i = 0; i <= 5; i++)
+        std::cout << "Some unit vector:" << ei.Unit(i).transpose() << std::endl;
+
+    exit (EXIT_SUCCESS);
 }
