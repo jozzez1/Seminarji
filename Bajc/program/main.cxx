@@ -116,6 +116,23 @@ electron_mass_matrix_squared (long double y1, long double y2, long double y3,
     return ME.transpose() * ME;
 }
 
+Matrix3Ld
+neutrino_mass_matrix_squared (long double y1, long double y2, long double y3,
+        long double z1, long double z2, long double z3,
+        long double w1, long double w2, long double w3,
+        long double u1, long double u2,
+        long double vL, long double vD, long double vR)
+{
+    Matrix3Ld MnuD, MnuR, MnuL, Mnu;
+    MnuL = mass_matrix (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vL, 0.0L, 3.0L, 0.0L, 3.0L);
+    MnuD = mass_matrix (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vD, 1.0L,-3.0L, 0.0L, 3.0L);
+    MnuR = mass_matrix (y1, y2, y3, z1, z2, z3, w1, w2, w3, u1, u2, vR, 1.0L,-3.0L, 1.0L,-3.0L);
+
+    Mnu  = MnuL - (MnuL.transpose() * MnuR.inverse() * MnuD);
+
+    return Mnu.transpose() * Mnu;
+}
+
 ////////////////////////////////////////////////
 /* This part is for the minimization function */
 ////////////////////////////////////////////////
@@ -231,7 +248,7 @@ gradient_of_B (parameterVectorLd a, parameterVectorLd da)
     ChiVecLd B, B0;
     parameterVectorLd ei;
     parameterGradientLd gradient_tensor;
-    long double h = 0.01L,
+    long double h = 0.005L,
                 H;
 
     B0 = vector_B (a);
@@ -298,7 +315,7 @@ levenberg_marquardt_step (parameterVectorLd a, parameterVectorLd da,
         X2n = chi2 (a + da_new);
     }
 
-    *lambda /= 100.0L;
+    *lambda /= 10.0L;
     *X2 = X2n;
 
     return da_new;
@@ -314,8 +331,11 @@ levenberg_marquardt (parameterVectorLd a, parameterVectorLd da,
 
     do
     {
-        std::cout << "X2 = " << *X2 << std::endl;
         da_new = levenberg_marquardt_step (a, da, lambda, X2);
+        std::cout << "X2 = "  << *X2 << "\t";
+        std::cout << "|da| = " << da.norm() << "\t";
+        std::cout << "lam  = " << *lambda << std::endl;
+        if (isnan(*X2)) break;
         a += da_new;
         da = da_new;
         iter++;
@@ -344,20 +364,32 @@ int main (void)
 {
     long double lambda = 0.000001,
                 X2     = 0;
-    int maxIter        = 2000000;
+    int maxIter        = 50000000;
 
     parameterVectorLd a, da, a_final;
-/*    a << 10.0L, 150.0L, 350.0L, // y1, y2, y3,
-         1.5L, 2.0L, 30.0L,      // z1, z2, z3,
-         1.0L, 2.0L, 10.0L,    // w1, w2, w3,
+/*    
+    a << 10.0L, 150.0L, 350.0L, // y1, y2, y3,
+         1.5L, 2.0L, 30.0L,     // z1, z2, z3,
+         1.0L, 2.0L, 10.0L,     // w1, w2, w3,
          1.6L, -0.3L,           // u1, u2,
          90.0L, 60.0L;          // vu, vd
-*/
+
     a << -500, -351, 24,
            1,   -7, 35,
            1,   -7,  8,
          0.8, -0.4,
          -219, 37;
+
+    a << 0.01L, 0.1L, 1.0L,
+      1.0L, 1.0L, 1.0L, 1.0L, 1.0L, 1.0L,
+      1.6L, -0.3L,
+      -10.0L, -5.0L;  // X2 = 5432.72
+*/
+    a << 1.64L, 0.238L, 0.208L,
+      1.571L, 0.255L, 0.942L, 0.3164L, 1.5376L, 0.6785L,
+      1.6208L, -3.7685L,
+      -9.716L, 0.3461L;
+
     da = a;
 
     a_final = levenberg_marquardt (a, da, &lambda, &X2, maxIter);
